@@ -1,0 +1,210 @@
+{
+  "batch_norm_folded": [],
+  "batch_norm_folded_count": 0,
+  "constant_nodes_folded": 0,
+  "conv1x1_nodes_expanded": 5,
+  "depthwise_recognized": [
+    {
+      "Cin": 16,
+      "Cout": 16,
+      "group": 16,
+      "pad": 1,
+      "source_node": "block1_dw_activation",
+      "stride": 1
+    },
+    {
+      "Cin": 16,
+      "Cout": 16,
+      "group": 16,
+      "pad": 1,
+      "source_node": "block2_dw_activation",
+      "stride": 1
+    },
+    {
+      "Cin": 16,
+      "Cout": 16,
+      "group": 16,
+      "pad": 1,
+      "source_node": "block3_dw_activation",
+      "stride": 1
+    },
+    {
+      "Cin": 16,
+      "Cout": 16,
+      "group": 16,
+      "pad": 1,
+      "source_node": "block4_dw_activation",
+      "stride": 2
+    }
+  ],
+  "depthwise_recognized_count": 4,
+  "lowered_graph_digest": "64d5d4f10377347d06a7d8c62751963fcad27cbd6125a9b78f967ef1376b591c",
+  "lowered_nodes": 14,
+  "mapping": [
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "stem_activation"
+      ],
+      "outputs": [
+        "stem_activation"
+      ],
+      "source_node": "stem_activation",
+      "source_op": "Conv"
+    },
+    {
+      "disposition": "depthwise_direct",
+      "lowered_nodes": [
+        "block1_dw_activation"
+      ],
+      "outputs": [
+        "block1_dw_activation"
+      ],
+      "source_node": "block1_dw_activation",
+      "source_op": "DepthwiseConv"
+    },
+    {
+      "disposition": "expanded_3x3",
+      "lowered_nodes": [
+        "block1_pw_activation"
+      ],
+      "outputs": [
+        "block1_pw_activation"
+      ],
+      "source_node": "block1_pw_activation",
+      "source_op": "Conv1x1"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "block1_pool"
+      ],
+      "outputs": [
+        "block1_pool"
+      ],
+      "source_node": "block1_pool",
+      "source_op": "MaxPool"
+    },
+    {
+      "disposition": "depthwise_direct",
+      "lowered_nodes": [
+        "block2_dw_activation"
+      ],
+      "outputs": [
+        "block2_dw_activation"
+      ],
+      "source_node": "block2_dw_activation",
+      "source_op": "DepthwiseConv"
+    },
+    {
+      "disposition": "expanded_3x3",
+      "lowered_nodes": [
+        "block2_pw_activation"
+      ],
+      "outputs": [
+        "block2_pw_activation"
+      ],
+      "source_node": "block2_pw_activation",
+      "source_op": "Conv1x1"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "block2_pool"
+      ],
+      "outputs": [
+        "block2_pool"
+      ],
+      "source_node": "block2_pool",
+      "source_op": "MaxPool"
+    },
+    {
+      "disposition": "depthwise_direct",
+      "lowered_nodes": [
+        "block3_dw_activation"
+      ],
+      "outputs": [
+        "block3_dw_activation"
+      ],
+      "source_node": "block3_dw_activation",
+      "source_op": "DepthwiseConv"
+    },
+    {
+      "disposition": "expanded_3x3",
+      "lowered_nodes": [
+        "block3_pw_activation"
+      ],
+      "outputs": [
+        "block3_pw_activation"
+      ],
+      "source_node": "block3_pw_activation",
+      "source_op": "Conv1x1"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "block3_pool"
+      ],
+      "outputs": [
+        "block3_pool"
+      ],
+      "source_node": "block3_pool",
+      "source_op": "MaxPool"
+    },
+    {
+      "disposition": "depthwise_direct",
+      "lowered_nodes": [
+        "block4_dw_activation"
+      ],
+      "outputs": [
+        "block4_dw_activation"
+      ],
+      "source_node": "block4_dw_activation",
+      "source_op": "DepthwiseConv"
+    },
+    {
+      "disposition": "expanded_3x3",
+      "lowered_nodes": [
+        "block4_pw_activation"
+      ],
+      "outputs": [
+        "block4_pw_activation"
+      ],
+      "source_node": "block4_pw_activation",
+      "source_op": "Conv1x1"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "block4_pool"
+      ],
+      "outputs": [
+        "block4_pool"
+      ],
+      "source_node": "block4_pool",
+      "source_op": "MaxPool"
+    },
+    {
+      "disposition": "expanded_3x3",
+      "lowered_nodes": [
+        "classifier_activation"
+      ],
+      "outputs": [
+        "classifier_activation"
+      ],
+      "source_node": "classifier_activation",
+      "source_op": "Conv1x1"
+    }
+  ],
+  "passes": [
+    "batch_norm_exact_fold",
+    "constant_fold",
+    "conv1x1_center_expand",
+    "static_split_to_slice",
+    "depthwise_recognition"
+  ],
+  "schema": "e1-p3-lowering-1",
+  "source_graph_digest": "677931677ba3386482ae4be8ca6a3036fde8ab29a480fee18828544e91598b16",
+  "source_nodes": 14,
+  "split_nodes_lowered": 0
+}

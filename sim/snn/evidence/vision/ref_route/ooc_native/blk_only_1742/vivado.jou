@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sat Oct 31 17:41:43 2026
+# Process ID: 29252
+# Current directory: D:/dl_snn
+# Command line: vivado.exe -mode batch -notrace -log D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.log -journal D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.jou -source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -tclargs D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742 all blk_native_probe_m
+# Log file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.log
+# Journal file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.jou
+#-----------------------------------------------------------
+source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -notrace

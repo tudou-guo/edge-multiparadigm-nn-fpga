@@ -1,0 +1,457 @@
+{
+ "schema": "spikformer-nlp-ip-1",
+ "created": "2026-10-30T13:08:37+0800",
+ "run_dir": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix",
+ "model_kind": "real_corpus",
+ "manifest_sha256": "79b1e1151c8befa1e927655aeffb2990609549e405d8720511a4cb66a11edd26",
+ "source_manifest_sha256_check": {
+  "rtl/ops/spiking/attention/spiking_attention_pe.sv": "match",
+  "rtl/ops/spiking/attention/spiking_linemac_pe.sv": "match",
+  "rtl/ops/spiking/attention/spiking_popcount.sv": "match",
+  "rtl/ops/spiking/control/spikformer_block_sequencer.sv": "match",
+  "rtl/ops/spiking/control/spikformer_nlp_top.sv": "match",
+  "rtl/ops/spiking/control/spiking_block_top.sv": "match",
+  "rtl/ops/spiking/embed/spiking_embed_top.sv": "match",
+  "rtl/ops/spiking/include/spikformer_cfg.vh": "match",
+  "rtl/ops/spiking/lif/spiking_lif_cell.sv": "match",
+  "rtl/ops/spiking/lif/spiking_lif_group.sv": "match",
+  "rtl/ops/spiking/linear/spiking_systolic_array.sv": "match",
+  "rtl/ops/spiking/linear/spiking_systolic_pe.sv": "match",
+  "rtl/ops/spiking/mlp/spiking_mlp_controller.sv": "match",
+  "rtl/ops/spiking/reduce/spiking_head_reduce.sv": "match",
+  "rtl/ops/spiking/sps/spiking_adder_tree.sv": "match",
+  "rtl/ops/spiking/sps/spiking_eyeriss_pe.sv": "match",
+  "rtl/ops/spiking/sps/spiking_maxpool2x2.sv": "match",
+  "rtl/ops/spiking/sps/spiking_sps_top.sv": "match",
+  "rtl/ops/spiking/wrappers/spikformer_platform_wrapper.sv": "match"
+ },
+ "source_hashes_match_sim": true,
+ "source_mismatch": [],
+ "target": {
+  "part": "xczu15eg-ffvb1156-2-i",
+  "tool": "Vivado 2021.1",
+  "period_ns": 5
+ },
+ "part": "xczu15eg-ffvb1156-2-i",
+ "clock": "5.000 ns (200 MHz) s_clk",
+ "reset": "s_rst active-high asynchronous reset (FSM/valid only; big RAMs not element-reset)",
+ "param_interface": {
+  "tables": "i_tab_data[63:0]/i_tab_valid after i_start (etab then ptab, 64-bit words)",
+  "tokens": "i_tok_id[15:0]/i_tok_valid (N beats)",
+  "weights": "i_w_data[63:0]/i_w_valid, per block: 4 descriptor beats + 25152 weight beats",
+  "outputs": "o_sums[128] uint32 + o_sums_valid + o_done",
+  "thresholds": "runtime parameter header (descriptor beats), not compile-time constants"
+ },
+ "structure": {
+  "tokens": 32,
+  "final_fmaps_width": 32,
+  "sum_w": 6,
+  "attn_word": 24,
+  "rw": 4,
+  "res_bits": 4,
+  "res_bits_min": 3,
+  "spike_bits": 2,
+  "psum_slice": 32,
+  "lif_add_bits": 33,
+  "av_bits": 11,
+  "av_max": 1024,
+  "worst_residual": 5,
+  "stage_bounds": {
+   "embed": 1,
+   "attn_res": 2,
+   "mlp_res": 3
+  },
+  "accum_bounds": {
+   "qkv": {
+    "pos": 16256,
+    "neg": -16384
+   },
+   "proj": {
+    "pos": 16646144,
+    "neg": -16777216
+   },
+   "fc1": {
+    "pos": 81280,
+    "neg": -81920
+   },
+   "fc2": {
+    "pos": 65024,
+    "neg": -65536
+   }
+  },
+  "stream": {
+   "tab_beats": 64512,
+   "token_beats": 32,
+   "block_w_beats": 25152,
+   "block_in_beats": 512,
+   "descriptor_beats": 4,
+   "mlp_fc1_internal_beats": 12288,
+   "mlp_fc2_internal_beats_per_group": 768
+  },
+  "packing": {
+   "layout": "time-minor lane pack (lane m owns bits [m*T +: T])",
+   "words_note": "residual words = N*C*T*RW/64",
+   "res_bits": 4
+  },
+  "geometry": {
+   "seq_len": 32,
+   "embed": 128
+  }
+ },
+ "generated_files": {
+  "header": "generated/spikformer_config.vh",
+  "adapter": "generated/spikformer_nlp_target_top.sv",
+  "sources_f": "generated/sources.f",
+  "xdc": "generated/spikformer.xdc",
+  "ooc_tcl": "generated/spikformer_ooc.tcl",
+  "project_tcl": "generated/spikformer_project.tcl"
+ },
+ "hardware_artifacts": {
+  "bit": null,
+  "hwh": null
+ },
+ "timing_qualified": true,
+ "ooc_status": "pass",
+ "assumptions": [
+  "OOC 5.000 ns sign-off only (xczu15eg-ffvb1156-2-i, Vivado 2021.1, s_clk 5.000 ns, no timing exceptions).",
+  "The generated spikformer.xdc models every data input with set_input_delay 0.000 and has HD.CLK_SRC unset: hold is analysed under a pessimistic port-launch model, setup under an optimistic (zero) upstream-delay model.",
+  "The generated target adapter contains 1,192 DONT_TOUCH LUT1 input hold-margin cells (8 stages on 149 sampled input bits, s_rst included). They are a required part of this netlist; keep them in integration.",
+  "Routed WNS binding path is the hold-margin chain itself (from-port setup slack +0.135 ns in the OOC 0-delay model). A real upstream max input delay greater than 0.135 ns would violate it: re-time or reduce the chain, or add an integrated-top register slice, and re-constrain with real interface min/max before platform integration. This package is not integration-ready timing sign-off.",
+  "Not integrated-platform, bit/HWH or board timing; those remain not_run."
+ ],
+ "package_sha256": "894599b92c8de7d4edf65320db5f23a1413e7e9fabc81740b357e2134b292f22",
+ "package_files": {
+  "rtl/ops/spiking/attention/spiking_attention_pe.sv": {
+   "sha256": "44325e517e5f11f7810fdee5257175a1935343bf336dfb061d40a7508f0f1c6f",
+   "bytes": 1710
+  },
+  "rtl/ops/spiking/attention/spiking_linemac_pe.sv": {
+   "sha256": "1ee83f17340428ed71f95d46dd10435177b518723b6b1273d26035d9cbce5e9f",
+   "bytes": 2632
+  },
+  "rtl/ops/spiking/attention/spiking_popcount.sv": {
+   "sha256": "7b47a053186d0e4bc67307eeda2dd59321c5c7a8ad07e72f234094a2ade3fdae",
+   "bytes": 1600
+  },
+  "rtl/ops/spiking/control/spikformer_block_sequencer.sv": {
+   "sha256": "37778a38b572367eb4b6c7615f33d7ac41bef4464d8855e0b68e031f9ca76c17",
+   "bytes": 2756
+  },
+  "rtl/ops/spiking/control/spikformer_nlp_top.sv": {
+   "sha256": "3802aacc6718a29f2e611cc8a75a12bbba47e0f8248a4cab5f7642ff7200e2b0",
+   "bytes": 16305
+  },
+  "rtl/ops/spiking/control/spiking_block_top.sv": {
+   "sha256": "841df6017e51af858d3b128263b0478fe45cc93093863fbc7423f648759f9d19",
+   "bytes": 31607
+  },
+  "rtl/ops/spiking/embed/spiking_embed_top.sv": {
+   "sha256": "958fd8cb28574aabe0b61b351a1966fa96f5c371daca5f24683ec6b8f2f168f7",
+   "bytes": 7891
+  },
+  "rtl/ops/spiking/include/spikformer_cfg.vh": {
+   "sha256": "414afaa1c5548e278235f4db19b8e4865e0b75d4aa5260bfbd978ee9aae04155",
+   "bytes": 528
+  },
+  "rtl/ops/spiking/lif/spiking_lif_cell.sv": {
+   "sha256": "18427f9d82c09ec04a0c4a169592e537c7c1f82f2a9e0d60ae11227355fd891f",
+   "bytes": 1501
+  },
+  "rtl/ops/spiking/lif/spiking_lif_group.sv": {
+   "sha256": "5f32f9fd3e3bd01986b39eaa4aacd5242e10e98853c911847d620d56b45e61f4",
+   "bytes": 2295
+  },
+  "rtl/ops/spiking/linear/spiking_systolic_array.sv": {
+   "sha256": "1039aa12978f5ccb06d809f08652dcd1b230de66ce4cf7288f9931fe47fb143d",
+   "bytes": 2850
+  },
+  "rtl/ops/spiking/linear/spiking_systolic_pe.sv": {
+   "sha256": "16589ff76b35e3497147d121b96d934e0e9f5e498fd0c35212b15db6bc4405ff",
+   "bytes": 2869
+  },
+  "rtl/ops/spiking/mlp/spiking_mlp_controller.sv": {
+   "sha256": "59405bfb0c0fe0e4be85085172f8bce94c011bb094abbfecce65afc1033c7729",
+   "bytes": 12071
+  },
+  "rtl/ops/spiking/reduce/spiking_head_reduce.sv": {
+   "sha256": "1d295115e9683e92bc03d850e2929805c1c9cb34bd6fec255582db903f41021e",
+   "bytes": 3129
+  },
+  "rtl/ops/spiking/sps/spiking_adder_tree.sv": {
+   "sha256": "1c7f14ea78d0786891aa0653eac05a43b59fc2f1e176fbd60eb48d453565fae8",
+   "bytes": 1385
+  },
+  "rtl/ops/spiking/sps/spiking_eyeriss_pe.sv": {
+   "sha256": "1f1813ce3a0c5cf31eb4bcdf65eab20e2e99ce54139fe0aed35ed5ce4dee536c",
+   "bytes": 2067
+  },
+  "rtl/ops/spiking/sps/spiking_maxpool2x2.sv": {
+   "sha256": "a132e0fc04fcbb9c24ca110c2bbd212ab566d5124cad89ad4dd56b0ee95d233d",
+   "bytes": 1180
+  },
+  "rtl/ops/spiking/sps/spiking_sps_top.sv": {
+   "sha256": "484e735948b361d0361d273556a7162bc4d3360b7869a4571f826d8d390ede60",
+   "bytes": 13196
+  },
+  "rtl/ops/spiking/wrappers/spikformer_platform_wrapper.sv": {
+   "sha256": "ed02c6b180338e034663b879e0b6bc9e89291afadb346718b44bf27ce9ab7084",
+   "bytes": 5438
+  },
+  "generated/spikformer_config.vh": {
+   "sha256": "cff0867fa7e9e44438208c597bff8cc8c825c47cabdbc98775393c17346da29e",
+   "bytes": 644
+  },
+  "generated/spikformer_nlp_target_top.sv": {
+   "sha256": "90f65983073c79be270bf7afe31f8ba5b01fa09262a73663d81989fad769b9d7",
+   "bytes": 5092
+  },
+  "generated/sources.f": {
+   "sha256": "c5f660883d4fbcf2135b47383d20af71ad8f98b6b56c57244163b8acd5548eba",
+   "bytes": 882
+  },
+  "generated/spikformer.xdc": {
+   "sha256": "9fc1c2676a29bbab1ee6277b9bb60a882c5e868396ab03ee36aa1f8a2eb10842",
+   "bytes": 231
+  },
+  "generated/spikformer_ooc.tcl": {
+   "sha256": "ece06db1c7a8069462dd971e51b578cb5fe59fb18808792ea4a77dd22298c86e",
+   "bytes": 3596
+  },
+  "generated/spikformer_project.tcl": {
+   "sha256": "84302fc12dc7d5937d9f6bad2f0d3000e1274652c74b7e4fc0c919f8c617f003",
+   "bytes": 1871
+  },
+  "params/embed_w.bin": {
+   "sha256": "359593144db6936c4ce9fe0000976f5fdee7f17a9cdf941371820140956abbe9",
+   "bytes": 512000
+  },
+  "params/pos_w.bin": {
+   "sha256": "764ce7d77464b3f4dce098e2e3668e619f96af8c2b54f5b218258c0a713c6ab3",
+   "bytes": 4096
+  },
+  "params/thr_e.bin": {
+   "sha256": "3ef3bd3d6658c0dfdfdd7aa65e3d92bf1da9a04678a4ed2a5d84ed824ec91775",
+   "bytes": 4
+  },
+  "params/embed_scale.bin": {
+   "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c",
+   "bytes": 4
+  },
+  "params/block0.q_w.bin": {
+   "sha256": "ff7deac3613a87c1fa3418a0090f19366a103fee922bb4f0dd6733f25ceb6bb1",
+   "bytes": 16384
+  },
+  "params/block0.q_b.bin": {
+   "sha256": "0c531c7bcef943ca690cedeef3f4059c8f175f5359edbe22ef9bd824bff29011",
+   "bytes": 512
+  },
+  "params/block0.q_scale.bin": {
+   "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c",
+   "bytes": 4
+  },
+  "params/block0.q_thr.bin": {
+   "sha256": "50c8ba3a6170f0a2fb6736ece8a603576ef6309a35e810911599bc6211b554a9",
+   "bytes": 4
+  },
+  "params/block0.k_w.bin": {
+   "sha256": "86287a2bb2afc84815e8c054ebbb855c27f1e71622492b408c49a6b3260f1904",
+   "bytes": 16384
+  },
+  "params/block0.k_b.bin": {
+   "sha256": "b43c5b08cba5135189f3cf05f46e4862e0bf97e16a20ea5a32afc46c8f975eeb",
+   "bytes": 512
+  },
+  "params/block0.k_scale.bin": {
+   "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c",
+   "bytes": 4
+  },
+  "params/block0.k_thr.bin": {
+   "sha256": "40e736c02a102a050e1555781b4171020a4279adaa7ed9ca3cc9633a0ade9c37",
+   "bytes": 4
+  },
+  "params/block0.v_w.bin": {
+   "sha256": "adf55bca1e02fc1add91fe839f0721e7a7f0fd756c070bf982bec1c5e94720f7",
+   "bytes": 16384
+  },
+  "params/block0.v_b.bin": {
+   "sha256": "3e61b461f4b9cf7184458d62147095592677f2867d4e1e2554ce15ed8417a7ba",
+   "bytes": 512
+  },
+  "params/block0.v_scale.bin": {
+   "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c",
+   "bytes": 4
+  },
+  "params/block0.v_thr.bin": {
+   "sha256": "b7fc02907b1fe26a09f41a20cbcb2899ecd2b028a973d1997530873bcd349966",
+   "bytes": 4
+  },
+  "params/block0.proj_w.bin": {
+   "sha256": "d64260f48e3c1c647328efcab44c4754303e80f78175f090bbffa4e94e9aa184",
+   "bytes": 16384
+  },
+  "params/block0.proj_b.bin": {
+   "sha256": "a5b5852df0493c1ae984564cef2251ec822e9827c8d8ae378e488581d345ab38",
+   "bytes": 512
+  },
+  "params/block0.proj_scale.bin": {
+   "sha256": "9f2b54b6313bdbe612ded686d11f027926588d4eb95e927572eaead9b8f26b71",
+   "bytes": 4
+  },
+  "params/block0.proj_thr.bin": {
+   "sha256": "aa69bac0bdd61733708035841fb02e5dcc1b139aa02bc18f6a2bdbf425f668f4",
+   "bytes": 4
+  },
+  "params/block0.fc1_w.bin": {
+   "sha256": "629e05740b5424292be0f7d87e435c985661fe5779f817e6be0c5cd36fd78fca",
+   "bytes": 65536
+  },
+  "params/block0.fc1_b.bin": {
+   "sha256": "322cd787719f8ee99faa8a99ffb32e2af4f41802cd5e135b6dbaefff2801c133",
+   "bytes": 2048
+  },
+  "params/block0.fc1_scale.bin": {
+   "sha256": "d0a4b639c392434daa67ba469e170872f516362ca08648242911170a1533358b",
+   "bytes": 4
+  },
+  "params/block0.fc1_thr.bin": {
+   "sha256": "e3f69f6c094ffb4e3b3a0ba41d7996137e03ebdf85952d227d04b9e161a06c5b",
+   "bytes": 4
+  },
+  "params/block0.fc2_w.bin": {
+   "sha256": "d7bfc1a257c62846cd3157337c7925888258b26d5a7aab40ccf1d32dbec6cac8",
+   "bytes": 65536
+  },
+  "params/block0.fc2_b.bin": {
+   "sha256": "cd2cbc93961833737ba6294f54b238d3d7324bc4ac430e857684cd103f16d88f",
+   "bytes": 512
+  },
+  "params/block0.fc2_scale.bin": {
+   "sha256": "cbc4b5dc5aee05bf9562123341613a0d1ab971906d2c590416ba251eb413398c",
+   "bytes": 4
+  },
+  "params/block0.fc2_thr.bin": {
+   "sha256": "40e736c02a102a050e1555781b4171020a4279adaa7ed9ca3cc9633a0ade9c37",
+   "bytes": 4
+  },
+  "params/block1.q_w.bin": {
+   "sha256": "46505788ccacf467f446d3c780fa433a930b90ba7b5ee42263ebf064346cc353",
+   "bytes": 16384
+  },
+  "params/block1.q_b.bin": {
+   "sha256": "7c44f3aaf825235f7523cb20e07367ca23d9b9f6c23a979ee9bcc82e248069f7",
+   "bytes": 512
+  },
+  "params/block1.q_scale.bin": {
+   "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c",
+   "bytes": 4
+  },
+  "params/block1.q_thr.bin": {
+   "sha256": "7b3473f9b6be59775a964bb1409ff4d2ac8a8a823779dcf3ba9490d0bc879da7",
+   "bytes": 4
+  },
+  "params/block1.k_w.bin": {
+   "sha256": "05aed876b6df46761260fe0d3569660d7f2803f3f0ed935e497aaad7c0eef2d6",
+   "bytes": 16384
+  },
+  "params/block1.k_b.bin": {
+   "sha256": "1cc853adb40a4294db00dfdd85f2ef0a9bdfb93449490094f2c5f9919affcd32",
+   "bytes": 512
+  },
+  "params/block1.k_scale.bin": {
+   "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c",
+   "bytes": 4
+  },
+  "params/block1.k_thr.bin": {
+   "sha256": "7b3473f9b6be59775a964bb1409ff4d2ac8a8a823779dcf3ba9490d0bc879da7",
+   "bytes": 4
+  },
+  "params/block1.v_w.bin": {
+   "sha256": "087bee1dc2d9c235cafa0212071687ae0fac21d0e9260369e682d18b2b1b2879",
+   "bytes": 16384
+  },
+  "params/block1.v_b.bin": {
+   "sha256": "7014ba4b99dba86b6bf54069bf27b06fc86f77a814c3303730eb6f2e138edfd9",
+   "bytes": 512
+  },
+  "params/block1.v_scale.bin": {
+   "sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c",
+   "bytes": 4
+  },
+  "params/block1.v_thr.bin": {
+   "sha256": "3d0aa5ecdccdbdc20bc652773c47cfdba0a470ddee1e27fbdcb46a19cfe21897",
+   "bytes": 4
+  },
+  "params/block1.proj_w.bin": {
+   "sha256": "9517a0ee9c303890f7877adfa6a8fdc6ee1ee406a0ccf238ae6c13c59a578d3c",
+   "bytes": 16384
+  },
+  "params/block1.proj_b.bin": {
+   "sha256": "e81dfe694191ddb5874cafe3b3b0a43301a8ae8551c64aa832acc552a638248a",
+   "bytes": 512
+  },
+  "params/block1.proj_scale.bin": {
+   "sha256": "3060f06fe75b7f0f91f18d93dda96049359f1b6eb648e223619531640e4e46be",
+   "bytes": 4
+  },
+  "params/block1.proj_thr.bin": {
+   "sha256": "e361b2596ac997b88298d6fc0df4db58a8efcac733c9bc18103f20b21c387a1c",
+   "bytes": 4
+  },
+  "params/block1.fc1_w.bin": {
+   "sha256": "c80f7cb73513f41617b3348ae9c13d434861ca59ba8697b21b15785e0e067129",
+   "bytes": 65536
+  },
+  "params/block1.fc1_b.bin": {
+   "sha256": "c91d614a61795ce5e73d390c842fd16308ac7179fc5086c14c9b594828a89a1b",
+   "bytes": 2048
+  },
+  "params/block1.fc1_scale.bin": {
+   "sha256": "92d029d7eb19284c899d1207fdfcdf1619607cfc48b3b9751fc2596a74bfc61b",
+   "bytes": 4
+  },
+  "params/block1.fc1_thr.bin": {
+   "sha256": "2baaed212bebc4ebeeb19752c47ff7c4420adf7806f577722b487a08b605ee13",
+   "bytes": 4
+  },
+  "params/block1.fc2_w.bin": {
+   "sha256": "a92da8fa0e15e38345f60cb786987088683dc309fa6580e50844c32ce5c805dd",
+   "bytes": 65536
+  },
+  "params/block1.fc2_b.bin": {
+   "sha256": "ec7d6ee6f862a720ea2462e5abf885c972d4bfa2627b6a8026eb3626ac1754d4",
+   "bytes": 512
+  },
+  "params/block1.fc2_scale.bin": {
+   "sha256": "2cb8174f0118a95e2f0662a3cb6c52f660e97b302aab2ca540e3e6c4cb8f617c",
+   "bytes": 4
+  },
+  "params/block1.fc2_thr.bin": {
+   "sha256": "c31425b44a7ed682a3356bf6820141e1584a15c43b6d6793f552e5d4621586f7",
+   "bytes": 4
+  },
+  "params/head_w.bin": {
+   "sha256": "78d6331e6b78ca2b68dd5afc219eeffe5c8ae7cde4a15ee8be2dca9ab70e8ffd",
+   "bytes": 1024
+  },
+  "params/head_b.bin": {
+   "sha256": "e8a482904edcaa10a14cbdfadaf37cbf7eb24859be6baaaadc85d25785beaeec",
+   "bytes": 8
+  },
+  "numeric_contract.json": {
+   "sha256": "d9d3477a8b9899d92c0bc86fca554676884b9851ee30a32b8cb5804e126ccbd0",
+   "bytes": 1998
+  },
+  "resolved_config.json": {
+   "sha256": "f5bbc28421f6e4afda5c88cc11c61f6076ad9006af376ba00bc5db3534216c13",
+   "bytes": 6743
+  },
+  "schedule.json": {
+   "sha256": "8d4e17a6e279956010065affd433c4236bc4c32c9130bcf56d5947b6492dcb2f",
+   "bytes": 2060
+  },
+  "ooc_report.json": {
+   "sha256": "94f0e125ac32eccc4416558be4b967eefc922e164464a8c0e2ea93cc42823507",
+   "bytes": 4435
+  }
+ }
+}

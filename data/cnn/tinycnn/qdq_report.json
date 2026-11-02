@@ -1,0 +1,70 @@
+{
+  "schema": "tinycnn28-toolchain-qdq-1",
+  "status": "pass",
+  "calibration": {
+    "dataset": "MNIST official train split",
+    "examples": 10000,
+    "activation_scale_margin": 1.05,
+    "relu_output_max": {
+      "features.1": 2.315681219100952,
+      "features.4": 9.869229316711426,
+      "features.7": 31.49321746826172,
+      "features.9": 49.25919723510742
+    },
+    "activation_scales": {
+      "features.1": 0.009535158053040504,
+      "features.4": 0.04063800349831581,
+      "features.7": 0.12967795133590698,
+      "features.9": 0.20283198356628418
+    },
+    "input_scale": 0.003921568859368563,
+    "input_zero_point": 0
+  },
+  "runtime": {
+    "python": "E:\\miniconda\\envs\\pytorch_clean\\python.exe",
+    "torch": "2.8.0+cu128",
+    "onnx": "1.17.0",
+    "onnxruntime": "1.19.2",
+    "cuda_device_for_calibration": "NVIDIA GeForce RTX 5060 Laptop GPU"
+  },
+  "qdq_frontend": {
+    "status": "pass",
+    "nodes": 8,
+    "operators": [
+      "Conv",
+      "MaxPool",
+      "Conv",
+      "MaxPool",
+      "Conv",
+      "Conv",
+      "MaxPool",
+      "Conv"
+    ]
+  },
+  "test_accuracy_sample": {
+    "qdq_onnxruntime": 0.979,
+    "float_pytorch": 0.98,
+    "examples": 1000,
+    "subset": "first 1000 examples of official MNIST test split"
+  },
+  "onnx": {
+    "path": "D:\\dl_v1\\examples\\temp\\tinycnn28_mnist_20261030_130046\\artifacts\\quantized\\tinycnn28_mnist_qdq.onnx",
+    "opset": 13,
+    "sha256": "6307d76855bbfda28d134e45842e003cb0beb52515c1b1b5cd6caac70e1907cc",
+    "input": [
+      1,
+      1,
+      28,
+      28
+    ],
+    "output": [
+      1,
+      10,
+      1,
+      1
+    ],
+    "output_scale": 0.2788802683353424,
+    "output_zero_point": 128
+  },
+  "note": "Static post-training QDQ calibration. Compiler and RTL accuracy are separate gates."
+}

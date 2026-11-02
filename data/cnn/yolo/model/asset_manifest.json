@@ -1,0 +1,150 @@
+{
+  "contract": "docs/V0_2_REAL_YOLO_NUMERIC_CONTRACT.md",
+  "conv_nodes": 63,
+  "created_local": "2026-10-26T20:57:53+0800",
+  "files": {
+    "graph.json": {
+      "bytes": 76055,
+      "sha256": "027155dd3b9339fa715c6414b39c7b54d3f5d0bedc6d49e9288bd92ad1264149"
+    },
+    "heads.json": {
+      "bytes": 2643,
+      "sha256": "3ccd5e8a55ebbd43e9068b6edc8d87d29dd0f55e4c3bb6037bf93ddf23be7205"
+    },
+    "inputs.json": {
+      "bytes": 1296,
+      "sha256": "8a952262760c298404f481a2012b8956a7d270aa75ab73db921a6942e8a25892"
+    },
+    "model.onnx": {
+      "bytes": 3088700,
+      "sha256": "ba470414599e0d51ba970808163e8916a3321110030604045c12cdf85f888015"
+    },
+    "quant_table.json": {
+      "bytes": 142268,
+      "sha256": "d5d086338238d5eedc95a3ef5a6c458807d25b50498f9d37ca1de9074e925e32"
+    },
+    "weights.npz": {
+      "bytes": 3116470,
+      "sha256": "0b2a8f0b275375bf00e3e383096952aa32080ad546be7fd04592d9553a26ab51"
+    }
+  },
+  "graph_outputs": [
+    "conv48",
+    "conv51",
+    "conv54",
+    "conv57",
+    "conv60",
+    "conv63"
+  ],
+  "independence": "New independent integer deployment family: no Q16 reference text, no old DUT golden and no compiled artifact is used as a numeric source.",
+  "model": {
+    "input_h": 640,
+    "input_w": 640,
+    "name": "yolov8n-relu-voc20-640-six-head",
+    "num_classes": 20,
+    "reg_max": 16
+  },
+  "node_counts": {
+    "Add": 6,
+    "Concat": 13,
+    "Conv": 63,
+    "MaxPool": 3,
+    "Resize": 2,
+    "Split": 8
+  },
+  "onnx_shape_inference_ok": true,
+  "ort_check": {
+    "elapsed_s": 0.041,
+    "heads": {
+      "conv48": {
+        "elements": 409600,
+        "max_abs_diff": 19,
+        "mismatch": 230858,
+        "off_by_1": 165891,
+        "off_by_ge2": 64967,
+        "status": "compared"
+      },
+      "conv51": {
+        "elements": 128000,
+        "max_abs_diff": 16,
+        "mismatch": 90470,
+        "off_by_1": 54444,
+        "off_by_ge2": 36026,
+        "status": "compared"
+      },
+      "conv54": {
+        "elements": 102400,
+        "max_abs_diff": 17,
+        "mismatch": 59745,
+        "off_by_1": 39743,
+        "off_by_ge2": 20002,
+        "status": "compared"
+      },
+      "conv57": {
+        "elements": 32000,
+        "max_abs_diff": 11,
+        "mismatch": 22083,
+        "off_by_1": 14045,
+        "off_by_ge2": 8038,
+        "status": "compared"
+      },
+      "conv60": {
+        "elements": 25600,
+        "max_abs_diff": 11,
+        "mismatch": 15239,
+        "off_by_1": 10327,
+        "off_by_ge2": 4912,
+        "status": "compared"
+      },
+      "conv63": {
+        "elements": 8000,
+        "max_abs_diff": 7,
+        "mismatch": 5295,
+        "off_by_1": 3607,
+        "off_by_ge2": 1688,
+        "status": "compared"
+      }
+    },
+    "heads_compared": 6,
+    "max_abs_diff": 19,
+    "note": "ORT executes the QDQ graph; differences against the torch quantised model are rounding/kernel-level and are reported, not hidden",
+    "status": "executed",
+    "total_mismatch": 423690
+  },
+  "profile": "affine-int8-v1",
+  "quant_profile": {
+    "activation_storage": "signed int8, qs = qu - 128, zs = zu - 128",
+    "m0_bits": 31,
+    "name": "affine-int8-v1",
+    "rounding": "ties_away_from_zero",
+    "shift_max": 62
+  },
+  "reference_assets": {
+    "fp32_state": {
+      "path": "D:/yolov5/3.0/python/yolov8-pytorch-master\\logs\\ep224-loss3.508-val_loss3.280.pth",
+      "sha256": "ea4461a93069af639bd189da981a227cf573d617c23e67582fb76aac62c45b90"
+    },
+    "keys": {
+      "fp32_state_keys": 348,
+      "missing": [],
+      "quant_state_keys": 292,
+      "unexpected": []
+    },
+    "model_def_sha256": "5498d683944e9f40ae732e22912c6d4e6de121bc85270459c46de32d5fef5e6f",
+    "quant_state": {
+      "path": "D:/yolov5/3.0/python/yolov8-pytorch-master\\logs\\yolov8_quant.pth",
+      "sha256": "0f61607e671bef57a937f70f6b3a55ba47e502f716b98eea900b6d0d6d1f5343"
+    }
+  },
+  "reference_root": "D:/yolov5/3.0/python/yolov8-pytorch-master (READ-ONLY)",
+  "run_root": "build\\onnx_e1\\v02_real_yolo_20261026_2022_b1",
+  "schema": "v0.2-yolo-asset-manifest-1",
+  "total_nodes": 95,
+  "versions": {
+    "numpy": "2.0.2",
+    "onnx": "1.14.1",
+    "onnxruntime": "1.19.2",
+    "python": "3.9.23",
+    "torch": "2.8.0+cpu"
+  }
+}

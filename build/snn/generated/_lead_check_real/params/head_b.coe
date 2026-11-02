@@ -1,0 +1,5 @@
+; deterministic export, 2 elements, dtype=float32
+memory_initialization_radix=16;
+memory_initialization_vector=
+bd54fe23,
+3da34e8d;

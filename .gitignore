@@ -1,0 +1,6 @@
+# 板端位流 / 硬件平台导出 / DDR 镜像体积较大，随 GitHub Release 分发
+board/cnn/fpga/platform_top.bit
+board/snn/snn_platform.bit
+board/lnn/lnn_cfc.bit
+board/lnn/lnn_cfc.xsa
+board/cnn/runtime/ddr_init.bin

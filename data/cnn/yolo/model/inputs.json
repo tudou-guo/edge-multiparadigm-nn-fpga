@@ -1,0 +1,45 @@
+{
+  "input": {
+    "color": "RGB",
+    "dtype": "uint8",
+    "name": "images",
+    "scale": 0.007870171219110489,
+    "shape": [
+      1,
+      3,
+      640,
+      640
+    ],
+    "zero_point": 0
+  },
+  "packed": {
+    "logical_c": 3,
+    "phys_c": 8,
+    "row_stride": 5120,
+    "sha256": "4aba865dacf34f31b1e4fc7685df2e29ee76f881371a494da96006bee3a66e60",
+    "shape": [
+      640,
+      5120
+    ]
+  },
+  "preprocess": {
+    "color": "RGB (reference quant.py BGR->RGB; reference yolo.cpp conversion commented out)",
+    "decode": "Pillow RGB uint8 (torchvision.io fallback); no cv2 in this environment",
+    "normalize": "float32 / 255",
+    "quantize": "clip(rint(x / 0.007870171219110489), 0, 255) ties_even",
+    "resize": "bilinear half-pixel centre, clamped borders, float64; out 640x640"
+  },
+  "profile": "affine-int8-v1",
+  "sample": {
+    "file_sha256": "649c9780871519d61cd5be930fed97b443180a19ab63fce5b1e99d5479564dcd",
+    "image_id": "000032",
+    "path": "D:\\yolov5\\3.0\\python\\yolov8-pytorch-master\\VOCdevkit\\VOC2007\\JPEGImages\\000032.jpg",
+    "u8_shape": [
+      640,
+      640,
+      3
+    ],
+    "u8_tensor_sha256": "51b255984e6a4a2b2072d34241053daa70f40636de3ab52375fc27b242e75a89"
+  },
+  "schema": "v0.2-yolo-inputs-1"
+}

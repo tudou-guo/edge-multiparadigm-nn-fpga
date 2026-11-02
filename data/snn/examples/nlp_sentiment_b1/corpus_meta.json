@@ -1,0 +1,130 @@
+{
+ "schema": "spikformer-nlp-corpus-1",
+ "archive": {
+  "url": "https://bj.bcebos.com/paddlenlp/datasets/ChnSentiCorp.zip",
+  "md5_expected": "7ef61b08ad10fbddf2ba97613f071561",
+  "md5_actual": "7ef61b08ad10fbddf2ba97613f071561",
+  "sha256": "c61f941b1699728a5e16a55b82af64213e8f212d7057764ce54af39643eda969",
+  "bytes": 1954058,
+  "file": "ChnSentiCorp.zip"
+ },
+ "files": {
+  "train.tsv": {
+   "sha256": "0b2653c23e5c79f539472e90cb10522f0ada4b80d3da95572d8b48fda47d5b33",
+   "rows": 9600
+  },
+  "dev.tsv": {
+   "sha256": "83cc6779a1c12517120dab421ca69d22e48ea0fef72d40ea7f0d5c4cff53f603",
+   "rows": 1200
+  },
+  "test.tsv": {
+   "sha256": "a771b1b1e60c6d7f112606f740423b2a26f55182b1f86bf17d0a0da75786dcc9",
+   "rows": 1200
+  }
+ },
+ "schemas": {
+  "train.tsv": "label\\ttext_a",
+  "dev.tsv": "qid\\tlabel\\ttext_a",
+  "test.tsv": "qid\\ttext_a (UNLABELLED; never used for accuracy)"
+ },
+ "splits": {
+  "train": {
+   "n": 8640,
+   "label_counts": [
+    4321,
+    4319
+   ],
+   "source": "official train.tsv minus fixed holdout",
+   "len_stats": {
+    "n": 8640,
+    "mean_len": 109.07546296296296,
+    "max_len": 1992,
+    "n_truncated": 8135,
+    "n_empty": 0,
+    "unk_rate": 0.00012420408923698506
+   }
+  },
+  "holdout": {
+   "n": 960,
+   "label_counts": [
+    480,
+    480
+   ],
+   "source": "fixed stratified 0.10 of official train.tsv",
+   "seed": 20261029,
+   "holdout_train_index_sha256": "65111180821395710ca40ad928fd48cff3336ab63cd17f75a6d6efe229e03a22",
+   "holdout_train_index_count": 960,
+   "len_stats": {
+    "n": 960,
+    "mean_len": 104.59166666666667,
+    "max_len": 1218,
+    "n_truncated": 900,
+    "n_empty": 0,
+    "unk_rate": 0.0007898634194503867
+   }
+  },
+  "dev": {
+   "n": 1200,
+   "label_counts": [
+    607,
+    593
+   ],
+   "source": "official dev.tsv (early stopping, labelled)",
+   "len_stats": {
+    "n": 1200,
+    "mean_len": 107.61833333333334,
+    "max_len": 924,
+    "n_truncated": 1125,
+    "n_empty": 0,
+    "unk_rate": 0.0008681697403383231
+   }
+  },
+  "test": {
+   "n": 1200,
+   "source": "official test.tsv",
+   "labelled": false,
+   "note": "no accuracy reported on test (unlabelled)",
+   "len_stats": {
+    "n": 1200,
+    "mean_len": 106.92333333333333,
+    "max_len": 1992,
+    "n_truncated": 1132,
+    "n_empty": 0,
+    "unk_rate": 0.0007109753528544343
+   }
+  }
+ },
+ "vocab": {
+  "file": "vocab.json",
+  "sha256": "e1090fa82387ca5fa527700398a885ddb9ad520be4672da08682fccd9839caa4",
+  "size_actual": 4000,
+  "size_requested": 4000,
+  "built_from": "train split only (official train.tsv minus holdout)",
+  "pad_id": "<pad>",
+  "unk_id": "<unk>"
+ },
+ "encoding": {
+  "seq_len": 32,
+  "dtype": "int64",
+  "pad_id": 0,
+  "unk_id": 1,
+  "truncate": "keep first seq_len chars",
+  "padding": "right",
+  "no_ord_mod": "training no longer uses ord(ch)%3999; ids come from runtime/spikformer/tokenize.py vocab"
+ },
+ "npz": {
+  "file": "corpus_encoded.npz",
+  "sha256": "f554de2d729dd4ce6b56003f3b22c5b7e93043076a180186ecc2fbcef85e230a",
+  "arrays": [
+   "train_ids",
+   "train_y",
+   "holdout_ids",
+   "holdout_y",
+   "holdout_train_index",
+   "dev_ids",
+   "dev_y",
+   "test_ids",
+   "vocab_size_actual"
+  ]
+ }
+}

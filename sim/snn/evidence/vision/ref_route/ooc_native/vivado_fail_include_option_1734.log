@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sat Oct 31 17:33:54 2026
+# Process ID: 30412
+# Current directory: D:/dl_snn
+# Command line: vivado.exe -mode batch -notrace -log D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.log -journal D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.jou -source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -tclargs D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657 all vis_native_probe
+# Log file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.log
+# Journal file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'E:/Vitis/Vivado/2021.1/scripts/Vivado_init.tcl'
+SynthPilot Server: Ready on port 9999
+source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -notrace
+OOC_RUN_BEGIN top=vis_native_probe stage=all part=xczu15eg-ffvb1156-2-i out=D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657 at=2026-10-31T17:34:08+0800
+READ_VERILOG_INCLUDE_DIRS_ERROR: ERROR: [Common 17-170] Unknown option '-include_dirs', please type 'read_verilog -help' for usage info.
+
+READ_VERILOG_RETRY: -include form
+READ_VERILOG_INCLUDE_ERROR: ERROR: [Common 17-69] Command failed: '-include' is only supported when is_compile_unit_mode is enabled on the source fileset
+
+ERROR: [Common 17-69] Command failed: '-include' is only supported when is_compile_unit_mode is enabled on the source fileset
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 31 17:34:14 2026...

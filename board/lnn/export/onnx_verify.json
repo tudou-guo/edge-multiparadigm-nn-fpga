@@ -1,0 +1,136 @@
+{
+ "version": "1.0.0",
+ "generated_utc": "2026-10-31T13:07:57Z",
+ "export_command": "E:/miniconda/envs/pytorch_clean/python.exe model/export_onnx.py",
+ "onnx_file": "export/onnx_model.onnx",
+ "onnx_file_copy": "model/onnx_model.onnx",
+ "sha256": "2108484039d91c2943d981f8c2410c4eff324b5933d0d5ff940fa496a160978b",
+ "bytes": 1406,
+ "tool_versions": {
+  "python": "3.9.23",
+  "torch": "2.8.0+cu128",
+  "onnx": "1.17.0",
+  "onnxruntime": "1.19.2",
+  "numpy": "2.0.2"
+ },
+ "opset": [
+  {
+   "domain": "",
+   "version": 17
+  }
+ ],
+ "ir_version": 8,
+ "graph": {
+  "operators": {
+   "list": [
+    "Add",
+    "Concat",
+    "Gemm",
+    "Mul",
+    "Sigmoid",
+    "Sub",
+    "Tanh"
+   ],
+   "counts": {
+    "Concat": 1,
+    "Gemm": 5,
+    "Tanh": 2,
+    "Mul": 3,
+    "Add": 2,
+    "Sigmoid": 1,
+    "Sub": 1
+   },
+   "all_allowed": true,
+   "allowed_set": [
+    "Add",
+    "Concat",
+    "Gemm",
+    "MatMul",
+    "Mul",
+    "Sigmoid",
+    "Sub",
+    "Tanh"
+   ]
+  },
+  "inputs": [
+   {
+    "name": "x",
+    "shape": [
+     1,
+     1
+    ],
+    "dtype": "float"
+   },
+   {
+    "name": "h",
+    "shape": [
+     1,
+     4
+    ],
+    "dtype": "float"
+   },
+   {
+    "name": "delta_t",
+    "shape": [
+     1,
+     1
+    ],
+    "dtype": "float"
+   }
+  ],
+  "outputs": [
+   {
+    "name": "y",
+    "shape": [
+     1,
+     1
+    ],
+    "dtype": "float"
+   },
+   {
+    "name": "h_next",
+    "shape": [
+     1,
+     4
+    ],
+    "dtype": "float"
+   }
+  ],
+  "opset": [
+   {
+    "domain": "",
+    "version": 17
+   }
+  ],
+  "ir_version": 8,
+  "n_nodes": 15,
+  "n_initializers": 11
+ },
+ "pytorch_vs_onnx_random": {
+  "cases": 256,
+  "x_range": [
+   -1.5,
+   1.5
+  ],
+  "h_range": [
+   -1.0,
+   1.0
+  ],
+  "delta_t_values": "0.16 (half) + uniform(0.05, 0.5) (half)",
+  "y_max_abs_err": 4.76837158203125e-07,
+  "h_next_max_abs_err": 2.384185791015625e-07,
+  "max_abs_err": 4.76837158203125e-07
+ },
+ "sequence_check": {
+  "n_samples": 8,
+  "n_steps": 64,
+  "onnx_vs_float_ref_y_max_abs_err": 4.76837158203125e-07,
+  "pytorch_vs_float_ref_y_max_abs_err": 4.76837158203125e-07,
+  "pytorch_vs_float_ref_h_max_abs_err": 3.2782554626464844e-07
+ },
+ "acceptance": {
+  "max_abs_err": 4.76837158203125e-07,
+  "threshold": 1e-05,
+  "pass": true
+ }
+}

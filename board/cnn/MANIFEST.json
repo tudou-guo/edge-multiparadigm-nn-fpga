@@ -1,0 +1,218 @@
+{
+  "schema": "m4-a-board-package-7",
+  "identity": {
+    "revision": "A timing-fix implementation r4",
+    "source_digest": "f387744a0a3b3912c0404747bdbd1feb43110aae10f1b0fe3fec977749a43705",
+    "bit_sha256": "baeb25fc59d7d99fe4a29e169f65367f461d4c7e9787518a2f4acb939ecca7dd",
+    "hwh_sha256": "63a11375621c316ee80822fce3e2cd1a07b5b0982b8614b40856f2d681e04908",
+    "ddr_init_sha256": "eac1c430b9c425513ee906e0607fead94e16b3d076eb7f1a1fce345a7facb1be",
+    "implementation": {
+      "run": "impl_rtlfix_1029_r4",
+      "clock_period_ns": 5.0,
+      "setup_wns_ns": 0.075,
+      "setup_tns_ns": 0.0,
+      "setup_failing_endpoints": 0,
+      "hold_whs_ns": 0.01,
+      "hold_ths_ns": 0.0,
+      "hold_failing_endpoints": 0,
+      "pulse_wns_ns": 0.039,
+      "pulse_failing_endpoints": 0,
+      "route_errors": 0,
+      "unrouted_nets": 0,
+      "drc_errors": 0,
+      "drc_warnings": 1385,
+      "all_constraints_met": true
+    },
+    "input_recode_fix": "graph-input DDR bytes are signed-INT8 two's complement (qu-128)",
+    "npu_resources": {
+      "DSP48E2": 468,
+      "URAM288": 72
+    },
+    "npu_ip_version": "0.8.0",
+    "implementation_evidence": "timing-qualified platform implementation; reports not included in this board-only package",
+    "part": "xczu15eg-ffvb1156-2-i",
+    "vivado": "2021.1",
+    "strategy": "Performance_ExplorePostRoutePhysOpt"
+  },
+  "board_upload_minimal": [
+    "fpga/platform_top.bit",
+    "fpga/platform_top.hwh",
+    "runtime/ (all)",
+    "scripts/board_run_a.py"
+  ],
+  "excluded_from_package": {
+    "implementation_reports": "retained with the internal build evidence, not needed to program the board",
+    "platform_top.xsa": "not included in this board-only package",
+    "instruction_stream.mem": "baked into the matching bitstream",
+    "instruction_stream.json / memory_map.json / example_detection.jpg": "not used by scripts/board_run_a.py"
+  },
+  "files": {
+    "fpga/platform_top.bit": {
+      "bytes": 28700862,
+      "sha256": "baeb25fc59d7d99fe4a29e169f65367f461d4c7e9787518a2f4acb939ecca7dd"
+    },
+    "fpga/platform_top.hwh": {
+      "bytes": 373118,
+      "sha256": "63a11375621c316ee80822fce3e2cd1a07b5b0982b8614b40856f2d681e04908"
+    },
+    "runtime/ddr_init.bin": {
+      "bytes": 8482816,
+      "sha256": "eac1c430b9c425513ee906e0607fead94e16b3d076eb7f1a1fce345a7facb1be"
+    },
+    "runtime/ddr_init_manifest.json": {
+      "bytes": 42082,
+      "sha256": "2127c5e51da4c192b12f9b051d6052de1c57c679f1a4155551490d59ccd5cfa1"
+    },
+    "runtime/decode/__init__.py": {
+      "bytes": 63,
+      "sha256": "998edb541522cf41788b5eb4239e0d7abe1ecd63c8b269b5347743125f5030fe"
+    },
+    "runtime/decode/heads.json": {
+      "bytes": 2643,
+      "sha256": "3ccd5e8a55ebbd43e9068b6edc8d87d29dd0f55e4c3bb6037bf93ddf23be7205"
+    },
+    "runtime/decode/postprocess.py": {
+      "bytes": 54127,
+      "sha256": "214b38f20789a0da5aeebbd0cc512cc5f3b87129548d35ba3a28f27b353f681e"
+    },
+    "runtime/decode/preprocess.py": {
+      "bytes": 8545,
+      "sha256": "4cbdcc7efe9ecb512e88f9dba830a0474a11e471b26e4b11fd11129daa6432ab"
+    },
+    "runtime/expected_heads.json": {
+      "bytes": 1783,
+      "sha256": "96099f349c148f466cea2ae2ba95c443db2affae5360588f5cfdc022d2f26356"
+    },
+    "runtime/golden/output__conv48.bin": {
+      "bytes": 409600,
+      "sha256": "0452edb5f48f2fa33e4f4531dec92c94fa658f02b3ff3a844be83575f814135e"
+    },
+    "runtime/golden/output__conv51.bin": {
+      "bytes": 153600,
+      "sha256": "93ff1243b148c4e062d56e6014e2686a9802ebeaf0b81a053c193cd9097faea1"
+    },
+    "runtime/golden/output__conv54.bin": {
+      "bytes": 102400,
+      "sha256": "b5afd64e0df7cf548967c1add8099a57dfd50c27c7f15ab6e6edfc1f777eeb95"
+    },
+    "runtime/golden/output__conv57.bin": {
+      "bytes": 38400,
+      "sha256": "a82786e4cbca856844ecf04f3018161a7b14ce4db35a4580081a3414f7c3e4f4"
+    },
+    "runtime/golden/output__conv60.bin": {
+      "bytes": 25600,
+      "sha256": "fb31f678712ef12a7bfb2c0a8a2ee62490a50cc87ac24a378d9fa94e24f68a69"
+    },
+    "runtime/golden/output__conv63.bin": {
+      "bytes": 9600,
+      "sha256": "7d44f133eabe360746b504113551df7fc96bd3edd088ad6c19dd324f0e5a2c14"
+    },
+    "runtime/test_image.jpg": {
+      "bytes": 54757,
+      "sha256": "649c9780871519d61cd5be930fed97b443180a19ab63fce5b1e99d5479564dcd"
+    },
+    "runtime/test_image.sha256": {
+      "bytes": 66,
+      "sha256": "0cb4a90273722cb589446778a1364fe2c1adbf66ee6176bfc8a07a8724f34850"
+    },
+    "scripts/board_run_a.py": {
+      "bytes": 22936,
+      "sha256": "1dfc5354257b5e24ccdb575783900df0d1ce737f4b827784cf39c607ce644710"
+    }
+  },
+  "board_runs": {
+    "heads": {
+      "date": "2026-10-29",
+      "status": "PASS_user_reported",
+      "evidence_source": "user-provided Jupyter output",
+      "bit_sha256": "baeb25fc59d7d99fe4a29e169f65367f461d4c7e9787518a2f4acb939ecca7dd",
+      "ddr_init_sha256": "eac1c430b9c425513ee906e0607fead94e16b3d076eb7f1a1fce345a7facb1be",
+      "error_code": 0,
+      "heads": {
+        "conv48": true,
+        "conv51": true,
+        "conv54": true,
+        "conv57": true,
+        "conv60": true,
+        "conv63": true
+      },
+      "first_mismatch": -1,
+      "infer_s": 0.2395100950000142,
+      "rd_count": 277808,
+      "wr_count": 163747
+    },
+    "image": {
+      "date": "2026-10-29",
+      "status": "PASS_user_reported",
+      "evidence_source": "user-provided Jupyter output",
+      "bit_sha256": "baeb25fc59d7d99fe4a29e169f65367f461d4c7e9787518a2f4acb939ecca7dd",
+      "ddr_init_sha256": "eac1c430b9c425513ee906e0607fead94e16b3d076eb7f1a1fce345a7facb1be",
+      "error_code": 0,
+      "heads": {
+        "conv48": true,
+        "conv51": true,
+        "conv54": true,
+        "conv57": true,
+        "conv60": true,
+        "conv63": true
+      },
+      "detections": [
+        {
+          "class": "train",
+          "score": 0.636,
+          "box": [
+            471.2,
+            180.3,
+            641.1,
+            450.7
+          ],
+          "stride": 32
+        }
+      ],
+      "detections_match_golden": true,
+      "annotated_image": "run_out_image_20261029_105009/annotated_test_image.jpg",
+      "preprocess_s": 1.7317,
+      "input_write_s": 0.003980920000003607,
+      "infer_s": 0.23936907399996699,
+      "heads_read_s": 0.012207552000006672,
+      "decode_s": 0.11198927999998887,
+      "draw_s": 0.027538645999982236,
+      "rd_count": 277808,
+      "wr_count": 163747
+    }
+  },
+  "verdict": "User-reported board PASS for the fixed sample on the r4 bit/HWH package: six heads bit-exact and one image detection equal to golden; no mAP/VOC or long-run claim.",
+  "board_status": "PASS_user_reported",
+  "board_validation": {
+    "date": "2026-10-29",
+    "source": "user-provided Jupyter output",
+    "heads": {
+      "status": "PASS",
+      "matched": 6,
+      "total": 6,
+      "first_mismatch": -1,
+      "infer_s": 0.2395100950000142,
+      "rd_count": 277808,
+      "wr_count": 163747,
+      "error_code": 0
+    },
+    "image": {
+      "status": "PASS",
+      "detections_match_golden": true,
+      "detection_count": 1,
+      "class": "train",
+      "score": 0.636,
+      "box_xyxy": [
+        471.2,
+        180.3,
+        641.1,
+        450.7
+      ],
+      "preprocess_s": 1.7317,
+      "infer_s": 0.23936907399996699,
+      "error_code": 0,
+      "rd_count": 277808,
+      "wr_count": 163747
+    }
+  }
+}

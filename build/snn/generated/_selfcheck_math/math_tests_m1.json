@@ -1,0 +1,86 @@
+{
+ "stage": "M1_math_tests",
+ "PASS": true,
+ "n_pass": 8,
+ "n_total": 8,
+ "results": [
+  {
+   "name": "lif_threshold_boundary",
+   "status": "pass",
+   "detail": {
+    "case": "thr=3 mem>=thr fires, mem=thr-1 not, negative floors"
+   }
+  },
+  {
+   "name": "popcount32_avmax1024",
+   "status": "pass",
+   "detail": {
+    "score_max": 32,
+    "av_max": 1024,
+    "SUM_W": 6,
+    "popcount_bits": 32
+   }
+  },
+  {
+   "name": "onehot_cross_token_and_t",
+   "status": "pass",
+   "detail": {
+    "t_dependent_scores": true,
+    "qk_asymmetric_permutation": [
+     2,
+     3,
+     0,
+     1,
+     6,
+     7,
+     4,
+     5
+    ],
+    "av_token_pairing": "ok"
+   }
+  },
+  {
+   "name": "negative_accumulator",
+   "status": "pass",
+   "detail": {
+    "q_spikes": 0,
+    "q_mem_max": -1,
+    "q_delta_max": -2
+   }
+  },
+  {
+   "name": "embed_shared_domain_and_ps_head",
+   "status": "pass",
+   "detail": {
+    "thr_e": 40,
+    "pl_sum_max": 10,
+    "head_class": 1,
+    "ps_head_bit_exact": true
+   }
+  },
+  {
+   "name": "ste_forward_equals_round",
+   "status": "pass",
+   "detail": {
+    "ste_equals_round_clamp": true
+   }
+  },
+  {
+   "name": "full_trace_small_E32",
+   "status": "pass",
+   "detail": {
+    "layers_compared": 47
+   }
+  },
+  {
+   "name": "full_trace_target_E128",
+   "status": "pass",
+   "detail": {
+    "layers_compared": 47
+   }
+  }
+ ],
+ "torch": "2.8.0+cu128",
+ "integer_ref": "D:\\DL_FINAL\\SNN\\tools\\backends\\spikformer\\integer_ref.py",
+ "train_nlp": "D:\\DL_FINAL\\SNN\\tools\\spikformer_train\\train_nlp.py"
+}

@@ -1,0 +1,1956 @@
+{
+  "consumer_table": {
+    "__input__": [
+      {
+        "input_index": 0,
+        "node": "stem_activation",
+        "order": 0
+      }
+    ],
+    "block1_dw_activation": [
+      {
+        "input_index": 0,
+        "node": "block1_pw_activation",
+        "order": 2
+      }
+    ],
+    "block1_dw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block1_dw_activation",
+        "order": 1
+      }
+    ],
+    "block1_dw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block1_dw_activation",
+        "order": 1
+      }
+    ],
+    "block1_pool": [
+      {
+        "input_index": 0,
+        "node": "block2_dw_activation",
+        "order": 4
+      }
+    ],
+    "block1_pw_activation": [
+      {
+        "input_index": 0,
+        "node": "block1_pool",
+        "order": 3
+      }
+    ],
+    "block1_pw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block1_pw_activation",
+        "order": 2
+      }
+    ],
+    "block1_pw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block1_pw_activation",
+        "order": 2
+      }
+    ],
+    "block2_dw_activation": [
+      {
+        "input_index": 0,
+        "node": "block2_pw_activation",
+        "order": 5
+      }
+    ],
+    "block2_dw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block2_dw_activation",
+        "order": 4
+      }
+    ],
+    "block2_dw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block2_dw_activation",
+        "order": 4
+      }
+    ],
+    "block2_pool": [
+      {
+        "input_index": 0,
+        "node": "block3_dw_activation",
+        "order": 7
+      }
+    ],
+    "block2_pw_activation": [
+      {
+        "input_index": 0,
+        "node": "block2_pool",
+        "order": 6
+      }
+    ],
+    "block2_pw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block2_pw_activation",
+        "order": 5
+      }
+    ],
+    "block2_pw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block2_pw_activation",
+        "order": 5
+      }
+    ],
+    "block3_dw_activation": [
+      {
+        "input_index": 0,
+        "node": "block3_pw_activation",
+        "order": 8
+      }
+    ],
+    "block3_dw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block3_dw_activation",
+        "order": 7
+      }
+    ],
+    "block3_dw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block3_dw_activation",
+        "order": 7
+      }
+    ],
+    "block3_pool": [
+      {
+        "input_index": 0,
+        "node": "block4_dw_activation",
+        "order": 10
+      }
+    ],
+    "block3_pw_activation": [
+      {
+        "input_index": 0,
+        "node": "block3_pool",
+        "order": 9
+      }
+    ],
+    "block3_pw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block3_pw_activation",
+        "order": 8
+      }
+    ],
+    "block3_pw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block3_pw_activation",
+        "order": 8
+      }
+    ],
+    "block4_dw_activation": [
+      {
+        "input_index": 0,
+        "node": "block4_pw_activation",
+        "order": 11
+      }
+    ],
+    "block4_dw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block4_dw_activation",
+        "order": 10
+      }
+    ],
+    "block4_dw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block4_dw_activation",
+        "order": 10
+      }
+    ],
+    "block4_pool": [
+      {
+        "input_index": 0,
+        "node": "classifier_activation",
+        "order": 13
+      }
+    ],
+    "block4_pw_activation": [
+      {
+        "input_index": 0,
+        "node": "block4_pool",
+        "order": 12
+      }
+    ],
+    "block4_pw_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "block4_pw_activation",
+        "order": 11
+      }
+    ],
+    "block4_pw_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "block4_pw_activation",
+        "order": 11
+      }
+    ],
+    "classifier_activation": [],
+    "classifier_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "classifier_activation",
+        "order": 13
+      }
+    ],
+    "classifier_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "classifier_activation",
+        "order": 13
+      }
+    ],
+    "stem_activation": [
+      {
+        "input_index": 0,
+        "node": "block1_dw_activation",
+        "order": 1
+      }
+    ],
+    "stem_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "stem_activation",
+        "order": 0
+      }
+    ],
+    "stem_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "stem_activation",
+        "order": 0
+      }
+    ]
+  },
+  "gates": {
+    "liveness": "pass",
+    "memory_planning": "not_run",
+    "schedule": "pass"
+  },
+  "graph_digest": "4b7f5a9decae77cec082a699113d0abea73c37a0fb539afdd7f437062164bf0e",
+  "graph_name": "affine-mobiledw32_cifar10_qdq",
+  "live_ranges": {
+    "__input__": {
+      "bytes_hint": null,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "stem_activation",
+          "order": 0
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 0,
+      "end_exclusive": 1,
+      "first_use": 0,
+      "is_graph_input": true,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "input",
+      "last_consumer": 0,
+      "producer": null,
+      "shape": [
+        1,
+        3,
+        32,
+        32
+      ],
+      "start": 0,
+      "tensor": "__input__"
+    },
+    "block1_dw_activation": {
+      "bytes_hint": 16384,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block1_pw_activation",
+          "order": 2
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 2,
+      "end_exclusive": 3,
+      "first_use": 1,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 2,
+      "producer": "block1_dw_activation",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "start": 1,
+      "tensor": "block1_dw_activation"
+    },
+    "block1_dw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block1_dw_activation",
+          "order": 1
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 1,
+      "end_exclusive": 2,
+      "first_use": 1,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 1,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block1_dw_activation.bias"
+    },
+    "block1_dw_activation.weight": {
+      "bytes_hint": 144,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block1_dw_activation",
+          "order": 1
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 1,
+      "end_exclusive": 2,
+      "first_use": 1,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 1,
+      "producer": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block1_dw_activation.weight"
+    },
+    "block1_pool": {
+      "bytes_hint": 4096,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block2_dw_activation",
+          "order": 4
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 4,
+      "end_exclusive": 5,
+      "first_use": 3,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 4,
+      "producer": "block1_pool",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "start": 3,
+      "tensor": "block1_pool"
+    },
+    "block1_pw_activation": {
+      "bytes_hint": 16384,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block1_pool",
+          "order": 3
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 3,
+      "end_exclusive": 4,
+      "first_use": 2,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 3,
+      "producer": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "start": 2,
+      "tensor": "block1_pw_activation"
+    },
+    "block1_pw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block1_pw_activation",
+          "order": 2
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 2,
+      "end_exclusive": 3,
+      "first_use": 2,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 2,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block1_pw_activation.bias"
+    },
+    "block1_pw_activation.weight": {
+      "bytes_hint": 256,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block1_pw_activation",
+          "order": 2
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 2,
+      "end_exclusive": 3,
+      "first_use": 2,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 2,
+      "producer": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block1_pw_activation.weight"
+    },
+    "block2_dw_activation": {
+      "bytes_hint": 4096,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block2_pw_activation",
+          "order": 5
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 5,
+      "end_exclusive": 6,
+      "first_use": 4,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 5,
+      "producer": "block2_dw_activation",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "start": 4,
+      "tensor": "block2_dw_activation"
+    },
+    "block2_dw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block2_dw_activation",
+          "order": 4
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 4,
+      "end_exclusive": 5,
+      "first_use": 4,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 4,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block2_dw_activation.bias"
+    },
+    "block2_dw_activation.weight": {
+      "bytes_hint": 144,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block2_dw_activation",
+          "order": 4
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 4,
+      "end_exclusive": 5,
+      "first_use": 4,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 4,
+      "producer": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block2_dw_activation.weight"
+    },
+    "block2_pool": {
+      "bytes_hint": 1024,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block3_dw_activation",
+          "order": 7
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 7,
+      "end_exclusive": 8,
+      "first_use": 6,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 7,
+      "producer": "block2_pool",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "start": 6,
+      "tensor": "block2_pool"
+    },
+    "block2_pw_activation": {
+      "bytes_hint": 4096,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block2_pool",
+          "order": 6
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 6,
+      "end_exclusive": 7,
+      "first_use": 5,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 6,
+      "producer": "block2_pw_activation",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "start": 5,
+      "tensor": "block2_pw_activation"
+    },
+    "block2_pw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block2_pw_activation",
+          "order": 5
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 5,
+      "end_exclusive": 6,
+      "first_use": 5,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 5,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block2_pw_activation.bias"
+    },
+    "block2_pw_activation.weight": {
+      "bytes_hint": 256,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block2_pw_activation",
+          "order": 5
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 5,
+      "end_exclusive": 6,
+      "first_use": 5,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 5,
+      "producer": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block2_pw_activation.weight"
+    },
+    "block3_dw_activation": {
+      "bytes_hint": 1024,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block3_pw_activation",
+          "order": 8
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 8,
+      "end_exclusive": 9,
+      "first_use": 7,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 8,
+      "producer": "block3_dw_activation",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "start": 7,
+      "tensor": "block3_dw_activation"
+    },
+    "block3_dw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block3_dw_activation",
+          "order": 7
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 7,
+      "end_exclusive": 8,
+      "first_use": 7,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 7,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block3_dw_activation.bias"
+    },
+    "block3_dw_activation.weight": {
+      "bytes_hint": 144,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block3_dw_activation",
+          "order": 7
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 7,
+      "end_exclusive": 8,
+      "first_use": 7,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 7,
+      "producer": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block3_dw_activation.weight"
+    },
+    "block3_pool": {
+      "bytes_hint": 256,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block4_dw_activation",
+          "order": 10
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 10,
+      "end_exclusive": 11,
+      "first_use": 9,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 10,
+      "producer": "block3_pool",
+      "shape": [
+        1,
+        16,
+        4,
+        4
+      ],
+      "start": 9,
+      "tensor": "block3_pool"
+    },
+    "block3_pw_activation": {
+      "bytes_hint": 1024,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block3_pool",
+          "order": 9
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 9,
+      "end_exclusive": 10,
+      "first_use": 8,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 9,
+      "producer": "block3_pw_activation",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "start": 8,
+      "tensor": "block3_pw_activation"
+    },
+    "block3_pw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block3_pw_activation",
+          "order": 8
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 8,
+      "end_exclusive": 9,
+      "first_use": 8,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 8,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block3_pw_activation.bias"
+    },
+    "block3_pw_activation.weight": {
+      "bytes_hint": 256,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block3_pw_activation",
+          "order": 8
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 8,
+      "end_exclusive": 9,
+      "first_use": 8,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 8,
+      "producer": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block3_pw_activation.weight"
+    },
+    "block4_dw_activation": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block4_pw_activation",
+          "order": 11
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 11,
+      "end_exclusive": 12,
+      "first_use": 10,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 11,
+      "producer": "block4_dw_activation",
+      "shape": [
+        1,
+        16,
+        2,
+        2
+      ],
+      "start": 10,
+      "tensor": "block4_dw_activation"
+    },
+    "block4_dw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block4_dw_activation",
+          "order": 10
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 10,
+      "end_exclusive": 11,
+      "first_use": 10,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 10,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block4_dw_activation.bias"
+    },
+    "block4_dw_activation.weight": {
+      "bytes_hint": 144,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block4_dw_activation",
+          "order": 10
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 10,
+      "end_exclusive": 11,
+      "first_use": 10,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 10,
+      "producer": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block4_dw_activation.weight"
+    },
+    "block4_pool": {
+      "bytes_hint": 16,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "classifier_activation",
+          "order": 13
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 13,
+      "end_exclusive": 14,
+      "first_use": 12,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 13,
+      "producer": "block4_pool",
+      "shape": [
+        1,
+        16,
+        1,
+        1
+      ],
+      "start": 12,
+      "tensor": "block4_pool"
+    },
+    "block4_pw_activation": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block4_pool",
+          "order": 12
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 12,
+      "end_exclusive": 13,
+      "first_use": 11,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 12,
+      "producer": "block4_pw_activation",
+      "shape": [
+        1,
+        16,
+        2,
+        2
+      ],
+      "start": 11,
+      "tensor": "block4_pw_activation"
+    },
+    "block4_pw_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "block4_pw_activation",
+          "order": 11
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 11,
+      "end_exclusive": 12,
+      "first_use": 11,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 11,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "block4_pw_activation.bias"
+    },
+    "block4_pw_activation.weight": {
+      "bytes_hint": 256,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "block4_pw_activation",
+          "order": 11
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 11,
+      "end_exclusive": 12,
+      "first_use": 11,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 11,
+      "producer": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "block4_pw_activation.weight"
+    },
+    "classifier_activation": {
+      "bytes_hint": 10,
+      "consumers": [],
+      "dead": false,
+      "dtype": "int8",
+      "end": 14,
+      "end_exclusive": 15,
+      "first_use": 13,
+      "is_graph_input": false,
+      "is_graph_output": true,
+      "is_initializer": false,
+      "kind": "output",
+      "last_consumer": null,
+      "producer": "classifier_activation",
+      "shape": [
+        1,
+        10,
+        1,
+        1
+      ],
+      "start": 13,
+      "tensor": "classifier_activation"
+    },
+    "classifier_activation.bias": {
+      "bytes_hint": 40,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "classifier_activation",
+          "order": 13
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 13,
+      "end_exclusive": 14,
+      "first_use": 13,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 13,
+      "producer": null,
+      "shape": [
+        10
+      ],
+      "start": 0,
+      "tensor": "classifier_activation.bias"
+    },
+    "classifier_activation.weight": {
+      "bytes_hint": 160,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "classifier_activation",
+          "order": 13
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 13,
+      "end_exclusive": 14,
+      "first_use": 13,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 13,
+      "producer": null,
+      "shape": [
+        10,
+        16,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "classifier_activation.weight"
+    },
+    "stem_activation": {
+      "bytes_hint": 16384,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "block1_dw_activation",
+          "order": 1
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 1,
+      "end_exclusive": 2,
+      "first_use": 0,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 1,
+      "producer": "stem_activation",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "start": 0,
+      "tensor": "stem_activation"
+    },
+    "stem_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "stem_activation",
+          "order": 0
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 0,
+      "end_exclusive": 1,
+      "first_use": 0,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 0,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "stem_activation.bias"
+    },
+    "stem_activation.weight": {
+      "bytes_hint": 432,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "stem_activation",
+          "order": 0
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 0,
+      "end_exclusive": 1,
+      "first_use": 0,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 0,
+      "producer": null,
+      "shape": [
+        16,
+        3,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "stem_activation.weight"
+    }
+  },
+  "metadata_aliases": [],
+  "schedule": [
+    {
+      "inputs": [
+        "__input__",
+        "stem_activation.weight",
+        "stem_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block1_dw_activation",
+        "block1_dw_activation.bias",
+        "block1_dw_activation.weight",
+        "block1_pw_activation.bias",
+        "block1_pw_activation.weight",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight",
+        "stem_activation"
+      ],
+      "live_before": [
+        "__input__",
+        "block1_dw_activation.bias",
+        "block1_dw_activation.weight",
+        "block1_pw_activation.bias",
+        "block1_pw_activation.weight",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight",
+        "stem_activation",
+        "stem_activation.bias",
+        "stem_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "stem_activation",
+      "node_id": "stem_activation",
+      "op_type": "Conv",
+      "order": 0,
+      "outputs": [
+        "stem_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "stem_activation"
+      ],
+      "released_after": [
+        "__input__",
+        "stem_activation.bias",
+        "stem_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "stem_activation",
+        "block1_dw_activation.weight",
+        "block1_dw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block1_dw_activation",
+        "block1_pw_activation",
+        "block1_pw_activation.bias",
+        "block1_pw_activation.weight",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block1_dw_activation",
+        "block1_dw_activation.bias",
+        "block1_dw_activation.weight",
+        "block1_pw_activation.bias",
+        "block1_pw_activation.weight",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight",
+        "stem_activation"
+      ],
+      "metadata_only": false,
+      "name": "block1_dw_activation",
+      "node_id": "block1_dw_activation",
+      "op_type": "DepthwiseConv",
+      "order": 1,
+      "outputs": [
+        "block1_dw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block1_dw_activation"
+      ],
+      "released_after": [
+        "block1_dw_activation.bias",
+        "block1_dw_activation.weight",
+        "stem_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "block1_dw_activation",
+        "block1_pw_activation.weight",
+        "block1_pw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block1_pool",
+        "block1_pw_activation",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block1_dw_activation",
+        "block1_pw_activation",
+        "block1_pw_activation.bias",
+        "block1_pw_activation.weight",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block1_pw_activation",
+      "node_id": "block1_pw_activation",
+      "op_type": "Conv",
+      "order": 2,
+      "outputs": [
+        "block1_pw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block1_pw_activation"
+      ],
+      "released_after": [
+        "block1_dw_activation",
+        "block1_pw_activation.bias",
+        "block1_pw_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "block1_pw_activation"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block1_pool",
+        "block2_dw_activation",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block1_pool",
+        "block1_pw_activation",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block1_pool",
+      "node_id": "block1_pool",
+      "op_type": "MaxPool",
+      "order": 3,
+      "outputs": [
+        "block1_pool"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block1_pool"
+      ],
+      "released_after": [
+        "block1_pw_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "block1_pool",
+        "block2_dw_activation.weight",
+        "block2_dw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block2_dw_activation",
+        "block2_pw_activation",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block1_pool",
+        "block2_dw_activation",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block2_dw_activation",
+      "node_id": "block2_dw_activation",
+      "op_type": "DepthwiseConv",
+      "order": 4,
+      "outputs": [
+        "block2_dw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block2_dw_activation"
+      ],
+      "released_after": [
+        "block1_pool",
+        "block2_dw_activation.bias",
+        "block2_dw_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "block2_dw_activation",
+        "block2_pw_activation.weight",
+        "block2_pw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block2_pool",
+        "block2_pw_activation",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block2_dw_activation",
+        "block2_pw_activation",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block2_pw_activation",
+      "node_id": "block2_pw_activation",
+      "op_type": "Conv",
+      "order": 5,
+      "outputs": [
+        "block2_pw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block2_pw_activation"
+      ],
+      "released_after": [
+        "block2_dw_activation",
+        "block2_pw_activation.bias",
+        "block2_pw_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "block2_pw_activation"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block2_pool",
+        "block3_dw_activation",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block2_pool",
+        "block2_pw_activation",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block2_pool",
+      "node_id": "block2_pool",
+      "op_type": "MaxPool",
+      "order": 6,
+      "outputs": [
+        "block2_pool"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block2_pool"
+      ],
+      "released_after": [
+        "block2_pw_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "block2_pool",
+        "block3_dw_activation.weight",
+        "block3_dw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block3_dw_activation",
+        "block3_pw_activation",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block2_pool",
+        "block3_dw_activation",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block3_dw_activation",
+      "node_id": "block3_dw_activation",
+      "op_type": "DepthwiseConv",
+      "order": 7,
+      "outputs": [
+        "block3_dw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block3_dw_activation"
+      ],
+      "released_after": [
+        "block2_pool",
+        "block3_dw_activation.bias",
+        "block3_dw_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "block3_dw_activation",
+        "block3_pw_activation.weight",
+        "block3_pw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block3_pool",
+        "block3_pw_activation",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block3_dw_activation",
+        "block3_pw_activation",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block3_pw_activation",
+      "node_id": "block3_pw_activation",
+      "op_type": "Conv",
+      "order": 8,
+      "outputs": [
+        "block3_pw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block3_pw_activation"
+      ],
+      "released_after": [
+        "block3_dw_activation",
+        "block3_pw_activation.bias",
+        "block3_pw_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "block3_pw_activation"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block3_pool",
+        "block4_dw_activation",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block3_pool",
+        "block3_pw_activation",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block3_pool",
+      "node_id": "block3_pool",
+      "op_type": "MaxPool",
+      "order": 9,
+      "outputs": [
+        "block3_pool"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block3_pool"
+      ],
+      "released_after": [
+        "block3_pw_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "block3_pool",
+        "block4_dw_activation.weight",
+        "block4_dw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block4_dw_activation",
+        "block4_pw_activation",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block3_pool",
+        "block4_dw_activation",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block4_dw_activation",
+      "node_id": "block4_dw_activation",
+      "op_type": "DepthwiseConv",
+      "order": 10,
+      "outputs": [
+        "block4_dw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block4_dw_activation"
+      ],
+      "released_after": [
+        "block3_pool",
+        "block4_dw_activation.bias",
+        "block4_dw_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "block4_dw_activation",
+        "block4_pw_activation.weight",
+        "block4_pw_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block4_pool",
+        "block4_pw_activation",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block4_dw_activation",
+        "block4_pw_activation",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block4_pw_activation",
+      "node_id": "block4_pw_activation",
+      "op_type": "Conv",
+      "order": 11,
+      "outputs": [
+        "block4_pw_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block4_pw_activation"
+      ],
+      "released_after": [
+        "block4_dw_activation",
+        "block4_pw_activation.bias",
+        "block4_pw_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "block4_pw_activation"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "block4_pool",
+        "classifier_activation",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "live_before": [
+        "block4_pool",
+        "block4_pw_activation",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "block4_pool",
+      "node_id": "block4_pool",
+      "op_type": "MaxPool",
+      "order": 12,
+      "outputs": [
+        "block4_pool"
+      ],
+      "placement": "pl",
+      "produced": [
+        "block4_pool"
+      ],
+      "released_after": [
+        "block4_pw_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "block4_pool",
+        "classifier_activation.weight",
+        "classifier_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "classifier_activation"
+      ],
+      "live_before": [
+        "block4_pool",
+        "classifier_activation",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ],
+      "metadata_only": false,
+      "name": "classifier_activation",
+      "node_id": "classifier_activation",
+      "op_type": "Conv",
+      "order": 13,
+      "outputs": [
+        "classifier_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "classifier_activation"
+      ],
+      "released_after": [
+        "block4_pool",
+        "classifier_activation.bias",
+        "classifier_activation.weight"
+      ]
+    }
+  ],
+  "schema": "e1-graph-plan-1",
+  "serial_policy": "stable_topological_order_no_independent_reordering",
+  "stats": {
+    "compute_nodes": 14,
+    "dead_tensors": [],
+    "host_nodes": 0,
+    "max_live_tensors": 20,
+    "metadata_nodes": 0,
+    "nodes": 14,
+    "tensors": 35,
+    "total_live_tensor_steps": 149
+  },
+  "terminal_order": 14
+}

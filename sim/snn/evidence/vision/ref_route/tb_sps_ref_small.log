@@ -1,0 +1,313 @@
+# vsim -c -work work tb_sps_ref_small -l D:/dl_snn/build/spikformer/vision_ref_20261031/sim/tb_sps_ref_small.log -do "run 100ms; quit -f" 
+# Start time: 16:06:07 on Oct 31,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2685) [TFMPC] - Too few port connections for 'u_enc'.  Expected 15, found 14.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'o_beat_last'.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2685) [TFMPC] - Too few port connections for 'u_ctrl'.  Expected 65, found 64.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2718) [TFMPC] - Missing connection for port 'o_dbg_c2w'.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 447 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 432 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 463 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 448 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 479 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 464 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 495 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 480 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 511 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 496 of part-select into 'idata' is out of bounds.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=14.
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sps_ref_small(fast)
+# run 100ms
+# EXPB0 3 0 3 3 3 3 0 0
+# ENCPSUM pos=0 oc=0 psum=2979
+# ENCPSUM pos=0 oc=1 psum=681
+# ENCPSUM pos=0 oc=2 psum=-428
+# ENCPSUM pos=0 oc=3 psum=1188
+# ENCPSUM pos=0 oc=4 psum=401
+# ENCPSUM pos=0 oc=5 psum=8308
+# ENCPSUM pos=0 oc=6 psum=15182
+# ENCPSUM pos=0 oc=7 psum=-2378
+# ENCBEAT n=0 data=3fcf
+# ENCPSUM pos=0 oc=8 psum=10736
+# ENCPSUM pos=0 oc=9 psum=-2432
+# ENCPSUM pos=0 oc=10 psum=9306
+# ENCPSUM pos=0 oc=11 psum=13385
+# ENCPSUM pos=0 oc=12 psum=2427
+# ENCPSUM pos=0 oc=13 psum=-3306
+# ENCPSUM pos=0 oc=14 psum=-2550
+# ENCPSUM pos=0 oc=15 psum=10029
+# ENCBEAT n=1 data=c3f3
+# ENCPSUM pos=1 oc=0 psum=4750
+# ENCPSUM pos=1 oc=1 psum=-4536
+# ENCPSUM pos=1 oc=2 psum=8747
+# ENCPSUM pos=1 oc=3 psum=6492
+# ENCBEAT n=2 data=30f3
+# ENCBEAT n=3 data=00c3
+# ENCBEAT n=4 data=3033
+# ENCBEAT n=5 data=f0f3
+# ENCBEAT n=6 data=33e3
+# ENCBEAT n=7 data=f0c3
+# ARRRES t=154565000 pos=0 grp=0 first=1 last=0 data=fffd6fffeb7ffe67fff33fffc2fffe14000b80005c00010800084000a000050ffff0ffff84000580002c
+# ARRRES t=154795000 pos=1 grp=0 first=1 last=0 data=fffc2fffe17fff7bfffbdfffdf7ffefbfff89fffc4fffbb7ffdd80026c0013600020800104000940004a
+# ARRRES t=155025000 pos=2 grp=0 first=1 last=0 data=fffd67ffeb3fff75fffbafffb5fffdaffff4dfffa6fffd57ffea80018a000c5ffff47fffa0000540002a
+# ARRRES t=155255000 pos=3 grp=0 first=1 last=0 data=0003e8001f40005000028fff8b7ffc5bffff3ffff9fffedffff6c001360009b00028000143ffff9ffffc
+# ARRRES t=155845000 pos=4 grp=0 first=1 last=0 data=fff9e7ffcf3ffe93fff49ffff97fffcbfff33fff990004b80025c0006e00037fff87fffc3c00188000c4
+# ARRRES t=156075000 pos=5 grp=0 first=1 last=0 data=fff877ffc3bfffb9fffdc00026000133ffe87fff43fffe8ffff4400146000a3ffff87fffc0000a200051
+# ARRRES t=156305000 pos=6 grp=0 first=1 last=0 data=fff98fffcc7fff7ffffbffffe2ffff17ffe27fff13ffff17fff8800162000b1fffc17ffe080006c00036
+# ARRRES t=156535000 pos=7 grp=0 first=1 last=0 data=ffffa7fffd3fffcffffe7fffcdfffe6fffec9fff64fffe8ffff4400164000b2ffffa7fffd3fffe7ffff3
+# ARRRES t=157125000 pos=8 grp=0 first=1 last=0 data=fffa57ffcf3fff61fff85000348000cc00015ffff3000338002080005a00056fffd0ffff1c0006e00019
+# ARRRES t=157355000 pos=9 grp=0 first=1 last=0 data=fffc67ffd67fffe1fffdb0006b00037800041fffe7ffff80000340028800123fffc1fffda4000400003f
+# ARRRES t=157585000 pos=10 grp=0 first=1 last=0 data=fffbefffe280002800001000270000b7fff93fff92fffc8fffe04001f2000bbfffcc7ffe0c0006800068
+# ARRRES t=157815000 pos=11 grp=0 first=1 last=0 data=0000d80006c0006800034ffff57fffabfffd5fffeafffc77ffe3800270001380003180018ffff1dfff8e
+# PSUMBEAT pos=0 grp=0 data=00f2
+# PSUMBEAT pos=1 grp=0 data=0ff0
+# PSUMBEAT pos=2 grp=0 data=03f0
+# PSUMBEAT pos=3 grp=0 data=cfb0
+# FLUSH g=0 fpr=0 k=1 data=000000000000000000000000xxxxxx02
+# FLUSH g=0 fpr=0 k=2 data=000000000000000000000000xxxxxx00
+# FLUSH g=0 fpr=0 k=3 data=000000000000000000000000xxxxxxff
+# FLUSH g=0 fpr=0 k=4 data=000000000000000000000000xxxxxxbf
+# FLUSH g=0 fpr=0 k=5 data=000000000000000000000000xxxxxxfc
+# FLUSH g=0 fpr=0 k=6 data=000000000000000000000000xxxxxxcc
+# FLUSH g=0 fpr=0 k=7 data=000000000000000000000000xxxxxx00
+# PSUMBEAT pos=4 grp=0 data=0cc3
+# PSUMBEAT pos=5 grp=0 data=0ff0
+# PSUMBEAT pos=6 grp=0 data=0bf0
+# PSUMBEAT pos=7 grp=0 data=0ef0
+# FLUSH g=0 fpr=1 k=1 data=000000000000000000000000xxxxxx03
+# FLUSH g=0 fpr=1 k=2 data=000000000000000000000000xxxxxx00
+# FLUSH g=0 fpr=1 k=3 data=000000000000000000000000xxxxxxfc
+# FLUSH g=0 fpr=1 k=4 data=000000000000000000000000xxxxxxff
+# FLUSH g=0 fpr=1 k=5 data=000000000000000000000000xxxxxxbc
+# FLUSH g=0 fpr=1 k=6 data=000000000000000000000000xxxxxxef
+# FLUSH g=0 fpr=1 k=7 data=000000000000000000000000xxxxxx00
+# PSUMBEAT pos=8 grp=0 data=0cd3
+# PSUMBEAT pos=9 grp=0 data=0ff0
+# PSUMBEAT pos=10 grp=0 data=0ff0
+# PSUMBEAT pos=11 grp=0 data=0ff0
+# FLUSH g=0 fpr=2 k=1 data=000000000000000000000000xxxxxx03
+# FLUSH g=0 fpr=2 k=2 data=000000000000000000000000xxxxxx00
+# FLUSH g=0 fpr=2 k=3 data=000000000000000000000000xxxxxxfd
+# FLUSH g=0 fpr=2 k=4 data=000000000000000000000000xxxxxxff
+# FLUSH g=0 fpr=2 k=5 data=000000000000000000000000xxxxxxfc
+# FLUSH g=0 fpr=2 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=0 fpr=2 k=7 data=000000000000000000000000xxxxxx00
+# PSUMBEAT pos=12 grp=0 data=8cc3
+# PSUMBEAT pos=13 grp=0 data=0cc0
+# PSUMBEAT pos=14 grp=0 data=0cc0
+# PSUMBEAT pos=15 grp=0 data=0c80
+# FLUSH g=1 fpr=0 k=1 data=000000000000000000000000xxxxxx03
+# FLUSH g=1 fpr=0 k=2 data=000000000000000000000000xxxxxx00
+# FLUSH g=1 fpr=0 k=3 data=000000000000000000000000xxxxxx00
+# FLUSH g=1 fpr=0 k=4 data=000000000000000000000000xxxxxxbf
+# FLUSH g=1 fpr=0 k=5 data=000000000000000000000000xxxxxx00
+# FLUSH g=1 fpr=0 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=1 fpr=0 k=7 data=000000000000000000000000xxxxxx00
+# PSUMBEAT pos=0 grp=1 data=ac30
+# PSUMBEAT pos=1 grp=1 data=003c
+# PSUMBEAT pos=2 grp=1 data=0f3c
+# PSUMBEAT pos=3 grp=1 data=003c
+# FLUSH g=1 fpr=1 k=1 data=000000000000000000000000xxxxxx00
+# FLUSH g=1 fpr=1 k=2 data=000000000000000000000000xxxxxxfc
+# FLUSH g=1 fpr=1 k=3 data=000000000000000000000000xxxxxxff
+# FLUSH g=1 fpr=1 k=4 data=000000000000000000000000xxxxxx00
+# FLUSH g=1 fpr=1 k=5 data=000000000000000000000000xxxxxx30
+# FLUSH g=1 fpr=1 k=6 data=000000000000000000000000xxxxxx33
+# FLUSH g=1 fpr=1 k=7 data=000000000000000000000000xxxxxx02
+# PSUMBEAT pos=4 grp=1 data=fc30
+# PSUMBEAT pos=5 grp=1 data=cf33
+# PSUMBEAT pos=6 grp=1 data=3c30
+# PSUMBEAT pos=7 grp=1 data=3fb0
+# FLUSH g=1 fpr=2 k=1 data=000000000000000000000000xxxxxx0c
+# FLUSH g=1 fpr=2 k=2 data=000000000000000000000000xxxxxx00
+# FLUSH g=1 fpr=2 k=3 data=000000000000000000000000xxxxxxff
+# FLUSH g=1 fpr=2 k=4 data=000000000000000000000000xxxxxx80
+# FLUSH g=1 fpr=2 k=5 data=000000000000000000000000xxxxxxcc
+# FLUSH g=1 fpr=2 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=1 fpr=2 k=7 data=000000000000000000000000xxxxxxf3
+# PSUMBEAT pos=8 grp=1 data=fc30
+# PSUMBEAT pos=9 grp=1 data=0f38
+# PSUMBEAT pos=10 grp=1 data=3c70
+# PSUMBEAT pos=11 grp=1 data=0ff0
+# FLUSH g=1 fpr=3 k=1 data=000000000000000000000000xxxxxx00
+# FLUSH g=1 fpr=3 k=2 data=000000000000000000000000xxxxxx08
+# FLUSH g=1 fpr=3 k=3 data=000000000000000000000000xxxxxxff
+# FLUSH g=1 fpr=3 k=4 data=000000000000000000000000xxxxxxd0
+# FLUSH g=1 fpr=3 k=5 data=000000000000000000000000xxxxxxcc
+# FLUSH g=1 fpr=3 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=1 fpr=3 k=7 data=000000000000000000000000xxxxxx33
+# PSUMBEAT pos=12 grp=1 data=fc00
+# PSUMBEAT pos=13 grp=1 data=fc02
+# PSUMBEAT pos=14 grp=1 data=fc13
+# PSUMBEAT pos=15 grp=1 data=fc02
+# FLUSH g=2 fpr=0 k=1 data=000000000000000000000000xxxxxxb8
+# FLUSH g=2 fpr=0 k=2 data=000000000000000000000000xxxxxx00
+# FLUSH g=2 fpr=0 k=3 data=000000000000000000000000xxxxxx10
+# FLUSH g=2 fpr=0 k=4 data=000000000000000000000000xxxxxx00
+# FLUSH g=2 fpr=0 k=5 data=000000000000000000000000xxxxxx00
+# FLUSH g=2 fpr=0 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=2 fpr=0 k=7 data=000000000000000000000000xxxxxxff
+# PSUMBEAT pos=0 grp=2 data=0cfc
+# PSUMBEAT pos=1 grp=2 data=2ff0
+# PSUMBEAT pos=2 grp=2 data=0ce0
+# PSUMBEAT pos=3 grp=2 data=2c30
+# FLUSH g=2 fpr=1 k=1 data=000000000000000000000000xxxxxx00
+# FLUSH g=2 fpr=1 k=2 data=000000000000000000000000xxxxxx03
+# FLUSH g=2 fpr=1 k=3 data=000000000000000000000000xxxxxxef
+# FLUSH g=2 fpr=1 k=4 data=000000000000000000000000xxxxxx3f
+# FLUSH g=2 fpr=1 k=5 data=000000000000000000000000xxxxxx0c
+# FLUSH g=2 fpr=1 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=2 fpr=1 k=7 data=000000000000000000000000xxxxxx88
+# PSUMBEAT pos=4 grp=2 data=0cff
+# PSUMBEAT pos=5 grp=2 data=0cf0
+# PSUMBEAT pos=6 grp=2 data=0c33
+# PSUMBEAT pos=7 grp=2 data=0cb0
+# FLUSH g=2 fpr=2 k=1 data=000000000000000000000000xxxxxx33
+# FLUSH g=2 fpr=2 k=2 data=000000000000000000000000xxxxxx03
+# FLUSH g=2 fpr=2 k=3 data=000000000000000000000000xxxxxxff
+# FLUSH g=2 fpr=2 k=4 data=000000000000000000000000xxxxxx8f
+# FLUSH g=2 fpr=2 k=5 data=000000000000000000000000xxxxxx00
+# FLUSH g=2 fpr=2 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=2 fpr=2 k=7 data=000000000000000000000000xxxxxx00
+# PSUMBEAT pos=8 grp=2 data=0cff
+# PSUMBEAT pos=9 grp=2 data=0cf2
+# PSUMBEAT pos=10 grp=2 data=0cf3
+# PSUMBEAT pos=11 grp=2 data=0cc0
+# FLUSH g=2 fpr=3 k=1 data=000000000000000000000000xxxxxx3b
+# FLUSH g=2 fpr=3 k=2 data=000000000000000000000000xxxxxx03
+# FLUSH g=2 fpr=3 k=3 data=000000000000000000000000xxxxxx3f
+# FLUSH g=2 fpr=3 k=4 data=000000000000000000000000xxxxxxff
+# FLUSH g=2 fpr=3 k=5 data=000000000000000000000000xxxxxx00
+# FLUSH g=2 fpr=3 k=6 data=000000000000000000000000xxxxxxff
+# FLUSH g=2 fpr=3 k=7 data=000000000000000000000000xxxxxx00
+# PSUMBEAT pos=12 grp=2 data=3cff
+# PSUMBEAT pos=13 grp=2 data=7cf3
+# PSUMBEAT pos=14 grp=2 data=3cf3
+# PSUMBEAT pos=15 grp=2 data=3080
+# FLUSH g=3 fpr=0 k=1 data=000000000000000000000000xxxxxx3f
+# FLUSH g=3 fpr=0 k=2 data=000000000000000000000000xxxxxx03
+# FLUSH g=3 fpr=0 k=3 data=000000000000000000000000xxxxxx3f
+# FLUSH g=3 fpr=0 k=4 data=000000000000000000000000xxxxxxbf
+# FLUSH g=3 fpr=0 k=5 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=0 k=6 data=000000000000000000000000xxxxxx3f
+# FLUSH g=3 fpr=0 k=7 data=000000000000000000000000xxxxxxff
+# PSUMBEAT pos=0 grp=3 data=033c
+# PSUMBEAT pos=1 grp=3 data=030c
+# PSUMBEAT pos=2 grp=3 data=030c
+# PSUMBEAT pos=3 grp=3 data=c30f
+# FLUSH g=3 fpr=1 k=1 data=000000000000000000000000xxxxxxc0
+# FLUSH g=3 fpr=1 k=2 data=000000000000000000000000xxxxxxff
+# FLUSH g=3 fpr=1 k=3 data=000000000000000000000000xxxxxx03
+# FLUSH g=3 fpr=1 k=4 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=1 k=5 data=000000000000000000000000xxxxxxff
+# FLUSH g=3 fpr=1 k=6 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=1 k=7 data=000000000000000000000000xxxxxx00
+# PSUMBEAT pos=4 grp=3 data=330c
+# PSUMBEAT pos=5 grp=3 data=032c
+# PSUMBEAT pos=6 grp=3 data=030c
+# PSUMBEAT pos=7 grp=3 data=030c
+# FLUSH g=3 fpr=2 k=1 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=2 k=2 data=000000000000000000000000xxxxxxff
+# FLUSH g=3 fpr=2 k=3 data=000000000000000000000000xxxxxx08
+# FLUSH g=3 fpr=2 k=4 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=2 k=5 data=000000000000000000000000xxxxxxff
+# FLUSH g=3 fpr=2 k=6 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=2 k=7 data=000000000000000000000000xxxxxx03
+# PSUMBEAT pos=8 grp=3 data=330c
+# PSUMBEAT pos=9 grp=3 data=230c
+# PSUMBEAT pos=10 grp=3 data=030c
+# PSUMBEAT pos=11 grp=3 data=030c
+# FLUSH g=3 fpr=3 k=1 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=3 k=2 data=000000000000000000000000xxxxxxff
+# FLUSH g=3 fpr=3 k=3 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=3 k=4 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=3 k=5 data=000000000000000000000000xxxxxxff
+# FLUSH g=3 fpr=3 k=6 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=3 k=7 data=000000000000000000000000xxxxxx0b
+# PSUMBEAT pos=12 grp=3 data=330c
+# PSUMBEAT pos=13 grp=3 data=030c
+# PSUMBEAT pos=14 grp=3 data=230c
+# PSUMBEAT pos=15 grp=3 data=300c
+# FLUSH g=3 fpr=4 k=1 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=4 k=2 data=000000000000000000000000xxxxxxff
+# FLUSH g=3 fpr=4 k=3 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=4 k=4 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=4 k=5 data=000000000000000000000000xxxxxx3f
+# FLUSH g=3 fpr=4 k=6 data=000000000000000000000000xxxxxx00
+# FLUSH g=3 fpr=4 k=7 data=000000000000000000000000xxxxxxe3
+# BEATDUMP beat0 got=0000111111110011
+# BEATDUMP beat1 got=1010110011111111
+# BEATFAIL beat1 lane3 t0 got=1 want=0 (full=1010110011111111)
+# BEATFAIL beat1 lane3 t1 got=1 want=0 (full=1010110011111111)
+# BEATFAIL beat1 lane4 t0 got=0 want=1 (full=1010110011111111)
+# BEATFAIL beat1 lane4 t1 got=0 want=1 (full=1010110011111111)
+# BEATFAIL beat1 lane6 t0 got=0 want=1 (full=1010110011111111)
+# BEATFAIL beat1 lane7 t0 got=0 want=1 (full=1010110011111111)
+# BEATDUMP beat2 got=1111111111111110
+# BEATFAIL beat2 lane0 t0 got=0 want=1 (full=1111111111111110)
+# BEATFAIL beat2 lane6 t0 got=1 want=0 (full=1111111111111110)
+# BEATFAIL beat2 lane7 t0 got=1 want=0 (full=1111111111111110)
+# BEATFAIL beat2 lane7 t1 got=1 want=0 (full=1111111111111110)
+# BEATDUMP beat3 got=0111111111111111
+# BEATFAIL beat3 lane0 t0 got=1 want=0 (full=0111111111111111)
+# BEATFAIL beat3 lane0 t1 got=1 want=0 (full=0111111111111111)
+# BEATFAIL beat3 lane3 t0 got=1 want=0 (full=0111111111111111)
+# BEATFAIL beat3 lane3 t1 got=1 want=0 (full=0111111111111111)
+# BEATFAIL beat3 lane5 t0 got=1 want=0 (full=0111111111111111)
+# BEATFAIL beat3 lane5 t1 got=1 want=0 (full=0111111111111111)
+# BEATFAIL beat3 lane7 t0 got=1 want=0 (full=0111111111111111)
+# BEATFAIL beat5 lane3 t0 got=1 want=0 (full=0000111111111100)
+# BEATFAIL beat5 lane6 t0 got=0 want=1 (full=0000111111111100)
+# BEATFAIL beat5 lane6 t1 got=0 want=1 (full=0000111111111100)
+# BEATFAIL beat6 lane6 t0 got=1 want=0 (full=1111110011110011)
+# BEATFAIL beat6 lane7 t0 got=1 want=0 (full=1111110011110011)
+# BEATFAIL beat6 lane7 t1 got=1 want=0 (full=1111110011110011)
+# BEATFAIL beat7 lane2 t0 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat7 lane2 t1 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat7 lane3 t0 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat7 lane3 t1 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat7 lane5 t0 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat7 lane5 t1 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat7 lane6 t0 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat7 lane6 t1 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat8 lane1 t0 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat8 lane1 t1 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat8 lane6 t0 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat8 lane6 t1 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat8 lane7 t0 got=1 want=0 (full=1111111111111111)
+# BEATFAIL beat9 lane0 t0 got=1 want=0 (full=1111111100111011)
+# BEATFAIL beat10 lane6 t0 got=0 want=1 (full=0000110011111111)
+# BEATFAIL beat10 lane6 t1 got=0 want=1 (full=0000110011111111)
+# BEATFAIL beat10 lane7 t0 got=0 want=1 (full=0000110011111111)
+# BEATFAIL beat11 lane2 t1 got=1 want=0 (full=0011001100101100)
+# BEATFAIL beat12 lane0 t0 got=1 want=0 (full=0011111111110011)
+# BEATFAIL beat12 lane0 t1 got=1 want=0 (full=0011111111110011)
+# BEATFAIL beat12 lane6 t0 got=1 want=0 (full=0011111111110011)
+# BEATFAIL beat12 lane6 t1 got=1 want=0 (full=0011111111110011)
+# BEATFAIL beat13 lane0 t0 got=0 want=1 (full=0011111111110000)
+# BEATFAIL beat13 lane0 t1 got=0 want=1 (full=0011111111110000)
+# BEATFAIL beat13 lane7 t0 got=0 want=1 (full=0011111111110000)
+# BEATFAIL beat13 lane7 t1 got=0 want=1 (full=0011111111110000)
+# BEATFAIL beat14 lane6 t0 got=0 want=1 (full=0000110011110011)
+# BEATFAIL beat14 lane6 t1 got=0 want=1 (full=0000110011110011)
+# BEATFAIL beat15 lane6 t0 got=0 want=1 (full=0000001100001100)
+# BEATFAIL beat15 lane6 t1 got=0 want=1 (full=0000001100001100)
+# FAILURES=53 tb_sps_ref_small
+# ** Note: $finish    : D:/dl_snn/verification/sim/spikformer/tb_sps_ref_small.v(160)
+#    Time: 254835 ns  Iteration: 2  Instance: /tb_sps_ref_small
+# End time: 16:06:08 on Oct 31,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 14

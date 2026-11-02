@@ -1,0 +1,37 @@
+{
+  "schema": "e1-compute-profile-1",
+  "name": "tn8",
+  "part": "xczu15eg-ffvb1156-2-i",
+  "clock_period_ns": 5,
+  "tn": 8,
+  "tm": 8,
+  "mac_impl": 3,
+  "weight_mode": 0,
+  "capacity_limit": {
+    "max_w": 32,
+    "max_cin": 16,
+    "max_cout": 16,
+    "max_ch": 16
+  },
+  "budget": {
+    "dsp_array_estimate": 288,
+    "dsp_total_max": 3528,
+    "lut_max": 341280,
+    "ff_max": 682560,
+    "lutram_max": 184320,
+    "bram36_equiv_max": 744,
+    "uram_max": 112
+  },
+  "default_status": "unverified",
+  "historical_evidence": [
+    {
+      "ref": "build/onnx_e1/e1p4_opt_20261022_095822/revisions/q_qualification_20261022_2047/q2/physical_attempt1.json",
+      "scope": "Frozen Q candidate B (MAX 16/16/16/W32, Tn8/Tm8, MAC_IMPL=3, DDR weights, old operator set) attempt1 physical PASS; does not cover the new source set, new graphs or Resize/Pool5; Q stage_complete=false."
+    },
+    {
+      "ref": "docs/E1_P4_OPT_W2_W4_DELIVERY_20261022_110503.md",
+      "scope": "Historical 8x8/MAC3/DDR 5 ns evidence on the frozen source set; array estimate only, whole-IP resources were measured in that run."
+    }
+  ],
+  "internal": false
+}

@@ -1,0 +1,289 @@
+{
+ "schema": "spikformer-nlp-integer-contract-1",
+ "run_id": "build/spikformer/nlp_48h_20261029_1915",
+ "frozen_at": "2026-10-29T19:30:00+08:00",
+ "task": "docs/SPIKFORMER_NLP_48H_HANDOFF_20261029.md",
+ "status": "frozen-draft (Lead); changes require contract revision + revalidation of affected gates",
+ "scope_note": "This is a named Spikformer NLP integer variant, NOT bit-identical to upstream Spikformer: no softmax, unnormalized AV, no BN/LayerNorm, exactly two added branch-output LIFs (proj, fc2).",
+ "model": {
+  "E": 128,
+  "heads": 4,
+  "head_dim": 32,
+  "seq_len": 32,
+  "mlp_hidden": 512,
+  "depth": 2,
+  "time_steps": 4,
+  "batch": 1,
+  "vocab_size": 4000,
+  "num_classes": 2,
+  "family": "spikformer-nlp-sentiment"
+ },
+ "target": {
+  "part": "xczu15eg-ffvb1156-2-i",
+  "tool": "Vivado 2021.1",
+  "period_ns": 5,
+  "clock_mhz": 200,
+  "timing_exceptions": "none; no downclock"
+ },
+ "dataflow": [
+  "etab[id] + ptab[pos] -> LIF(thr_e) -> spike[t]",
+  "block: Q/K/V linear+bias -> LIF(q/k/v); per head & per t QK popcount (AND, no /head_dim) -> score; AV[a][t] = sum_j score[i][j][t]*V[j][a][t] (unnormalized); proj(AV) -> LIF(proj); residual add; fc1 -> LIF(fc1); fc2 -> LIF(fc2); residual add",
+  "head: PL per-channel sum over T*N -> PS divide T*N -> FP32 Linear+bias -> argmax"
+ ],
+ "numeric": {
+  "weights": "signed int8, per-tensor symmetric scale = maxabs/127; zero scale -> 1.0; range [-127,127]",
+  "bias": "signed int32 in the integer accumulator domain",
+  "accum": "signed 32-bit for every linear stage; bounds checked at export time against actual tensors",
+  "mul_inputs": {
+   "residual": "uint4 (RW=4)",
+   "av": "uint11",
+   "spike": "uint1",
+   "weight": "int8"
+  },
+  "rw_alloc_bits": 4,
+  "res_bits_min_required": 3,
+  "residual_bounds": {
+   "embed_spike": 1,
+   "per_block_add": 2,
+   "depth2_worst": 5,
+   "formula": "1 + 2*depth"
+  },
+  "lif": {
+   "tau": 2,
+   "add_width_bits": 33,
+   "add_semantics": "sign-extend pre and delta to 33 bit BEFORE add; never wrap at 32 bit",
+   "mem": "arith_shift_right_floor(pre+delta, 1)",
+   "spike": "valid && mem >= 0 && mem >= thr",
+   "reset": "hard reset to 0 on spike",
+   "init": "pre=0 at t=0 of every token/channel; no leak across tokens/samples/blocks",
+   "thr_min": 1
+  },
+  "lif_placements": [
+   "embed",
+   "q",
+   "k",
+   "v",
+   "proj",
+   "fc1",
+   "fc2"
+  ],
+  "lif_placements_forbidden_this_batch": [
+   "post_AV attn_lif",
+   "BN",
+   "softmax",
+   "LayerNorm"
+  ],
+  "qk": {
+   "sum_w_bits": 6,
+   "max_score": 32,
+   "per": "head dim 32 AND-popcount, per t, same head; no division"
+  },
+  "av": {
+   "bits_required": 11,
+   "max": 1024,
+   "formula": "sum over 32 source tokens of score(0..32) * V_spike(0/1)"
+  },
+  "linear_bounds_checked_at_export": {
+   "qkv": {
+    "pos": 16256,
+    "neg": -16256,
+    "plus_bias": true,
+    "note": "pos/neg above are for block0 spike input (0/1). Block>0 input is the previous residual (max 3 at block1 input for depth2): worst qkv = 3*127*128=48768 / -3*128*128=-49152, still int32. The exporter must compute the actual per-block bound from the real input domain and bias and error if int32 is exceeded; the fixed numbers here are contract sanity minima."
+   },
+   "proj": {
+    "pos": 16646144,
+    "neg": -16777216,
+    "plus_bias": true,
+    "note": "AV max 1024 x weight 127/ -128 x 128 inputs"
+   },
+   "fc1": {
+    "pos": 81280,
+    "neg": -81920,
+    "plus_bias": true,
+    "note": "residual max 5"
+   },
+   "fc2": {
+    "pos": 65024,
+    "neg": -65536,
+    "plus_bias": true,
+    "note": "fc1 spike 0/1 x 512 hidden"
+   }
+  },
+  "head": {
+   "pl": "uint32 per-channel sum over T*N=128 samples; no divide in PL",
+   "ps": "x/(T*N) in FP32 then W@x+b then argmax",
+   "no_folded_branch": true
+  },
+  "mask": "none (fixed seq 32); PAD=0, UNK=1 are ordinary ids, no mask, no zero-spike guarantee",
+  "downshift_policy": "no low-bit truncation of continuous accumulators into the residual; LIF outputs feed residuals"
+ },
+ "hardware_abi": {
+  "top_module": "spikformer_nlp_top",
+  "notes": "Ports frozen 2026-10-29 19:40 by Lead after contract read; replay TBs, generated target adapter and all RTL owners must match exactly. o_out_valid may be registered but must be valid only with stable data; handshake is valid&&ready.",
+  "sample_sequence": [
+   "i_start single-cycle pulse (top then leaves reset-like idle state? no: weights persist not guaranteed, full reload per sample)",
+   "i_tab_*: 64-bit words; etab row-major V*E bytes (V*E/8 beats), then ptab row-major N*E bytes (N*E/8 beats)",
+   "i_tok_*: N beats of 16-bit token id",
+   "per block b=0..DEPTH-1: 4 descriptor beats then WBEATS weight beats (see below), then top runs block b, expects 512 block-in beats produced internally from captured spikes, collects 512 block-out beats",
+   "head sum; o_sums_valid + o_done"
+  ],
+  "descriptor_beats_64b": [
+   "beat0 = {thr_q[31:0], thr_k[31:0]} (each signed int32)",
+   "beat1 = {thr_v[31:0], thr_proj[31:0]}",
+   "beat2 = {thr_fc1[31:0], thr_fc2[31:0]}",
+   "beat3 = {32'h0, thr_e[31:0]}; meaningful only for block 0, ignored for b>0"
+  ],
+  "block_weight_stream_order": [
+   "q_w E*E/8",
+   "k_w E*E/8",
+   "v_w E*E/8",
+   "proj_w E*E/8",
+   "q_b E/2",
+   "k_b E/2",
+   "v_b E/2",
+   "proj_b E/2",
+   "fc1_w HIDDEN*E/8",
+   "fc1_b HIDDEN/2",
+   "fc2_w E*HIDDEN/8",
+   "fc2_b E/2"
+  ],
+  "weight_beat_format": "64-bit = 8 consecutive signed int8 in row-major [out][in] order",
+  "bias_beat_format": "64-bit = {bias[2m+1][31:0], bias[2m][31:0]} signed int32; NOT a 20-bit field",
+  "beats_per_block_weights": {
+   "E": 128,
+   "HIDDEN": 512,
+   "total": 25152
+  },
+  "handshake": "one beat consumed iff valid && ready in the same cycle; payload stable while stalled; counters advance only on valid&&ready; no ready-ahead-of-valid implicit contract",
+  "block_in_out_beat_format": "TL=8 lanes x T=4 timeslices x RW=4 bits = 128 bit; lane-major {(a*T+tt+1)*RW-1 -: RW}",
+  "top_ports": [
+   "i_start",
+   "o_done",
+   "i_tab_*",
+   "i_tok_*",
+   "i_w_*",
+   "o_sums[E] uint32",
+   "o_sums_valid"
+  ],
+  "block_sees_only_its_own_thresholds": "current block thresholds loaded from descriptor; stable during its run",
+  "top_ports_exact": [
+   "module spikformer_nlp_top #(parameter int E=128, HEADS=4, HEAD_DIM=32, HIDDEN=512, T=4, TOKENS=32, DEPTH=2, TL=8, TC=8, RW=4, PSUM_SLICE=32, SUM_W=6, LANES=8, VTAB=4000, OW=32)(",
+   "  input logic s_clk, input logic s_rst, input logic i_start, output logic o_done,",
+   "  input logic [63:0] i_tab_data, input logic i_tab_valid, output logic o_tab_ready,",
+   "  input logic [15:0] i_tok_id, input logic i_tok_valid, output logic o_tok_ready,",
+   "  input logic [63:0] i_w_data, input logic i_w_valid, output logic o_w_ready,",
+   "  output logic [OW-1:0] o_sums [E], output logic o_sums_valid );"
+  ],
+  "block_ports_exact": [
+   "module spiking_block_top #(parameter int E=128, HEADS=4, HEAD_DIM=32, HIDDEN=512, T=4, TOKENS=32, TL=8, TC=8, RW=4, W=8, PSUM_SLICE=32, SUM_W=6)(",
+   "  input logic s_clk, input logic s_rst, input logic i_start, output logic o_done,",
+   "  input logic i_in_valid, output logic o_in_ready, input logic [TL*T*RW-1:0] i_in_data,",
+   "  output logic o_out_valid, input logic i_out_ready, output logic [TL*T*RW-1:0] o_out_data, output logic o_out_last,",
+   "  input logic [63:0] i_w_data, input logic i_w_valid, output logic o_w_ready,",
+   "  input logic signed [PSUM_SLICE-1:0] i_thr_q, i_thr_k, i_thr_v, i_thr_proj, i_thr_fc1, i_thr_fc2 );"
+  ],
+  "embed_ports_exact": [
+   "module spiking_embed_top #(parameter int V=4000, N=32, E=128, T=4, LANES=8, ACC_W=32)(",
+   "  input logic s_clk, s_rst, i_start,",
+   "  input logic [63:0] i_tab_data, input logic i_tab_valid, output logic o_tab_ready,",
+   "  output logic o_ld_done,",
+   "  input logic [15:0] i_tok_id, input logic i_tok_valid, output logic o_tok_ready,",
+   "  input logic signed [31:0] i_thr_e,",
+   "  output logic o_beat_valid, input logic i_beat_ready, output logic [LANES*T-1:0] o_beat_data, output logic o_beat_last, output logic o_done );"
+  ],
+  "mlp_ports_exact": [
+   "module spiking_mlp_controller #(parameter int C=128, HIDDEN=512, T=4, RW=4, W=8, PSUM_SLICE=32, TL=8, TC=8)(",
+   "  input logic s_clk, s_rst, i_start, output logic o_done,",
+   "  input logic i_in_valid, input logic [TC*T*RW-1:0] i_in_data, output wire o_in_ready,",
+   "  output wire o_out_valid, input logic i_out_ready, output logic [TL*T*PSUM_SLICE-1:0] o_out_data,",
+   "  input logic [63:0] i_w_data, input logic i_w_valid, output wire o_w_ready, output wire o_w_taken,",
+   "  input logic signed [PSUM_SLICE-1:0] i_thr_hidden );"
+  ],
+  "hierarchical_monitor_names": {
+   "note": "frozen for read-only TB monitors (replay only reads; RTL must keep names)",
+   "embed_instance": "u_emb",
+   "block_instance": "u_blk",
+   "embed_internal_state": "u_emb.st (optional debug)",
+   "block_internal_state": "u_blk.st (optional debug)"
+  },
+  "head_sums_definition": "o_sums[c] = sum over n=0..TOKENS-1, t=0..T-1 of the LAST block's output value out[n][c][t] (RW-bit unsigned residual, 0..1+2*depth); PL does no divide; PS computes x=o_sums/(T*N) then FP32 head W@x+b then argmax. o_sums_valid pulses once per sample together with o_done.",
+  "top_sequencing_detail": "External port order stays EXACTLY tables -> tokens -> per-block descriptor -> per-block weights. Internally spikformer_nlp_top buffers the N token ids, latches thr_e from block0 descriptor beat3, feeds the buffered tokens to u_emb during the block0 weight-load phase (embed encode may overlap block0 weight load), and starts block0 only after BOTH block0 weights are fully accepted AND the embed capture into tbuf is complete. Exactly one encode per sample.",
+  "done_valid_semantics": "o_sums_valid and o_done are LEVEL signals held from sample completion until the next i_start pulse (exactly one assertion per sample); they are not 1-cycle pulses. TBs may sample sums when o_done=1 (and before the next i_start)."
+ },
+ "storage": {
+  "etab": "inferred synchronous-read RAM, 64-bit words, V*E bytes=512000; address = token_id*(E/8)+group; one-cycle read latency with result-hold alignment",
+  "ptab": "same style, N*E bytes=4096",
+  "qkv_proj": "8 banks per matrix (bank=output lane TL), each bank (E/TL)*(E/TC) entries x 64-bit (8 int8 input weights per entry); one 64-bit sync read per bank per cycle; only selected bank written during load",
+  "fc1_fc2": "one 64-bit synchronous-read RAM each (HIDDEN*E=65536 bytes, E*HIDDEN=65536 bytes); sequential beat address from the tile stream; no systolic-array replacement this batch",
+  "small_buffers": "bias/threshold/control/feature caches may stay in registers; large RAMs must have no per-element reset",
+  "av_reduction": "source-token dimension accumulated one token per cycle (one small adder bank), NOT 32 combinational adds per cycle",
+  "tc8_reduce": "balanced adder tree; if a register stage is needed, valid/output-group/input-tile/last-tile travel with it; wait for real completion before firing LIF",
+  "av_shift": "no 32-token serial combinational expansion"
+ },
+ "export_abi": {
+  "checkpoint_npz_required": [
+   "block{b}.{q,k,v,proj,fc1,fc2}_w int8",
+   "block{b}.{q,k,v,proj,fc1,fc2}_b int32",
+   "block{b}.{q,k,v,proj,fc1,fc2}_scale float32",
+   "thr_e int32",
+   "block{b}.{q,k,v,proj,fc1,fc2}_thr int32",
+   "head_w float32[num_classes,E]",
+   "head_b float32[num_classes]",
+   "meta_bn_state",
+   "meta_model_kind",
+   "meta_corpus_sha256",
+   "meta_vocab_sha256"
+  ],
+  "manifest_fields": [
+   "model_kind=real_corpus|development_fixture",
+   "corpus source+archive sha256+split hashes",
+   "vocab sha256+size",
+   "per-tensor scale/shape/range",
+   "all thresholds",
+   "head W/b sha256",
+   "head norm=ps_div",
+   "RTL/source sha256",
+   "structure config + RW/PSUM_SLICE/SUM_W"
+  ],
+  "checkpoint_npz_required_exact": [
+   "etab int8[vocab_size, E]",
+   "ptab int8[seq_len, E]",
+   "thr_e int32 shape (1,)",
+   "block{b}.{q,k,v,proj,fc1,fc2}_w int8 (shape per matrix)",
+   "block{b}.{q,k,v,proj,fc1,fc2}_b int32 (out_dim,)",
+   "block{b}.{q,k,v,proj,fc1,fc2}_scale float32 shape (1,)",
+   "block{b}.{q,k,v,proj,fc1,fc2}_thr int32 shape (1,)",
+   "head_w float32[num_classes, E]",
+   "head_b float32[num_classes]",
+   "meta_bn_state='absent'",
+   "meta_model_kind='real_corpus'",
+   "meta_corpus_sha256",
+   "meta_vocab_sha256",
+   "meta_cfg (JSON string with E,H,HD,N,T,D,MLP,C,vocab_size)"
+  ],
+  "param_blob_mapping": "compile/weights.py maps etab->embed_w, ptab->pos_w RTL blobs; per-block thresholds+scales and head_w/head_b are exported into params/ + manifest so the runtime package binds them (thresholds are streamed as descriptor beats; head stays PS FP32)."
+ },
+ "verification_ladder": [
+  "integer math/interface short tests (one-hot cross token/t, negative accum, popcount=32, AV=1024, LIF threshold edges): PyTorch-quantized forward vs independent NumPy",
+  "small int chain E32/H1/T2/seq4/depth2: one embed->2 blocks->sum replay; two blocks different weights/thresholds; two consecutive samples without global reset",
+  "multi-head short E64/H2/seq4 single block: two heads, distinct spikes, no cross-head leakage (then stop)",
+  "target E128/H4/T4/seq32/depth2: fixed short sentences/different lengths, >=2 consecutive samples, compare every output beat/number/order/last/done; add reproducible input bubbles and output backpressure",
+  "final real params: 1-3 fixed samples, target RTL vs integer golden beat-exact; head logits/class match PS"
+ ],
+ "evidence_policy": {
+  "only_executed_is_pass": true,
+  "not_run_reason_required": true,
+  "fail_on": [
+   "negative WNS",
+   "unit mismatch",
+   "timeout treated as ready",
+   "file existence claimed as pass"
+  ],
+  "old_assets": "old TB results/checkpoints/builds stay in place as historical evidence only"
+ },
+ "physical_path": {
+  "decision_deadline": "H14 (2026-10-30T09:14:46+08:00)",
+  "default": "target OOC if platform bring-up + minimal transport replay not proven by H14",
+  "unexecuted_other_path": "not_run"
+ }
+}

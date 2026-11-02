@@ -1,0 +1,78 @@
+{
+ "gate": "native_sps",
+ "status": "PASS",
+ "date": "2026-10-31",
+ "reproduces": "H=W=32 C0=3 C1=96 C2=384 T=4 LANES=8 TC2=8 RW=4, 64 tokens x 48 groups = 3072 token beats",
+ "dut": "spiking_sps_ref_top",
+ "tb": "verification/sim/spikformer/tb_sps_native.v",
+ "compile_script": "sim_work/vis_sps/compile_ref_native.do (library work_native)",
+ "log": "build/spikformer/vision_ref_20261031/sim/tb_sps_native_imgnative_r4_20261031.log",
+ "compile_log": "build/spikformer/vision_ref_20261031/sim/compile_ref_native_imgnative_r4_20261031.log",
+ "rtl_ctrl_sha256": "728337f10bff4e7d3f3c6a2ec0ea060446b5bc3a07e72182a4ecfeae22c02244",
+ "rtl_hashes": "build/spikformer/vision_ref_20261031/sim/tb_sps_native_imgnative_r4_rtl_hashes.txt",
+ "vectors": {
+  "dir": "build/spikformer/vision_ref_20261031/vectors/sps_native_tc2_8",
+  "meta": {
+   "h": 32,
+   "w": 32,
+   "c0": 3,
+   "c1": 96,
+   "c2": 384,
+   "T": 4,
+   "lanes": 8,
+   "tc2": 8,
+   "thr1": 200,
+   "thr2": 60,
+   "seed": 7,
+   "exp_beats": 3072
+  },
+  "note": "Regenerated with --tc2 8: only w_sched.hex differs from legacy vectors/sps_native (tc2=4); w_ld1/b_ld/pix/exp/w_uniq are byte-identical (sha256 verified). w_uniq is canonical (oc,ic,tap) flattening, NOT the tile stream; host consumes w_sched.",
+  "w_sched_sha256": "0f9e8f6997380938bfe5d69e6070c61c2cef7452d308e6e305e089c42451223e",
+  "legacy_w_sched_sha256": "9ce5b23b66a572f430017d0377bc130baf910a986528cd9d861c4ccbfefcb77d"
+ },
+ "host_stream": {
+  "w_ld1_beats": 324,
+  "bias_beats": 384,
+  "pix_beats": 1024,
+  "w_sched_beats": 41472
+ },
+ "checks": {
+  "beats": 3072,
+  "nibbles": 98304,
+  "nibble_mismatches": 0,
+  "last_on_final_beat": true,
+  "done_sticky": true,
+  "watchdog_cycles": 12000000,
+  "capture_beats": 12288,
+  "capture_order_row_major": true,
+  "flush_rows": 768,
+  "flush_order_row_major": true,
+  "drain_entry_clean": true
+ },
+ "cycles": 5573066,
+ "sim_wall_seconds": 120,
+ "independent_python": {
+  "script": "sim_work/vis_sps/verify_r4_pass_imgnative.py",
+  "summary": "build/spikformer/vision_ref_20261031/sim/tb_sps_native_imgnative_r4_diff_summary.txt",
+  "exact_beats": 3072,
+  "total_hamming_bits": 0,
+  "nibbles_outside_0_1": 0
+ },
+ "invalidated_runs": {
+  "r1prefix": "44360 fails, pre-e6008ad6 ctrl + legacy tc2=4 w_sched, double fault",
+  "r2": "44793 fails, e6008ad6 + legacy tc2=4 w_sched (vector/RTL TC2 mismatch)",
+  "r3": "1142 fails, e6008ad6 flush-preempts-C_C2ROWS bug; vectors already fixed",
+  "tc2_4_control_oldctrl": "512 fails, control run under old ctrl"
+ },
+ "control_run": {
+  "log": "build/spikformer/vision_ref_20261031/sim/tb_sps_native_tc2_4_control2_imgnative_20261031.log",
+  "status": "PASS",
+  "note": "same native geometry with RTL TC2=4 + legacy tc2=4 w_sched under ctrl 728337f1; non-gate corroboration"
+ },
+ "evidence_manifest": "build/spikformer/vision_ref_20261031/sim/tb_sps_native_imgnative_final_evidence_sha256.txt",
+ "not_run": [
+  "native integrated chain (3072 block-out beats + 384 sums + two images): missing block_native vectors/golden; skeleton compile PASS, gate NOT_RUN",
+  "output-side backpressure: no external hook in A-round native top",
+  "OOC synthesis/implementation, platform, board: not in task"
+ ]
+}

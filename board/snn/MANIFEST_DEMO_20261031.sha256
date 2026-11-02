@@ -1,0 +1,6 @@
+# demo assets + snapshot notes added to D:/spk_platform/board after the 2026-10-30 23:18 MANIFEST.sha256
+c76c244fd12f976d67564bf18f7045b1c8683bfacb855eb177882957d77358a5 *demo_nlp.py
+47137902194205b0f752a00fda1f9b296c05b032ed71372fb418df810bf3ae0c *demo_vocab.json
+2cf0e60749aa5c4266126663865cf9e1d6eabf15557a316c2f295e26cc5cc5fc *demo_head.npz
+8a181083d7c14451681682b8482e7436c0efb97aede005b078623928743fd1f5 *demo_samples.json
+3f81fa0a401a291c5ee05eeaeb5e1583a88aed1aed951dbfd24b419d6f6db9a9 *README_SNAPSHOT.md

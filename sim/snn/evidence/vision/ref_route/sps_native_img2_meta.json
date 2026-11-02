@@ -1,0 +1,16 @@
+{
+ "h": 32,
+ "w": 32,
+ "c0": 3,
+ "c1": 96,
+ "c2": 384,
+ "T": 4,
+ "lanes": 8,
+ "thr1": 200,
+ "thr2": 60,
+ "sps_weight_seed": 7,
+ "pix_seed": 99,
+ "note": "second image: same SPS weights as sps_native_tc2_8, different pixels",
+ "pix_beats": 1024,
+ "exp_beats": 3072
+}

@@ -1,0 +1,22 @@
+{
+ "h": 32,
+ "w": 32,
+ "c0": 3,
+ "c1": 96,
+ "c2": 384,
+ "T": 4,
+ "lanes": 8,
+ "tc2": 4,
+ "thr1": 200,
+ "thr2": 60,
+ "seed": 7,
+ "conv1_unique_bytes": 2592,
+ "conv2_unique_bytes": 331776,
+ "bias_unique_bytes": 1920,
+ "bias_beats_21pair": 384,
+ "conv1_beats_64b": 324,
+ "conv2_beats_64b": 41472,
+ "pix_beats": 1024,
+ "exp_beats": 3072,
+ "legacy_w_tiles_replicated_bytes_note": "legacy w_tiles.hex replicates unique conv2 per (pr,pc,g,tile); native uses w_uniq.hex single copy"
+}

@@ -1,0 +1,23 @@
+# Identity snapshot at OOC run start (2026-10-31 ~17:04), read by
+# scripts/spikformer/synth_ooc_vis_native.tcl. sha256 (sha256sum), D:/dl_snn.
+#
+# SPS reference-style RTL == img-p1 frozen functional-gate version
+# (build/spikformer/vision_ref_20261031/sim/tb_sps_native_imgnative_r4_rtl_hashes.txt),
+# verified byte-identical at this snapshot.
+728337f10bff4e7d3f3c6a2ec0ea060446b5bc3a07e72182a4ecfeae22c02244  rtl/ops/spiking/sps/spiking_sps_ref_ctrl.sv
+e0acff5959704501e9c4c0b2027754c94250ac1dc1ac01e72b6f315b6f35cc98  rtl/ops/spiking/sps/spiking_sps_ref_top.sv
+71db5b95e88cb5b88c6c2e65b062871e052a70312f29c9c619f6bdac37375ea0  rtl/ops/spiking/sps/spiking_rgb_encoder.sv
+59b9fa7c29a24e16b678d3fb31c95e99f52fb37febc6d398510a849346ce1c73  rtl/ops/spiking/sps/spiking_eyeriss_array.sv
+8bb4edc29c411caaf0462ed8faad843318e6f74a50d31d46f1d9074ca337d287  rtl/ops/spiking/sps/spiking_sps_psum.sv
+aea8e9a761aa9f98d13b6087da350ecef1ab4961fb294e13ed05b11d5161aa5e  rtl/ops/spiking/sps/spiking_sps_token_adapter.sv
+399939f626a5277cccfc376955eddd6e906286898b7243059df947284c051c7d  rtl/ops/spiking/sps/spiking_feature_bram.sv
+0c64d70d69e9a86a0cf4b2bdfd1f7f2c2b2ec11e11eb5820137f84323274e468  rtl/ops/spiking/sps/spiking_eyeriss_pe.sv
+1c7f14ea78d0786891aa0653eac05a43b59fc2f1e176fbd60eb48d453565fae8  rtl/ops/spiking/sps/spiking_adder_tree.sv
+841df6017e51af858d3b128263b0478fe45cc93093863fbc7423f648759f9d19  rtl/ops/spiking/control/spiking_block_top.sv (unchanged vs task book 2.3)
+6fe26228fea27d5f70fe0f0cca027a5bd1fee9097c3878e27d9b620d1a5c63f9  rtl/ops/spiking/control/spikformer_vis_native_top.sv
+5f32f9fd3e3bd01986b39eaa4aacd5242e10e98853c911847d620d56b45e61f4  rtl/ops/spiking/lif/spiking_lif_group.sv
+44325e517e5f11f7810fdee5257175a1935343bf336dfb061d40a7508f0f1c6f  rtl/ops/spiking/attention/spiking_attention_pe.sv
+59405bfb0c0fe0e4be85085172f8bce94c011bb094abbfecce65afc1033c7729  rtl/ops/spiking/mlp/spiking_mlp_controller.sv
+ec72aceb634c41fefd6745c14d159ef112d54aedc6514b12e11c22309b553b43  rtl/probe/vis_native_probe.sv (new probe)
+# generated config used as the probe's single parameter source:
+# build/spikformer/vis_native/generated/spikformer_config.vh

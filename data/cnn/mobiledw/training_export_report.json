@@ -1,0 +1,106 @@
+{
+  "schema": "mobiledw32-cifar10-training-export-1",
+  "status": "pass",
+  "runtime": {
+    "python": "E:\\miniconda\\envs\\pytorch_clean\\python.exe",
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "onnx": "1.17.0",
+    "onnxruntime": "1.19.2",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "cuda": "12.8"
+  },
+  "training": {
+    "dataset": "CIFAR-10",
+    "train_examples": 45000,
+    "validation_examples": 5000,
+    "test_examples": 10000,
+    "epochs": 50,
+    "batch_size": 256,
+    "learning_rate": 0.002,
+    "weight_decay": 0.0005,
+    "seed": 20261030,
+    "best_validation_accuracy": 0.638,
+    "test_loss": 1.0369008419036865,
+    "test_accuracy": 0.6327,
+    "elapsed_seconds": 73.617
+  },
+  "architecture": {
+    "input_shape": [
+      1,
+      3,
+      32,
+      32
+    ],
+    "classes": [
+      "airplane",
+      "automobile",
+      "bird",
+      "cat",
+      "deer",
+      "dog",
+      "frog",
+      "horse",
+      "ship",
+      "truck"
+    ],
+    "depthwise_blocks": 4,
+    "depthwise_channels": 16,
+    "parameters": 2634,
+    "batchnorm_folded_for_export": true
+  },
+  "pytorch_checkpoint": {
+    "path": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\mobiledw32_cifar10.pt",
+    "sha256": "bcabe3e71f32c6453f2dc37c8b302ec0d60bd51dd48349be669cc05c2647d5a7"
+  },
+  "onnx": {
+    "path": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\mobiledw32_cifar10_fp32.onnx",
+    "opset": 13,
+    "input_shape": [
+      1,
+      3,
+      32,
+      32
+    ],
+    "output_shape": [
+      1,
+      10,
+      1,
+      1
+    ],
+    "operators": [
+      "Conv",
+      "Relu",
+      "Conv",
+      "Relu",
+      "Conv",
+      "Relu",
+      "MaxPool",
+      "Conv",
+      "Relu",
+      "Conv",
+      "Relu",
+      "MaxPool",
+      "Conv",
+      "Relu",
+      "Conv",
+      "Relu",
+      "MaxPool",
+      "Conv",
+      "Relu",
+      "Conv",
+      "Relu",
+      "MaxPool",
+      "Conv"
+    ],
+    "sha256": "3ed03dbff0e1581ec0017725924eb5ef559a0dcd0008465db9320646a4af3b1a",
+    "onnxruntime_max_abs_diff": 0.0018941760063171387,
+    "onnxruntime_mean_abs_diff": 0.0006164476508274674
+  },
+  "sample_input_u8": {
+    "path": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\cifar10_sample_u8.npy",
+    "sha256": "57a2da06ac8ce2dd2dd5ef9143bc7a939dd214894ba2d98595dda1c9e5cbc4af",
+    "label": 3,
+    "class_name": "cat"
+  }
+}

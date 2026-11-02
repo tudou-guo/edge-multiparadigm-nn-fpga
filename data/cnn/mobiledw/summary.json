@@ -1,0 +1,37 @@
+{
+  "schema": "e1-p3-graph-sim-2",
+  "simulator": "modelsim",
+  "simulator_version": "Model Technology ModelSim SE-64 vsim 2020.4 Simulator 2020.10 Oct 13 2020",
+  "functional_replay": true,
+  "status": "pass",
+  "vlog_rc": 0,
+  "sim_rc": 0,
+  "pass_marker": true,
+  "source_unchanged": true,
+  "sim_define": "TB_MAC_IMPL_2,TB_LEAN_FUNC",
+  "seed": 20261030,
+  "board_status": "not_run",
+  "compile_dir": "D:/dl_v1/examples/temp/mobiledw32_cifar10_20261030/artifacts/toolchain_compile_tn4_tm4_dw16_rq2",
+  "result_dir": "D:/dl_v1/examples/temp/mobiledw32_cifar10_20261030/artifacts/modelsim_replay_tn4_tm4_20261030",
+  "tb_params": {
+    "schema": "e1-sim-tb-params-1",
+    "mem_bytes": 262144,
+    "mem_words": 16384,
+    "max_snaps": 64,
+    "snap_chunk": 8192,
+    "watchdog_cycles": 20000000,
+    "source": "compile_generated",
+    "file": "D:/dl_v1/examples/temp/mobiledw32_cifar10_20261030/artifacts/toolchain_compile_tn4_tm4_dw16_rq2/generated/tb_params.vh"
+  },
+  "ddr_init_bytes": 155648,
+  "excluded_xilinx_sources": [
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/conv_mul_dsp.v",
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/dsp_mul_pipe4_sim_netlist.v",
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/conv3x3_calc_dsp.v",
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/signed_int8_dsp2_mac.v"
+  ],
+  "logs": {
+    "vlog": "D:/dl_v1/examples/temp/mobiledw32_cifar10_20261030/artifacts/modelsim_replay_tn4_tm4_20261030/vlog.log",
+    "simulator": "D:/dl_v1/examples/temp/mobiledw32_cifar10_20261030/artifacts/modelsim_replay_tn4_tm4_20261030/simulator.log"
+  }
+}

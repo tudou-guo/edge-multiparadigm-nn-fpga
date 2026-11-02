@@ -1,0 +1,114 @@
+{
+  "schema": "e1-p2-snapshot-manifest-1",
+  "snapshot_count": 9,
+  "snapshots": [
+    {
+      "address": "0x10002000",
+      "bytes": 6272,
+      "golden": "golden/conv1_activation__conv1_activation.bin",
+      "name": "r00_conv1_activation",
+      "node": "conv1_activation",
+      "op": "Conv",
+      "output": "conv1_activation",
+      "record_index": 0,
+      "sha256": "8cc618289c1074b7adae1bacd022a1a78c4571b8d181cdfca8cd14754f7be0ea",
+      "when": "record"
+    },
+    {
+      "address": "0x10000000",
+      "bytes": 1568,
+      "golden": "golden/conv1_pool__conv1_pool.bin",
+      "name": "r01_conv1_pool",
+      "node": "conv1_pool",
+      "op": "MaxPool",
+      "output": "conv1_pool",
+      "record_index": 1,
+      "sha256": "4c4420ab59b8551bbf94634820e7b6478f71f4d58dcdd63d4a8997b760a7b1b7",
+      "when": "record"
+    },
+    {
+      "address": "0x10001000",
+      "bytes": 3136,
+      "golden": "golden/conv2_activation__conv2_activation.bin",
+      "name": "r02_conv2_activation",
+      "node": "conv2_activation",
+      "op": "Conv",
+      "output": "conv2_activation",
+      "record_index": 2,
+      "sha256": "0789d60c79527234826418dee0f07e017337cbf5b0abe190532073a5fb6e1d87",
+      "when": "record"
+    },
+    {
+      "address": "0x10000000",
+      "bytes": 784,
+      "golden": "golden/conv2_pool__conv2_pool.bin",
+      "name": "r03_conv2_pool",
+      "node": "conv2_pool",
+      "op": "MaxPool",
+      "output": "conv2_pool",
+      "record_index": 3,
+      "sha256": "b91ac274435cdb02ed4df0737f790ef5c1537ffb97b9e7667a50ac07e98b9e38",
+      "when": "record"
+    },
+    {
+      "address": "0x10001000",
+      "bytes": 384,
+      "golden": "golden/conv3_activation__conv3_activation.bin",
+      "name": "r04_conv3_activation",
+      "node": "conv3_activation",
+      "op": "Conv",
+      "output": "conv3_activation",
+      "record_index": 4,
+      "sha256": "0aa25abf26e471460b3728208033d164ad9fc8886a33064d921f938654882a1e",
+      "when": "record"
+    },
+    {
+      "address": "0x10000000",
+      "bytes": 128,
+      "golden": "golden/conv4_activation__conv4_activation.bin",
+      "name": "r05_conv4_activation",
+      "node": "conv4_activation",
+      "op": "Conv",
+      "output": "conv4_activation",
+      "record_index": 5,
+      "sha256": "d3a2ec790b9fc1b22c8210d5eaedd9e9219fd9fd5351442a52ac2337370f8e37",
+      "when": "record"
+    },
+    {
+      "address": "0x10001000",
+      "bytes": 32,
+      "golden": "golden/conv4_pool__conv4_pool.bin",
+      "name": "r06_conv4_pool",
+      "node": "conv4_pool",
+      "op": "MaxPool",
+      "output": "conv4_pool",
+      "record_index": 6,
+      "sha256": "3eabf34256a326e4c1cf2b262c4977f2d9aedaa97c22ebd7b0c861944fa5deea",
+      "when": "record"
+    },
+    {
+      "address": "0x10000000",
+      "bytes": 16,
+      "golden": "golden/logits_domain__logits_domain.bin",
+      "name": "r07_logits_domain",
+      "node": "logits_domain",
+      "op": "Conv",
+      "output": "logits_domain",
+      "record_index": 7,
+      "sha256": "1775cb62fb0840b0af9f27b707ffc311eb416a88e08e784afa10a6cbb0c12c00",
+      "when": "record"
+    },
+    {
+      "address": "0x10000000",
+      "bytes": 16,
+      "golden": "golden/output__logits_domain.bin",
+      "name": "final_logits_domain",
+      "node": "logits_domain",
+      "op": "GraphOutput",
+      "output": "logits_domain",
+      "record_index": -1,
+      "sha256": "1775cb62fb0840b0af9f27b707ffc311eb416a88e08e784afa10a6cbb0c12c00",
+      "when": "final"
+    }
+  ]
+}

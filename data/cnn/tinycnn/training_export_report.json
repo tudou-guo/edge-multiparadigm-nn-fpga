@@ -1,0 +1,75 @@
+{
+  "schema": "tinycnn28-mnist-training-export-1",
+  "status": "pass",
+  "runtime": {
+    "python": "3.9.23 | packaged by conda-forge | (main, Jun  4 2025, 17:49:16) [MSC v.1929 64 bit (AMD64)]",
+    "python_executable": "E:\\miniconda\\envs\\pytorch_clean\\python.exe",
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "onnx": "1.17.0",
+    "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "cuda": "12.8",
+    "onnxruntime_check": {
+      "status": "pass",
+      "max_abs_diff": 2.6226043701171875e-06,
+      "mean_abs_diff": 8.344650268554688e-07,
+      "sample_label": 7,
+      "torch_prediction": 7,
+      "onnx_prediction": 7
+    }
+  },
+  "training": {
+    "dataset": "MNIST official train/test split",
+    "train_examples": 60000,
+    "test_examples": 10000,
+    "epochs": 8,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "seed": 20261030,
+    "best_test_accuracy": 0.9797,
+    "best_epoch": 8,
+    "elapsed_seconds": 50.741
+  },
+  "onnx": {
+    "path": "D:\\dl_v1\\examples\\temp\\tinycnn28_mnist_20261030_130046\\artifacts\\tinycnn28_mnist.onnx",
+    "opset": 13,
+    "input_shape": [
+      1,
+      1,
+      28,
+      28
+    ],
+    "output_shape": [
+      1,
+      10,
+      1,
+      1
+    ],
+    "operators": [
+      "Conv",
+      "Relu",
+      "MaxPool",
+      "Conv",
+      "Relu",
+      "MaxPool",
+      "Conv",
+      "Relu",
+      "Conv",
+      "Relu",
+      "MaxPool",
+      "Conv"
+    ],
+    "sha256": "20803c5cc6fa23cd858b74fdd95253378be2517919adb9bf3eff6ba21aaff8ba",
+    "quantized": false,
+    "note": "FP32 export; QDQ conversion is a separate step."
+  },
+  "pytorch_checkpoint": {
+    "path": "D:\\dl_v1\\examples\\temp\\tinycnn28_mnist_20261030_130046\\artifacts\\tinycnn28_mnist.pt",
+    "sha256": "7106125d124e2af85161b03be5653755f40254d9a6e1337f4b14b43633f5445e"
+  },
+  "sample_input_u8": {
+    "path": "D:\\dl_v1\\examples\\temp\\tinycnn28_mnist_20261030_130046\\artifacts\\mnist_sample_u8.npy",
+    "sha256": "7675361faf9dfb757da092690803dd88f7eb98159d342635976b4117c7010e79",
+    "label": 7
+  }
+}

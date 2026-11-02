@@ -1,0 +1,81 @@
+{
+  "lowered_graph_digest": "832221ba22961bb73c42dd349d2ae2d5f1d67aeab051ce08c44cadd18143b05a",
+  "lowered_reference": {},
+  "node_golden": [
+    {
+      "bytes": 6272,
+      "file": "golden/conv1_activation__conv1_activation.bin",
+      "node": "conv1_activation",
+      "op": "Conv",
+      "output": "conv1_activation",
+      "sha256": "8cc618289c1074b7adae1bacd022a1a78c4571b8d181cdfca8cd14754f7be0ea"
+    },
+    {
+      "bytes": 1568,
+      "file": "golden/conv1_pool__conv1_pool.bin",
+      "node": "conv1_pool",
+      "op": "MaxPool",
+      "output": "conv1_pool",
+      "sha256": "4c4420ab59b8551bbf94634820e7b6478f71f4d58dcdd63d4a8997b760a7b1b7"
+    },
+    {
+      "bytes": 3136,
+      "file": "golden/conv2_activation__conv2_activation.bin",
+      "node": "conv2_activation",
+      "op": "Conv",
+      "output": "conv2_activation",
+      "sha256": "0789d60c79527234826418dee0f07e017337cbf5b0abe190532073a5fb6e1d87"
+    },
+    {
+      "bytes": 784,
+      "file": "golden/conv2_pool__conv2_pool.bin",
+      "node": "conv2_pool",
+      "op": "MaxPool",
+      "output": "conv2_pool",
+      "sha256": "b91ac274435cdb02ed4df0737f790ef5c1537ffb97b9e7667a50ac07e98b9e38"
+    },
+    {
+      "bytes": 384,
+      "file": "golden/conv3_activation__conv3_activation.bin",
+      "node": "conv3_activation",
+      "op": "Conv",
+      "output": "conv3_activation",
+      "sha256": "0aa25abf26e471460b3728208033d164ad9fc8886a33064d921f938654882a1e"
+    },
+    {
+      "bytes": 128,
+      "file": "golden/conv4_activation__conv4_activation.bin",
+      "node": "conv4_activation",
+      "op": "Conv",
+      "output": "conv4_activation",
+      "sha256": "d3a2ec790b9fc1b22c8210d5eaedd9e9219fd9fd5351442a52ac2337370f8e37"
+    },
+    {
+      "bytes": 32,
+      "file": "golden/conv4_pool__conv4_pool.bin",
+      "node": "conv4_pool",
+      "op": "MaxPool",
+      "output": "conv4_pool",
+      "sha256": "3eabf34256a326e4c1cf2b262c4977f2d9aedaa97c22ebd7b0c861944fa5deea"
+    },
+    {
+      "bytes": 16,
+      "file": "golden/logits_domain__logits_domain.bin",
+      "node": "logits_domain",
+      "op": "Conv",
+      "output": "logits_domain",
+      "sha256": "1775cb62fb0840b0af9f27b707ffc311eb416a88e08e784afa10a6cbb0c12c00"
+    }
+  ],
+  "output_golden": [
+    {
+      "bytes": 16,
+      "file": "golden/output__logits_domain.bin",
+      "output": "logits_domain",
+      "sha256": "1775cb62fb0840b0af9f27b707ffc311eb416a88e08e784afa10a6cbb0c12c00"
+    }
+  ],
+  "schema": "e1-p2-node-outputs-1",
+  "source_graph_digest": "5db3529a464ec360f3450c8c6d6e87cfb7b0f8af89b61ba64da551e2073aec95",
+  "source_reference": {}
+}

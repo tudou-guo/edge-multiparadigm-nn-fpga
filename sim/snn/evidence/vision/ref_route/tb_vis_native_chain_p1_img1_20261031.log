@@ -1,0 +1,95 @@
+# vsim -c -work work_chain tb_vis_native_chain "+IMG2=0" -l D:/dl_snn/build/spikformer/vision_ref_20261031/sim/tb_vis_native_chain_p1_img1_20261031.log -do "run -all; quit -f" 
+# Start time: 17:11:14 on Oct 31,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2685) [TFMPC] - Too few port connections for 'u_enc'.  Expected 15, found 14.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'o_beat_last'.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2685) [TFMPC] - Too few port connections for 'u_ctrl'.  Expected 65, found 64.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2718) [TFMPC] - Missing connection for port 'o_dbg_c2w'.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 447 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 432 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 463 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 448 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 479 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 464 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 495 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 480 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 511 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 496 of part-select into 'idata' is out of bounds.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=14.
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_vis_native_chain(fast)
+# Loading work.spikformer_vis_native_top(fast)
+# run -all
+# TB_CHAIN ident params native H=W=32 C1=96 C2=384 T=4 E=384 TL=8 TOKENS=64
+# VEC blk_w=222912 expo1[0]=33331111221233230111333333230000 exps1[0]=0 pix2[0]=392301
+# IMG0 start (block weights + SPS stream/pixels)
+# MON cyc=1000000 top=2 blk=2 sps=4 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=2000000 top=2 blk=2 sps=4 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=3000000 top=2 blk=2 sps=8 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=4000000 top=2 blk=2 sps=8 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=5000000 top=2 blk=2 sps=8 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=6000000 top=2 blk=2 sps=11 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=7000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=8000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=9000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=10000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=11000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=12000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=13000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=14000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=15000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=16000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=17000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=18000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=19000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=20000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=21000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=22000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=23000000 top=2 blk=5 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=24000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=25000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=26000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=27000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=28000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=29000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=30000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=31000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=32000000 top=2 blk=5 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=33000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=34000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=35000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# SUMFAIL img0 ch1 got=118 want=463
+# SUMFAIL img0 ch2 got=131 want=526
+# SUMFAIL img0 ch3 got=53 want=213
+# SUMFAIL img0 ch4 got=169 want=670
+# SUMFAIL img0 ch5 got=125 want=507
+# SUMFAIL img0 ch6 got=64 want=256
+# SUMFAIL img0 ch7 got=129 want=506
+# SUMFAIL img0 ch8 got=68 want=272
+# SUMFAIL img0 ch9 got=76 want=300
+# SUMFAIL img0 ch10 got=65 want=275
+# SUMFAIL img0 ch11 got=79 want=333
+# SUMFAIL img0 ch12 got=45 want=179
+# SUMFAIL img0 ch13 got=123 want=509
+# SUMFAIL img0 ch14 got=26 want=104
+# SUMFAIL img0 ch15 got=128 want=512
+# SUMS FAIL img0 mismatches=382
+# BLKOUT PASS img0 (3072 beats bit-exact, last ok)
+# FAILURES=1 tb_vis_native_chain
+# ** Note: $finish    : D:/dl_snn/verification/sim/spikformer/tb_vis_native_chain.v(236)
+#    Time: 351297595 ns  Iteration: 1  Instance: /tb_vis_native_chain
+# End time: 17:18:39 on Oct 31,2026, Elapsed time: 0:07:25
+# Errors: 0, Warnings: 14

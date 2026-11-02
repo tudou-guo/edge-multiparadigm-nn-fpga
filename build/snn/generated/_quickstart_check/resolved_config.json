@@ -1,0 +1,104 @@
+{
+ "schema": "spikformer-config-1",
+ "family": "spikformer-nlp-sentiment",
+ "batch": 1,
+ "seq_len": 32,
+ "vocab_size": 4000,
+ "embed": 128,
+ "heads": 4,
+ "head_dim": 32,
+ "mlp_hidden": 512,
+ "depth": 2,
+ "time_steps": 4,
+ "num_classes": 2,
+ "lif": {
+  "tau": 2,
+  "reset": 0,
+  "init": 0
+ },
+ "frontend": {
+  "kind": "embed_spike",
+  "pos_enc": "learned",
+  "spike_code": "rate_repeat",
+  "mask": "none",
+  "note": "fixed length 32, pad spikes are zero by data"
+ },
+ "input": {
+  "source": "fixture",
+  "normalize": "n/a",
+  "note": "token ids seeded RNG"
+ },
+ "checkpoint": {
+  "kind": "missing",
+  "bn_state": "absent",
+  "note": "fixture params; real checkpoint later"
+ },
+ "head": {
+  "reduction": "sum",
+  "norm": "ps_div",
+  "note": "PL sum over T*N; PS divides then FP32 Linear+argmax"
+ },
+ "target": {
+  "part": "xczu15eg-ffvb1156-2-i",
+  "tool": "Vivado 2021.1",
+  "period_ns": 5
+ },
+ "derived": {
+  "tokens": 32,
+  "final_fmaps_width": 32,
+  "sum_w": 6,
+  "attn_word": 24,
+  "rw": 4,
+  "res_bits": 4,
+  "res_bits_min": 3,
+  "spike_bits": 2,
+  "psum_slice": 32,
+  "lif_add_bits": 33,
+  "av_bits": 11,
+  "av_max": 1024,
+  "worst_residual": 5,
+  "stage_bounds": {
+   "embed": 1,
+   "attn_res": 2,
+   "mlp_res": 3
+  },
+  "accum_bounds": {
+   "qkv": {
+    "pos": 16256,
+    "neg": -16384
+   },
+   "proj": {
+    "pos": 16646144,
+    "neg": -16777216
+   },
+   "fc1": {
+    "pos": 81280,
+    "neg": -81920
+   },
+   "fc2": {
+    "pos": 65024,
+    "neg": -65536
+   }
+  },
+  "stream": {
+   "tab_beats": 64512,
+   "token_beats": 32,
+   "block_w_beats": 25152,
+   "block_in_beats": 512,
+   "descriptor_beats": 4,
+   "mlp_fc1_internal_beats": 12288,
+   "mlp_fc2_internal_beats_per_group": 768
+  },
+  "packing": {
+   "layout": "time-minor lane pack (lane m owns bits [m*T +: T])",
+   "words_note": "residual words = N*C*T*RW/64",
+   "res_bits": 4
+  },
+  "geometry": {
+   "seq_len": 32,
+   "embed": 128
+  },
+  "sps": null
+ },
+ "thresholds": {}
+}

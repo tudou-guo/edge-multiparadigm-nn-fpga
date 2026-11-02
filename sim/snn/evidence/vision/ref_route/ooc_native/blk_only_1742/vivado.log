@@ -1,0 +1,124 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sat Oct 31 17:41:43 2026
+# Process ID: 29252
+# Current directory: D:/dl_snn
+# Command line: vivado.exe -mode batch -notrace -log D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.log -journal D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.jou -source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -tclargs D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742 all blk_native_probe_m
+# Log file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.log
+# Journal file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742/vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'E:/Vitis/Vivado/2021.1/scripts/Vivado_init.tcl'
+SynthPilot Server: Ready on port 9999
+source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -notrace
+OOC_RUN_BEGIN top=blk_native_probe_m stage=all part=xczu15eg-ffvb1156-2-i out=D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742 at=2026-10-31T17:41:46+0800
+OOC_SOURCES 21 files, include dir D:/dl_snn/build/spikformer/vis_native/generated
+SYNTH_BEGIN top=blk_native_probe_m 17:41:47
+Command: synth_design -top blk_native_probe_m -part xczu15eg-ffvb1156-2-i -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu15eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu15eg'
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 18340
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1710.715 ; gain = 132.496
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'blk_native_probe_m' [D:/dl_snn/rtl/probe/blk_native_probe_m.sv:6]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000000000001 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6157] synthesizing module 'LUT1' [E:/Vitis/Vivado/2021.1/scripts/rt/data/unisim_comp.v:59102]
+	Parameter INIT bound to: 2'b01 
+INFO: [Synth 8-6155] done synthesizing module 'LUT1' (1#1) [E:/Vitis/Vivado/2021.1/scripts/rt/data/unisim_comp.v:59102]
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin__parameterized0' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000010000000 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin__parameterized0' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin__parameterized1' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000001000000 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin__parameterized1' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin__parameterized2' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000000100000 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin__parameterized2' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'blk_native_probe' [D:/dl_snn/rtl/probe/blk_native_probe.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'spiking_block_top' [D:/dl_snn/rtl/ops/spiking/control/spiking_block_top.sv:21]
+	Parameter E bound to: 32'sb00000000000000000000000110000000 
+	Parameter HEADS bound to: 32'sb00000000000000000000000000001100 
+	Parameter HEAD_DIM bound to: 32'sb00000000000000000000000000100000 
+	Parameter HIDDEN bound to: 32'sb00000000000000000000011000000000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter TOKENS bound to: 32'sb00000000000000000000000001000000 
+	Parameter TL bound to: 32'sb00000000000000000000000000001000 
+	Parameter TC bound to: 32'sb00000000000000000000000000001000 
+	Parameter RW bound to: 32'sb00000000000000000000000000000100 
+	Parameter W bound to: 32'sb00000000000000000000000000001000 
+	Parameter PSUM_SLICE bound to: 32'sb00000000000000000000000000100000 
+	Parameter SUM_W bound to: 32'sb00000000000000000000000000000110 
+INFO: [Synth 8-6157] synthesizing module 'spiking_lif_group' [D:/dl_snn/rtl/ops/spiking/lif/spiking_lif_group.sv:14]
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter BITS bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6155] done synthesizing module 'spiking_lif_group' (3#1) [D:/dl_snn/rtl/ops/spiking/lif/spiking_lif_group.sv:14]
+INFO: [Synth 8-6157] synthesizing module 'spiking_attention_pe' [D:/dl_snn/rtl/ops/spiking/attention/spiking_attention_pe.sv:7]
+	Parameter HEAD_DIM bound to: 32'sb00000000000000000000000000100000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter SUM_W bound to: 32'sb00000000000000000000000000000110 
+INFO: [Synth 8-6157] synthesizing module 'spiking_popcount' [D:/dl_snn/rtl/ops/spiking/attention/spiking_popcount.sv:8]
+	Parameter LANES bound to: 32'sb00000000000000000000000000100000 
+	Parameter SUM_W bound to: 32'sb00000000000000000000000000000110 
+INFO: [Synth 8-6155] done synthesizing module 'spiking_popcount' (4#1) [D:/dl_snn/rtl/ops/spiking/attention/spiking_popcount.sv:8]
+INFO: [Synth 8-6155] done synthesizing module 'spiking_attention_pe' (5#1) [D:/dl_snn/rtl/ops/spiking/attention/spiking_attention_pe.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'spiking_mlp_controller' [D:/dl_snn/rtl/ops/spiking/mlp/spiking_mlp_controller.sv:15]
+	Parameter C bound to: 32'sb00000000000000000000000110000000 
+	Parameter HIDDEN bound to: 32'sb00000000000000000000011000000000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter RW bound to: 32'sb00000000000000000000000000000100 
+	Parameter W bound to: 32'sb00000000000000000000000000001000 
+	Parameter PSUM_SLICE bound to: 32'sb00000000000000000000000000100000 
+	Parameter TL bound to: 32'sb00000000000000000000000000001000 
+	Parameter TC bound to: 32'sb00000000000000000000000000001000 
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "hbuf_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'spiking_mlp_controller' (6#1) [D:/dl_snn/rtl/ops/spiking/mlp/spiking_mlp_controller.sv:15]
+INFO: [Synth 8-226] default block is never used [D:/dl_snn/rtl/ops/spiking/control/spiking_block_top.sv:551]
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "bp_reg" dissolved into registers
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "bq_reg" dissolved into registers
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "bk_reg" dissolved into registers
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "bv_reg" dissolved into registers
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "bf1_reg" dissolved into registers
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "bf2_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'spiking_block_top' (7#1) [D:/dl_snn/rtl/ops/spiking/control/spiking_block_top.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'blk_native_probe' (8#1) [D:/dl_snn/rtl/probe/blk_native_probe.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'blk_native_probe_m' (9#1) [D:/dl_snn/rtl/probe/blk_native_probe_m.sv:6]

@@ -1,0 +1,1448 @@
+{
+  "affine_capacity": {
+    "allocated": {
+      "height": 28,
+      "width": 28
+    },
+    "capability_version": "affine-int8-v1",
+    "engine_capacity": {
+      "activation": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "copy": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "max over real Pad/Slice/Concat in+out rows of align16(align8(C)*W); never MAX_CH*MAX_W",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "dense": {
+        "expanded": true,
+        "max_cin": 32,
+        "max_cout": 32,
+        "max_h": 28,
+        "max_w": 28,
+        "used_by_graph": true
+      },
+      "depthwise": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "eltwise": {
+        "expanded": true,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_w": 1,
+        "streaming": true,
+        "used_by_graph": false
+      },
+      "int8_mul": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "maxpool2d": {
+        "cache_rows": 2,
+        "expanded": true,
+        "in_row_bytes": 224,
+        "logical_storage_bytes": 560,
+        "max_ch": 32,
+        "max_eh": 2,
+        "max_h": 28,
+        "max_w": 28,
+        "out_row_bytes": 112,
+        "streaming": false,
+        "used_by_graph": true
+      },
+      "pool2x2": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "pool5": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 8,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "real align16(align8(C)*W) row",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "reduce": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "resize": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "input_axis_limit": 320,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_max_h": 1,
+        "out_max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "input row align16(align8(C)*W) line buffer + x2 output row extent",
+        "streaming": false,
+        "used_by_graph": false
+      }
+    },
+    "mode": "graph_derived",
+    "requested": {
+      "max_feature_height": "auto",
+      "max_feature_width": "auto"
+    },
+    "required": {
+      "height": 28,
+      "width": 28
+    },
+    "row_budget": {
+      "dense_max_in_row_bytes": 224,
+      "dense_max_out_row_bytes": 224,
+      "dense_max_weight_tiles": 12
+    },
+    "schema": "e1-affine-capacity-1",
+    "scope": "materialized_runtime_activation_tensors"
+  },
+  "affine_frontend": {
+    "fragment": null,
+    "fragment_input_rows": null,
+    "frontend": {
+      "conv_packed": 5,
+      "counts": {
+        "Conv": 5,
+        "MaxPool": 3
+      },
+      "dangling_dq": [
+        {
+          "dq_node": "logits_domain_dequantize",
+          "kind": "graph_output",
+          "reason": "raw graph output: the u8 QuantizeLinear output is the graph boundary, so the per-tensor DQ has no integer consumer",
+          "u8_tensor": "logits_domain_q"
+        }
+      ],
+      "model": {
+        "input_h": 28,
+        "input_w": 28,
+        "name": "tinycnn28_mnist_qdq"
+      },
+      "nodes": 8,
+      "onnx": {
+        "bytes": 19402,
+        "input": "input",
+        "ir_version": 8,
+        "n_initializers": 56,
+        "n_nodes": 40,
+        "opset": 13,
+        "outputs": [
+          "logits_domain"
+        ],
+        "path": "D:\\dl_v1\\examples\\temp\\tinycnn28_mnist_20261030_130046\\artifacts\\quantized\\tinycnn28_mnist_qdq.onnx",
+        "producer": "tinycnn28-toolchain-qdq ",
+        "sha256": "6307d76855bbfda28d134e45842e003cb0beb52515c1b1b5cd6caac70e1907cc"
+      },
+      "profile": "affine-int8-v1",
+      "rejections": [],
+      "schema": "v0.2-yolo-qdq-frontend-1",
+      "shape_checks": {
+        "checked": 8,
+        "mismatches": []
+      },
+      "source_map": {
+        "input": {
+          "ir": "__input__",
+          "onnx_input": "input",
+          "onnx_u8_tensor": "input_domain_q"
+        },
+        "nodes": [
+          {
+            "ir": "conv1_activation",
+            "onnx_node": "conv1",
+            "onnx_outputs": [
+              "conv1_raw"
+            ],
+            "op": "Conv"
+          },
+          {
+            "ir": "conv1_pool",
+            "onnx_node": "conv1_maxpool",
+            "onnx_outputs": [
+              "conv1_pool_raw"
+            ],
+            "op": "MaxPool"
+          },
+          {
+            "ir": "conv2_activation",
+            "onnx_node": "conv2",
+            "onnx_outputs": [
+              "conv2_raw"
+            ],
+            "op": "Conv"
+          },
+          {
+            "ir": "conv2_pool",
+            "onnx_node": "conv2_maxpool",
+            "onnx_outputs": [
+              "conv2_pool_raw"
+            ],
+            "op": "MaxPool"
+          },
+          {
+            "ir": "conv3_activation",
+            "onnx_node": "conv3",
+            "onnx_outputs": [
+              "conv3_raw"
+            ],
+            "op": "Conv"
+          },
+          {
+            "ir": "conv4_activation",
+            "onnx_node": "conv4",
+            "onnx_outputs": [
+              "conv4_raw"
+            ],
+            "op": "Conv"
+          },
+          {
+            "ir": "conv4_pool",
+            "onnx_node": "conv4_maxpool",
+            "onnx_outputs": [
+              "conv4_pool_raw"
+            ],
+            "op": "MaxPool"
+          },
+          {
+            "ir": "logits_domain",
+            "onnx_node": "classifier",
+            "onnx_outputs": [
+              "classifier_raw"
+            ],
+            "op": "Conv"
+          }
+        ],
+        "outputs": [
+          {
+            "ir": "logits_domain",
+            "onnx_u8_tensor": "logits_domain_q"
+          }
+        ],
+        "tensors": {
+          "__input__": "input_domain_q",
+          "conv1_activation": "conv1_activation_q",
+          "conv1_pool": "conv1_pool_q",
+          "conv2_activation": "conv2_activation_q",
+          "conv2_pool": "conv2_pool_q",
+          "conv3_activation": "conv3_activation_q",
+          "conv4_activation": "conv4_activation_q",
+          "conv4_pool": "conv4_pool_q",
+          "logits_domain": "logits_domain_q"
+        }
+      },
+      "tensors": 9,
+      "unused_initializers": []
+    },
+    "inputs": [
+      "__input__"
+    ],
+    "nodes": 8,
+    "onnx_sha256": "6307d76855bbfda28d134e45842e003cb0beb52515c1b1b5cd6caac70e1907cc",
+    "outputs": [
+      "logits_domain"
+    ],
+    "profile": "affine-int8-v1",
+    "row_budget": {
+      "dense_max_in_row_bytes": 224,
+      "dense_max_out_row_bytes": 224,
+      "dense_max_weight_tiles": 12
+    },
+    "schema": "v0.2-yolo-affine-frontend-1"
+  },
+  "ddr_init": "ddr_init.bin",
+  "ddr_init_sha256": "15cb770ccab3caffe1496fd2b815fa4528fde4cccec98bb575b6d214ee843c61",
+  "engine_capacity": {
+    "activation": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "copy": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "max over real Pad/Slice/Concat in+out rows of align16(align8(C)*W); never MAX_CH*MAX_W",
+      "streaming": false,
+      "used_by_graph": false
+    },
+    "dense": {
+      "expanded": true,
+      "max_cin": 32,
+      "max_cout": 32,
+      "max_h": 28,
+      "max_w": 28,
+      "used_by_graph": true
+    },
+    "depthwise": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "eltwise": {
+      "expanded": true,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_w": 1,
+      "streaming": true,
+      "used_by_graph": false
+    },
+    "int8_mul": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "maxpool2d": {
+      "cache_rows": 2,
+      "expanded": true,
+      "in_row_bytes": 224,
+      "logical_storage_bytes": 560,
+      "max_ch": 32,
+      "max_eh": 2,
+      "max_h": 28,
+      "max_w": 28,
+      "out_row_bytes": 112,
+      "streaming": false,
+      "used_by_graph": true
+    },
+    "pool2x2": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "pool5": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "max_ch": 8,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "real align16(align8(C)*W) row",
+      "streaming": false,
+      "used_by_graph": false
+    },
+    "reduce": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "resize": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "input_axis_limit": 320,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_max_h": 1,
+      "out_max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "input row align16(align8(C)*W) line buffer + x2 output row extent",
+      "streaming": false,
+      "used_by_graph": false
+    }
+  },
+  "gates": {
+    "affine_frontend": "pass",
+    "board": "not_run",
+    "codegen": "pass",
+    "frontend": "pass",
+    "lowering": "pass",
+    "memory_planning": "pass",
+    "parameter_pack": "pass",
+    "quant_contract": "pass",
+    "reference": "pass",
+    "reserved_engines": "not_used_by_graph",
+    "rtl": "not_run",
+    "spatial_capacity": "pass"
+  },
+  "generated_rtl_manifest": "generated/rtl_manifest.json",
+  "graph_name": "tinycnn28_mnist",
+  "graph_plan": "graph_plan.json",
+  "input_manifest_sha256": "5a6ed76b5bf5552c008dfa0ea4b0e27f61bb8d047eb42f477f5ce70b8bbacced",
+  "instruction_mem": "generated/tinycnn28_mnist_instr.mem",
+  "instruction_mem_sha256": "503c39a69aa1b27fc09b32829a46468ba0ae8a7d23a2ac37d99196d4a00bd408",
+  "instruction_stream": "generated/instruction_stream.json",
+  "layout_plan": "layout_plan.json",
+  "lowered_graph_digest": "832221ba22961bb73c42dd349d2ae2d5f1d67aeab051ce08c44cadd18143b05a",
+  "lowering": {
+    "batch_norm_folded": [],
+    "batch_norm_folded_count": 0,
+    "constant_nodes_folded": 0,
+    "conv1x1_nodes_expanded": 1,
+    "depthwise_recognized": [],
+    "depthwise_recognized_count": 0,
+    "lowered_graph_digest": "545b45a5f7c8a82bcc4f61bb49c53f9c7d1243b1b3bcd7f43a2889c6b0f5a23b",
+    "lowered_nodes": 8,
+    "mapping": [
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv1_activation"
+        ],
+        "outputs": [
+          "conv1_activation"
+        ],
+        "source_node": "conv1_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv1_pool"
+        ],
+        "outputs": [
+          "conv1_pool"
+        ],
+        "source_node": "conv1_pool",
+        "source_op": "MaxPool"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv2_activation"
+        ],
+        "outputs": [
+          "conv2_activation"
+        ],
+        "source_node": "conv2_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv2_pool"
+        ],
+        "outputs": [
+          "conv2_pool"
+        ],
+        "source_node": "conv2_pool",
+        "source_op": "MaxPool"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv3_activation"
+        ],
+        "outputs": [
+          "conv3_activation"
+        ],
+        "source_node": "conv3_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv4_activation"
+        ],
+        "outputs": [
+          "conv4_activation"
+        ],
+        "source_node": "conv4_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv4_pool"
+        ],
+        "outputs": [
+          "conv4_pool"
+        ],
+        "source_node": "conv4_pool",
+        "source_op": "MaxPool"
+      },
+      {
+        "disposition": "expanded_3x3",
+        "lowered_nodes": [
+          "logits_domain"
+        ],
+        "outputs": [
+          "logits_domain"
+        ],
+        "source_node": "logits_domain",
+        "source_op": "Conv1x1"
+      }
+    ],
+    "passes": [
+      "batch_norm_exact_fold",
+      "constant_fold",
+      "conv1x1_center_expand",
+      "static_split_to_slice",
+      "depthwise_recognition"
+    ],
+    "schema": "e1-p3-lowering-1",
+    "source_graph_digest": "5db3529a464ec360f3450c8c6d6e87cfb7b0f8af89b61ba64da551e2073aec95",
+    "source_nodes": 8,
+    "split_nodes_lowered": 0
+  },
+  "memory_limits": {
+    "arena_bytes": 61440,
+    "ddr_guard_bytes": 65536,
+    "image_bytes": 81920,
+    "mem_bytes": 196608,
+    "mem_words": 12288,
+    "schema": "e1-spatial-memory-limits-1",
+    "sim_ddr_limit_bytes": 268435456,
+    "sim_ddr_limit_mib": 256,
+    "snapshot_chunk_bytes": 8192,
+    "snapshot_max_bytes": 6272,
+    "tb_max_snaps": 64,
+    "tb_mem_bytes": 196608,
+    "tb_mem_words": 12288,
+    "tb_params": "generated/tb_params.vh",
+    "tb_snap_chunk": 8192,
+    "tb_watchdog_cycles": 20000000
+  },
+  "memory_plan": "memory_plan.json",
+  "model_sha256": "6307d76855bbfda28d134e45842e003cb0beb52515c1b1b5cd6caac70e1907cc",
+  "node_outputs": "node_outputs.json",
+  "numeric_profile": "affine-int8-v1",
+  "parameter_manifest": "parameter_manifest.json",
+  "physical_instances": {
+    "activation": {
+      "bit": 10,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "avgpool2": {
+      "bit": 6,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "clip": {
+      "bit": 4,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "copy": {
+      "bit": 3,
+      "gated": false,
+      "instantiated": true,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "dense": {
+      "bit": 0,
+      "gated": true,
+      "instantiated": true,
+      "records": 5,
+      "required_by_graph": true
+    },
+    "depthwise": {
+      "bit": 11,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "eltwise": {
+      "bit": 2,
+      "gated": false,
+      "instantiated": true,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "gap": {
+      "bit": 5,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "maxpool2": {
+      "bit": 1,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "maxpool2d": {
+      "bit": 12,
+      "gated": true,
+      "instantiated": true,
+      "records": 3,
+      "required_by_graph": true
+    },
+    "mul": {
+      "bit": 7,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "pool5": {
+      "bit": 9,
+      "gated": true,
+      "instantiated": false,
+      "records": 0,
+      "required_by_graph": false
+    },
+    "resize": {
+      "bit": 8,
+      "gated": false,
+      "instantiated": true,
+      "records": 0,
+      "required_by_graph": false
+    }
+  },
+  "profile": "first_fit",
+  "pruning": {
+    "allowed_mask": 6143,
+    "bit_assignments": {
+      "activation": 10,
+      "avgpool2": 6,
+      "clip": 4,
+      "copy": 3,
+      "dense": 0,
+      "depthwise": 11,
+      "eltwise": 2,
+      "gap": 5,
+      "maxpool2": 1,
+      "maxpool2d": 12,
+      "mul": 7,
+      "pool5": 9,
+      "resize": 8
+    },
+    "effective_mask": 4365,
+    "mask_schema": "e1-physical-engine-mask-1",
+    "policy": "graph",
+    "required_mask": 4097,
+    "unknown_opcodes": []
+  },
+  "quant": {
+    "applied_activations": 9,
+    "convs": {
+      "conv1_activation": {
+        "acc_bound": 266228,
+        "acc_bound_int32_ok": true,
+        "bias_folded": [
+          59508,
+          51258,
+          20992,
+          6917,
+          -31048,
+          39271,
+          43329,
+          -7290
+        ],
+        "m0": 1131972204,
+        "m0_shift": {
+          "abs_err": 1.4224729813199253e-13,
+          "m0": 1131972204,
+          "m0_bits": 31,
+          "m0_in_range": true,
+          "ratio_exact_den": 43973155076702208,
+          "ratio_exact_num": 90542724633355,
+          "ratio_float": 0.002059045444326696,
+          "realised_ratio_float": 0.0020590454441844486,
+          "rel_err": 6.908409842236733e-11,
+          "rounding": "ties_away_from_zero",
+          "shift": 39
+        },
+        "padding_value_s8": -128,
+        "relu": false,
+        "relu_threshold_s8": null,
+        "rescale_int64_ok": true,
+        "shift": 39,
+        "sum_w": [
+          463,
+          360,
+          70,
+          39,
+          -354,
+          300,
+          276,
+          -46
+        ],
+        "w_scale": 0.005006497260183096,
+        "zs_in": -128,
+        "zs_out": -128
+      },
+      "conv2_activation": {
+        "acc_bound": 1501627,
+        "acc_bound_int32_ok": true,
+        "bias_folded": [
+          118498,
+          -30624,
+          -13519,
+          69902,
+          3574,
+          801,
+          94554,
+          88988,
+          136396,
+          11622,
+          -34056,
+          -24191,
+          79472,
+          -6913,
+          20263,
+          161595
+        ],
+        "m0": 1318175575,
+        "m0_shift": {
+          "abs_err": 2.4939884379009157e-13,
+          "m0": 1318175575,
+          "m0_bits": 31,
+          "m0_in_range": true,
+          "ratio_exact_den": 2231068006547456,
+          "ratio_exact_num": 2674768759795,
+          "ratio_float": 0.001198873701718382,
+          "realised_ratio_float": 0.0011988737014689832,
+          "rel_err": 2.080276207849256e-10,
+          "rounding": "ties_away_from_zero",
+          "shift": 40
+        },
+        "padding_value_s8": -128,
+        "relu": false,
+        "relu_threshold_s8": null,
+        "rescale_int64_ok": true,
+        "shift": 40,
+        "sum_w": [
+          925,
+          -253,
+          -101,
+          533,
+          47,
+          17,
+          712,
+          699,
+          1050,
+          94,
+          -278,
+          -181,
+          634,
+          -68,
+          153,
+          1253
+        ],
+        "w_scale": 0.005109494086354971,
+        "zs_in": -128,
+        "zs_out": -128
+      },
+      "conv3_activation": {
+        "acc_bound": 2709214,
+        "acc_bound_int32_ok": true,
+        "bias_folded": [
+          21002,
+          88542,
+          88139,
+          -12190,
+          39351,
+          94055,
+          130630,
+          106857,
+          43730,
+          155369,
+          174686,
+          7430,
+          -67122,
+          159016,
+          151648,
+          88729,
+          -43811,
+          65072,
+          173640,
+          116576,
+          36590,
+          56694,
+          94587,
+          94522
+        ],
+        "m0": 1455534545,
+        "m0_shift": {
+          "abs_err": 4.4458885646969246e-13,
+          "m0": 1455534545,
+          "m0_bits": 31,
+          "m0_in_range": true,
+          "ratio_exact_den": 10679178483466240,
+          "ratio_exact_num": 14137106700333,
+          "ratio_float": 0.0013238009573695586,
+          "realised_ratio_float": 0.0013238009569249698,
+          "rel_err": 3.3584267634396255e-10,
+          "rounding": "ties_away_from_zero",
+          "shift": 40
+        },
+        "padding_value_s8": -128,
+        "relu": false,
+        "relu_threshold_s8": null,
+        "rescale_int64_ok": true,
+        "shift": 40,
+        "sum_w": [
+          157,
+          692,
+          686,
+          -100,
+          300,
+          733,
+          1022,
+          830,
+          340,
+          1215,
+          1369,
+          57,
+          -526,
+          1248,
+          1184,
+          701,
+          -339,
+          508,
+          1354,
+          908,
+          282,
+          443,
+          736,
+          740
+        ],
+        "w_scale": 0.00422431668266654,
+        "zs_in": -128,
+        "zs_out": -128
+      },
+      "conv4_activation": {
+        "acc_bound": 3924410,
+        "acc_bound_int32_ok": true,
+        "bias_folded": [
+          123741,
+          -7048,
+          -18114,
+          -48975,
+          -128330,
+          -20470,
+          18047,
+          -25394,
+          -192698,
+          61747,
+          -60771,
+          -124896,
+          -157028,
+          30552,
+          36631,
+          -139372,
+          -104028,
+          -27290,
+          3235,
+          -37286,
+          -55561,
+          -44164,
+          -96716,
+          -21074,
+          58632,
+          -57789,
+          -30173,
+          22132,
+          -108243,
+          -69554,
+          28232,
+          24269
+        ],
+        "m0": 1370426226,
+        "m0_shift": {
+          "abs_err": 2.5771719501162667e-13,
+          "m0": 1370426226,
+          "m0_bits": 31,
+          "m0_in_range": true,
+          "ratio_exact_den": 14615584729726976,
+          "ratio_exact_num": 36433594905015,
+          "ratio_float": 0.002492790783177622,
+          "realised_ratio_float": 0.002492790783435339,
+          "rel_err": 1.0338500798013551e-10,
+          "rounding": "ties_away_from_zero",
+          "shift": 39
+        },
+        "padding_value_s8": -128,
+        "relu": false,
+        "relu_threshold_s8": null,
+        "rescale_int64_ok": true,
+        "shift": 39,
+        "sum_w": [
+          966,
+          -56,
+          -142,
+          -383,
+          -1002,
+          -159,
+          141,
+          -198,
+          -1506,
+          482,
+          -475,
+          -975,
+          -1227,
+          240,
+          286,
+          -1089,
+          -812,
+          -213,
+          25,
+          -290,
+          -434,
+          -346,
+          -755,
+          -164,
+          457,
+          -452,
+          -237,
+          172,
+          -846,
+          -544,
+          220,
+          190
+        ],
+        "w_scale": 0.0038990259636193514,
+        "zs_in": -128,
+        "zs_out": -128
+      },
+      "logits_domain": {
+        "acc_bound": 613308,
+        "acc_bound_int32_ok": true,
+        "bias_folded": [
+          -344,
+          1739,
+          11999,
+          -9669,
+          -4874,
+          7015,
+          -44476,
+          6658,
+          -4941,
+          6832
+        ],
+        "m0": 1857385077,
+        "m0_shift": {
+          "abs_err": 8.186354164625906e-13,
+          "m0": 1857385077,
+          "m0_bits": 31,
+          "m0_in_range": true,
+          "ratio_exact_den": 279103349456896,
+          "ratio_exact_num": 942968465729,
+          "ratio_float": 0.0033785637741858402,
+          "realised_ratio_float": 0.0033785637733672047,
+          "rel_err": 2.4230278638439013e-10,
+          "rounding": "ties_away_from_zero",
+          "shift": 39
+        },
+        "padding_value_s8": -128,
+        "relu": false,
+        "relu_threshold_s8": null,
+        "rescale_int64_ok": true,
+        "shift": 39,
+        "sum_w": [
+          -3,
+          12,
+          95,
+          -74,
+          -37,
+          54,
+          -348,
+          52,
+          -40,
+          53
+        ],
+        "w_scale": 0.004645296838134527,
+        "zs_in": -128,
+        "zs_out": 0
+      }
+    }
+  },
+  "quant_contract_sha256": "3355ed10d63dbcf9cd8ea948ff2677a964c170e1588155b4f75e135a9d01aa57",
+  "records": [
+    {
+      "index": 0,
+      "node": "conv1_activation",
+      "op": "Conv",
+      "opcode": "0x0001",
+      "payload_words": 17
+    },
+    {
+      "index": 1,
+      "node": "conv1_pool",
+      "op": "MaxPool",
+      "opcode": "0x001D",
+      "payload_words": 16
+    },
+    {
+      "index": 2,
+      "node": "conv2_activation",
+      "op": "Conv",
+      "opcode": "0x0001",
+      "payload_words": 17
+    },
+    {
+      "index": 3,
+      "node": "conv2_pool",
+      "op": "MaxPool",
+      "opcode": "0x001D",
+      "payload_words": 16
+    },
+    {
+      "index": 4,
+      "node": "conv3_activation",
+      "op": "Conv",
+      "opcode": "0x0001",
+      "payload_words": 17
+    },
+    {
+      "index": 5,
+      "node": "conv4_activation",
+      "op": "Conv",
+      "opcode": "0x0001",
+      "payload_words": 17
+    },
+    {
+      "index": 6,
+      "node": "conv4_pool",
+      "op": "MaxPool",
+      "opcode": "0x001D",
+      "payload_words": 16
+    },
+    {
+      "index": 7,
+      "node": "logits_domain",
+      "op": "Conv",
+      "opcode": "0x0001",
+      "payload_words": 17
+    }
+  ],
+  "schema": "e1-p2-compile-manifest-1",
+  "simulation_budget": {
+    "cycle_upper_bound_estimate": 83472,
+    "performance_claim": "none; simulation budget only",
+    "transaction_beats_estimate": 1433,
+    "watchdog_cycles": 20000000,
+    "watchdog_rule": "watchdog = max(20e6, 8*(2*issue_estimate + 2*beat_estimate + 4096)); derived from independent work/transaction counts, not tuned to a run",
+    "work_issues_estimate": 1736
+  },
+  "snapshot_manifest": "snapshot_manifest.json",
+  "source_digest": "36ca00cc095ea7bb010d4576942e8a881a099001a109185a36eff006f67b1061",
+  "source_files": [
+    {
+      "path": "rtl/common/npu_backend_contract.vh",
+      "sha256": "5e54dba8dc798085ebf6cdc3c0cce7ccd99193fee7b9d78e7442c02b1248eb29"
+    },
+    {
+      "path": "rtl/common/op_abi_defs.vh",
+      "sha256": "14d4e36814f4c84ea728c1f069099060ae7c3a95860aa876335ad815d1bdfced"
+    },
+    {
+      "path": "rtl/common/axi4_4kb_splitter.v",
+      "sha256": "ba196dfd4f3cfa8a21f17a641b4870bbe1d449bc6367c4e183bb77c821ab0a81"
+    },
+    {
+      "path": "rtl/common/axi_burst_reader.v",
+      "sha256": "f27e04960f50f1024875514bd67f0667fb0ad3229170f7d06a9c28625c1cbeaa"
+    },
+    {
+      "path": "rtl/common/axi_burst_writer.v",
+      "sha256": "11003f4e1bb202374b16d71ff5b49d8f803744f1f8537b81db659a5e82e1e73d"
+    },
+    {
+      "path": "rtl/common/op_shell.v",
+      "sha256": "a89bc10fa4dfd8a51f302c320ed16cd5f946ac7c30e06bf1a42764a1e0579822"
+    },
+    {
+      "path": "rtl/common/npu_instr_rom.v",
+      "sha256": "18a908021f23f9c8aad55978ecd3bdf04fff68e74d42fc842f3aa381b0e8b286"
+    },
+    {
+      "path": "rtl/common/npu_instr_seq.v",
+      "sha256": "f84bfcd515e9980acfb70b6c8abe3ea539c664c8df2fce67d8979bac16b80724"
+    },
+    {
+      "path": "rtl/common/npu_engine_router.v",
+      "sha256": "2be41cdeabbd28aa68312390411dad76c11e66fb6ba7cb332c5eebdcd3a5d390"
+    },
+    {
+      "path": "rtl/common/npu_mixed_engine.v",
+      "sha256": "6b6c319623cedb3aa764176c0b04f26abe426be6bbfc3f2de7a9fcf7f147c408"
+    },
+    {
+      "path": "rtl/ops/conv/spram.v",
+      "sha256": "3e3fa6490287ea3ca2af0aa4f407168415e2c3db37ce323b62c91c8a9a8d793d"
+    },
+    {
+      "path": "rtl/ops/conv/tpram.v",
+      "sha256": "96044cab3b1754ab9989fb3f1ab7c272010ffc7db39def00c009aa4a97771e65"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_linebuf.v",
+      "sha256": "0752da9b584f6075ce1ae3885deb84ec2615846d0f49b535ea71051b95b2cda6"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_weight_faces.v",
+      "sha256": "15e65f19ad995853114dbdc642f55abf0f11ffb308d96159b1525f45ff0cab57"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_out_buf.v",
+      "sha256": "2a8eed749afe2f4b21a944b93444d83507571b086b6fe73fcb172702ea973e25"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_out_fifo.v",
+      "sha256": "30734a42ea4b9b58bc6e33c2f2ea2e60485e3f77707ee79f86dd52a683155d80"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_out_ctrl.v",
+      "sha256": "394b358d108995114cf75d596d3dee4419095cd755c0e7ce1d589f5b4bc0ef32"
+    },
+    {
+      "path": "rtl/ops/conv/conv_mul_dsp.v",
+      "sha256": "02d8e796f546e0008a5bc2bbb9d89336b679c6c74d9cd7d17bbac4153c033fae"
+    },
+    {
+      "path": "rtl/ops/conv/dsp_mul_pipe4_sim_netlist.v",
+      "sha256": "880c1611d2da30bdba4ad91da77247d09e061ed37cf865540283aef60c244292"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_calc.v",
+      "sha256": "82541af7f8a58e89ca2f076b713bd9011704df11f983c2a6ff842b590ff0faae"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_calc_dsp.v",
+      "sha256": "7b39e1da1b12e94f0f86f8f7246a594b72e1b0780b943db3c7654d868bb5b2cb"
+    },
+    {
+      "path": "rtl/ops/conv/signed_int8_dsp2_mac.v",
+      "sha256": "6308b161b4894d42c229a1187965842e8f128788da3cec828d10b9d4efe3a6b5"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_calc_balanced.sv",
+      "sha256": "8f548509ae43a8b382322acbcc16ff061cc8280d205eb601b86ca2b9ff6f77e2"
+    },
+    {
+      "path": "rtl/ops/conv/conv3x3_core.v",
+      "sha256": "3cd362d6ada12b05755c250504122b270bffa26f44f83e93e25f406f6cee858b"
+    },
+    {
+      "path": "rtl/ops/pool2x2/maxpool2x2_rowbuf.v",
+      "sha256": "3044f360ed28d65381502be1832d28a4ef0e451c8380da9836f12571c0cc73a9"
+    },
+    {
+      "path": "rtl/ops/pool2x2/maxpool2x2_lane.v",
+      "sha256": "2fe1b6fcea0c6ef342b93241844a277d95cd83a735753ab2ed1b07863c038f78"
+    },
+    {
+      "path": "rtl/ops/pool2x2/maxpool2x2_core.v",
+      "sha256": "cfc5fe7c7df11814025415482168678ff23a7364909ab1109cd04b809c8995d3"
+    },
+    {
+      "path": "rtl/ops/pool2x2/avgpool2x2_lane.v",
+      "sha256": "e59f7cd1e27802b24a18094f6acc023adf97a6e7ccc3288a5bf5f20a3d6784e8"
+    },
+    {
+      "path": "rtl/ops/pool2x2/avgpool2x2_core.v",
+      "sha256": "ce41a037a909c3b4830e5c0bbdb69e3f7a81e17516e275da913f718e7ca20c6a"
+    },
+    {
+      "path": "rtl/ops/eltwise/eltwise_core.v",
+      "sha256": "9071d7bc93351aae5a8698f3eb51f25bedac08362a1b666ae67afafc1c58379f"
+    },
+    {
+      "path": "rtl/ops/eltwise/clip_core.v",
+      "sha256": "64382bcd83d82c6538a4505d76f5be03a8e2130e849f031d5e3c8d36cbf50f0d"
+    },
+    {
+      "path": "rtl/ops/eltwise/int8_mul_core.v",
+      "sha256": "cfa59aa56f8ea2d1be5294f24b6356216f30499de266081abd33a9750b197646"
+    },
+    {
+      "path": "rtl/ops/reduce/global_avg_pool_core.v",
+      "sha256": "cc1b33118e0adf3462ad6a8a89db1e03b2e11494da90865709246b57b88ae1c5"
+    },
+    {
+      "path": "rtl/ops/copy/copy_transform_core.v",
+      "sha256": "8e92dc6fe9afe759a7db6aaeaa12ae5a66abdacbf99b6f2069e73ce581d80848"
+    },
+    {
+      "path": "rtl/ops/resize/resize_nearest2x_core.v",
+      "sha256": "b2b26c40617bc9b46fc60bc4fa27aa453c9d668ab39555c46d10d4f43ae7a11a"
+    },
+    {
+      "path": "rtl/ops/pool5/maxpool5x5_core.v",
+      "sha256": "c022af44c9f142e3bbac4925cd02804e72f15297e74810864b55b72c4a8e482a"
+    },
+    {
+      "path": "rtl/ops/maxpool2d/maxpool2d_row_store.sv",
+      "sha256": "95498eae2b9c10cf4b29996dd5d4cbb255b631700c868f3cc88658df9e34d1c9"
+    },
+    {
+      "path": "rtl/ops/maxpool2d/maxpool2d_reduce8.sv",
+      "sha256": "75b898bc9ab24ce28b69aa215956769a30e4839e396f22a749d29d8b1ce22319"
+    },
+    {
+      "path": "rtl/ops/maxpool2d/maxpool2d_core.sv",
+      "sha256": "94c17a13a0f7866783b81fd2d4dfc6f4d92108818ca860924002861bdfacccb4"
+    },
+    {
+      "path": "rtl/ops/activation/activation_lut_bank.sv",
+      "sha256": "edb5e963cc49ee19bd8519c7c3b786ef75db0418c9b16d9588fa347789bd74f2"
+    },
+    {
+      "path": "rtl/ops/activation/activation_lut_core.sv",
+      "sha256": "dcb19a0dd0139bbf326b8abdfde57063c5d537d60a9a472c3f8329f088d4d447"
+    },
+    {
+      "path": "rtl/ops/depthwise/depthwise_conv3x3_core.sv",
+      "sha256": "097e7d9d6b37e696ae9a94fe96737c5e6c24df010a67d4fdbc7dd5fbfd2e9fa0"
+    }
+  ],
+  "source_graph_digest": "5db3529a464ec360f3450c8c6d6e87cfb7b0f8af89b61ba64da551e2073aec95",
+  "source_root": "D:/dl_v1",
+  "spatial_capacity": {
+    "allocated": {
+      "height": 28,
+      "width": 28
+    },
+    "capability_version": "affine-int8-v1",
+    "engine_capacity": {
+      "activation": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "copy": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "max over real Pad/Slice/Concat in+out rows of align16(align8(C)*W); never MAX_CH*MAX_W",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "dense": {
+        "expanded": true,
+        "max_cin": 32,
+        "max_cout": 32,
+        "max_h": 28,
+        "max_w": 28,
+        "used_by_graph": true
+      },
+      "depthwise": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "eltwise": {
+        "expanded": true,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_w": 1,
+        "streaming": true,
+        "used_by_graph": false
+      },
+      "int8_mul": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "maxpool2d": {
+        "cache_rows": 2,
+        "expanded": true,
+        "in_row_bytes": 224,
+        "logical_storage_bytes": 560,
+        "max_ch": 32,
+        "max_eh": 2,
+        "max_h": 28,
+        "max_w": 28,
+        "out_row_bytes": 112,
+        "streaming": false,
+        "used_by_graph": true
+      },
+      "pool2x2": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "pool5": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 8,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "real align16(align8(C)*W) row",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "reduce": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "resize": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "input_axis_limit": 320,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_max_h": 1,
+        "out_max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "input row align16(align8(C)*W) line buffer + x2 output row extent",
+        "streaming": false,
+        "used_by_graph": false
+      }
+    },
+    "engine_row_capacity": {
+      "dense": {
+        "in_row_beats": 14,
+        "in_row_bytes": 224,
+        "max_weight_tiles": 12,
+        "out_row_beats": 14,
+        "out_row_bytes": 224
+      },
+      "maxpool2d": {
+        "cache_rows": 2,
+        "in_row_beats": 14,
+        "in_row_bytes": 224,
+        "logical_storage_bytes": 560,
+        "max_ch": 32,
+        "max_eh": 2,
+        "max_h": 28,
+        "max_w": 28,
+        "out_row_beats": 7,
+        "out_row_bytes": 112
+      }
+    },
+    "memory_limits": {
+      "arena_bytes": 61440,
+      "ddr_guard_bytes": 65536,
+      "image_bytes": 81920,
+      "mem_bytes": 196608,
+      "mem_words": 12288,
+      "schema": "e1-spatial-memory-limits-1",
+      "sim_ddr_limit_bytes": 268435456,
+      "sim_ddr_limit_mib": 256,
+      "snapshot_chunk_bytes": 8192,
+      "snapshot_max_bytes": 6272,
+      "tb_max_snaps": 64,
+      "tb_mem_bytes": 196608,
+      "tb_mem_words": 12288,
+      "tb_params": "generated/tb_params.vh",
+      "tb_snap_chunk": 8192,
+      "tb_watchdog_cycles": 20000000
+    },
+    "mode": "graph_derived",
+    "requested": {
+      "max_feature_height": "auto",
+      "max_feature_width": "auto"
+    },
+    "required": {
+      "height": 28,
+      "width": 28
+    },
+    "row_budget": {
+      "dense_max_in_row_bytes": 224,
+      "dense_max_out_row_bytes": 224,
+      "dense_max_weight_tiles": 12
+    },
+    "schema": "e1-affine-capacity-1",
+    "scope": "materialized_runtime_activation_tensors",
+    "simulation_budget": {
+      "cycle_upper_bound_estimate": 83472,
+      "performance_claim": "none; simulation budget only",
+      "transaction_beats_estimate": 1433,
+      "watchdog_cycles": 20000000,
+      "watchdog_rule": "watchdog = max(20e6, 8*(2*issue_estimate + 2*beat_estimate + 4096)); derived from independent work/transaction counts, not tuned to a run",
+      "work_issues_estimate": 1736
+    }
+  },
+  "status": "pass",
+  "tb_params": {
+    "json": "generated/tb_params.json",
+    "json_sha256": "e6ca46bb2795f192fae74e0cc94fa6854fedf434a02db2cb234bb91cbb9a6c9b",
+    "schema": "e1-spatial-tb-params-1",
+    "values": {
+      "TB_DDR_BASE": "0x10000000",
+      "TB_MAX_SNAPS": 64,
+      "TB_MEM_BYTES": 196608,
+      "TB_MEM_WORDS": 12288,
+      "TB_SNAP_CHUNK": 8192,
+      "TB_WATCHDOG_CYCLES": 20000000,
+      "schema": "e1-spatial-tb-params-1"
+    },
+    "vh": "generated/tb_params.vh",
+    "vh_sha256": "3809d78241526bb595196f34044549f593fccc6630265cd74bb5c6d3bbdba878"
+  }
+}

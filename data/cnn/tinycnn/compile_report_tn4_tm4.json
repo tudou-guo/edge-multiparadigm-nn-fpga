@@ -1,0 +1,369 @@
+{
+  "command": "compile",
+  "dense": null,
+  "depthwise": null,
+  "engine_capacity": {
+    "activation": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "copy": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "max over real Pad/Slice/Concat in+out rows of align16(align8(C)*W); never MAX_CH*MAX_W",
+      "streaming": false,
+      "used_by_graph": false
+    },
+    "dense": {
+      "expanded": true,
+      "max_cin": 32,
+      "max_cout": 32,
+      "max_h": 28,
+      "max_w": 28,
+      "used_by_graph": true
+    },
+    "depthwise": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "eltwise": {
+      "expanded": true,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_w": 1,
+      "streaming": true,
+      "used_by_graph": false
+    },
+    "int8_mul": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "maxpool2d": {
+      "cache_rows": 2,
+      "expanded": true,
+      "in_row_bytes": 224,
+      "logical_storage_bytes": 560,
+      "max_ch": 32,
+      "max_eh": 2,
+      "max_h": 28,
+      "max_w": 28,
+      "out_row_bytes": 112,
+      "streaming": false,
+      "used_by_graph": true
+    },
+    "pool2x2": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "pool5": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "max_ch": 8,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "real align16(align8(C)*W) row",
+      "streaming": false,
+      "used_by_graph": false
+    },
+    "reduce": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "resize": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "input_axis_limit": 320,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_max_h": 1,
+      "out_max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "input row align16(align8(C)*W) line buffer + x2 output row extent",
+      "streaming": false,
+      "used_by_graph": false
+    }
+  },
+  "engine_profile": null,
+  "engine_pruning": "graph",
+  "gates": {
+    "affine_frontend": "pass",
+    "board": "not_run",
+    "codegen": "pass",
+    "frontend": "pass",
+    "lowering": "pass",
+    "memory_planning": "pass",
+    "parameter_pack": "pass",
+    "quant_contract": "pass",
+    "reference": "pass",
+    "reserved_engines": "not_used_by_graph",
+    "rtl": "not_run",
+    "spatial_capacity": "pass"
+  },
+  "generated_parameters": null,
+  "graph_digest": "832221ba22961bb73c42dd349d2ae2d5f1d67aeab051ce08c44cadd18143b05a",
+  "manifest": "examples\\temp\\tinycnn28_mnist_20261030_130046\\artifacts\\toolchain_compile_tn4_tm4\\compile_manifest.json",
+  "memory_limits": {
+    "arena_bytes": 61440,
+    "ddr_guard_bytes": 65536,
+    "image_bytes": 81920,
+    "mem_bytes": 196608,
+    "mem_words": 12288,
+    "schema": "e1-spatial-memory-limits-1",
+    "sim_ddr_limit_bytes": 268435456,
+    "sim_ddr_limit_mib": 256,
+    "snapshot_chunk_bytes": 8192,
+    "snapshot_max_bytes": 6272,
+    "tb_max_snaps": 64,
+    "tb_mem_bytes": 196608,
+    "tb_mem_words": 12288,
+    "tb_params": "generated/tb_params.vh",
+    "tb_snap_chunk": 8192,
+    "tb_watchdog_cycles": 20000000
+  },
+  "out_dir": "examples\\temp\\tinycnn28_mnist_20261030_130046\\artifacts\\toolchain_compile_tn4_tm4",
+  "records": 8,
+  "reference_cache": null,
+  "reference_cache_request": {
+    "dir": null,
+    "enabled": false,
+    "mode": null
+  },
+  "requested": {
+    "compute_profile": null,
+    "dense_overrides": {
+      "mac_impl": 3,
+      "tm": 4,
+      "tn": 4
+    },
+    "depthwise_overrides": {},
+    "engine_profile": null,
+    "fragment_input_rows": null,
+    "fragment_nodes": null,
+    "max_feature_height": null,
+    "max_feature_width": null,
+    "memory_profile": "first_fit",
+    "numeric_profile": "affine-int8-v1",
+    "sim_ddr_limit_mib": null,
+    "target": null
+  },
+  "schema": "e1-compile-cli-1",
+  "simulation_budget": {
+    "cycle_upper_bound_estimate": 83472,
+    "performance_claim": "none; simulation budget only",
+    "transaction_beats_estimate": 1433,
+    "watchdog_cycles": 20000000,
+    "watchdog_rule": "watchdog = max(20e6, 8*(2*issue_estimate + 2*beat_estimate + 4096)); derived from independent work/transaction counts, not tuned to a run",
+    "work_issues_estimate": 1736
+  },
+  "spatial_capacity": {
+    "allocated": {
+      "height": 28,
+      "width": 28
+    },
+    "capability_version": "affine-int8-v1",
+    "engine_capacity": {
+      "activation": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "copy": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "max over real Pad/Slice/Concat in+out rows of align16(align8(C)*W); never MAX_CH*MAX_W",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "dense": {
+        "expanded": true,
+        "max_cin": 32,
+        "max_cout": 32,
+        "max_h": 28,
+        "max_w": 28,
+        "used_by_graph": true
+      },
+      "depthwise": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "eltwise": {
+        "expanded": true,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_w": 1,
+        "streaming": true,
+        "used_by_graph": false
+      },
+      "int8_mul": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "maxpool2d": {
+        "cache_rows": 2,
+        "expanded": true,
+        "in_row_bytes": 224,
+        "logical_storage_bytes": 560,
+        "max_ch": 32,
+        "max_eh": 2,
+        "max_h": 28,
+        "max_w": 28,
+        "out_row_bytes": 112,
+        "streaming": false,
+        "used_by_graph": true
+      },
+      "pool2x2": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "pool5": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 8,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "real align16(align8(C)*W) row",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "reduce": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "resize": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "input_axis_limit": 320,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_max_h": 1,
+        "out_max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "input row align16(align8(C)*W) line buffer + x2 output row extent",
+        "streaming": false,
+        "used_by_graph": false
+      }
+    },
+    "engine_row_capacity": {
+      "dense": {
+        "in_row_beats": 14,
+        "in_row_bytes": 224,
+        "max_weight_tiles": 12,
+        "out_row_beats": 14,
+        "out_row_bytes": 224
+      },
+      "maxpool2d": {
+        "cache_rows": 2,
+        "in_row_beats": 14,
+        "in_row_bytes": 224,
+        "logical_storage_bytes": 560,
+        "max_ch": 32,
+        "max_eh": 2,
+        "max_h": 28,
+        "max_w": 28,
+        "out_row_beats": 7,
+        "out_row_bytes": 112
+      }
+    },
+    "memory_limits": {
+      "arena_bytes": 61440,
+      "ddr_guard_bytes": 65536,
+      "image_bytes": 81920,
+      "mem_bytes": 196608,
+      "mem_words": 12288,
+      "schema": "e1-spatial-memory-limits-1",
+      "sim_ddr_limit_bytes": 268435456,
+      "sim_ddr_limit_mib": 256,
+      "snapshot_chunk_bytes": 8192,
+      "snapshot_max_bytes": 6272,
+      "tb_max_snaps": 64,
+      "tb_mem_bytes": 196608,
+      "tb_mem_words": 12288,
+      "tb_params": "generated/tb_params.vh",
+      "tb_snap_chunk": 8192,
+      "tb_watchdog_cycles": 20000000
+    },
+    "mode": "graph_derived",
+    "requested": {
+      "max_feature_height": "auto",
+      "max_feature_width": "auto"
+    },
+    "required": {
+      "height": 28,
+      "width": 28
+    },
+    "row_budget": {
+      "dense_max_in_row_bytes": 224,
+      "dense_max_out_row_bytes": 224,
+      "dense_max_weight_tiles": 12
+    },
+    "schema": "e1-affine-capacity-1",
+    "scope": "materialized_runtime_activation_tensors",
+    "simulation_budget": {
+      "cycle_upper_bound_estimate": 83472,
+      "performance_claim": "none; simulation budget only",
+      "transaction_beats_estimate": 1433,
+      "watchdog_cycles": 20000000,
+      "watchdog_rule": "watchdog = max(20e6, 8*(2*issue_estimate + 2*beat_estimate + 4096)); derived from independent work/transaction counts, not tuned to a run",
+      "work_issues_estimate": 1736
+    }
+  },
+  "status": "pass",
+  "target": null
+}

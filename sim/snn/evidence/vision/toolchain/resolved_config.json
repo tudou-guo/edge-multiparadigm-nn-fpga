@@ -1,0 +1,115 @@
+{
+ "schema": "spikformer-config-1",
+ "family": "spikformer-b1-cifar10",
+ "batch": 1,
+ "image_h": 32,
+ "image_w": 32,
+ "channels": 3,
+ "time_steps": 4,
+ "embed": 384,
+ "heads": 12,
+ "head_dim": 32,
+ "mlp_hidden": 1536,
+ "depth": 1,
+ "num_classes": 10,
+ "lif": {
+  "tau": 2,
+  "reset": 0,
+  "init": 0
+ },
+ "input": {
+  "source": "data_bs128.npy#index0",
+  "normalize": "recorded-mean-std-not-blind",
+  "note": "upstream pack has no labels; fixture uses seeded RNG unless input given"
+ },
+ "checkpoint": {
+  "kind": "missing",
+  "bn_state": "absent",
+  "note": "no training checkpoint shipped; real import blocked_assets"
+ },
+ "head": {
+  "reduction": "sum",
+  "norm": "ps_div",
+  "note": "PL sum; PS divides by T*N then FP32 Linear+argmax"
+ },
+ "target": {
+  "part": "xczu15eg-ffvb1156-2-i",
+  "tool": "Vivado 2021.1",
+  "period_ns": 5
+ },
+ "derived": {
+  "tokens": 64,
+  "final_fmaps_width": 64,
+  "sum_w": 6,
+  "attn_word": 24,
+  "rw": 4,
+  "res_bits": 4,
+  "res_bits_min": 3,
+  "spike_bits": 2,
+  "psum_slice": 32,
+  "lif_add_bits": 33,
+  "av_bits": 12,
+  "av_max": 2048,
+  "worst_residual": 4,
+  "stage_bounds": {
+   "sps": 2,
+   "attn_res": 3,
+   "mlp_res": 4
+  },
+  "accum_bounds": {
+   "qkv": {
+    "pos": 48768,
+    "neg": -49152
+   },
+   "proj": {
+    "pos": 99876864,
+    "neg": -100663296
+   },
+   "fc1": {
+    "pos": 195072,
+    "neg": -196608
+   },
+   "fc2": {
+    "pos": 195072,
+    "neg": -196608
+   }
+  },
+  "stream": {
+   "tab_beats": 0,
+   "token_beats": 64,
+   "block_w_beats": 222912,
+   "block_in_beats": 3072,
+   "descriptor_beats": 4,
+   "mlp_fc1_internal_beats": 110592,
+   "mlp_fc2_internal_beats_per_group": 2304
+  },
+  "packing": {
+   "layout": "time-minor lane pack (lane m owns bits [m*T +: T])",
+   "words_note": "residual words = N*C*T*RW/64",
+   "res_bits": 4
+  },
+  "geometry": {
+   "h": 8,
+   "w": 8,
+   "c": 384
+  },
+  "sps": {
+   "h": 32,
+   "w": 32,
+   "c0": 3,
+   "c1": 96,
+   "c2": 384,
+   "h1": 16,
+   "w1": 16,
+   "h2": 8,
+   "w2": 8,
+   "tokens": 64,
+   "conv1_weights": 2592,
+   "conv2_weights": 331776,
+   "conv1_beats": 324,
+   "conv2_beats": 41472,
+   "bias_beats": 30
+  }
+ },
+ "thresholds": {}
+}

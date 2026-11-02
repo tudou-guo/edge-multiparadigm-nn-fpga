@@ -1,0 +1,4194 @@
+{
+  "schema": "v0.2-yolo-graph-1",
+  "profile": "affine-int8-v1",
+  "model": {
+    "name": "yolov8n-relu-voc20-640-six-head",
+    "num_classes": 20,
+    "reg_max": 16,
+    "input_h": 640,
+    "input_w": 640
+  },
+  "input": {
+    "name": "images",
+    "dtype": "uint8",
+    "shape": [
+      1,
+      3,
+      640,
+      640
+    ],
+    "scale": 0.007870171219110489,
+    "zero_point": 0
+  },
+  "outputs": [
+    "conv48",
+    "conv51",
+    "conv54",
+    "conv57",
+    "conv60",
+    "conv63"
+  ],
+  "nodes": [
+    {
+      "id": "conv1",
+      "op": "Conv",
+      "inputs": [
+        "__input__"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 2,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 3,
+        "cout": 16
+      },
+      "out_shape": [
+        16,
+        320,
+        320
+      ],
+      "quant": {
+        "out_scale": 0.1700672060251236,
+        "out_zero_points": [
+          63
+        ],
+        "in_scales": [
+          0.007870171219110489
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.0460372269153595
+      }
+    },
+    {
+      "id": "conv2",
+      "op": "Conv",
+      "inputs": [
+        "conv1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 2,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 16,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.16698329150676727,
+        "out_zero_points": [
+          66
+        ],
+        "in_scales": [
+          0.1700672060251236
+        ],
+        "in_zero_points": [
+          63
+        ],
+        "w_scale": 0.0051423609256744385
+      }
+    },
+    {
+      "id": "conv3",
+      "op": "Conv",
+      "inputs": [
+        "conv2"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.22004291415214539,
+        "out_zero_points": [
+          59
+        ],
+        "in_scales": [
+          0.16698329150676727
+        ],
+        "in_zero_points": [
+          66
+        ],
+        "w_scale": 0.009364129044115543
+      }
+    },
+    {
+      "id": "split0",
+      "op": "Split",
+      "inputs": [
+        "conv3"
+      ],
+      "attrs": {
+        "sizes": [
+          16,
+          16
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split0_0",
+            "channel_offset": 0,
+            "channels": 16
+          },
+          {
+            "name": "split0_1",
+            "channel_offset": 16,
+            "channels": 16
+          }
+        ]
+      },
+      "out_shape": [
+        32,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.22004291415214539,
+        "out_zero_points": [
+          59
+        ],
+        "in_scales": [
+          0.22004291415214539
+        ],
+        "in_zero_points": [
+          59
+        ]
+      }
+    },
+    {
+      "id": "conv4",
+      "op": "Conv",
+      "inputs": [
+        "split0_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 16,
+        "cout": 16
+      },
+      "out_shape": [
+        16,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.1528802514076233,
+        "out_zero_points": [
+          72
+        ],
+        "in_scales": [
+          0.22004291415214539
+        ],
+        "in_zero_points": [
+          59
+        ],
+        "w_scale": 0.011025774292647839
+      }
+    },
+    {
+      "id": "conv5",
+      "op": "Conv",
+      "inputs": [
+        "conv4"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 16,
+        "cout": 16
+      },
+      "out_shape": [
+        16,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.20880834758281708,
+        "out_zero_points": [
+          79
+        ],
+        "in_scales": [
+          0.1528802514076233
+        ],
+        "in_zero_points": [
+          72
+        ],
+        "w_scale": 0.0056932768784463406
+      }
+    },
+    {
+      "id": "add0",
+      "op": "Add",
+      "inputs": [
+        "conv5",
+        "split0_1"
+      ],
+      "attrs": {},
+      "out_shape": [
+        16,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.09319128096103668,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.20880834758281708,
+          0.22004291415214539
+        ],
+        "in_zero_points": [
+          79,
+          59
+        ]
+      }
+    },
+    {
+      "id": "cat0",
+      "op": "Concat",
+      "inputs": [
+        "split0_0",
+        "split0_1",
+        "add0"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        48,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.11898859590291977,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.22004291415214539,
+          0.22004291415214539,
+          0.09319128096103668
+        ],
+        "in_zero_points": [
+          59,
+          59,
+          0
+        ]
+      }
+    },
+    {
+      "id": "conv6",
+      "op": "Conv",
+      "inputs": [
+        "cat0"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 48,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        160,
+        160
+      ],
+      "quant": {
+        "out_scale": 0.15680453181266785,
+        "out_zero_points": [
+          83
+        ],
+        "in_scales": [
+          0.11898859590291977
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.007190438453108072
+      }
+    },
+    {
+      "id": "conv7",
+      "op": "Conv",
+      "inputs": [
+        "conv6"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 2,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.17204876244068146,
+        "out_zero_points": [
+          73
+        ],
+        "in_scales": [
+          0.15680453181266785
+        ],
+        "in_zero_points": [
+          83
+        ],
+        "w_scale": 0.007356181275099516
+      }
+    },
+    {
+      "id": "conv8",
+      "op": "Conv",
+      "inputs": [
+        "conv7"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.11240601539611816,
+        "out_zero_points": [
+          70
+        ],
+        "in_scales": [
+          0.17204876244068146
+        ],
+        "in_zero_points": [
+          73
+        ],
+        "w_scale": 0.0087860943749547
+      }
+    },
+    {
+      "id": "split1",
+      "op": "Split",
+      "inputs": [
+        "conv8"
+      ],
+      "attrs": {
+        "sizes": [
+          32,
+          32
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split1_0",
+            "channel_offset": 0,
+            "channels": 32
+          },
+          {
+            "name": "split1_1",
+            "channel_offset": 32,
+            "channels": 32
+          }
+        ]
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.11240601539611816,
+        "out_zero_points": [
+          70
+        ],
+        "in_scales": [
+          0.11240601539611816
+        ],
+        "in_zero_points": [
+          70
+        ]
+      }
+    },
+    {
+      "id": "conv9",
+      "op": "Conv",
+      "inputs": [
+        "split1_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.11744485795497894,
+        "out_zero_points": [
+          67
+        ],
+        "in_scales": [
+          0.11240601539611816
+        ],
+        "in_zero_points": [
+          70
+        ],
+        "w_scale": 0.006239302456378937
+      }
+    },
+    {
+      "id": "conv10",
+      "op": "Conv",
+      "inputs": [
+        "conv9"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.08313820511102676,
+        "out_zero_points": [
+          73
+        ],
+        "in_scales": [
+          0.11744485795497894
+        ],
+        "in_zero_points": [
+          67
+        ],
+        "w_scale": 0.003000211901962757
+      }
+    },
+    {
+      "id": "add1",
+      "op": "Add",
+      "inputs": [
+        "conv10",
+        "split1_1"
+      ],
+      "attrs": {},
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.04821479320526123,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.08313820511102676,
+          0.11240601539611816
+        ],
+        "in_zero_points": [
+          73,
+          70
+        ]
+      }
+    },
+    {
+      "id": "conv11",
+      "op": "Conv",
+      "inputs": [
+        "add1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.10316026210784912,
+        "out_zero_points": [
+          66
+        ],
+        "in_scales": [
+          0.04821479320526123
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.0035912201274186373
+      }
+    },
+    {
+      "id": "conv12",
+      "op": "Conv",
+      "inputs": [
+        "conv11"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.13266155123710632,
+        "out_zero_points": [
+          59
+        ],
+        "in_scales": [
+          0.10316026210784912
+        ],
+        "in_zero_points": [
+          66
+        ],
+        "w_scale": 0.005540422163903713
+      }
+    },
+    {
+      "id": "add2",
+      "op": "Add",
+      "inputs": [
+        "conv12",
+        "add1"
+      ],
+      "attrs": {},
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.09816356003284454,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.13266155123710632,
+          0.04821479320526123
+        ],
+        "in_zero_points": [
+          59,
+          0
+        ]
+      }
+    },
+    {
+      "id": "cat1",
+      "op": "Concat",
+      "inputs": [
+        "split1_0",
+        "split1_1",
+        "add1",
+        "add2"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        128,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.07827364653348923,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.11240601539611816,
+          0.11240601539611816,
+          0.04821479320526123,
+          0.09816356003284454
+        ],
+        "in_zero_points": [
+          70,
+          70,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "conv13",
+      "op": "Conv",
+      "inputs": [
+        "cat1"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.1337602585554123,
+        "out_zero_points": [
+          66
+        ],
+        "in_scales": [
+          0.07827364653348923
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.00384415197186172
+      }
+    },
+    {
+      "id": "conv14",
+      "op": "Conv",
+      "inputs": [
+        "conv13"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 2,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.10412180423736572,
+        "out_zero_points": [
+          63
+        ],
+        "in_scales": [
+          0.1337602585554123
+        ],
+        "in_zero_points": [
+          66
+        ],
+        "w_scale": 0.0024683631490916014
+      }
+    },
+    {
+      "id": "conv15",
+      "op": "Conv",
+      "inputs": [
+        "conv14"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.10254716128110886,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.10412180423736572
+        ],
+        "in_zero_points": [
+          63
+        ],
+        "w_scale": 0.004625476431101561
+      }
+    },
+    {
+      "id": "split2",
+      "op": "Split",
+      "inputs": [
+        "conv15"
+      ],
+      "attrs": {
+        "sizes": [
+          64,
+          64
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split2_0",
+            "channel_offset": 0,
+            "channels": 64
+          },
+          {
+            "name": "split2_1",
+            "channel_offset": 64,
+            "channels": 64
+          }
+        ]
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.10254716128110886,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.10254716128110886
+        ],
+        "in_zero_points": [
+          58
+        ]
+      }
+    },
+    {
+      "id": "conv16",
+      "op": "Conv",
+      "inputs": [
+        "split2_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.10518153011798859,
+        "out_zero_points": [
+          65
+        ],
+        "in_scales": [
+          0.10254716128110886
+        ],
+        "in_zero_points": [
+          58
+        ],
+        "w_scale": 0.004062207415699959
+      }
+    },
+    {
+      "id": "conv17",
+      "op": "Conv",
+      "inputs": [
+        "conv16"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.09427067637443542,
+        "out_zero_points": [
+          64
+        ],
+        "in_scales": [
+          0.10518153011798859
+        ],
+        "in_zero_points": [
+          65
+        ],
+        "w_scale": 0.0025625964626669884
+      }
+    },
+    {
+      "id": "add3",
+      "op": "Add",
+      "inputs": [
+        "conv17",
+        "split2_1"
+      ],
+      "attrs": {},
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.06550507247447968,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.09427067637443542,
+          0.10254716128110886
+        ],
+        "in_zero_points": [
+          64,
+          58
+        ]
+      }
+    },
+    {
+      "id": "conv18",
+      "op": "Conv",
+      "inputs": [
+        "add3"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.09195561707019806,
+        "out_zero_points": [
+          68
+        ],
+        "in_scales": [
+          0.06550507247447968
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.0019108699634671211
+      }
+    },
+    {
+      "id": "conv19",
+      "op": "Conv",
+      "inputs": [
+        "conv18"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.12415621429681778,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.09195561707019806
+        ],
+        "in_zero_points": [
+          68
+        ],
+        "w_scale": 0.0051511675119400024
+      }
+    },
+    {
+      "id": "add4",
+      "op": "Add",
+      "inputs": [
+        "conv19",
+        "add3"
+      ],
+      "attrs": {},
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.09396816045045853,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.12415621429681778,
+          0.06550507247447968
+        ],
+        "in_zero_points": [
+          58,
+          0
+        ]
+      }
+    },
+    {
+      "id": "cat2",
+      "op": "Concat",
+      "inputs": [
+        "split2_0",
+        "split2_1",
+        "add3",
+        "add4"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        256,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.07296351343393326,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.10254716128110886,
+          0.10254716128110886,
+          0.06550507247447968,
+          0.09396816045045853
+        ],
+        "in_zero_points": [
+          58,
+          58,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "conv20",
+      "op": "Conv",
+      "inputs": [
+        "cat2"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 256,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.12223644554615021,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.07296351343393326
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.004137586802244186
+      }
+    },
+    {
+      "id": "conv21",
+      "op": "Conv",
+      "inputs": [
+        "conv20"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 2,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 256
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.0964437946677208,
+        "out_zero_points": [
+          59
+        ],
+        "in_scales": [
+          0.12223644554615021
+        ],
+        "in_zero_points": [
+          58
+        ],
+        "w_scale": 0.0017173379892483354
+      }
+    },
+    {
+      "id": "conv22",
+      "op": "Conv",
+      "inputs": [
+        "conv21"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 256,
+        "cout": 256
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.08940637111663818,
+        "out_zero_points": [
+          69
+        ],
+        "in_scales": [
+          0.0964437946677208
+        ],
+        "in_zero_points": [
+          59
+        ],
+        "w_scale": 0.0024999442975968122
+      }
+    },
+    {
+      "id": "split3",
+      "op": "Split",
+      "inputs": [
+        "conv22"
+      ],
+      "attrs": {
+        "sizes": [
+          128,
+          128
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split3_0",
+            "channel_offset": 0,
+            "channels": 128
+          },
+          {
+            "name": "split3_1",
+            "channel_offset": 128,
+            "channels": 128
+          }
+        ]
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.08940637111663818,
+        "out_zero_points": [
+          69
+        ],
+        "in_scales": [
+          0.08940637111663818
+        ],
+        "in_zero_points": [
+          69
+        ]
+      }
+    },
+    {
+      "id": "conv23",
+      "op": "Conv",
+      "inputs": [
+        "split3_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.10403699427843094,
+        "out_zero_points": [
+          62
+        ],
+        "in_scales": [
+          0.08940637111663818
+        ],
+        "in_zero_points": [
+          69
+        ],
+        "w_scale": 0.0019199049565941095
+      }
+    },
+    {
+      "id": "conv24",
+      "op": "Conv",
+      "inputs": [
+        "conv23"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.1132831946015358,
+        "out_zero_points": [
+          61
+        ],
+        "in_scales": [
+          0.10403699427843094
+        ],
+        "in_zero_points": [
+          62
+        ],
+        "w_scale": 0.00167144276201725
+      }
+    },
+    {
+      "id": "add5",
+      "op": "Add",
+      "inputs": [
+        "conv24",
+        "split3_1"
+      ],
+      "attrs": {},
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.0773373618721962,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.1132831946015358,
+          0.08940637111663818
+        ],
+        "in_zero_points": [
+          61,
+          69
+        ]
+      }
+    },
+    {
+      "id": "cat3",
+      "op": "Concat",
+      "inputs": [
+        "split3_0",
+        "split3_1",
+        "add5"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        384,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.06069301441311836,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.08940637111663818,
+          0.08940637111663818,
+          0.0773373618721962
+        ],
+        "in_zero_points": [
+          69,
+          69,
+          0
+        ]
+      }
+    },
+    {
+      "id": "conv25",
+      "op": "Conv",
+      "inputs": [
+        "cat3"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 384,
+        "cout": 256
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.0963210016489029,
+        "out_zero_points": [
+          71
+        ],
+        "in_scales": [
+          0.06069301441311836
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.002756856381893158
+      }
+    },
+    {
+      "id": "conv26",
+      "op": "Conv",
+      "inputs": [
+        "conv25"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 256,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.08797384798526764,
+        "out_zero_points": [
+          56
+        ],
+        "in_scales": [
+          0.0963210016489029
+        ],
+        "in_zero_points": [
+          71
+        ],
+        "w_scale": 0.0022004691418260336
+      }
+    },
+    {
+      "id": "pool5_0",
+      "op": "MaxPool",
+      "inputs": [
+        "conv26"
+      ],
+      "attrs": {
+        "kernel": 5,
+        "stride": 1,
+        "pad": 2
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.08797384798526764,
+        "out_zero_points": [
+          56
+        ],
+        "in_scales": [
+          0.08797384798526764
+        ],
+        "in_zero_points": [
+          56
+        ]
+      }
+    },
+    {
+      "id": "pool5_1",
+      "op": "MaxPool",
+      "inputs": [
+        "pool5_0"
+      ],
+      "attrs": {
+        "kernel": 5,
+        "stride": 1,
+        "pad": 2
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.08797384798526764,
+        "out_zero_points": [
+          56
+        ],
+        "in_scales": [
+          0.08797384798526764
+        ],
+        "in_zero_points": [
+          56
+        ]
+      }
+    },
+    {
+      "id": "pool5_2",
+      "op": "MaxPool",
+      "inputs": [
+        "pool5_1"
+      ],
+      "attrs": {
+        "kernel": 5,
+        "stride": 1,
+        "pad": 2
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.08797384798526764,
+        "out_zero_points": [
+          56
+        ],
+        "in_scales": [
+          0.08797384798526764
+        ],
+        "in_zero_points": [
+          56
+        ]
+      }
+    },
+    {
+      "id": "cat4",
+      "op": "Concat",
+      "inputs": [
+        "conv26",
+        "pool5_0",
+        "pool5_1",
+        "pool5_2"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        512,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.07142025977373123,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.08797384798526764,
+          0.08797384798526764,
+          0.08797384798526764,
+          0.08797384798526764
+        ],
+        "in_zero_points": [
+          56,
+          56,
+          56,
+          56
+        ]
+      }
+    },
+    {
+      "id": "conv27",
+      "op": "Conv",
+      "inputs": [
+        "cat4"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 512,
+        "cout": 256
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.07574102282524109,
+        "out_zero_points": [
+          65
+        ],
+        "in_scales": [
+          0.07142025977373123
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.0023172018118202686
+      }
+    },
+    {
+      "id": "up0",
+      "op": "Resize",
+      "inputs": [
+        "conv27"
+      ],
+      "attrs": {
+        "mode": "nearest",
+        "scale": 2
+      },
+      "out_shape": [
+        256,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.07574102282524109,
+        "out_zero_points": [
+          65
+        ],
+        "in_scales": [
+          0.07574102282524109
+        ],
+        "in_zero_points": [
+          65
+        ]
+      }
+    },
+    {
+      "id": "cat5",
+      "op": "Concat",
+      "inputs": [
+        "up0",
+        "conv20"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        384,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.057259831577539444,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.07574102282524109,
+          0.12223644554615021
+        ],
+        "in_zero_points": [
+          65,
+          58
+        ]
+      }
+    },
+    {
+      "id": "conv28",
+      "op": "Conv",
+      "inputs": [
+        "cat5"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 384,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.08449050039052963,
+        "out_zero_points": [
+          64
+        ],
+        "in_scales": [
+          0.057259831577539444
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.005417932756245136
+      }
+    },
+    {
+      "id": "split4",
+      "op": "Split",
+      "inputs": [
+        "conv28"
+      ],
+      "attrs": {
+        "sizes": [
+          64,
+          64
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split4_0",
+            "channel_offset": 0,
+            "channels": 64
+          },
+          {
+            "name": "split4_1",
+            "channel_offset": 64,
+            "channels": 64
+          }
+        ]
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.08449050039052963,
+        "out_zero_points": [
+          64
+        ],
+        "in_scales": [
+          0.08449050039052963
+        ],
+        "in_zero_points": [
+          64
+        ]
+      }
+    },
+    {
+      "id": "conv29",
+      "op": "Conv",
+      "inputs": [
+        "split4_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.09580882638692856,
+        "out_zero_points": [
+          60
+        ],
+        "in_scales": [
+          0.08449050039052963
+        ],
+        "in_zero_points": [
+          64
+        ],
+        "w_scale": 0.004327300004661083
+      }
+    },
+    {
+      "id": "conv30",
+      "op": "Conv",
+      "inputs": [
+        "conv29"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.0921611338853836,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.09580882638692856
+        ],
+        "in_zero_points": [
+          60
+        ],
+        "w_scale": 0.0038027744740247726
+      }
+    },
+    {
+      "id": "cat6",
+      "op": "Concat",
+      "inputs": [
+        "split4_0",
+        "split4_1",
+        "conv30"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        192,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.04543713480234146,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.08449050039052963,
+          0.08449050039052963,
+          0.0921611338853836
+        ],
+        "in_zero_points": [
+          64,
+          64,
+          58
+        ]
+      }
+    },
+    {
+      "id": "conv31",
+      "op": "Conv",
+      "inputs": [
+        "cat6"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 192,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.08333553373813629,
+        "out_zero_points": [
+          60
+        ],
+        "in_scales": [
+          0.04543713480234146
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.0057831620797514915
+      }
+    },
+    {
+      "id": "up1",
+      "op": "Resize",
+      "inputs": [
+        "conv31"
+      ],
+      "attrs": {
+        "mode": "nearest",
+        "scale": 2
+      },
+      "out_shape": [
+        128,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.08333553373813629,
+        "out_zero_points": [
+          60
+        ],
+        "in_scales": [
+          0.08333553373813629
+        ],
+        "in_zero_points": [
+          60
+        ]
+      }
+    },
+    {
+      "id": "cat7",
+      "op": "Concat",
+      "inputs": [
+        "up1",
+        "conv13"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        192,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.058267977088689804,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.08333553373813629,
+          0.1337602585554123
+        ],
+        "in_zero_points": [
+          60,
+          66
+        ]
+      }
+    },
+    {
+      "id": "conv32",
+      "op": "Conv",
+      "inputs": [
+        "cat7"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 192,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.08961152285337448,
+        "out_zero_points": [
+          66
+        ],
+        "in_scales": [
+          0.058267977088689804
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.0038519471418112516
+      }
+    },
+    {
+      "id": "split5",
+      "op": "Split",
+      "inputs": [
+        "conv32"
+      ],
+      "attrs": {
+        "sizes": [
+          32,
+          32
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split5_0",
+            "channel_offset": 0,
+            "channels": 32
+          },
+          {
+            "name": "split5_1",
+            "channel_offset": 32,
+            "channels": 32
+          }
+        ]
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.08961152285337448,
+        "out_zero_points": [
+          66
+        ],
+        "in_scales": [
+          0.08961152285337448
+        ],
+        "in_zero_points": [
+          66
+        ]
+      }
+    },
+    {
+      "id": "conv33",
+      "op": "Conv",
+      "inputs": [
+        "split5_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.08954773098230362,
+        "out_zero_points": [
+          66
+        ],
+        "in_scales": [
+          0.08961152285337448
+        ],
+        "in_zero_points": [
+          66
+        ],
+        "w_scale": 0.003308940678834915
+      }
+    },
+    {
+      "id": "conv34",
+      "op": "Conv",
+      "inputs": [
+        "conv33"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 32,
+        "cout": 32
+      },
+      "out_shape": [
+        32,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.11565453559160233,
+        "out_zero_points": [
+          55
+        ],
+        "in_scales": [
+          0.08954773098230362
+        ],
+        "in_zero_points": [
+          66
+        ],
+        "w_scale": 0.0060434346087276936
+      }
+    },
+    {
+      "id": "cat8",
+      "op": "Concat",
+      "inputs": [
+        "split5_0",
+        "split5_1",
+        "conv34"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        96,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.067849300801754,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.08961152285337448,
+          0.08961152285337448,
+          0.11565453559160233
+        ],
+        "in_zero_points": [
+          66,
+          66,
+          55
+        ]
+      }
+    },
+    {
+      "id": "conv35",
+      "op": "Conv",
+      "inputs": [
+        "cat8"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 96,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.09364025294780731,
+        "out_zero_points": [
+          57
+        ],
+        "in_scales": [
+          0.067849300801754
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.005848430562764406
+      }
+    },
+    {
+      "id": "conv36",
+      "op": "Conv",
+      "inputs": [
+        "conv35"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 2,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.1000835970044136,
+        "out_zero_points": [
+          54
+        ],
+        "in_scales": [
+          0.09364025294780731
+        ],
+        "in_zero_points": [
+          57
+        ],
+        "w_scale": 0.0023261592723429203
+      }
+    },
+    {
+      "id": "cat9",
+      "op": "Concat",
+      "inputs": [
+        "conv36",
+        "conv31"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        192,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.0513601191341877,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.1000835970044136,
+          0.08333553373813629
+        ],
+        "in_zero_points": [
+          54,
+          60
+        ]
+      }
+    },
+    {
+      "id": "conv37",
+      "op": "Conv",
+      "inputs": [
+        "cat9"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 192,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.08704368025064468,
+        "out_zero_points": [
+          57
+        ],
+        "in_scales": [
+          0.0513601191341877
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.004708753898739815
+      }
+    },
+    {
+      "id": "split6",
+      "op": "Split",
+      "inputs": [
+        "conv37"
+      ],
+      "attrs": {
+        "sizes": [
+          64,
+          64
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split6_0",
+            "channel_offset": 0,
+            "channels": 64
+          },
+          {
+            "name": "split6_1",
+            "channel_offset": 64,
+            "channels": 64
+          }
+        ]
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.08704368025064468,
+        "out_zero_points": [
+          57
+        ],
+        "in_scales": [
+          0.08704368025064468
+        ],
+        "in_zero_points": [
+          57
+        ]
+      }
+    },
+    {
+      "id": "conv38",
+      "op": "Conv",
+      "inputs": [
+        "split6_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.10849344730377197,
+        "out_zero_points": [
+          67
+        ],
+        "in_scales": [
+          0.08704368025064468
+        ],
+        "in_zero_points": [
+          57
+        ],
+        "w_scale": 0.0043440028093755245
+      }
+    },
+    {
+      "id": "conv39",
+      "op": "Conv",
+      "inputs": [
+        "conv38"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.11732038110494614,
+        "out_zero_points": [
+          59
+        ],
+        "in_scales": [
+          0.10849344730377197
+        ],
+        "in_zero_points": [
+          67
+        ],
+        "w_scale": 0.004876621998846531
+      }
+    },
+    {
+      "id": "cat10",
+      "op": "Concat",
+      "inputs": [
+        "split6_0",
+        "split6_1",
+        "conv39"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        192,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.05691981688141823,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.08704368025064468,
+          0.08704368025064468,
+          0.11732038110494614
+        ],
+        "in_zero_points": [
+          57,
+          57,
+          59
+        ]
+      }
+    },
+    {
+      "id": "conv40",
+      "op": "Conv",
+      "inputs": [
+        "cat10"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 192,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.09863803535699844,
+        "out_zero_points": [
+          59
+        ],
+        "in_scales": [
+          0.05691981688141823
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.005828975699841976
+      }
+    },
+    {
+      "id": "conv41",
+      "op": "Conv",
+      "inputs": [
+        "conv40"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 2,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.101978600025177,
+        "out_zero_points": [
+          56
+        ],
+        "in_scales": [
+          0.09863803535699844
+        ],
+        "in_zero_points": [
+          59
+        ],
+        "w_scale": 0.0016324620228260756
+      }
+    },
+    {
+      "id": "cat11",
+      "op": "Concat",
+      "inputs": [
+        "conv41",
+        "conv27"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        384,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.06753528118133545,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.101978600025177,
+          0.07574102282524109
+        ],
+        "in_zero_points": [
+          56,
+          65
+        ]
+      }
+    },
+    {
+      "id": "conv42",
+      "op": "Conv",
+      "inputs": [
+        "cat11"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 384,
+        "cout": 256
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.0925046056509018,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.06753528118133545
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.0049280934035778046
+      }
+    },
+    {
+      "id": "split7",
+      "op": "Split",
+      "inputs": [
+        "conv42"
+      ],
+      "attrs": {
+        "sizes": [
+          128,
+          128
+        ],
+        "axis": 1,
+        "outputs": [
+          {
+            "name": "split7_0",
+            "channel_offset": 0,
+            "channels": 128
+          },
+          {
+            "name": "split7_1",
+            "channel_offset": 128,
+            "channels": 128
+          }
+        ]
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.0925046056509018,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.0925046056509018
+        ],
+        "in_zero_points": [
+          58
+        ]
+      }
+    },
+    {
+      "id": "conv43",
+      "op": "Conv",
+      "inputs": [
+        "split7_1"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.10876043885946274,
+        "out_zero_points": [
+          66
+        ],
+        "in_scales": [
+          0.0925046056509018
+        ],
+        "in_zero_points": [
+          58
+        ],
+        "w_scale": 0.00339290383271873
+      }
+    },
+    {
+      "id": "conv44",
+      "op": "Conv",
+      "inputs": [
+        "conv43"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 128
+      },
+      "out_shape": [
+        128,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.12134051322937012,
+        "out_zero_points": [
+          60
+        ],
+        "in_scales": [
+          0.10876043885946274
+        ],
+        "in_zero_points": [
+          66
+        ],
+        "w_scale": 0.004858689848333597
+      }
+    },
+    {
+      "id": "cat12",
+      "op": "Concat",
+      "inputs": [
+        "split7_0",
+        "split7_1",
+        "conv44"
+      ],
+      "attrs": {
+        "axis": 1
+      },
+      "out_shape": [
+        384,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.053543198853731155,
+        "out_zero_points": [
+          0
+        ],
+        "in_scales": [
+          0.0925046056509018,
+          0.0925046056509018,
+          0.12134051322937012
+        ],
+        "in_zero_points": [
+          58,
+          58,
+          60
+        ]
+      }
+    },
+    {
+      "id": "conv45",
+      "op": "Conv",
+      "inputs": [
+        "cat12"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": true,
+        "cin": 384,
+        "cout": 256
+      },
+      "out_shape": [
+        256,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.11096682399511337,
+        "out_zero_points": [
+          60
+        ],
+        "in_scales": [
+          0.053543198853731155
+        ],
+        "in_zero_points": [
+          0
+        ],
+        "w_scale": 0.005207311362028122
+      }
+    },
+    {
+      "id": "conv46",
+      "op": "Conv",
+      "inputs": [
+        "conv35"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.10727504640817642,
+        "out_zero_points": [
+          65
+        ],
+        "in_scales": [
+          0.09364025294780731
+        ],
+        "in_zero_points": [
+          57
+        ],
+        "w_scale": 0.0028827874921262264
+      }
+    },
+    {
+      "id": "conv47",
+      "op": "Conv",
+      "inputs": [
+        "conv46"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.24288174510002136,
+        "out_zero_points": [
+          47
+        ],
+        "in_scales": [
+          0.10727504640817642
+        ],
+        "in_zero_points": [
+          65
+        ],
+        "w_scale": 0.008904536254703999
+      }
+    },
+    {
+      "id": "conv48",
+      "op": "Conv",
+      "inputs": [
+        "conv47"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": false,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.13347327709197998,
+        "out_zero_points": [
+          41
+        ],
+        "in_scales": [
+          0.24288174510002136
+        ],
+        "in_zero_points": [
+          47
+        ],
+        "w_scale": 0.0026513077318668365
+      }
+    },
+    {
+      "id": "conv49",
+      "op": "Conv",
+      "inputs": [
+        "conv35"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.09646624326705933,
+        "out_zero_points": [
+          67
+        ],
+        "in_scales": [
+          0.09364025294780731
+        ],
+        "in_zero_points": [
+          57
+        ],
+        "w_scale": 0.0018513303948566318
+      }
+    },
+    {
+      "id": "conv50",
+      "op": "Conv",
+      "inputs": [
+        "conv49"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.1775074452161789,
+        "out_zero_points": [
+          53
+        ],
+        "in_scales": [
+          0.09646624326705933
+        ],
+        "in_zero_points": [
+          67
+        ],
+        "w_scale": 0.005009813699871302
+      }
+    },
+    {
+      "id": "conv51",
+      "op": "Conv",
+      "inputs": [
+        "conv50"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": false,
+        "cin": 64,
+        "cout": 20
+      },
+      "out_shape": [
+        20,
+        80,
+        80
+      ],
+      "quant": {
+        "out_scale": 0.17081037163734436,
+        "out_zero_points": [
+          127
+        ],
+        "in_scales": [
+          0.1775074452161789
+        ],
+        "in_zero_points": [
+          53
+        ],
+        "w_scale": 0.0022157735656946898
+      }
+    },
+    {
+      "id": "conv52",
+      "op": "Conv",
+      "inputs": [
+        "conv40"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.11524149030447006,
+        "out_zero_points": [
+          68
+        ],
+        "in_scales": [
+          0.09863803535699844
+        ],
+        "in_zero_points": [
+          59
+        ],
+        "w_scale": 0.0017993154469877481
+      }
+    },
+    {
+      "id": "conv53",
+      "op": "Conv",
+      "inputs": [
+        "conv52"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.24765321612358093,
+        "out_zero_points": [
+          46
+        ],
+        "in_scales": [
+          0.11524149030447006
+        ],
+        "in_zero_points": [
+          68
+        ],
+        "w_scale": 0.01179326232522726
+      }
+    },
+    {
+      "id": "conv54",
+      "op": "Conv",
+      "inputs": [
+        "conv53"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": false,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.11900094896554947,
+        "out_zero_points": [
+          44
+        ],
+        "in_scales": [
+          0.24765321612358093
+        ],
+        "in_zero_points": [
+          46
+        ],
+        "w_scale": 0.0025999650824815035
+      }
+    },
+    {
+      "id": "conv55",
+      "op": "Conv",
+      "inputs": [
+        "conv40"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 128,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.11069423705339432,
+        "out_zero_points": [
+          65
+        ],
+        "in_scales": [
+          0.09863803535699844
+        ],
+        "in_zero_points": [
+          59
+        ],
+        "w_scale": 0.0017654027324169874
+      }
+    },
+    {
+      "id": "conv56",
+      "op": "Conv",
+      "inputs": [
+        "conv55"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.2509738504886627,
+        "out_zero_points": [
+          58
+        ],
+        "in_scales": [
+          0.11069423705339432
+        ],
+        "in_zero_points": [
+          65
+        ],
+        "w_scale": 0.009014256298542023
+      }
+    },
+    {
+      "id": "conv57",
+      "op": "Conv",
+      "inputs": [
+        "conv56"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": false,
+        "cin": 64,
+        "cout": 20
+      },
+      "out_shape": [
+        20,
+        40,
+        40
+      ],
+      "quant": {
+        "out_scale": 0.225630521774292,
+        "out_zero_points": [
+          120
+        ],
+        "in_scales": [
+          0.2509738504886627
+        ],
+        "in_zero_points": [
+          58
+        ],
+        "w_scale": 0.002282636007294059
+      }
+    },
+    {
+      "id": "conv58",
+      "op": "Conv",
+      "inputs": [
+        "conv45"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 256,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.10797583311796188,
+        "out_zero_points": [
+          61
+        ],
+        "in_scales": [
+          0.11096682399511337
+        ],
+        "in_zero_points": [
+          60
+        ],
+        "w_scale": 0.0024385175202041864
+      }
+    },
+    {
+      "id": "conv59",
+      "op": "Conv",
+      "inputs": [
+        "conv58"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.2096060812473297,
+        "out_zero_points": [
+          45
+        ],
+        "in_scales": [
+          0.10797583311796188
+        ],
+        "in_zero_points": [
+          61
+        ],
+        "w_scale": 0.00925601739436388
+      }
+    },
+    {
+      "id": "conv60",
+      "op": "Conv",
+      "inputs": [
+        "conv59"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": false,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.13212566077709198,
+        "out_zero_points": [
+          47
+        ],
+        "in_scales": [
+          0.2096060812473297
+        ],
+        "in_zero_points": [
+          45
+        ],
+        "w_scale": 0.003076250432059169
+      }
+    },
+    {
+      "id": "conv61",
+      "op": "Conv",
+      "inputs": [
+        "conv45"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 256,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.08579415082931519,
+        "out_zero_points": [
+          65
+        ],
+        "in_scales": [
+          0.11096682399511337
+        ],
+        "in_zero_points": [
+          60
+        ],
+        "w_scale": 0.0016282076248899102
+      }
+    },
+    {
+      "id": "conv62",
+      "op": "Conv",
+      "inputs": [
+        "conv61"
+      ],
+      "attrs": {
+        "kernel": 3,
+        "stride": 1,
+        "pad": 1,
+        "groups": 1,
+        "relu": true,
+        "cin": 64,
+        "cout": 64
+      },
+      "out_shape": [
+        64,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.23591043055057526,
+        "out_zero_points": [
+          57
+        ],
+        "in_scales": [
+          0.08579415082931519
+        ],
+        "in_zero_points": [
+          65
+        ],
+        "w_scale": 0.019121568650007248
+      }
+    },
+    {
+      "id": "conv63",
+      "op": "Conv",
+      "inputs": [
+        "conv62"
+      ],
+      "attrs": {
+        "kernel": 1,
+        "stride": 1,
+        "pad": 0,
+        "groups": 1,
+        "relu": false,
+        "cin": 64,
+        "cout": 20
+      },
+      "out_shape": [
+        20,
+        20,
+        20
+      ],
+      "quant": {
+        "out_scale": 0.2798818349838257,
+        "out_zero_points": [
+          118
+        ],
+        "in_scales": [
+          0.23591043055057526
+        ],
+        "in_zero_points": [
+          57
+        ],
+        "w_scale": 0.003016888163983822
+      }
+    }
+  ],
+  "tensors": {
+    "__input__": {
+      "shape": [
+        3,
+        640,
+        640
+      ],
+      "domain_node": "__input__",
+      "logical_c": 3
+    },
+    "conv1": {
+      "shape": [
+        16,
+        320,
+        320
+      ],
+      "domain_node": "conv1",
+      "logical_c": 16
+    },
+    "conv2": {
+      "shape": [
+        32,
+        160,
+        160
+      ],
+      "domain_node": "conv2",
+      "logical_c": 32
+    },
+    "conv3": {
+      "shape": [
+        32,
+        160,
+        160
+      ],
+      "domain_node": "conv3",
+      "logical_c": 32
+    },
+    "split0_0": {
+      "shape": [
+        16,
+        160,
+        160
+      ],
+      "domain_node": "conv3",
+      "logical_c": 16
+    },
+    "split0_1": {
+      "shape": [
+        16,
+        160,
+        160
+      ],
+      "domain_node": "conv3",
+      "logical_c": 16
+    },
+    "conv4": {
+      "shape": [
+        16,
+        160,
+        160
+      ],
+      "domain_node": "conv4",
+      "logical_c": 16
+    },
+    "conv5": {
+      "shape": [
+        16,
+        160,
+        160
+      ],
+      "domain_node": "conv5",
+      "logical_c": 16
+    },
+    "add0": {
+      "shape": [
+        16,
+        160,
+        160
+      ],
+      "domain_node": "add0",
+      "logical_c": 16
+    },
+    "cat0": {
+      "shape": [
+        48,
+        160,
+        160
+      ],
+      "domain_node": "cat0",
+      "logical_c": 48
+    },
+    "conv6": {
+      "shape": [
+        32,
+        160,
+        160
+      ],
+      "domain_node": "conv6",
+      "logical_c": 32
+    },
+    "conv7": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv7",
+      "logical_c": 64
+    },
+    "conv8": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv8",
+      "logical_c": 64
+    },
+    "split1_0": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv8",
+      "logical_c": 32
+    },
+    "split1_1": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv8",
+      "logical_c": 32
+    },
+    "conv9": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv9",
+      "logical_c": 32
+    },
+    "conv10": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv10",
+      "logical_c": 32
+    },
+    "add1": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "add1",
+      "logical_c": 32
+    },
+    "conv11": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv11",
+      "logical_c": 32
+    },
+    "conv12": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv12",
+      "logical_c": 32
+    },
+    "add2": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "add2",
+      "logical_c": 32
+    },
+    "cat1": {
+      "shape": [
+        128,
+        80,
+        80
+      ],
+      "domain_node": "cat1",
+      "logical_c": 128
+    },
+    "conv13": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv13",
+      "logical_c": 64
+    },
+    "conv14": {
+      "shape": [
+        128,
+        40,
+        40
+      ],
+      "domain_node": "conv14",
+      "logical_c": 128
+    },
+    "conv15": {
+      "shape": [
+        128,
+        40,
+        40
+      ],
+      "domain_node": "conv15",
+      "logical_c": 128
+    },
+    "split2_0": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv15",
+      "logical_c": 64
+    },
+    "split2_1": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv15",
+      "logical_c": 64
+    },
+    "conv16": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv16",
+      "logical_c": 64
+    },
+    "conv17": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv17",
+      "logical_c": 64
+    },
+    "add3": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "add3",
+      "logical_c": 64
+    },
+    "conv18": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv18",
+      "logical_c": 64
+    },
+    "conv19": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv19",
+      "logical_c": 64
+    },
+    "add4": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "add4",
+      "logical_c": 64
+    },
+    "cat2": {
+      "shape": [
+        256,
+        40,
+        40
+      ],
+      "domain_node": "cat2",
+      "logical_c": 256
+    },
+    "conv20": {
+      "shape": [
+        128,
+        40,
+        40
+      ],
+      "domain_node": "conv20",
+      "logical_c": 128
+    },
+    "conv21": {
+      "shape": [
+        256,
+        20,
+        20
+      ],
+      "domain_node": "conv21",
+      "logical_c": 256
+    },
+    "conv22": {
+      "shape": [
+        256,
+        20,
+        20
+      ],
+      "domain_node": "conv22",
+      "logical_c": 256
+    },
+    "split3_0": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv22",
+      "logical_c": 128
+    },
+    "split3_1": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv22",
+      "logical_c": 128
+    },
+    "conv23": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv23",
+      "logical_c": 128
+    },
+    "conv24": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv24",
+      "logical_c": 128
+    },
+    "add5": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "add5",
+      "logical_c": 128
+    },
+    "cat3": {
+      "shape": [
+        384,
+        20,
+        20
+      ],
+      "domain_node": "cat3",
+      "logical_c": 384
+    },
+    "conv25": {
+      "shape": [
+        256,
+        20,
+        20
+      ],
+      "domain_node": "conv25",
+      "logical_c": 256
+    },
+    "conv26": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv26",
+      "logical_c": 128
+    },
+    "pool5_0": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "pool5_0",
+      "logical_c": 128
+    },
+    "pool5_1": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "pool5_1",
+      "logical_c": 128
+    },
+    "pool5_2": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "pool5_2",
+      "logical_c": 128
+    },
+    "cat4": {
+      "shape": [
+        512,
+        20,
+        20
+      ],
+      "domain_node": "cat4",
+      "logical_c": 512
+    },
+    "conv27": {
+      "shape": [
+        256,
+        20,
+        20
+      ],
+      "domain_node": "conv27",
+      "logical_c": 256
+    },
+    "up0": {
+      "shape": [
+        256,
+        40,
+        40
+      ],
+      "domain_node": "up0",
+      "logical_c": 256
+    },
+    "cat5": {
+      "shape": [
+        384,
+        40,
+        40
+      ],
+      "domain_node": "cat5",
+      "logical_c": 384
+    },
+    "conv28": {
+      "shape": [
+        128,
+        40,
+        40
+      ],
+      "domain_node": "conv28",
+      "logical_c": 128
+    },
+    "split4_0": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv28",
+      "logical_c": 64
+    },
+    "split4_1": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv28",
+      "logical_c": 64
+    },
+    "conv29": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv29",
+      "logical_c": 64
+    },
+    "conv30": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv30",
+      "logical_c": 64
+    },
+    "cat6": {
+      "shape": [
+        192,
+        40,
+        40
+      ],
+      "domain_node": "cat6",
+      "logical_c": 192
+    },
+    "conv31": {
+      "shape": [
+        128,
+        40,
+        40
+      ],
+      "domain_node": "conv31",
+      "logical_c": 128
+    },
+    "up1": {
+      "shape": [
+        128,
+        80,
+        80
+      ],
+      "domain_node": "up1",
+      "logical_c": 128
+    },
+    "cat7": {
+      "shape": [
+        192,
+        80,
+        80
+      ],
+      "domain_node": "cat7",
+      "logical_c": 192
+    },
+    "conv32": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv32",
+      "logical_c": 64
+    },
+    "split5_0": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv32",
+      "logical_c": 32
+    },
+    "split5_1": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv32",
+      "logical_c": 32
+    },
+    "conv33": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv33",
+      "logical_c": 32
+    },
+    "conv34": {
+      "shape": [
+        32,
+        80,
+        80
+      ],
+      "domain_node": "conv34",
+      "logical_c": 32
+    },
+    "cat8": {
+      "shape": [
+        96,
+        80,
+        80
+      ],
+      "domain_node": "cat8",
+      "logical_c": 96
+    },
+    "conv35": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv35",
+      "logical_c": 64
+    },
+    "conv36": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv36",
+      "logical_c": 64
+    },
+    "cat9": {
+      "shape": [
+        192,
+        40,
+        40
+      ],
+      "domain_node": "cat9",
+      "logical_c": 192
+    },
+    "conv37": {
+      "shape": [
+        128,
+        40,
+        40
+      ],
+      "domain_node": "conv37",
+      "logical_c": 128
+    },
+    "split6_0": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv37",
+      "logical_c": 64
+    },
+    "split6_1": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv37",
+      "logical_c": 64
+    },
+    "conv38": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv38",
+      "logical_c": 64
+    },
+    "conv39": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv39",
+      "logical_c": 64
+    },
+    "cat10": {
+      "shape": [
+        192,
+        40,
+        40
+      ],
+      "domain_node": "cat10",
+      "logical_c": 192
+    },
+    "conv40": {
+      "shape": [
+        128,
+        40,
+        40
+      ],
+      "domain_node": "conv40",
+      "logical_c": 128
+    },
+    "conv41": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv41",
+      "logical_c": 128
+    },
+    "cat11": {
+      "shape": [
+        384,
+        20,
+        20
+      ],
+      "domain_node": "cat11",
+      "logical_c": 384
+    },
+    "conv42": {
+      "shape": [
+        256,
+        20,
+        20
+      ],
+      "domain_node": "conv42",
+      "logical_c": 256
+    },
+    "split7_0": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv42",
+      "logical_c": 128
+    },
+    "split7_1": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv42",
+      "logical_c": 128
+    },
+    "conv43": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv43",
+      "logical_c": 128
+    },
+    "conv44": {
+      "shape": [
+        128,
+        20,
+        20
+      ],
+      "domain_node": "conv44",
+      "logical_c": 128
+    },
+    "cat12": {
+      "shape": [
+        384,
+        20,
+        20
+      ],
+      "domain_node": "cat12",
+      "logical_c": 384
+    },
+    "conv45": {
+      "shape": [
+        256,
+        20,
+        20
+      ],
+      "domain_node": "conv45",
+      "logical_c": 256
+    },
+    "conv46": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv46",
+      "logical_c": 64
+    },
+    "conv47": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv47",
+      "logical_c": 64
+    },
+    "conv48": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv48",
+      "logical_c": 64
+    },
+    "conv49": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv49",
+      "logical_c": 64
+    },
+    "conv50": {
+      "shape": [
+        64,
+        80,
+        80
+      ],
+      "domain_node": "conv50",
+      "logical_c": 64
+    },
+    "conv51": {
+      "shape": [
+        20,
+        80,
+        80
+      ],
+      "domain_node": "conv51",
+      "logical_c": 20
+    },
+    "conv52": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv52",
+      "logical_c": 64
+    },
+    "conv53": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv53",
+      "logical_c": 64
+    },
+    "conv54": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv54",
+      "logical_c": 64
+    },
+    "conv55": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv55",
+      "logical_c": 64
+    },
+    "conv56": {
+      "shape": [
+        64,
+        40,
+        40
+      ],
+      "domain_node": "conv56",
+      "logical_c": 64
+    },
+    "conv57": {
+      "shape": [
+        20,
+        40,
+        40
+      ],
+      "domain_node": "conv57",
+      "logical_c": 20
+    },
+    "conv58": {
+      "shape": [
+        64,
+        20,
+        20
+      ],
+      "domain_node": "conv58",
+      "logical_c": 64
+    },
+    "conv59": {
+      "shape": [
+        64,
+        20,
+        20
+      ],
+      "domain_node": "conv59",
+      "logical_c": 64
+    },
+    "conv60": {
+      "shape": [
+        64,
+        20,
+        20
+      ],
+      "domain_node": "conv60",
+      "logical_c": 64
+    },
+    "conv61": {
+      "shape": [
+        64,
+        20,
+        20
+      ],
+      "domain_node": "conv61",
+      "logical_c": 64
+    },
+    "conv62": {
+      "shape": [
+        64,
+        20,
+        20
+      ],
+      "domain_node": "conv62",
+      "logical_c": 64
+    },
+    "conv63": {
+      "shape": [
+        20,
+        20,
+        20
+      ],
+      "domain_node": "conv63",
+      "logical_c": 20
+    }
+  }
+}

@@ -1,0 +1,76 @@
+# vsim -c -work work_native tb_sps_native -l D:/dl_snn/build/spikformer/vision_ref_20261031/sim/tb_sps_native_imgnative_r4_20261031.log -do "run -all; quit -f" 
+# Start time: 16:59:05 on Oct 31,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2685) [TFMPC] - Too few port connections for 'u_enc'.  Expected 15, found 14.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'o_beat_last'.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2685) [TFMPC] - Too few port connections for 'u_ctrl'.  Expected 65, found 64.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2718) [TFMPC] - Missing connection for port 'o_dbg_c2w'.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 447 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 432 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 463 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 448 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 479 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 464 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 495 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 480 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 511 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 496 of part-select into 'idata' is out of bounds.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=14.
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sps_native(fast)
+# run -all
+# TB_PARAMS H=32 W=32 C1=96 C2=384 T=4 TC2=8 beats=3072 w1=324 bias=384 pix=1024 sched=41472 thr1=200 thr2=60
+# MON cyc=200000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=400000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=600000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=800000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=1000000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=1200000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=1400000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=1600000 ctrl_st=4 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=1800000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=2000000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=2200000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=2400000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=2600000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=2800000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=3000000 ctrl_st=7 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=3200000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=3400000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=3600000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=3800000 ctrl_st=7 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=4000000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=4200000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=4400000 ctrl_st=7 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=4600000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=4800000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=5000000 ctrl_st=7 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=5200000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# MON cyc=5400000 ctrl_st=8 got=0 fails=0 done=0 wready=0 pready=0 tokv=0
+# HOST_STREAM_DONE cyc=5412856
+# PROGRESS beat=0 cyc=5419516 fails=0 cap_n=12288 flush_n=768
+# PROGRESS beat=512 cyc=5445116 fails=0 cap_n=12288 flush_n=768
+# PROGRESS beat=1024 cyc=5470716 fails=0 cap_n=12288 flush_n=768
+# PROGRESS beat=1536 cyc=5496316 fails=0 cap_n=12288 flush_n=768
+# PROGRESS beat=2048 cyc=5521916 fails=0 cap_n=12288 flush_n=768
+# PROGRESS beat=2560 cyc=5547516 fails=0 cap_n=12288 flush_n=768
+# DONE_ASSERTED_BEATS=3072 cyc=5573066
+# STRUCT capture=12288 flush=768 fails=0
+# ALL PASS tb_sps_native (3072 beats; capture=12288 flush=768 structural ok)
+# ** Note: $finish    : D:/dl_snn/verification/sim/spikformer/tb_sps_native.v(188)
+#    Time: 55730655 ns  Iteration: 2  Instance: /tb_sps_native
+# End time: 17:01:05 on Oct 31,2026, Elapsed time: 0:02:00
+# Errors: 0, Warnings: 14

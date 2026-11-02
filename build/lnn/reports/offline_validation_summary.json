@@ -1,0 +1,541 @@
+{
+  "schema": "lnn-cfc-offline-validation-1",
+  "generated_utc": "2026-10-31T14:21:50Z",
+  "tool": "board/offline_check.py",
+  "source": "simulation-model",
+  "is_hardware_measurement": false,
+  "disclaimer": "simulation-model: Python 寄存器模型验证结果，未在真实板卡上运行，不能作为板端实测证据。",
+  "expect_dir": "D:\\DL_LNN\\export",
+  "fixture": false,
+  "expect_selection": {
+    "real_export": "D:\\DL_LNN\\export",
+    "fixture_dir": "D:\\DL_LNN\\board\\offline_check\\fixture",
+    "using_fixture": false,
+    "real_export_consistent": {
+      "n_steps": 64,
+      "y_mismatch": 0,
+      "h_mismatch": 0,
+      "ok": true
+    },
+    "note": null
+  },
+  "sample_id": "sample_000",
+  "cases": [
+    {
+      "name": "assets_present",
+      "pass": true,
+      "detail": {
+        "lnn_cfc_run.py": {
+          "exists": true,
+          "bytes": 83297,
+          "sha256": "47aafdbb55f953cb39c78dbb5dce2dd284075b1559b818fed30e75a2b15d4b42"
+        },
+        "cfc_sim_model.py": {
+          "exists": true,
+          "bytes": 29576,
+          "sha256": "b0f941ae01710c66899d53ea6e2ca16a103fd1c8ae8cf8144866e8b0370288c3"
+        },
+        "cfc_board_ui.py": {
+          "exists": true,
+          "bytes": 20601,
+          "sha256": "fb7197efcd72d8cca10e29d38854fa733fb5ca3abd6e59aa5d5914a5e7eb02c9"
+        },
+        "lnn_cfc_demo.ipynb": {
+          "exists": true,
+          "bytes": 13063,
+          "sha256": "5b55364134424018028541b28bfed4286ce7d8d05ae6e451b6af6b8a2c1f38ba"
+        },
+        "build_notebook.py": {
+          "exists": true,
+          "bytes": 11597,
+          "sha256": "fe410c2342487ef7fa6507192a317534a179c78b86af815d77908ee5f339acf4"
+        }
+      }
+    },
+    {
+      "name": "python_modules_compile",
+      "pass": true,
+      "detail": {
+        "lnn_cfc_run.py": "ok",
+        "cfc_sim_model.py": "ok",
+        "cfc_board_ui.py": "ok",
+        "build_notebook.py": "ok"
+      }
+    },
+    {
+      "name": "notebook_json_valid",
+      "pass": true,
+      "detail": {
+        "cells": 18,
+        "code_cells": 8,
+        "markdown_cells": 10,
+        "missing_step_markers": [],
+        "ids_present": true
+      }
+    },
+    {
+      "name": "manifest_present",
+      "pass": true,
+      "detail": {
+        "path": "D:\\DL_LNN\\export\\manifest.json",
+        "exists": true,
+        "sha256": "2b4196a273d614788b020ae99a2829924d27575b29adbd14df1b99422745ae0a",
+        "bytes": 24045
+      }
+    },
+    {
+      "name": "export_golden_matches_contract_v11_reference",
+      "pass": true,
+      "detail": {
+        "n_steps": 64,
+        "y_mismatch": 0,
+        "h_mismatch": 0,
+        "ok": true
+      }
+    },
+    {
+      "name": "export_int_reference_matches_board_reference",
+      "pass": true,
+      "detail": {
+        "found": true,
+        "path": "D:\\DL_LNN\\export\\int_reference.py",
+        "ok": true,
+        "y_mismatch": 0,
+        "h_mismatch": 0,
+        "n_steps": 64
+      }
+    },
+    {
+      "name": "cfc_spec_constants_match_frozen_contract",
+      "pass": true,
+      "detail": {
+        "found": true,
+        "registers_checked": 15,
+        "extra_checked": 17,
+        "ok": true
+      }
+    },
+    {
+      "name": "rtl_generated_params_match_contract",
+      "pass": true,
+      "detail": {
+        "found": true,
+        "checks": {
+          "CFC_N_W": {
+            "found": true,
+            "value": 84,
+            "frozen": 84,
+            "ok": true
+          },
+          "CFC_N_B": {
+            "found": true,
+            "value": 17,
+            "frozen": 17,
+            "ok": true
+          },
+          "CFC_N_LUT": {
+            "found": true,
+            "value": 1025,
+            "frozen": 1025,
+            "ok": true
+          },
+          "CFC_DT_INT": {
+            "found": true,
+            "value": 655,
+            "frozen": 655,
+            "ok": true
+          },
+          "CFC_N_STEPS_MAX": {
+            "found": true,
+            "value": 64,
+            "frozen": 64,
+            "ok": true
+          }
+        }
+      }
+    },
+    {
+      "name": "manifest_config_and_hashes",
+      "pass": true,
+      "detail": {
+        "files": {
+          "total": 40,
+          "verified": 40,
+          "mismatch": [],
+          "missing": []
+        },
+        "config": {
+          "id": {
+            "found": true,
+            "manifest": "0x43464331",
+            "frozen": 1128678193,
+            "ok": true
+          },
+          "version": {
+            "found": true,
+            "manifest": "0x00010000",
+            "frozen": 65536,
+            "ok": true
+          },
+          "csr_base": {
+            "found": true,
+            "manifest": "0x0480000000",
+            "frozen": 19327352832,
+            "ok": true
+          },
+          "clock_hz": {
+            "found": true,
+            "manifest": 300000000,
+            "frozen": 300000000,
+            "ok": true
+          },
+          "delta_t_int": {
+            "found": true,
+            "manifest": 655,
+            "frozen": 655,
+            "ok": true
+          },
+          "n_steps": {
+            "found": true,
+            "manifest": 64,
+            "frozen": 64,
+            "ok": true
+          }
+        },
+        "contract_version": "V1.1",
+        "warnings": []
+      }
+    },
+    {
+      "name": "export_golden_hashes_recorded",
+      "pass": true,
+      "detail": {
+        "gen/x_input.hex": {
+          "sha256": "4295e5357753746516afe5a9e88868bc00a5e96a157fc532425ebc712b5ee6c7",
+          "bytes": 320
+        },
+        "gen/y_expected.hex": {
+          "sha256": "fa4ce2a241cadaae8fcc3023766d926b34e15de13b1221186970ca7a92f2adaf",
+          "bytes": 320
+        },
+        "gen/h_init.hex": {
+          "sha256": "a3c7c781b6d73d4035b811b79361bbe17947d9ba208fed9359dafb8c7f3ff12b",
+          "bytes": 20
+        },
+        "gen/h_expected.hex": {
+          "sha256": "2ab9405f04701267af010585a075e24d7fec76aa2872b439a179046837fb173a",
+          "bytes": 1280
+        },
+        "weights.hex": {
+          "sha256": "1addd01a3714c39749ef3cfa22271b45318a37966d6e133074b26a2b6b4b29b1",
+          "bytes": 420
+        },
+        "biases.hex": {
+          "sha256": "c5a65206ca74a7ea0ba5bf83207df824c7dea55184cfec938c3dc1c33ef38271",
+          "bytes": 153
+        },
+        "tanh_lut.hex": {
+          "sha256": "a7ec65c061e291300406d9c20f846c812e62bcdc4ea1c346b326b84027b08bfa",
+          "bytes": 5125
+        },
+        "sigmoid_lut.hex": {
+          "sha256": "84f1b475f0c8af0f0d2a2329b37f94f954c0e30da1734d1dc5a90fa0bc39ccb7",
+          "bytes": 5125
+        },
+        "manifest.json": {
+          "sha256": "2b4196a273d614788b020ae99a2829924d27575b29adbd14df1b99422745ae0a",
+          "bytes": 24045
+        },
+        "cfc_spec.py": {
+          "sha256": "abfd2103250458bf09f8a4e31c538706a22fc55326143332bb313e0eb297a9bd",
+          "bytes": 2825
+        },
+        "int_reference.py": {
+          "sha256": "57bf6e6ee32586d35c085b068bc1046960153d6f7a99a7cbc38f3b21a038651e",
+          "bytes": 11728
+        }
+      }
+    },
+    {
+      "name": "cfc_sim_model_selfcheck",
+      "pass": true,
+      "detail": {
+        "returncode": 0,
+        "log_tail": [
+          "OK   export sigmoid_lut matches contract formula",
+          "OK   export y_expected matches integer reference",
+          "OK   export h_expected matches integer reference",
+          "== cfc_sim_model selfcheck: PASS =="
+        ],
+        "log": "D:\\DL_LNN\\board\\offline_check\\logs\\cfc_sim_model_selfcheck.log"
+      }
+    },
+    {
+      "name": "bringup_simulation_model",
+      "pass": true,
+      "detail": {
+        "source": "simulation-model",
+        "id": "0x43464331",
+        "version": "0x00010000",
+        "clock_hz": 300000000,
+        "csr_base": "0x480000000",
+        "defaults": {
+          "n_steps": {
+            "read": 64,
+            "expect": 64,
+            "ok": true
+          },
+          "delta_t": {
+            "read": 655,
+            "expect": 655,
+            "ok": true
+          },
+          "mode": {
+            "read": 1,
+            "expect": 1,
+            "ok": true
+          },
+          "timeout_cycles": {
+            "read": 1000000,
+            "expect": 1000000,
+            "ok": true
+          }
+        }
+      }
+    },
+    {
+      "name": "run_normal_bit_exact",
+      "pass": true,
+      "detail": {
+        "matched": 64,
+        "total": 64,
+        "mismatch": 0,
+        "final_state": [
+          -62,
+          309,
+          -272,
+          -2289
+        ],
+        "run_cycles": 2910,
+        "task_mse": 0.00011684783102367459,
+        "task_mse_export": 0.00011684783139508184,
+        "task_mse_export_ok": true,
+        "summary": "D:\\DL_LNN\\board\\offline_check\\runs\\normal\\summary.json"
+      }
+    },
+    {
+      "name": "summary_schema_and_timing",
+      "pass": true,
+      "detail": {
+        "missing_keys": [],
+        "hardware_time_consistent": true,
+        "source": "simulation-model",
+        "hardware_time_s": 9.7e-06,
+        "e2e_time_s": 0.0026189999999999825
+      }
+    },
+    {
+      "name": "repeat_run_identical",
+      "pass": true,
+      "detail": {
+        "outputs_equal": true,
+        "final_state_equal": true
+      }
+    },
+    {
+      "name": "segments_32_plus_32_retained_state",
+      "pass": true,
+      "detail": {
+        "combined_equals_full": true,
+        "final_state_equals_full": true,
+        "first": 32,
+        "second": 32
+      }
+    },
+    {
+      "name": "clear_each_step_matches_reference",
+      "pass": true,
+      "detail": {
+        "task_mse": 0.49617388717517674,
+        "normal_mode_task_mse": 0.00011684783102367459,
+        "expected_source": "cfc_sim_model.CfcIntegerReference mode=clear-each-step offset=0"
+      }
+    },
+    {
+      "name": "run_checks_aggregate",
+      "pass": true,
+      "detail": {
+        "pass": true,
+        "saved": "D:\\DL_LNN\\board\\offline_check\\runs\\state_checks\\state_checks.json"
+      }
+    },
+    {
+      "name": "driver_mmio_sequence_contract",
+      "pass": true,
+      "detail": {
+        "transactions": 361,
+        "reads": 290,
+        "writes": 71,
+        "problems": [],
+        "run_pass": true,
+        "sim_cycles": 5871
+      }
+    },
+    {
+      "name": "wrong_id_rejected",
+      "pass": true,
+      "detail": {
+        "message": "bring-up validation failed: ID mismatch: read 0xDEADBEEF expect 0x43464331",
+        "diagnostic_id": "0xDEADBEEF"
+      }
+    },
+    {
+      "name": "wrong_version_rejected",
+      "pass": true,
+      "detail": {
+        "message": "bring-up validation failed: VERSION mismatch: read 0x00000000 expect 0x00010000"
+      }
+    },
+    {
+      "name": "wrong_clock_rejected_and_tolerable",
+      "pass": true,
+      "detail": {
+        "rejected": true,
+        "tolerated": {
+          "clock_hz": 123456789,
+          "warnings": [
+            "CLOCK_HZ mismatch tolerated by --allow-clock-mismatch"
+          ]
+        }
+      }
+    },
+    {
+      "name": "hardware_timeout_error3",
+      "pass": true,
+      "detail": {
+        "status": "error",
+        "error_code": 3,
+        "summary": "D:\\DL_LNN\\board\\offline_check\\runs\\fault_timeout\\summary.json"
+      }
+    },
+    {
+      "name": "independent_wall_clock_timeout",
+      "pass": true,
+      "detail": {
+        "status": "wall-timeout",
+        "elapsed_s": 0.3,
+        "polls": 161498,
+        "summary": "D:\\DL_LNN\\board\\offline_check\\runs\\fault_wall_timeout\\summary.json"
+      }
+    },
+    {
+      "name": "model_protocol_semantics",
+      "pass": true,
+      "detail": {
+        "busy_start_error": {
+          "status": 5,
+          "error_code": 2,
+          "ok": true
+        },
+        "done_sticky": {
+          "status_after_done": [
+            2,
+            2
+          ],
+          "ok": true
+        },
+        "clear_status": {
+          "status": 0,
+          "error_code": 0,
+          "ok": true
+        },
+        "clear_state_idle": {
+          "h_final": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "ok": true
+        },
+        "illegal_n_steps": {
+          "error_code": 1,
+          "ok": true
+        },
+        "illegal_delta_t": {
+          "error_code": 1,
+          "ok": true
+        }
+      }
+    },
+    {
+      "name": "notebook_code_cells_execute",
+      "pass": true,
+      "detail": {
+        "executed_cells": 8,
+        "error_cell": null,
+        "error": null,
+        "log": "D:\\DL_LNN\\board\\offline_check\\logs\\notebook_execution.log"
+      }
+    },
+    {
+      "name": "package_notebook_selfcontained",
+      "pass": true,
+      "detail": {
+        "package": "D:\\DL_LNN\\board\\package",
+        "executed_cells": 8,
+        "error_cell": null,
+        "log": "D:\\DL_LNN\\board\\offline_check\\logs\\package_notebook_execution.log"
+      }
+    },
+    {
+      "name": "cli_run_and_checks_exit_zero",
+      "pass": true,
+      "detail": {
+        "returncode": 0,
+        "pass": true,
+        "source": "simulation-model",
+        "checks_pass": true,
+        "log": "D:\\DL_LNN\\board\\offline_check\\logs\\cli_run.log"
+      }
+    },
+    {
+      "name": "package_board_script_compiles",
+      "pass": true,
+      "detail": "D:\\DL_LNN\\scripts\\package_board.py"
+    }
+  ],
+  "counts": {
+    "total": 29,
+    "pass": 29,
+    "fail": 0
+  },
+  "pass": true,
+  "runs": [
+    {
+      "dir": "D:\\DL_LNN\\board\\offline_check\\runs\\normal",
+      "summary": "D:\\DL_LNN\\board\\offline_check\\runs\\normal\\summary.json",
+      "outputs": "D:\\DL_LNN\\board\\offline_check\\runs\\normal\\outputs.json",
+      "outputs_npy": "D:\\DL_LNN\\board\\offline_check\\runs\\normal\\outputs.npy",
+      "compare": "D:\\DL_LNN\\board\\offline_check\\runs\\normal\\compare.json"
+    }
+  ],
+  "logs": [],
+  "notebook_execution": {
+    "executed_cells": 8,
+    "error_cell": null,
+    "error": null,
+    "log": "D:\\DL_LNN\\board\\offline_check\\logs\\notebook_execution.log"
+  },
+  "package_notebook_execution": {
+    "package": "D:\\DL_LNN\\board\\package",
+    "executed_cells": 8,
+    "error_cell": null,
+    "log": "D:\\DL_LNN\\board\\offline_check\\logs\\package_notebook_execution.log"
+  },
+  "generated_utc_end": "2026-10-31T14:21:56Z",
+  "notes": [
+    "simulation-model: Python 寄存器模型验证结果，未在真实板卡上运行，不能作为板端实测证据。",
+    "expected vectors come from the real export/ tree"
+  ]
+}

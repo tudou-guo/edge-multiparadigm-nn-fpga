@@ -1,0 +1,634 @@
+{
+ "backend": "spikformer",
+ "schema": "spikformer-manifest-1",
+ "model_kind": "development_fixture",
+ "fixture_seed": 1,
+ "config": {
+  "schema": "spikformer-config-1",
+  "family": "spikformer-nlp-sentiment",
+  "batch": 1,
+  "seq_len": 32,
+  "vocab_size": 4000,
+  "embed": 128,
+  "heads": 4,
+  "head_dim": 32,
+  "mlp_hidden": 512,
+  "depth": 2,
+  "time_steps": 4,
+  "num_classes": 2,
+  "lif": {
+   "tau": 2,
+   "reset": 0,
+   "init": 0
+  },
+  "frontend": {
+   "kind": "embed_spike",
+   "pos_enc": "learned",
+   "spike_code": "rate_repeat",
+   "mask": "none",
+   "note": "fixed length 32, pad spikes are zero by data"
+  },
+  "input": {
+   "source": "fixture",
+   "normalize": "n/a",
+   "note": "token ids seeded RNG"
+  },
+  "checkpoint": {
+   "kind": "missing",
+   "bn_state": "absent",
+   "note": "fixture params; real checkpoint later"
+  },
+  "head": {
+   "reduction": "sum",
+   "norm": "ps_div",
+   "note": "PL sum over T*N; PS divides then FP32 Linear+argmax"
+  },
+  "target": {
+   "part": "xczu15eg-ffvb1156-2-i",
+   "tool": "Vivado 2021.1",
+   "period_ns": 5
+  },
+  "thresholds": {}
+ },
+ "derived": {
+  "tokens": 32,
+  "final_fmaps_width": 32,
+  "sum_w": 6,
+  "attn_word": 24,
+  "rw": 4,
+  "res_bits": 4,
+  "res_bits_min": 3,
+  "spike_bits": 2,
+  "psum_slice": 32,
+  "lif_add_bits": 33,
+  "av_bits": 11,
+  "av_max": 1024,
+  "worst_residual": 5,
+  "stage_bounds": {
+   "embed": 1,
+   "attn_res": 2,
+   "mlp_res": 3
+  },
+  "accum_bounds": {
+   "qkv": {
+    "pos": 16256,
+    "neg": -16384
+   },
+   "proj": {
+    "pos": 16646144,
+    "neg": -16777216
+   },
+   "fc1": {
+    "pos": 81280,
+    "neg": -81920
+   },
+   "fc2": {
+    "pos": 65024,
+    "neg": -65536
+   }
+  },
+  "stream": {
+   "tab_beats": 64512,
+   "token_beats": 32,
+   "block_w_beats": 25152,
+   "block_in_beats": 512,
+   "descriptor_beats": 4,
+   "mlp_fc1_internal_beats": 12288,
+   "mlp_fc2_internal_beats_per_group": 768
+  },
+  "packing": {
+   "layout": "time-minor lane pack (lane m owns bits [m*T +: T])",
+   "words_note": "residual words = N*C*T*RW/64",
+   "res_bits": 4
+  },
+  "geometry": {
+   "seq_len": 32,
+   "embed": 128
+  },
+  "sps": null
+ },
+ "structure": {
+  "E": 128,
+  "HEADS": 4,
+  "HEAD_DIM": 32,
+  "HIDDEN": 512,
+  "T": 4,
+  "TOKENS": 32,
+  "DEPTH": 2,
+  "BATCH": 1,
+  "TL": 8,
+  "TC": 8,
+  "RW": 4,
+  "PSUM_SLICE": 32,
+  "SUM_W": 6,
+  "lif_add_bits": 33,
+  "accum_bits": 32
+ },
+ "schedule": {
+  "sps_once": true,
+  "blocks": [
+   {
+    "block": 0,
+    "first": true,
+    "last": false,
+    "weights": {
+     "q_w": {
+      "base": 1879048192,
+      "bytes": 16384
+     },
+     "k_w": {
+      "base": 1879064576,
+      "bytes": 16384
+     },
+     "v_w": {
+      "base": 1879080960,
+      "bytes": 16384
+     },
+     "proj_w": {
+      "base": 1879097344,
+      "bytes": 16384
+     },
+     "fc1_w": {
+      "base": 1879113728,
+      "bytes": 65536
+     },
+     "fc2_w": {
+      "base": 1879179264,
+      "bytes": 65536
+     }
+    },
+    "lif_thr": {},
+    "descriptor_beats_64b": [
+     "0x0000000000000000",
+     "0x0000000000000000",
+     "0x0000000000000000",
+     "0x0000000000000000"
+    ],
+    "bank_sel": 0,
+    "window": {
+     "base": 1879048192,
+     "bytes": 196608
+    }
+   },
+   {
+    "block": 1,
+    "first": false,
+    "last": true,
+    "weights": {
+     "q_w": {
+      "base": 1880096768,
+      "bytes": 16384
+     },
+     "k_w": {
+      "base": 1880113152,
+      "bytes": 16384
+     },
+     "v_w": {
+      "base": 1880129536,
+      "bytes": 16384
+     },
+     "proj_w": {
+      "base": 1880145920,
+      "bytes": 16384
+     },
+     "fc1_w": {
+      "base": 1880162304,
+      "bytes": 65536
+     },
+     "fc2_w": {
+      "base": 1880227840,
+      "bytes": 65536
+     }
+    },
+    "lif_thr": {},
+    "descriptor_beats_64b": [
+     "0x0000000000000000",
+     "0x0000000000000000",
+     "0x0000000000000000",
+     "0x0000000000000000"
+    ],
+    "bank_sel": 1,
+    "window": {
+     "base": 1880096768,
+     "bytes": 196608
+    }
+   }
+  ],
+  "head_after_block": 1,
+  "memory_map": {
+   "sps_out_tokens": 32,
+   "residual_banks": 2,
+   "bank_words_64b": 1024,
+   "attn_tmp_words": 96
+  },
+  "weight_stride": 1048576,
+  "thr_e": null,
+  "descriptor_note": "4 beats per block, Verilog-concat order per contract.hardware_abi.descriptor_beats_64b"
+ },
+ "params": {
+  "sps_conv1_w": {
+   "bin": "sps_conv1_w.bin",
+   "coe": "sps_conv1_w.coe",
+   "sha256": "1a64f6f8de0193a0188e46b54b3229ca4b4d416978c656a21a962c69573311a8",
+   "shape": [
+    48,
+    3,
+    3,
+    3
+   ],
+   "dtype": "int8",
+   "nbytes": 1296
+  },
+  "sps_conv1_b": {
+   "bin": "sps_conv1_b.bin",
+   "coe": "sps_conv1_b.coe",
+   "sha256": "ee2e232775233cdcc98d5d813ea520ad23669d096cc4e500dbb5b759aa35f36f",
+   "shape": [
+    48
+   ],
+   "dtype": "int32",
+   "nbytes": 192
+  },
+  "embed_w": {
+   "bin": "embed_w.bin",
+   "coe": "embed_w.coe",
+   "sha256": "1497c38e52b2c0431515962e3ffebb8a8f2ba350148dd1a9407044a659021ce8",
+   "shape": [
+    4000,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 512000
+  },
+  "pos_w": {
+   "bin": "pos_w.bin",
+   "coe": "pos_w.coe",
+   "sha256": "81a0ffec766e485b90dee063a4179916118d1d506def1e09b119e8b805ad7446",
+   "shape": [
+    32,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 4096
+  },
+  "block0.q_w": {
+   "bin": "block0.q_w.bin",
+   "coe": "block0.q_w.coe",
+   "sha256": "37ae5ab83f071b7a56ff58204eed774f775156751bc6d6943e2e4648187423e6",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block0.k_w": {
+   "bin": "block0.k_w.bin",
+   "coe": "block0.k_w.coe",
+   "sha256": "0c964175c4e9195ee3b3511718dce99ef68b5cd2eaa36ad9b3616d0956103e00",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block0.v_w": {
+   "bin": "block0.v_w.bin",
+   "coe": "block0.v_w.coe",
+   "sha256": "38320651a8dea68429ba7aebdb9e6475176a406b1a6e18cfb2bf214ce9e985b4",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block0.proj_w": {
+   "bin": "block0.proj_w.bin",
+   "coe": "block0.proj_w.coe",
+   "sha256": "1aebbf880e2be771bccebea234e7369f3d9fe0e015a891e7661278cac562351f",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block0.fc1_w": {
+   "bin": "block0.fc1_w.bin",
+   "coe": "block0.fc1_w.coe",
+   "sha256": "fa44230e61fd5ffe5d04f86b9e121928d8e74b6959f2cff697072597fe334fe6",
+   "shape": [
+    512,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 65536
+  },
+  "block0.fc2_w": {
+   "bin": "block0.fc2_w.bin",
+   "coe": "block0.fc2_w.coe",
+   "sha256": "0f00fcd004844a3e2c7fe3e070eac637673bc4ada791a65d0d9e3cf63e34765d",
+   "shape": [
+    128,
+    512
+   ],
+   "dtype": "int8",
+   "nbytes": 65536
+  },
+  "block0.q_b": {
+   "bin": "block0.q_b.bin",
+   "coe": "block0.q_b.coe",
+   "sha256": "df6cdf3ec220eba1e3f8d3880d9b44c6639a89b0713d7a25b46bcab5dfbef042",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block0.k_b": {
+   "bin": "block0.k_b.bin",
+   "coe": "block0.k_b.coe",
+   "sha256": "96897698ed9e39ad88f0cf7cdf76682af7ee361e3a4d16f8068a18a697c80e0e",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block0.v_b": {
+   "bin": "block0.v_b.bin",
+   "coe": "block0.v_b.coe",
+   "sha256": "b30e73ecc710bbfc256c316f49bbecde6374b9484837ff7c4ddb862e0675724c",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block0.proj_b": {
+   "bin": "block0.proj_b.bin",
+   "coe": "block0.proj_b.coe",
+   "sha256": "dedfaae41e41539c0b48bd05f2c31ca0eaba086d84abbe6d2db8c467a0522dda",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block0.fc2_b": {
+   "bin": "block0.fc2_b.bin",
+   "coe": "block0.fc2_b.coe",
+   "sha256": "df9188aa3c9e33222106dea6d04c4c702acef77a840fbcce27a3c956981f6bbb",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block0.fc1_b": {
+   "bin": "block0.fc1_b.bin",
+   "coe": "block0.fc1_b.coe",
+   "sha256": "1a471b74e261d16c28655e93293a12a4c23f43a186b47a7f978a3e20f868a828",
+   "shape": [
+    512
+   ],
+   "dtype": "int32",
+   "nbytes": 2048
+  },
+  "block1.q_w": {
+   "bin": "block1.q_w.bin",
+   "coe": "block1.q_w.coe",
+   "sha256": "ab61bfe00bdda038323ca0dbe5e59240202254bdfb1bc72efbfdd410876a66e4",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block1.k_w": {
+   "bin": "block1.k_w.bin",
+   "coe": "block1.k_w.coe",
+   "sha256": "9013cf99d3986711f78dc2fb4687c23df9cf49562a8ea2d27e922ea7ace0d40c",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block1.v_w": {
+   "bin": "block1.v_w.bin",
+   "coe": "block1.v_w.coe",
+   "sha256": "a4176db787651bddaaaaa83b6d56abb794e6ea911bed178ad73dcec64f07187f",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block1.proj_w": {
+   "bin": "block1.proj_w.bin",
+   "coe": "block1.proj_w.coe",
+   "sha256": "feb9821c9d85ff74edf09159434a03104030aafeed88e6b9844f4723b583345b",
+   "shape": [
+    128,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 16384
+  },
+  "block1.fc1_w": {
+   "bin": "block1.fc1_w.bin",
+   "coe": "block1.fc1_w.coe",
+   "sha256": "b2b37ba0fed5e268b2f05f548a9fdd330b719e4714f689b98e7b3ccbd9ec8d19",
+   "shape": [
+    512,
+    128
+   ],
+   "dtype": "int8",
+   "nbytes": 65536
+  },
+  "block1.fc2_w": {
+   "bin": "block1.fc2_w.bin",
+   "coe": "block1.fc2_w.coe",
+   "sha256": "4338b51bbf4fca7f8d65a5aee254ee847a70417faa6a0ef3adc4abe8f41cf249",
+   "shape": [
+    128,
+    512
+   ],
+   "dtype": "int8",
+   "nbytes": 65536
+  },
+  "block1.q_b": {
+   "bin": "block1.q_b.bin",
+   "coe": "block1.q_b.coe",
+   "sha256": "c086a03ea7dcf8403ad1c3a3c631f5c40bb9848f7ae6e46ff6d6df5bcc26f617",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block1.k_b": {
+   "bin": "block1.k_b.bin",
+   "coe": "block1.k_b.coe",
+   "sha256": "493d3765ebf68bfab86c432e086bd88b96a9997771347f30f3795c7a8a88d606",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block1.v_b": {
+   "bin": "block1.v_b.bin",
+   "coe": "block1.v_b.coe",
+   "sha256": "f3052c0732f13912f251545814bfb0ae788951117829300fc78f458b7744b798",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block1.proj_b": {
+   "bin": "block1.proj_b.bin",
+   "coe": "block1.proj_b.coe",
+   "sha256": "985ef4e3c95f4a2af40d3ef18e8bef65982fc05ac40fbd7eedd0850e8629d747",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block1.fc2_b": {
+   "bin": "block1.fc2_b.bin",
+   "coe": "block1.fc2_b.coe",
+   "sha256": "51aec6a53c258e6666a57c16161639967ef5ad783276e4fd52b4e6906f1a662d",
+   "shape": [
+    128
+   ],
+   "dtype": "int32",
+   "nbytes": 512
+  },
+  "block1.fc1_b": {
+   "bin": "block1.fc1_b.bin",
+   "coe": "block1.fc1_b.coe",
+   "sha256": "89ea3ca133270353bb8548fb060cbbd9173c42d697ba7e1ed87a7ea055a8db19",
+   "shape": [
+    512
+   ],
+   "dtype": "int32",
+   "nbytes": 2048
+  }
+ },
+ "rtl_sources": [
+  "rtl/ops/spiking/attention/spiking_attention_pe.sv",
+  "rtl/ops/spiking/attention/spiking_linemac_pe.sv",
+  "rtl/ops/spiking/attention/spiking_popcount.sv",
+  "rtl/ops/spiking/control/spikformer_block_sequencer.sv",
+  "rtl/ops/spiking/control/spikformer_nlp_top.sv",
+  "rtl/ops/spiking/control/spiking_block_top.sv",
+  "rtl/ops/spiking/embed/spiking_embed_top.sv",
+  "rtl/ops/spiking/include/spikformer_cfg.vh",
+  "rtl/ops/spiking/lif/spiking_lif_cell.sv",
+  "rtl/ops/spiking/lif/spiking_lif_group.sv",
+  "rtl/ops/spiking/linear/spiking_systolic_array.sv",
+  "rtl/ops/spiking/linear/spiking_systolic_pe.sv",
+  "rtl/ops/spiking/mlp/spiking_mlp_controller.sv",
+  "rtl/ops/spiking/reduce/spiking_head_reduce.sv",
+  "rtl/ops/spiking/sps/spiking_adder_tree.sv",
+  "rtl/ops/spiking/sps/spiking_eyeriss_pe.sv",
+  "rtl/ops/spiking/sps/spiking_maxpool2x2.sv",
+  "rtl/ops/spiking/sps/spiking_sps_top.sv",
+  "rtl/ops/spiking/wrappers/spikformer_platform_wrapper.sv",
+  "rtl/ops/spiking/sps/spiking_feature_bram.sv",
+  "rtl/ops/spiking/sps/spiking_rgb_encoder.sv",
+  "rtl/ops/spiking/sps/spiking_eyeriss_array.sv",
+  "rtl/ops/spiking/sps/spiking_sps_psum.sv",
+  "rtl/ops/spiking/sps/spiking_sps_ref_ctrl.sv",
+  "rtl/ops/spiking/sps/spiking_sps_token_adapter.sv",
+  "rtl/ops/spiking/sps/spiking_sps_ref_top.sv",
+  "rtl/ops/spiking/control/spikformer_vis_native_top.sv",
+  "rtl/ops/spiking/control/spikformer_vis_top.sv"
+ ],
+ "rtl_sha256": {
+  "rtl/ops/spiking/attention/spiking_attention_pe.sv": "44325e517e5f11f7810fdee5257175a1935343bf336dfb061d40a7508f0f1c6f",
+  "rtl/ops/spiking/attention/spiking_linemac_pe.sv": "1ee83f17340428ed71f95d46dd10435177b518723b6b1273d26035d9cbce5e9f",
+  "rtl/ops/spiking/attention/spiking_popcount.sv": "7b47a053186d0e4bc67307eeda2dd59321c5c7a8ad07e72f234094a2ade3fdae",
+  "rtl/ops/spiking/control/spikformer_block_sequencer.sv": "37778a38b572367eb4b6c7615f33d7ac41bef4464d8855e0b68e031f9ca76c17",
+  "rtl/ops/spiking/control/spikformer_nlp_top.sv": "3802aacc6718a29f2e611cc8a75a12bbba47e0f8248a4cab5f7642ff7200e2b0",
+  "rtl/ops/spiking/control/spiking_block_top.sv": "841df6017e51af858d3b128263b0478fe45cc93093863fbc7423f648759f9d19",
+  "rtl/ops/spiking/embed/spiking_embed_top.sv": "958fd8cb28574aabe0b61b351a1966fa96f5c371daca5f24683ec6b8f2f168f7",
+  "rtl/ops/spiking/include/spikformer_cfg.vh": "414afaa1c5548e278235f4db19b8e4865e0b75d4aa5260bfbd978ee9aae04155",
+  "rtl/ops/spiking/lif/spiking_lif_cell.sv": "18427f9d82c09ec04a0c4a169592e537c7c1f82f2a9e0d60ae11227355fd891f",
+  "rtl/ops/spiking/lif/spiking_lif_group.sv": "5f32f9fd3e3bd01986b39eaa4aacd5242e10e98853c911847d620d56b45e61f4",
+  "rtl/ops/spiking/linear/spiking_systolic_array.sv": "1039aa12978f5ccb06d809f08652dcd1b230de66ce4cf7288f9931fe47fb143d",
+  "rtl/ops/spiking/linear/spiking_systolic_pe.sv": "16589ff76b35e3497147d121b96d934e0e9f5e498fd0c35212b15db6bc4405ff",
+  "rtl/ops/spiking/mlp/spiking_mlp_controller.sv": "59405bfb0c0fe0e4be85085172f8bce94c011bb094abbfecce65afc1033c7729",
+  "rtl/ops/spiking/reduce/spiking_head_reduce.sv": "1d295115e9683e92bc03d850e2929805c1c9cb34bd6fec255582db903f41021e",
+  "rtl/ops/spiking/sps/spiking_adder_tree.sv": "1c7f14ea78d0786891aa0653eac05a43b59fc2f1e176fbd60eb48d453565fae8",
+  "rtl/ops/spiking/sps/spiking_eyeriss_pe.sv": "0c64d70d69e9a86a0cf4b2bdfd1f7f2c2b2ec11e11eb5820137f84323274e468",
+  "rtl/ops/spiking/sps/spiking_maxpool2x2.sv": "a132e0fc04fcbb9c24ca110c2bbd212ab566d5124cad89ad4dd56b0ee95d233d",
+  "rtl/ops/spiking/sps/spiking_sps_top.sv": "84929737178de4218d1987e7df886b79135b360b85798100862beeeb3472917f",
+  "rtl/ops/spiking/wrappers/spikformer_platform_wrapper.sv": "ed02c6b180338e034663b879e0b6bc9e89291afadb346718b44bf27ce9ab7084",
+  "rtl/ops/spiking/sps/spiking_feature_bram.sv": "399939f626a5277cccfc376955eddd6e906286898b7243059df947284c051c7d",
+  "rtl/ops/spiking/sps/spiking_rgb_encoder.sv": "71db5b95e88cb5b88c6c2e65b062871e052a70312f29c9c619f6bdac37375ea0",
+  "rtl/ops/spiking/sps/spiking_eyeriss_array.sv": "59b9fa7c29a24e16b678d3fb31c95e99f52fb37febc6d398510a849346ce1c73",
+  "rtl/ops/spiking/sps/spiking_sps_psum.sv": "8bb4edc29c411caaf0462ed8faad843318e6f74a50d31d46f1d9074ca337d287",
+  "rtl/ops/spiking/sps/spiking_sps_ref_ctrl.sv": "728337f10bff4e7d3f3c6a2ec0ea060446b5bc3a07e72182a4ecfeae22c02244",
+  "rtl/ops/spiking/sps/spiking_sps_token_adapter.sv": "aea8e9a761aa9f98d13b6087da350ecef1ab4961fb294e13ed05b11d5161aa5e",
+  "rtl/ops/spiking/sps/spiking_sps_ref_top.sv": "e0acff5959704501e9c4c0b2027754c94250ac1dc1ac01e72b6f315b6f35cc98",
+  "rtl/ops/spiking/control/spikformer_vis_native_top.sv": "8ece767a61823b062bfae8c9c74164d8ec9da0efdc53fcc092e34d1993ad5ad0",
+  "rtl/ops/spiking/control/spikformer_vis_top.sv": "c8ded272b8409d291d2b1a55daf4ae9765baee9c53fe6f7e0582158cbca8e323"
+ },
+ "generated": {
+  "header": "generated/spikformer_config.vh",
+  "adapter": "generated/spikformer_nlp_target_top.sv",
+  "sources_f": "generated/sources.f",
+  "xdc": "generated/spikformer.xdc",
+  "ooc_tcl": "generated/spikformer_ooc.tcl",
+  "project_tcl": "generated/spikformer_project.tcl",
+  "cache_key": "2d3973063edc888656e43e65cd268bdceeedbc301c3612324ab86abb8643f5e7"
+ },
+ "target": {
+  "part": "xczu15eg-ffvb1156-2-i",
+  "tool": "Vivado 2021.1",
+  "period_ns": 5
+ },
+ "head": {
+  "reduction": "sum",
+  "norm": "ps_div",
+  "params": null
+ },
+ "assets": {},
+ "numeric": {
+  "lif": "mem=floor((pre+delta)/2) (arith >>1); spike iff valid && mem>=0 && mem>=thr; hard reset 0; pre=0 at t=0; thr>=1; pre+delta sign-extended to 33 bit BEFORE add (no 32-bit wrap)",
+  "qk_popcount": "per-T bitwise AND popcount, no /head_dim, SUM_W=6, max 32",
+  "av": "unnormalized sum over 32 source tokens, uint11, max 1024",
+  "residual": {
+   "bounds": {
+    "embed": 1,
+    "attn_res": 2,
+    "mlp_res": 3
+   },
+   "worst": 5,
+   "bits": 4,
+   "rw_alloc": 4
+  },
+  "quant": "signed int8 weights, per-tensor symmetric scale (maxabs/127), int32 bias in accumulator domain, BN state explicit",
+  "thresholds": {},
+  "scales": {},
+  "model_assets": {
+   "model_kind": "development_fixture",
+   "corpus_sha256": null,
+   "vocab_sha256": null,
+   "checkpoint": null,
+   "checkpoint_sha256": null,
+   "bn_state": null
+  }
+ },
+ "manifest_sha256": "835ad38dc06f0546bc08612bf052f085edec7f47b34115cfe5079c7b221381c4"
+}

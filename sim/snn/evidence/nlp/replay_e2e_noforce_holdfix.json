@@ -1,0 +1,101 @@
+{
+ "schema": "spikformer-nlp-replay-report-1",
+ "case": "e2e",
+ "tb": "tb_nlp_e2e",
+ "tb_file": "verification/sim/spikformer/tb_nlp_e2e.v",
+ "vecdir": "D:/dl_snn/build/spikformer/nlp_48h_20261029_1915/replay/case_e2e",
+ "sim_dir": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\replay\\sim_e2e_20261030_120903_holdfix",
+ "log": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\replay\\sim_e2e_20261030_120903_holdfix\\run.log",
+ "started_at": "2026-10-30T12:39:50",
+ "modelsim": "vsim 2020.4 Simulator 2020.10",
+ "heavy_lock": {
+  "used": true,
+  "lock": "D:/dl_v0.1/build/onnx_e1/v02_real_yolo_20261026_2022_b1/jobs/heavy.lock.json"
+ },
+ "golden_sha256": "296c6252982798761e8df795de40b9cb549344bc389828f3628854af5804a966",
+ "commands": [],
+ "steps": [
+  {
+   "step": "vlib",
+   "exit": 0
+  },
+  {
+   "step": "vlog",
+   "exit": 0,
+   "errors": 0,
+   "warnings": 9
+  },
+  {
+   "step": "vsim",
+   "exit": 0,
+   "wall_sec": 21.83,
+   "result_line": "NLP_RESULT case=e2e pass=1 cycles=7084772",
+   "fail_lines": 0
+  }
+ ],
+ "pass": true,
+ "result": "pass",
+ "rtl_sources": [
+  {
+   "path": "rtl/ops/spiking/attention/spiking_attention_pe.sv",
+   "sha256": "44325e517e5f11f7810fdee5257175a1935343bf336dfb061d40a7508f0f1c6f"
+  },
+  {
+   "path": "rtl/ops/spiking/attention/spiking_linemac_pe.sv",
+   "sha256": "1ee83f17340428ed71f95d46dd10435177b518723b6b1273d26035d9cbce5e9f"
+  },
+  {
+   "path": "rtl/ops/spiking/attention/spiking_popcount.sv",
+   "sha256": "7b47a053186d0e4bc67307eeda2dd59321c5c7a8ad07e72f234094a2ade3fdae"
+  },
+  {
+   "path": "rtl/ops/spiking/control/spikformer_block_sequencer.sv",
+   "sha256": "37778a38b572367eb4b6c7615f33d7ac41bef4464d8855e0b68e031f9ca76c17"
+  },
+  {
+   "path": "rtl/ops/spiking/control/spikformer_nlp_top.sv",
+   "sha256": "3802aacc6718a29f2e611cc8a75a12bbba47e0f8248a4cab5f7642ff7200e2b0"
+  },
+  {
+   "path": "rtl/ops/spiking/control/spiking_block_top.sv",
+   "sha256": "841df6017e51af858d3b128263b0478fe45cc93093863fbc7423f648759f9d19"
+  },
+  {
+   "path": "rtl/ops/spiking/embed/spiking_embed_top.sv",
+   "sha256": "958fd8cb28574aabe0b61b351a1966fa96f5c371daca5f24683ec6b8f2f168f7"
+  },
+  {
+   "path": "rtl/ops/spiking/lif/spiking_lif_cell.sv",
+   "sha256": "18427f9d82c09ec04a0c4a169592e537c7c1f82f2a9e0d60ae11227355fd891f"
+  },
+  {
+   "path": "rtl/ops/spiking/lif/spiking_lif_group.sv",
+   "sha256": "5f32f9fd3e3bd01986b39eaa4aacd5242e10e98853c911847d620d56b45e61f4"
+  },
+  {
+   "path": "rtl/ops/spiking/linear/spiking_systolic_array.sv",
+   "sha256": "1039aa12978f5ccb06d809f08652dcd1b230de66ce4cf7288f9931fe47fb143d"
+  },
+  {
+   "path": "rtl/ops/spiking/linear/spiking_systolic_pe.sv",
+   "sha256": "16589ff76b35e3497147d121b96d934e0e9f5e498fd0c35212b15db6bc4405ff"
+  },
+  {
+   "path": "rtl/ops/spiking/mlp/spiking_mlp_controller.sv",
+   "sha256": "59405bfb0c0fe0e4be85085172f8bce94c011bb094abbfecce65afc1033c7729"
+  },
+  {
+   "path": "rtl/ops/spiking/reduce/spiking_head_reduce.sv",
+   "sha256": "1d295115e9683e92bc03d850e2929805c1c9cb34bd6fec255582db903f41021e"
+  },
+  {
+   "path": "verification/sim/spikformer/tb_nlp_e2e.v",
+   "sha256": "93821fdaa017903e28cdd9cefdec1796cc2ab2b55819918c42d59cfc1f514cab"
+  }
+ ],
+ "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+ "tb_sha256": "93821fdaa017903e28cdd9cefdec1796cc2ab2b55819918c42d59cfc1f514cab",
+ "wall_sec": 21.83,
+ "cycles": 7084772,
+ "finished_at": "2026-10-30T12:40:12"
+}

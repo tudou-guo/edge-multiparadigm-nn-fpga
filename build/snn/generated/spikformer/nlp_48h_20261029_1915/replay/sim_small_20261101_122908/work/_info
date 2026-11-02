@@ -1,0 +1,420 @@
+m255
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/DL_FINAL/SNN/build/spikformer/nlp_48h_20261029_1915/replay/sim_small_20261101_122908
+T_opt
+!s110 1793507350
+V>N1kSoPB_i?_nF4Xz4KYQ1
+04 12 4 work tb_nlp_small fast 0
+=1-b025aa9af2a5-6ae6c016-a7-5460
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2020.4;71
+vspikformer_block_sequencer
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z3 !s110 1793507349
+!i10b 1
+!s100 aDO12E6KkeeQ26jE>[Jb52
+Z4 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I]hOzf`O26gO7]<4hVfBg32
+S1
+R0
+Z5 w1793435769
+8D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_block_sequencer.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_block_sequencer.sv
+!i122 0
+L0 12 59
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2020.4;71
+r1
+!s85 0
+31
+Z8 !s108 1793507349.000000
+Z9 !s107 D:\DL_FINAL\SNN\verification/sim/spikformer/tb_nlp_small.v|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_native_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\reduce\spiking_head_reduce.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\mlp\spiking_mlp_controller.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_group.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_cell.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\embed\spiking_embed_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spiking_block_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_nlp_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_block_sequencer.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_popcount.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_linemac_pe.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_attention_pe.sv|
+Z10 !s90 -sv|-work|work|D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_attention_pe.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_linemac_pe.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_popcount.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_block_sequencer.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_nlp_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spiking_block_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\embed\spiking_embed_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_cell.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_group.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\mlp\spiking_mlp_controller.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\reduce\spiking_head_reduce.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_native_top.sv|D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_top.sv|D:\DL_FINAL\SNN\verification/sim/spikformer/tb_nlp_small.v|
+!i113 0
+Z11 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vspikformer_nlp_top
+R2
+R3
+!i10b 1
+!s100 :_nC?JT2ZS6zn[SgX9MeL0
+R4
+IPLo1lI5W=@IG3dA=CmHbc3
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_nlp_top.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_nlp_top.sv
+!i122 0
+L0 30 380
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspikformer_vis_native_top
+R2
+R3
+!i10b 1
+!s100 nWn8b_:ESEncEa4fm3CO71
+R4
+IQ2Egf_FEz23^Sz9:?b?SO0
+S1
+R0
+w1793439444
+8D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_native_top.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_native_top.sv
+!i122 0
+L0 12 123
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspikformer_vis_top
+R2
+R3
+!i10b 1
+!s100 M4bJmXbVd;e=aF_EB0;620
+R4
+IBT3XzJFUefdfIzz9MDT_D0
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_top.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_top.sv
+!i122 0
+L0 17 269
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_attention_pe
+R2
+R3
+!i10b 1
+!s100 ][`gG^5;bE]UjYiAbg:C41
+R4
+IO;dQQXDOM_dnLISgDD1bo2
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_attention_pe.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_attention_pe.sv
+!i122 0
+L0 7 44
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_block_top
+R2
+R3
+!i10b 1
+!s100 B8DcRf9Oo]>oIZZz[BRWz3
+R4
+IX_f?ik@3X1nI2inL[nWdJ0
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\control\spiking_block_top.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\control\spiking_block_top.sv
+!i122 0
+L0 21 780
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_embed_top
+R2
+R3
+!i10b 1
+!s100 LfVEXN@OGF>VeIB42V^W>3
+R4
+Izi9X17bkKDnz;^oV^9GVR3
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\embed\spiking_embed_top.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\embed\spiking_embed_top.sv
+!i122 0
+L0 23 208
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_head_reduce
+R2
+R3
+!i10b 1
+!s100 MNLf9AT]3W[7kMZK<3OS40
+R4
+IRFNDh917UacVbQkzU]HhI0
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\reduce\spiking_head_reduce.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\reduce\spiking_head_reduce.sv
+!i122 0
+L0 11 77
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_lif_cell
+R2
+R3
+!i10b 1
+!s100 G]k]H_HKfKS@J;0VMXPL61
+R4
+IZSWP0WmmI7NI26=`FTXXZ1
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_cell.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_cell.sv
+!i122 0
+L0 7 31
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_lif_group
+R2
+R3
+!i10b 1
+!s100 1R6cZVmi=MD;<bGKT[R2O2
+R4
+I7?7OGmb<jfB:KzSe24[QC3
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_group.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_group.sv
+!i122 0
+L0 14 56
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_linemac_pe
+R2
+R3
+!i10b 1
+!s100 CakJjnnEPB=HdlAeoZl6g2
+R4
+IAk1i;;k?6T:7l=^aF0a=o1
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_linemac_pe.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_linemac_pe.sv
+!i122 0
+L0 7 65
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_mlp_controller
+R2
+R3
+!i10b 1
+!s100 l]NI;]3i3d[?NzSCg16ig1
+R4
+I3NT@]D7:1L=`@GT`mVAFo0
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\mlp\spiking_mlp_controller.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\mlp\spiking_mlp_controller.sv
+!i122 0
+L0 15 296
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_popcount
+R2
+R3
+!i10b 1
+!s100 P@?Mg9Coa]UbW^l9k8C`90
+R4
+Ie_8Noiag03gO96_=FSPlj1
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_popcount.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_popcount.sv
+!i122 0
+L0 8 40
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_systolic_array
+R2
+R3
+!i10b 1
+!s100 Gg?PZETX3AIf@^bX4EB1Q3
+R4
+I^E<n4@7cfH2@QNU;CfgiI3
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv
+!i122 0
+L0 7 66
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vspiking_systolic_pe
+R2
+R3
+!i10b 1
+!s100 _<32a<0kU;K0W]DV=RRVk1
+R4
+I]YBhc7>z5>j7If4JodSA83
+S1
+R0
+R5
+8D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv
+FD:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv
+!i122 0
+L0 6 75
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1
+vtb_nlp_small
+R2
+R3
+!i10b 1
+!s100 :<6UmAK^o:SK_4[[JgY^j2
+R4
+Ib@ea=BLl1IE@;7S3nV81>0
+S1
+R0
+w1793435770
+8D:\DL_FINAL\SNN\verification/sim/spikformer/tb_nlp_small.v
+FD:\DL_FINAL\SNN\verification/sim/spikformer/tb_nlp_small.v
+!i122 0
+L0 20 369
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R1

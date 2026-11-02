@@ -1,0 +1,11 @@
+# CfC single-step ONNX operator list
+# file: export/onnx_model.onnx
+# opset: 17, ir_version: 8
+Add        2
+Concat     1
+Gemm       5
+Mul        3
+Sigmoid    1
+Sub        1
+Tanh       2
+all_allowed: True

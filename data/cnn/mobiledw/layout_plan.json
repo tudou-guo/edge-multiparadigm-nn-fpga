@@ -1,0 +1,1054 @@
+{
+  "alias_groups": {},
+  "aliases": [],
+  "gates": {
+    "alias_planning": "pass",
+    "layout_planning": "pass",
+    "memory_planning": "not_run",
+    "view_copy_planning": "pass"
+  },
+  "graph_digest": "4b7f5a9decae77cec082a699113d0abea73c37a0fb539afdd7f437062164bf0e",
+  "host_boundaries": [],
+  "lowerings": [
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "stem_activation",
+      "op_type": "Conv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block1_dw_activation",
+      "op_type": "DepthwiseConv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block1_pw_activation",
+      "op_type": "Conv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block1_pool",
+      "op_type": "MaxPool",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block2_dw_activation",
+      "op_type": "DepthwiseConv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block2_pw_activation",
+      "op_type": "Conv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block2_pool",
+      "op_type": "MaxPool",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block3_dw_activation",
+      "op_type": "DepthwiseConv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block3_pw_activation",
+      "op_type": "Conv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block3_pool",
+      "op_type": "MaxPool",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block4_dw_activation",
+      "op_type": "DepthwiseConv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block4_pw_activation",
+      "op_type": "Conv",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "block4_pool",
+      "op_type": "MaxPool",
+      "view_kind": "none"
+    },
+    {
+      "copy_required": false,
+      "kind": "compute",
+      "node": "classifier_activation",
+      "op_type": "Conv",
+      "view_kind": "none"
+    }
+  ],
+  "policy": "int8_nhwc8_a16; explicit_view_copy; logical_fallback_for_non_int8",
+  "schema": "e1-layout-plan-1",
+  "stats": {
+    "abi_compatible_tensors": 35,
+    "alias_tensors": 0,
+    "constant_tensors": 0,
+    "copy_nodes": 0,
+    "host_tensors": 0,
+    "logical_only_tensors": 0,
+    "noop_nodes": 0,
+    "pl_managed": 35,
+    "tensors": 35,
+    "view_nodes": 0,
+    "view_tensors": 0
+  },
+  "tensors": {
+    "__input__": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        3,
+        32,
+        32
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 8192,
+        "channel_alloc": 8,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 256
+      },
+      "tensor": "__input__",
+      "view_bytes": 8192,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block1_dw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 16384,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 512
+      },
+      "tensor": "block1_dw_activation",
+      "view_bytes": 16384,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block1_dw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block1_dw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block1_dw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "block_bytes": 16,
+        "bytes": 256,
+        "channel_count": 16,
+        "elem_bytes": 1,
+        "layout": "DW_V2_OC16_K9",
+        "managed_by_host": false
+      },
+      "tensor": "block1_dw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block1_pool": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 4096,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 256
+      },
+      "tensor": "block1_pool",
+      "view_bytes": 4096,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block1_pw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 16384,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 512
+      },
+      "tensor": "block1_pw_activation",
+      "view_bytes": 16384,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block1_pw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block1_pw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block1_pw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "blocks": 4,
+        "bytes": 256,
+        "cin_alloc": 16,
+        "cout_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "OIHW8_KB_IC_OC",
+        "managed_by_host": false,
+        "tap_groups": 1,
+        "weight_format": "k1_center_tap_compact"
+      },
+      "tensor": "block1_pw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block2_dw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 4096,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 256
+      },
+      "tensor": "block2_dw_activation",
+      "view_bytes": 4096,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block2_dw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block2_dw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block2_dw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "block_bytes": 16,
+        "bytes": 256,
+        "channel_count": 16,
+        "elem_bytes": 1,
+        "layout": "DW_V2_OC16_K9",
+        "managed_by_host": false
+      },
+      "tensor": "block2_dw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block2_pool": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 1024,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 128
+      },
+      "tensor": "block2_pool",
+      "view_bytes": 1024,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block2_pw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 4096,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 256
+      },
+      "tensor": "block2_pw_activation",
+      "view_bytes": 4096,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block2_pw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block2_pw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block2_pw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "blocks": 4,
+        "bytes": 256,
+        "cin_alloc": 16,
+        "cout_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "OIHW8_KB_IC_OC",
+        "managed_by_host": false,
+        "tap_groups": 1,
+        "weight_format": "k1_center_tap_compact"
+      },
+      "tensor": "block2_pw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block3_dw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 1024,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 128
+      },
+      "tensor": "block3_dw_activation",
+      "view_bytes": 1024,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block3_dw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block3_dw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block3_dw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "block_bytes": 16,
+        "bytes": 256,
+        "channel_count": 16,
+        "elem_bytes": 1,
+        "layout": "DW_V2_OC16_K9",
+        "managed_by_host": false
+      },
+      "tensor": "block3_dw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block3_pool": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        4,
+        4
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 256,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 64
+      },
+      "tensor": "block3_pool",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block3_pw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 1024,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 128
+      },
+      "tensor": "block3_pw_activation",
+      "view_bytes": 1024,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block3_pw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block3_pw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block3_pw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "blocks": 4,
+        "bytes": 256,
+        "cin_alloc": 16,
+        "cout_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "OIHW8_KB_IC_OC",
+        "managed_by_host": false,
+        "tap_groups": 1,
+        "weight_format": "k1_center_tap_compact"
+      },
+      "tensor": "block3_pw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block4_dw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        2,
+        2
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 32
+      },
+      "tensor": "block4_dw_activation",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block4_dw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block4_dw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block4_dw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "block_bytes": 16,
+        "bytes": 256,
+        "channel_count": 16,
+        "elem_bytes": 1,
+        "layout": "DW_V2_OC16_K9",
+        "managed_by_host": false
+      },
+      "tensor": "block4_dw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block4_pool": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        1,
+        1
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 16,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 16
+      },
+      "tensor": "block4_pool",
+      "view_bytes": 16,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block4_pw_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        2,
+        2
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 32
+      },
+      "tensor": "block4_pw_activation",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block4_pw_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "block4_pw_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "block4_pw_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "blocks": 4,
+        "bytes": 256,
+        "cin_alloc": 16,
+        "cout_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "OIHW8_KB_IC_OC",
+        "managed_by_host": false,
+        "tap_groups": 1,
+        "weight_format": "k1_center_tap_compact"
+      },
+      "tensor": "block4_pw_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "classifier_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        10,
+        1,
+        1
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 16,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 16
+      },
+      "tensor": "classifier_activation",
+      "view_bytes": 16,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "classifier_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        10
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "classifier_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "classifier_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        10,
+        16,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "blocks": 4,
+        "bytes": 256,
+        "cin_alloc": 16,
+        "cout_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "OIHW8_KB_IC_OC",
+        "managed_by_host": false,
+        "tap_groups": 1,
+        "weight_format": "k1_center_tap_compact"
+      },
+      "tensor": "classifier_activation.weight",
+      "view_bytes": 256,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "stem_activation": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 16384,
+        "channel_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "NHWC8_A16",
+        "logical_layout": "NCHW",
+        "managed_by_host": false,
+        "row_stride_bytes": 512
+      },
+      "tensor": "stem_activation",
+      "view_bytes": 16384,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "stem_activation.bias": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int32",
+      "logical_layout": "C",
+      "managed_by": "pl",
+      "shape": [
+        16
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 64,
+        "elem_bytes": 4,
+        "layout": "I32_C",
+        "managed_by_host": false
+      },
+      "tensor": "stem_activation.bias",
+      "view_bytes": 64,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    },
+    "stem_activation.weight": {
+      "alias_group": null,
+      "alias_of": null,
+      "dtype": "int8",
+      "logical_layout": "NCHW",
+      "managed_by": "pl",
+      "shape": [
+        16,
+        3,
+        3,
+        3
+      ],
+      "storage": {
+        "abi_compatible": true,
+        "alignment": 16,
+        "bytes": 1152,
+        "cin_alloc": 8,
+        "cout_alloc": 16,
+        "elem_bytes": 1,
+        "layout": "OIHW8_KB_IC_OC",
+        "managed_by_host": false
+      },
+      "tensor": "stem_activation.weight",
+      "view_bytes": 1152,
+      "view_kind": "none",
+      "view_offset_bytes": 0
+    }
+  }
+}

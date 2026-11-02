@@ -1,0 +1,145 @@
+{
+ "schema": "e1-operator-library-1",
+ "variant": "spikformer-snn-1",
+ "version": "20261029.1",
+ "root": "D:/dl_snn",
+ "template": "tools/npu_gen/spikformer_top.sv.tpl",
+ "include_dirs": [
+  "rtl/ops/spiking/include"
+ ],
+ "sources": [
+  "rtl/ops/spiking/attention/spiking_attention_pe.sv",
+  "rtl/ops/spiking/attention/spiking_linemac_pe.sv",
+  "rtl/ops/spiking/attention/spiking_popcount.sv",
+  "rtl/ops/spiking/control/spikformer_block_sequencer.sv",
+  "rtl/ops/spiking/control/spikformer_nlp_top.sv",
+  "rtl/ops/spiking/embed/spiking_embed_top.sv",
+  "rtl/ops/spiking/include/spikformer_cfg.vh",
+  "rtl/ops/spiking/lif/spiking_lif_cell.sv",
+  "rtl/ops/spiking/lif/spiking_lif_group.sv",
+  "rtl/ops/spiking/linear/spiking_systolic_array.sv",
+  "rtl/ops/spiking/linear/spiking_systolic_pe.sv",
+  "rtl/ops/spiking/mlp/spiking_mlp_controller.sv",
+  "rtl/ops/spiking/reduce/spiking_head_reduce.sv",
+  "rtl/ops/spiking/sps/spiking_adder_tree.sv",
+  "rtl/ops/spiking/sps/spiking_eyeriss_pe.sv",
+  "rtl/ops/spiking/sps/spiking_maxpool2x2.sv",
+  "rtl/ops/spiking/sps/spiking_sps_top.sv",
+  "rtl/ops/spiking/wrappers/spikformer_platform_wrapper.sv"
+ ],
+ "vendor_ip": [],
+ "spiking_engines": [
+  {
+   "name": "sps",
+   "operators": [
+    "SpikingPatchEmbed(conv3x3+LIF+pool+x2)"
+   ],
+   "directory": "rtl/ops/spiking/sps",
+   "top": "spiking_sps_top"
+  },
+  {
+   "name": "linear",
+   "operators": [
+    "SpikingSystolic(QKV/proj/fc)"
+   ],
+   "directory": "rtl/ops/spiking/linear",
+   "top": "spiking_systolic_array"
+  },
+  {
+   "name": "lif",
+   "operators": [
+    "LIF(tau=2,hard-reset)"
+   ],
+   "directory": "rtl/ops/spiking/lif",
+   "top": "spiking_lif_group"
+  },
+  {
+   "name": "attention_qk",
+   "operators": [
+    "QK-popcount(head_dim)"
+   ],
+   "directory": "rtl/ops/spiking/attention",
+   "top": "spiking_attention_pe",
+   "fix": "popcount 5b->clog2(head_dim+1)"
+  },
+  {
+   "name": "attention_av",
+   "operators": [
+    "AttnV-LineMac"
+   ],
+   "directory": "rtl/ops/spiking/attention",
+   "top": "spiking_linemac_pe"
+  },
+  {
+   "name": "mlp",
+   "operators": [
+    "MLP(fc1+LIF+fc2+residual)"
+   ],
+   "directory": "rtl/ops/spiking/mlp",
+   "top": "spiking_mlp_controller"
+  },
+  {
+   "name": "embed",
+   "operators": [
+    "TokenEmbed(table+pos+LIF)"
+   ],
+   "directory": "rtl/ops/spiking/embed",
+   "top": "spiking_embed_top",
+   "note": "NEW for NLP family; no upstream counterpart"
+  },
+  {
+   "name": "reduce",
+   "operators": [
+    "HeadSum(T*N)"
+   ],
+   "directory": "rtl/ops/spiking/reduce",
+   "top": "spiking_head_reduce",
+   "contract": "PL sum; norm in PS or folded"
+  },
+  {
+   "name": "control",
+   "operators": [
+    "BlockSequencer",
+    "PlatformWrapper(CSR/DDR/lifecycle)"
+   ],
+   "directory": "rtl/ops/spiking/control",
+   "top": "spikformer_block_sequencer"
+  },
+  {
+   "name": "block",
+   "operators": [
+    "TransformerBlock(QKV+LIF+Attn+proj+MLP+res)"
+   ],
+   "directory": "rtl/ops/spiking/control",
+   "top": "spiking_block_top"
+  }
+ ],
+ "supported_family": {
+  "family": "spikformer-b1-cifar10",
+  "constraints": {
+   "B": [
+    1
+   ],
+   "T": {
+    "legal": [
+     1,
+     2,
+     4
+    ],
+    "native": 4
+   },
+   "embed": "multiple of 32, heads*head_dim, lane-tile divisible",
+   "heads": "embed/head_dim integer",
+   "head_dim": {
+    "implemented": [
+     32
+    ],
+    "note": "other dims rejected with structure error"
+   },
+   "mlp_hidden": "multiple of tile 16",
+   "depth": ">=1; multi-block switches weights per block, SPS once",
+   "pixel": "square 32x32 native; rectangular rejected (pool geometry)"
+  }
+ },
+ "upstream": "see rtl/ops/spiking/UPSTREAM_MAP.json"
+}

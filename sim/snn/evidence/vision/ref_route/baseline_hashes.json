@@ -1,0 +1,9 @@
+{
+ "rtl/ops/spiking/sps/spiking_sps_top.sv": "84929737178de4218d1987e7df886b79135b360b85798100862beeeb3472917f",
+ "rtl/ops/spiking/control/spikformer_vis_top.sv": "c8ded272b8409d291d2b1a55daf4ae9765baee9c53fe6f7e0582158cbca8e323",
+ "rtl/ops/spiking/control/spiking_block_top.sv": "841df6017e51af858d3b128263b0478fe45cc93093863fbc7423f648759f9d19",
+ "scripts/spikformer/gen_sps_replay.py": "61434229eb42f9b7d50f7315b7d45cfbf0886cfe490f238728c69297b0c95c94",
+ "scripts/spikformer/gen_block_replay.py": "d3d1f1c228a19cb47bcdf0e8038dbb31b8f0ffcb9e9a1c500040ccbbd464c6d7",
+ "tools/backends/spikformer/config.py": "ef0575f063f7ea27cf589617b5e1e8b078fc1e911da169f1eb70f7502cfdb745",
+ "examples/spikformer/config/model_native_b1.json": "648274663c6295c32a4e985881a45ebb4fe1097734dbbd0e5c27673e6ced61f7"
+}

@@ -1,0 +1,82 @@
+
+$ D:/modelsim/win64\vlib.exe work
+
+$ D:/modelsim/win64\vlog.exe -sv -work work D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_attention_pe.sv D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_linemac_pe.sv D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_popcount.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_block_sequencer.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_nlp_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spiking_block_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\embed\spiking_embed_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_cell.sv D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_group.sv D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv D:\DL_FINAL\SNN\rtl\ops\spiking\mlp\spiking_mlp_controller.sv D:\DL_FINAL\SNN\rtl\ops\spiking\reduce\spiking_head_reduce.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_native_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_top.sv D:\DL_FINAL\SNN\verification/sim/spikformer/tb_nlp_small.v
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+Start time: 12:29:09 on Nov 01,2026
+vlog -sv -work work D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_attention_pe.sv D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_linemac_pe.sv D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_popcount.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_block_sequencer.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_nlp_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spiking_block_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\embed\spiking_embed_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_cell.sv D:\DL_FINAL\SNN\rtl\ops\spiking\lif\spiking_lif_group.sv D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv D:\DL_FINAL\SNN\rtl\ops\spiking\mlp\spiking_mlp_controller.sv D:\DL_FINAL\SNN\rtl\ops\spiking\reduce\spiking_head_reduce.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_native_top.sv D:\DL_FINAL\SNN\rtl\ops\spiking\control\spikformer_vis_top.sv D:\DL_FINAL\SNN\verification/sim/spikformer/tb_nlp_small.v 
+-- Compiling module spiking_attention_pe
+-- Compiling module spiking_linemac_pe
+-- Compiling module spiking_popcount
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\attention\spiking_popcount.sv(25): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+-- Compiling module spikformer_block_sequencer
+-- Compiling module spikformer_nlp_top
+-- Compiling module spiking_block_top
+-- Compiling module spiking_embed_top
+-- Compiling module spiking_lif_cell
+-- Compiling module spiking_lif_group
+-- Compiling module spiking_systolic_array
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv(22): (vlog-13314) Defaulting port 'weights_col' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_array.sv(24): (vlog-13314) Defaulting port 'in_raw_data_row' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module spiking_systolic_pe
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv(47): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv(48): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv(49): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv(50): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv(51): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+** Warning: D:\DL_FINAL\SNN\rtl\ops\spiking\linear\spiking_systolic_pe.sv(55): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+-- Compiling module spiking_mlp_controller
+-- Compiling module spiking_head_reduce
+-- Compiling module spikformer_vis_native_top
+-- Compiling module spikformer_vis_top
+-- Compiling module tb_nlp_small
+
+Top level modules:
+	spiking_linemac_pe
+	spikformer_block_sequencer
+	spiking_lif_cell
+	spiking_systolic_array
+	spiking_head_reduce
+	spikformer_vis_native_top
+	spikformer_vis_top
+	tb_nlp_small
+End time: 12:29:09 on Nov 01,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 9
+
+$ D:/modelsim/win64\vsim.exe -c -work work tb_nlp_small -do run -all; quit -l vsim.log +VECDIR=D:/DL_FINAL/SNN/build/spikformer/nlp_48h_20261029_1915/replay/case_small
+Reading pref.tcl
+
+# 2020.4
+
+# vsim -c -work work tb_nlp_small -do "run -all; quit" -l vsim.log "+VECDIR=D:/DL_FINAL/SNN/build/spikformer/nlp_48h_20261029_1915/replay/case_small" 
+# Start time: 12:29:09 on Nov 01,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_nlp_small(fast)
+# Loading work.spikformer_nlp_top(fast)
+# run -all
+# NLP_TB case=small E=32 H=1 T=2 N=4 depth=2 MLP=64 V=64
+# NLP_TB golden dir=D:/DL_FINAL/SNN/build/spikformer/nlp_48h_20261029_1915/replay/case_small watchdog=200000 cycles
+# NLP_SAMPLE 0 start cycle=5 tokens=7 21 0 0
+# NLP_SAMPLE 0 done cycle=19888 out_beats=32 in_beats=32 emb_beats=16
+# NLP_SAMPLE 1 start cycle=19891 tokens=33 5 12 0
+# NLP_SAMPLE 1 done cycle=39774 out_beats=64 in_beats=64 emb_beats=32
+# NLP_PASS case=small samples=2 beats_per_block=16 sums=32 mismatches=0
+# NLP_RESULT case=small pass=1 cycles=39774
+# ** Note: $finish    : D:/DL_FINAL/SNN/verification/sim/spikformer/tb_nlp_small.v(386)
+#    Time: 397775 ns  Iteration: 2  Instance: /tb_nlp_small
+# End time: 12:29:10 on Nov 01,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

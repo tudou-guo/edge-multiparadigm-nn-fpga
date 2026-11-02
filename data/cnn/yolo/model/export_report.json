@@ -1,0 +1,192 @@
+{
+  "capture_nodes_observed": 88,
+  "elapsed_s": 0.85,
+  "files": {
+    "graph.json": {
+      "bytes": 76055,
+      "sha256": "027155dd3b9339fa715c6414b39c7b54d3f5d0bedc6d49e9288bd92ad1264149"
+    },
+    "heads.json": {
+      "bytes": 2643,
+      "sha256": "3ccd5e8a55ebbd43e9068b6edc8d87d29dd0f55e4c3bb6037bf93ddf23be7205"
+    },
+    "inputs.json": {
+      "bytes": 1296,
+      "sha256": "8a952262760c298404f481a2012b8956a7d270aa75ab73db921a6942e8a25892"
+    },
+    "model.onnx": {
+      "bytes": 3088700,
+      "sha256": "ba470414599e0d51ba970808163e8916a3321110030604045c12cdf85f888015"
+    },
+    "quant_table.json": {
+      "bytes": 142268,
+      "sha256": "d5d086338238d5eedc95a3ef5a6c458807d25b50498f9d37ca1de9074e925e32"
+    },
+    "weights.npz": {
+      "bytes": 3116470,
+      "sha256": "0b2a8f0b275375bf00e3e383096952aa32080ad546be7fd04592d9553a26ab51"
+    }
+  },
+  "heads": [
+    {
+      "bytes": 409600,
+      "logical_c": 64,
+      "node": "conv48",
+      "offset_bytes": 0,
+      "phys_c": 64,
+      "role": "reg",
+      "row_stride": 5120,
+      "scale": 0.13347327709197998,
+      "zero_point": 41
+    },
+    {
+      "bytes": 153600,
+      "logical_c": 20,
+      "node": "conv51",
+      "offset_bytes": 409600,
+      "phys_c": 24,
+      "role": "cls",
+      "row_stride": 1920,
+      "scale": 0.17081037163734436,
+      "zero_point": 127
+    },
+    {
+      "bytes": 102400,
+      "logical_c": 64,
+      "node": "conv54",
+      "offset_bytes": 563200,
+      "phys_c": 64,
+      "role": "reg",
+      "row_stride": 2560,
+      "scale": 0.11900094896554947,
+      "zero_point": 44
+    },
+    {
+      "bytes": 38400,
+      "logical_c": 20,
+      "node": "conv57",
+      "offset_bytes": 665600,
+      "phys_c": 24,
+      "role": "cls",
+      "row_stride": 960,
+      "scale": 0.225630521774292,
+      "zero_point": 120
+    },
+    {
+      "bytes": 25600,
+      "logical_c": 64,
+      "node": "conv60",
+      "offset_bytes": 704000,
+      "phys_c": 64,
+      "role": "reg",
+      "row_stride": 1280,
+      "scale": 0.13212566077709198,
+      "zero_point": 47
+    },
+    {
+      "bytes": 9600,
+      "logical_c": 20,
+      "node": "conv63",
+      "offset_bytes": 729600,
+      "phys_c": 24,
+      "role": "cls",
+      "row_stride": 480,
+      "scale": 0.2798818349838257,
+      "zero_point": 118
+    }
+  ],
+  "node_counts": {
+    "Add": 6,
+    "Concat": 13,
+    "Conv": 63,
+    "MaxPool": 3,
+    "Resize": 2,
+    "Split": 8
+  },
+  "onnx_shape_inference_ok": true,
+  "ort_check": {
+    "elapsed_s": 0.041,
+    "heads": {
+      "conv48": {
+        "elements": 409600,
+        "max_abs_diff": 19,
+        "mismatch": 230858,
+        "off_by_1": 165891,
+        "off_by_ge2": 64967,
+        "status": "compared"
+      },
+      "conv51": {
+        "elements": 128000,
+        "max_abs_diff": 16,
+        "mismatch": 90470,
+        "off_by_1": 54444,
+        "off_by_ge2": 36026,
+        "status": "compared"
+      },
+      "conv54": {
+        "elements": 102400,
+        "max_abs_diff": 17,
+        "mismatch": 59745,
+        "off_by_1": 39743,
+        "off_by_ge2": 20002,
+        "status": "compared"
+      },
+      "conv57": {
+        "elements": 32000,
+        "max_abs_diff": 11,
+        "mismatch": 22083,
+        "off_by_1": 14045,
+        "off_by_ge2": 8038,
+        "status": "compared"
+      },
+      "conv60": {
+        "elements": 25600,
+        "max_abs_diff": 11,
+        "mismatch": 15239,
+        "off_by_1": 10327,
+        "off_by_ge2": 4912,
+        "status": "compared"
+      },
+      "conv63": {
+        "elements": 8000,
+        "max_abs_diff": 7,
+        "mismatch": 5295,
+        "off_by_1": 3607,
+        "off_by_ge2": 1688,
+        "status": "compared"
+      }
+    },
+    "heads_compared": 6,
+    "max_abs_diff": 19,
+    "note": "ORT executes the QDQ graph; differences against the torch quantised model are rounding/kernel-level and are reported, not hidden",
+    "status": "executed",
+    "total_mismatch": 423690
+  },
+  "reconstruction": {
+    "fp32_state_keys": 348,
+    "fp32_state_path": "D:/yolov5/3.0/python/yolov8-pytorch-master\\logs\\ep224-loss3.508-val_loss3.280.pth",
+    "missing": [],
+    "quant_state_keys": 292,
+    "quant_state_path": "D:/yolov5/3.0/python/yolov8-pytorch-master\\logs\\yolov8_quant.pth",
+    "reference_root": "D:/yolov5/3.0/python/yolov8-pytorch-master",
+    "unexpected": []
+  },
+  "run_root": "build\\onnx_e1\\v02_real_yolo_20261026_2022_b1",
+  "sample": {
+    "file_sha256": "649c9780871519d61cd5be930fed97b443180a19ab63fce5b1e99d5479564dcd",
+    "image_id": "000032",
+    "path": "D:\\yolov5\\3.0\\python\\yolov8-pytorch-master\\VOCdevkit\\VOC2007\\JPEGImages\\000032.jpg",
+    "u8_shape": [
+      640,
+      640,
+      3
+    ],
+    "u8_tensor_sha256": "51b255984e6a4a2b2072d34241053daa70f40636de3ab52375fc27b242e75a89"
+  },
+  "schema": "v0.2-yolo-export-report-1",
+  "totals": {
+    "conv": 63,
+    "nodes": 95,
+    "outputs": 6
+  }
+}

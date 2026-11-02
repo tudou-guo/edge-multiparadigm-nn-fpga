@@ -1,0 +1,1019 @@
+{
+  "consumer_table": {
+    "__input__": [
+      {
+        "input_index": 0,
+        "node": "conv1_activation",
+        "order": 0
+      }
+    ],
+    "conv1_activation": [
+      {
+        "input_index": 0,
+        "node": "conv1_pool",
+        "order": 1
+      }
+    ],
+    "conv1_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "conv1_activation",
+        "order": 0
+      }
+    ],
+    "conv1_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "conv1_activation",
+        "order": 0
+      }
+    ],
+    "conv1_pool": [
+      {
+        "input_index": 0,
+        "node": "conv2_activation",
+        "order": 2
+      }
+    ],
+    "conv2_activation": [
+      {
+        "input_index": 0,
+        "node": "conv2_pool",
+        "order": 3
+      }
+    ],
+    "conv2_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "conv2_activation",
+        "order": 2
+      }
+    ],
+    "conv2_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "conv2_activation",
+        "order": 2
+      }
+    ],
+    "conv2_pool": [
+      {
+        "input_index": 0,
+        "node": "conv3_activation",
+        "order": 4
+      }
+    ],
+    "conv3_activation": [
+      {
+        "input_index": 0,
+        "node": "conv4_activation",
+        "order": 5
+      }
+    ],
+    "conv3_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "conv3_activation",
+        "order": 4
+      }
+    ],
+    "conv3_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "conv3_activation",
+        "order": 4
+      }
+    ],
+    "conv4_activation": [
+      {
+        "input_index": 0,
+        "node": "conv4_pool",
+        "order": 6
+      }
+    ],
+    "conv4_activation.bias": [
+      {
+        "input_index": 2,
+        "node": "conv4_activation",
+        "order": 5
+      }
+    ],
+    "conv4_activation.weight": [
+      {
+        "input_index": 1,
+        "node": "conv4_activation",
+        "order": 5
+      }
+    ],
+    "conv4_pool": [
+      {
+        "input_index": 0,
+        "node": "logits_domain",
+        "order": 7
+      }
+    ],
+    "logits_domain": [],
+    "logits_domain.bias": [
+      {
+        "input_index": 2,
+        "node": "logits_domain",
+        "order": 7
+      }
+    ],
+    "logits_domain.weight": [
+      {
+        "input_index": 1,
+        "node": "logits_domain",
+        "order": 7
+      }
+    ]
+  },
+  "gates": {
+    "liveness": "pass",
+    "memory_planning": "not_run",
+    "schedule": "pass"
+  },
+  "graph_digest": "832221ba22961bb73c42dd349d2ae2d5f1d67aeab051ce08c44cadd18143b05a",
+  "graph_name": "affine-tinycnn28_mnist_qdq",
+  "live_ranges": {
+    "__input__": {
+      "bytes_hint": null,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv1_activation",
+          "order": 0
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 0,
+      "end_exclusive": 1,
+      "first_use": 0,
+      "is_graph_input": true,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "input",
+      "last_consumer": 0,
+      "producer": null,
+      "shape": [
+        1,
+        1,
+        28,
+        28
+      ],
+      "start": 0,
+      "tensor": "__input__"
+    },
+    "conv1_activation": {
+      "bytes_hint": 6272,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv1_pool",
+          "order": 1
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 1,
+      "end_exclusive": 2,
+      "first_use": 0,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 1,
+      "producer": "conv1_activation",
+      "shape": [
+        1,
+        8,
+        28,
+        28
+      ],
+      "start": 0,
+      "tensor": "conv1_activation"
+    },
+    "conv1_activation.bias": {
+      "bytes_hint": 32,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv1_activation",
+          "order": 0
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 0,
+      "end_exclusive": 1,
+      "first_use": 0,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 0,
+      "producer": null,
+      "shape": [
+        8
+      ],
+      "start": 0,
+      "tensor": "conv1_activation.bias"
+    },
+    "conv1_activation.weight": {
+      "bytes_hint": 72,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv1_activation",
+          "order": 0
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 0,
+      "end_exclusive": 1,
+      "first_use": 0,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 0,
+      "producer": null,
+      "shape": [
+        8,
+        1,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "conv1_activation.weight"
+    },
+    "conv1_pool": {
+      "bytes_hint": 1568,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv2_activation",
+          "order": 2
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 2,
+      "end_exclusive": 3,
+      "first_use": 1,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 2,
+      "producer": "conv1_pool",
+      "shape": [
+        1,
+        8,
+        14,
+        14
+      ],
+      "start": 1,
+      "tensor": "conv1_pool"
+    },
+    "conv2_activation": {
+      "bytes_hint": 3136,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv2_pool",
+          "order": 3
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 3,
+      "end_exclusive": 4,
+      "first_use": 2,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 3,
+      "producer": "conv2_activation",
+      "shape": [
+        1,
+        16,
+        14,
+        14
+      ],
+      "start": 2,
+      "tensor": "conv2_activation"
+    },
+    "conv2_activation.bias": {
+      "bytes_hint": 64,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv2_activation",
+          "order": 2
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 2,
+      "end_exclusive": 3,
+      "first_use": 2,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 2,
+      "producer": null,
+      "shape": [
+        16
+      ],
+      "start": 0,
+      "tensor": "conv2_activation.bias"
+    },
+    "conv2_activation.weight": {
+      "bytes_hint": 1152,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv2_activation",
+          "order": 2
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 2,
+      "end_exclusive": 3,
+      "first_use": 2,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 2,
+      "producer": null,
+      "shape": [
+        16,
+        8,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "conv2_activation.weight"
+    },
+    "conv2_pool": {
+      "bytes_hint": 784,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv3_activation",
+          "order": 4
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 4,
+      "end_exclusive": 5,
+      "first_use": 3,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 4,
+      "producer": "conv2_pool",
+      "shape": [
+        1,
+        16,
+        7,
+        7
+      ],
+      "start": 3,
+      "tensor": "conv2_pool"
+    },
+    "conv3_activation": {
+      "bytes_hint": 384,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv4_activation",
+          "order": 5
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 5,
+      "end_exclusive": 6,
+      "first_use": 4,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 5,
+      "producer": "conv3_activation",
+      "shape": [
+        1,
+        24,
+        4,
+        4
+      ],
+      "start": 4,
+      "tensor": "conv3_activation"
+    },
+    "conv3_activation.bias": {
+      "bytes_hint": 96,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv3_activation",
+          "order": 4
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 4,
+      "end_exclusive": 5,
+      "first_use": 4,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 4,
+      "producer": null,
+      "shape": [
+        24
+      ],
+      "start": 0,
+      "tensor": "conv3_activation.bias"
+    },
+    "conv3_activation.weight": {
+      "bytes_hint": 3456,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv3_activation",
+          "order": 4
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 4,
+      "end_exclusive": 5,
+      "first_use": 4,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 4,
+      "producer": null,
+      "shape": [
+        24,
+        16,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "conv3_activation.weight"
+    },
+    "conv4_activation": {
+      "bytes_hint": 128,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv4_pool",
+          "order": 6
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 6,
+      "end_exclusive": 7,
+      "first_use": 5,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 6,
+      "producer": "conv4_activation",
+      "shape": [
+        1,
+        32,
+        2,
+        2
+      ],
+      "start": 5,
+      "tensor": "conv4_activation"
+    },
+    "conv4_activation.bias": {
+      "bytes_hint": 128,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv4_activation",
+          "order": 5
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 5,
+      "end_exclusive": 6,
+      "first_use": 5,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 5,
+      "producer": null,
+      "shape": [
+        32
+      ],
+      "start": 0,
+      "tensor": "conv4_activation.bias"
+    },
+    "conv4_activation.weight": {
+      "bytes_hint": 6912,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv4_activation",
+          "order": 5
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 5,
+      "end_exclusive": 6,
+      "first_use": 5,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 5,
+      "producer": null,
+      "shape": [
+        32,
+        24,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "conv4_activation.weight"
+    },
+    "conv4_pool": {
+      "bytes_hint": 32,
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "logits_domain",
+          "order": 7
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 7,
+      "end_exclusive": 8,
+      "first_use": 6,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": false,
+      "kind": "intermediate",
+      "last_consumer": 7,
+      "producer": "conv4_pool",
+      "shape": [
+        1,
+        32,
+        1,
+        1
+      ],
+      "start": 6,
+      "tensor": "conv4_pool"
+    },
+    "logits_domain": {
+      "bytes_hint": 10,
+      "consumers": [],
+      "dead": false,
+      "dtype": "int8",
+      "end": 8,
+      "end_exclusive": 9,
+      "first_use": 7,
+      "is_graph_input": false,
+      "is_graph_output": true,
+      "is_initializer": false,
+      "kind": "output",
+      "last_consumer": null,
+      "producer": "logits_domain",
+      "shape": [
+        1,
+        10,
+        1,
+        1
+      ],
+      "start": 7,
+      "tensor": "logits_domain"
+    },
+    "logits_domain.bias": {
+      "bytes_hint": 40,
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "logits_domain",
+          "order": 7
+        }
+      ],
+      "dead": false,
+      "dtype": "int32",
+      "end": 7,
+      "end_exclusive": 8,
+      "first_use": 7,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 7,
+      "producer": null,
+      "shape": [
+        10
+      ],
+      "start": 0,
+      "tensor": "logits_domain.bias"
+    },
+    "logits_domain.weight": {
+      "bytes_hint": 320,
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "logits_domain",
+          "order": 7
+        }
+      ],
+      "dead": false,
+      "dtype": "int8",
+      "end": 7,
+      "end_exclusive": 8,
+      "first_use": 7,
+      "is_graph_input": false,
+      "is_graph_output": false,
+      "is_initializer": true,
+      "kind": "initializer",
+      "last_consumer": 7,
+      "producer": null,
+      "shape": [
+        10,
+        32,
+        3,
+        3
+      ],
+      "start": 0,
+      "tensor": "logits_domain.weight"
+    }
+  },
+  "metadata_aliases": [],
+  "schedule": [
+    {
+      "inputs": [
+        "__input__",
+        "conv1_activation.weight",
+        "conv1_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "conv1_activation",
+        "conv1_pool",
+        "conv2_activation.bias",
+        "conv2_activation.weight",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "live_before": [
+        "__input__",
+        "conv1_activation",
+        "conv1_activation.bias",
+        "conv1_activation.weight",
+        "conv2_activation.bias",
+        "conv2_activation.weight",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "conv1_activation",
+      "node_id": "conv1_activation",
+      "op_type": "Conv",
+      "order": 0,
+      "outputs": [
+        "conv1_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "conv1_activation"
+      ],
+      "released_after": [
+        "__input__",
+        "conv1_activation.bias",
+        "conv1_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "conv1_activation"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "conv1_pool",
+        "conv2_activation",
+        "conv2_activation.bias",
+        "conv2_activation.weight",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "live_before": [
+        "conv1_activation",
+        "conv1_pool",
+        "conv2_activation.bias",
+        "conv2_activation.weight",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "conv1_pool",
+      "node_id": "conv1_pool",
+      "op_type": "MaxPool",
+      "order": 1,
+      "outputs": [
+        "conv1_pool"
+      ],
+      "placement": "pl",
+      "produced": [
+        "conv1_pool"
+      ],
+      "released_after": [
+        "conv1_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "conv1_pool",
+        "conv2_activation.weight",
+        "conv2_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "conv2_activation",
+        "conv2_pool",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "live_before": [
+        "conv1_pool",
+        "conv2_activation",
+        "conv2_activation.bias",
+        "conv2_activation.weight",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "conv2_activation",
+      "node_id": "conv2_activation",
+      "op_type": "Conv",
+      "order": 2,
+      "outputs": [
+        "conv2_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "conv2_activation"
+      ],
+      "released_after": [
+        "conv1_pool",
+        "conv2_activation.bias",
+        "conv2_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "conv2_activation"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "conv2_pool",
+        "conv3_activation",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "live_before": [
+        "conv2_activation",
+        "conv2_pool",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "conv2_pool",
+      "node_id": "conv2_pool",
+      "op_type": "MaxPool",
+      "order": 3,
+      "outputs": [
+        "conv2_pool"
+      ],
+      "placement": "pl",
+      "produced": [
+        "conv2_pool"
+      ],
+      "released_after": [
+        "conv2_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "conv2_pool",
+        "conv3_activation.weight",
+        "conv3_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "conv3_activation",
+        "conv4_activation",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "live_before": [
+        "conv2_pool",
+        "conv3_activation",
+        "conv3_activation.bias",
+        "conv3_activation.weight",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "conv3_activation",
+      "node_id": "conv3_activation",
+      "op_type": "Conv",
+      "order": 4,
+      "outputs": [
+        "conv3_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "conv3_activation"
+      ],
+      "released_after": [
+        "conv2_pool",
+        "conv3_activation.bias",
+        "conv3_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "conv3_activation",
+        "conv4_activation.weight",
+        "conv4_activation.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "conv4_activation",
+        "conv4_pool",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "live_before": [
+        "conv3_activation",
+        "conv4_activation",
+        "conv4_activation.bias",
+        "conv4_activation.weight",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "conv4_activation",
+      "node_id": "conv4_activation",
+      "op_type": "Conv",
+      "order": 5,
+      "outputs": [
+        "conv4_activation"
+      ],
+      "placement": "pl",
+      "produced": [
+        "conv4_activation"
+      ],
+      "released_after": [
+        "conv3_activation",
+        "conv4_activation.bias",
+        "conv4_activation.weight"
+      ]
+    },
+    {
+      "inputs": [
+        "conv4_activation"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "conv4_pool",
+        "logits_domain",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "live_before": [
+        "conv4_activation",
+        "conv4_pool",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "conv4_pool",
+      "node_id": "conv4_pool",
+      "op_type": "MaxPool",
+      "order": 6,
+      "outputs": [
+        "conv4_pool"
+      ],
+      "placement": "pl",
+      "produced": [
+        "conv4_pool"
+      ],
+      "released_after": [
+        "conv4_activation"
+      ]
+    },
+    {
+      "inputs": [
+        "conv4_pool",
+        "logits_domain.weight",
+        "logits_domain.bias"
+      ],
+      "kind": "compute",
+      "live_after": [
+        "logits_domain"
+      ],
+      "live_before": [
+        "conv4_pool",
+        "logits_domain",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ],
+      "metadata_only": false,
+      "name": "logits_domain",
+      "node_id": "logits_domain",
+      "op_type": "Conv",
+      "order": 7,
+      "outputs": [
+        "logits_domain"
+      ],
+      "placement": "pl",
+      "produced": [
+        "logits_domain"
+      ],
+      "released_after": [
+        "conv4_pool",
+        "logits_domain.bias",
+        "logits_domain.weight"
+      ]
+    }
+  ],
+  "schema": "e1-graph-plan-1",
+  "serial_policy": "stable_topological_order_no_independent_reordering",
+  "stats": {
+    "compute_nodes": 8,
+    "dead_tensors": [],
+    "host_nodes": 0,
+    "max_live_tensors": 10,
+    "metadata_nodes": 0,
+    "nodes": 8,
+    "tensors": 19,
+    "total_live_tensor_steps": 51
+  },
+  "terminal_order": 8
+}

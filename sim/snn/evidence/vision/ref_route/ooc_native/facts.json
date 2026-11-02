@@ -1,0 +1,125 @@
+{
+  "run_dir": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657",
+  "schema": "vision-native-ooc-facts-1",
+  "updated_local": "2026-10-31T17:44:00+0800",
+  "target": {
+    "part": "xczu15eg-ffvb1156-2-i",
+    "tool": "Vivado 2021.1",
+    "clock_period_ns": 5,
+    "clock_mhz": 200,
+    "exceptions": 0,
+    "downclock": false,
+    "bitstream": false,
+    "rtl_modified": false
+  },
+  "gate": {
+    "p3_native_ooc": "fail",
+    "p3_scope": "synth_design RTL elaboration of the whole native top (SPS ref + block)",
+    "p3_is_resource_or_timing_failure": false,
+    "p3_means_design_infeasible": false,
+    "synth_status": "fail",
+    "impl_status": "not_run",
+    "routed_measured": false,
+    "latency_note": "synth timing is not routed timing; no routed numbers exist for this gate"
+  },
+  "whole_top": {
+    "top": "vis_native_probe",
+    "dut": "spikformer_vis_native_top",
+    "sources_read": 19,
+    "started_local": "2026-10-31T17:35:12+0800",
+    "synth_begin_local": "17:35:15",
+    "exit_local": "2026-10-31T17:39:25+0800",
+    "wall_sec": 253,
+    "lease_sec": 258.7,
+    "result": "RTL Elaboration failed",
+    "counts": {
+      "infos": 33,
+      "warnings": 2,
+      "critical_warnings": 0,
+      "errors": 6
+    },
+    "root_cause": {
+      "error": "ERROR: [Synth 8-91] ambiguous clock in event control",
+      "file": "rtl/ops/spiking/sps/spiking_sps_psum.sv",
+      "line": 115,
+      "module": "spiking_sps_psum",
+      "cascade": [
+        "spiking_sps_psum",
+        "spiking_sps_ref_top",
+        "spikformer_vis_native_top",
+        "vis_native_probe"
+      ],
+      "hypothesis": "process-block-scoped unpacked arrays (logic signed [ACC_W-1:0] oldv[T]/newv[T]) declared inside a for-loop body of the always_ff at line 115; Vivado 2021.1 reports it as ambiguous clock",
+      "confirmed": false
+    },
+    "related_warnings": [
+      "WARNING: [Synth 8-7071] port 'o_beat_last' of module 'spiking_rgb_encoder' is unconnected for instance 'u_enc' [spiking_sps_ref_top.sv:34]",
+      "WARNING: [Synth 8-7023] instance 'u_enc' of spiking_rgb_encoder has 15 connections declared, but only 14 given [spiking_sps_ref_top.sv:34]",
+      "WARNING: [Synth 8-155] case statement is not full and has no default [spiking_rgb_encoder.sv:169]"
+    ],
+    "reports_produced": [],
+    "dcp_produced": []
+  },
+  "sps_only": {
+    "top": "spiking_sps_ref_top",
+    "status": "not_run",
+    "reason": "same root cause (instantiates spiking_sps_psum)"
+  },
+  "block_only": {
+    "top": "blk_native_probe_m",
+    "status": "running",
+    "run_dir": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/blk_only_1742",
+    "note": "independent of the SPS defect; measured numbers only for the block, NOT the whole net"
+  },
+  "heavy_lock": {
+    "lock_file": "D:/dl_v0.1/build/onnx_e1/v02_real_yolo_20261026_2022_b1/jobs/heavy.lock.json",
+    "job_id": "img-ooc-native-all-20261031_1735",
+    "lease_id": "aff6fc90a97345ff803f96cd1578b4dc",
+    "category": "vivado_ooc",
+    "mem_required_mib": 4000,
+    "acquired_local": "2026-10-31T17:35:09+0800",
+    "released_local": "2026-10-31T17:39:27+0800",
+    "entry": "scripts/spikformer/run_heavy.py (same shared lease as run_locked.py; lower memory reservation per lead authorisation)",
+    "blocked_before_acquire_local": "16:51-17:33",
+    "blockers_observed": [
+      "external_vivado (user GUI PID 504, never killed)",
+      "external_simulator (vsim intermittent)",
+      "insufficient_free_memory (free 2278-4886 MiB)"
+    ]
+  },
+  "resources_measured": null,
+  "timing_measured": null,
+  "measured_vs_derived": {
+    "measured": [
+      "vivado error lines and elaboration failure",
+      "run/lease timestamps",
+      "host free-memory and Vivado RSS samples (peak 3989 MiB)",
+      "block-only run (if completed)"
+    ],
+    "derived_not_measured": [
+      "SPS dual-bank ~64 BRAM36",
+      "block six matrices 1,769,856 B -> >=384 BRAM36 lower bound",
+      "psum 256x84b",
+      "conv2 unique weights 331,776 B -> >=72 BRAM36",
+      "device LUT 341280 / FF 682560 / BRAM36 744 / DSP48 1248"
+    ]
+  },
+  "next_actions": [
+    "single-module regression: synth_design -top spiking_sps_psum -mode out_of_context",
+    "hoist process-block-scoped unpacked arrays oldv/newv out of the for-loop body (or use packed vectors) in spiking_sps_psum.sv:115..136",
+    "add default: to case (pst) at spiking_sps_psum.sv:119",
+    "verify u_enc.o_beat_last connection intent in spiking_sps_ref_top.sv:34",
+    "then synth (15-20 min) -> util/timing/synth DCP, then impl (20-35 min) -> routed setup/hold/DRC"
+  ],
+  "evidence_files": {
+    "log": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.log",
+    "frozen_log_copy": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/evidence/vivado_whole_top_synth_fail_1739.log",
+    "include_option_failure_log": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/evidence/vivado_fail_include_option_1734.log",
+    "heavy_wait": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/evidence/heavy_wait_latest.json",
+    "memwatch": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/evidence/memwatch_latest.log",
+    "commands": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/commands.txt",
+    "identity": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/identity/rtl_sha256_at_synth.txt",
+    "constraints": "D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/constraints_ooc.xdc",
+    "doc": "D:/dl_snn/docs/VISION_NATIVE_OOC_PROGRESS_20261031.md"
+  }
+}

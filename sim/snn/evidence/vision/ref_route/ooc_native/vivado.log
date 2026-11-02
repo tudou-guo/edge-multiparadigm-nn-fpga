@@ -1,0 +1,167 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sat Oct 31 17:35:10 2026
+# Process ID: 19016
+# Current directory: D:/dl_snn
+# Command line: vivado.exe -mode batch -notrace -log D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.log -journal D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.jou -source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -tclargs D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657 all vis_native_probe
+# Log file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.log
+# Journal file: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'E:/Vitis/Vivado/2021.1/scripts/Vivado_init.tcl'
+SynthPilot Server: Ready on port 9999
+source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl -notrace
+OOC_RUN_BEGIN top=vis_native_probe stage=all part=xczu15eg-ffvb1156-2-i out=D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657 at=2026-10-31T17:35:12+0800
+OOC_SOURCES 19 files, include dir D:/dl_snn/build/spikformer/vis_native/generated
+SYNTH_BEGIN top=vis_native_probe 17:35:15
+Command: synth_design -top vis_native_probe -part xczu15eg-ffvb1156-2-i -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu15eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu15eg'
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 15556
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1709.988 ; gain = 132.418
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'vis_native_probe' [D:/dl_snn/rtl/probe/vis_native_probe.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000000000001 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6157] synthesizing module 'LUT1' [E:/Vitis/Vivado/2021.1/scripts/rt/data/unisim_comp.v:59102]
+	Parameter INIT bound to: 2'b01 
+INFO: [Synth 8-6155] done synthesizing module 'LUT1' (1#1) [E:/Vitis/Vivado/2021.1/scripts/rt/data/unisim_comp.v:59102]
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin__parameterized0' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000001000000 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin__parameterized0' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin__parameterized1' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000000011000 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin__parameterized1' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'probe_hold_margin__parameterized2' [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+	Parameter W bound to: 32'sb00000000000000000000000000100000 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6155] done synthesizing module 'probe_hold_margin__parameterized2' (2#1) [D:/dl_snn/rtl/probe/vis_native_probe.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'spikformer_vis_native_top' [D:/dl_snn/rtl/ops/spiking/control/spikformer_vis_native_top.sv:12]
+	Parameter H bound to: 32'sb00000000000000000000000000100000 
+	Parameter W_IN bound to: 32'sb00000000000000000000000000100000 
+	Parameter C0 bound to: 32'sb00000000000000000000000000000011 
+	Parameter C1 bound to: 32'sb00000000000000000000000001100000 
+	Parameter C2 bound to: 32'sb00000000000000000000000110000000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter LANES bound to: 32'sb00000000000000000000000000001000 
+	Parameter TC2 bound to: 32'sb00000000000000000000000000001000 
+	Parameter E bound to: 32'sb00000000000000000000000110000000 
+	Parameter HEADS bound to: 32'sb00000000000000000000000000001100 
+	Parameter HEAD_DIM bound to: 32'sb00000000000000000000000000100000 
+	Parameter HIDDEN bound to: 32'sb00000000000000000000011000000000 
+	Parameter TL bound to: 32'sb00000000000000000000000000001000 
+	Parameter TC bound to: 32'sb00000000000000000000000000001000 
+	Parameter RW bound to: 32'sb00000000000000000000000000000100 
+	Parameter PSUM_SLICE bound to: 32'sb00000000000000000000000000100000 
+	Parameter SUM_W bound to: 32'sb00000000000000000000000000000110 
+	Parameter W bound to: 32'sb00000000000000000000000000001000 
+	Parameter OW bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6157] synthesizing module 'spiking_sps_ref_top' [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv:10]
+	Parameter H bound to: 32'sb00000000000000000000000000100000 
+	Parameter W_IN bound to: 32'sb00000000000000000000000000100000 
+	Parameter C0 bound to: 32'sb00000000000000000000000000000011 
+	Parameter C1 bound to: 32'sb00000000000000000000000001100000 
+	Parameter C2 bound to: 32'sb00000000000000000000000110000000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter LANES bound to: 32'sb00000000000000000000000000001000 
+	Parameter TC2 bound to: 32'sb00000000000000000000000000001000 
+	Parameter WT_W bound to: 32'sb00000000000000000000000000001000 
+	Parameter ACC_W bound to: 32'sb00000000000000000000000000010101 
+	Parameter RW bound to: 32'sb00000000000000000000000000000100 
+INFO: [Synth 8-6157] synthesizing module 'spiking_rgb_encoder' [D:/dl_snn/rtl/ops/spiking/sps/spiking_rgb_encoder.sv:11]
+	Parameter H bound to: 32'sb00000000000000000000000000100000 
+	Parameter W_IN bound to: 32'sb00000000000000000000000000100000 
+	Parameter C0 bound to: 32'sb00000000000000000000000000000011 
+	Parameter C1 bound to: 32'sb00000000000000000000000001100000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter LANES bound to: 32'sb00000000000000000000000000001000 
+	Parameter WT_W bound to: 32'sb00000000000000000000000000001000 
+	Parameter ACC_W bound to: 32'sb00000000000000000000000000010101 
+	Parameter C2MAX bound to: 32'sb00000000000000000000000110000000 
+INFO: [Synth 8-6157] synthesizing module 'spiking_adder_tree' [D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv:5]
+	Parameter N bound to: 32'sb00000000000000000000000000011011 
+	Parameter W bound to: 32'sb00000000000000000000000000010000 
+	Parameter STAGES bound to: 32'sb00000000000000000000000000000101 
+	Parameter NPOW bound to: 32'sb00000000000000000000000000100000 
+	Parameter OW bound to: 32'sb00000000000000000000000000010101 
+INFO: [Synth 8-6155] done synthesizing module 'spiking_adder_tree' (3#1) [D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'spiking_lif_group' [D:/dl_snn/rtl/ops/spiking/lif/spiking_lif_group.sv:14]
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter BITS bound to: 32'sb00000000000000000000000000010101 
+INFO: [Synth 8-6155] done synthesizing module 'spiking_lif_group' (4#1) [D:/dl_snn/rtl/ops/spiking/lif/spiking_lif_group.sv:14]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/dl_snn/rtl/ops/spiking/sps/spiking_rgb_encoder.sv:169]
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "wbank_reg" dissolved into registers
+Reason is one or more of the following :
+	1: RAM has too many ports (16). Maximum supported = 16. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "px_reg" dissolved into registers
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "bias1_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'spiking_rgb_encoder' (5#1) [D:/dl_snn/rtl/ops/spiking/sps/spiking_rgb_encoder.sv:11]
+WARNING: [Synth 8-7071] port 'o_beat_last' of module 'spiking_rgb_encoder' is unconnected for instance 'u_enc' [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv:34]
+WARNING: [Synth 8-7023] instance 'u_enc' of module 'spiking_rgb_encoder' has 15 connections declared, but only 14 given [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv:34]
+INFO: [Synth 8-6157] synthesizing module 'spiking_eyeriss_array' [D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_array.sv:13]
+	Parameter LANES bound to: 32'sb00000000000000000000000000001000 
+	Parameter TC2 bound to: 32'sb00000000000000000000000000001000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter W bound to: 32'sb00000000000000000000000000001000 
+	Parameter ACC_W bound to: 32'sb00000000000000000000000000010101 
+INFO: [Synth 8-6157] synthesizing module 'spiking_eyeriss_pe' [D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv:7]
+	Parameter K bound to: 32'sb00000000000000000000000000000011 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter W bound to: 32'sb00000000000000000000000000001000 
+	Parameter IMG_W bound to: 32'sb00000000000000000000000000000011 
+	Parameter SUM_W bound to: 32'sb00000000000000000000000000001010 
+INFO: [Synth 8-6155] done synthesizing module 'spiking_eyeriss_pe' (6#1) [D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv:7]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_array.sv:171]
+INFO: [Synth 8-6155] done synthesizing module 'spiking_eyeriss_array' (7#1) [D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_array.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'spiking_sps_psum' [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_psum.sv:12]
+	Parameter LANES bound to: 32'sb00000000000000000000000000001000 
+	Parameter T bound to: 32'sb00000000000000000000000000000100 
+	Parameter ACC_W bound to: 32'sb00000000000000000000000000010101 
+	Parameter DEPTH bound to: 32'sb00000000000000000000000100000000 
+	Parameter C2 bound to: 32'sb00000000000000000000000110000000 
+	Parameter BIASDEPTH bound to: 32'sb00000000000000000000000110000000 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_psum.sv:119]
+ERROR: [Synth 8-91] ambiguous clock in event control [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_psum.sv:115]
+ERROR: [Synth 8-6156] failed synthesizing module 'spiking_sps_psum' [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_psum.sv:12]
+ERROR: [Synth 8-6156] failed synthesizing module 'spiking_sps_ref_top' [D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv:10]
+ERROR: [Synth 8-6156] failed synthesizing module 'spikformer_vis_native_top' [D:/dl_snn/rtl/ops/spiking/control/spikformer_vis_native_top.sv:12]
+ERROR: [Synth 8-6156] failed synthesizing module 'vis_native_probe' [D:/dl_snn/rtl/probe/vis_native_probe.sv:45]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:03:09 ; elapsed = 00:03:29 . Memory (MB): peak = 5050.953 ; gain = 3473.383
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+33 Infos, 2 Warnings, 0 Critical Warnings and 6 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 31 17:39:25 2026...

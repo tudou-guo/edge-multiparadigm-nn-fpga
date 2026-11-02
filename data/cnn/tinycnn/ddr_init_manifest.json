@@ -1,0 +1,120 @@
+{
+  "base": "0x10000000",
+  "bytes": 81920,
+  "schema": "e1-p2-ddr-init-1",
+  "sha256": "15cb770ccab3caffe1496fd2b815fa4528fde4cccec98bb575b6d214ee843c61",
+  "writes": [
+    {
+      "address": "0x10000000",
+      "bytes": 6272,
+      "label": "input:__input__",
+      "offset": 0,
+      "sha256": "fc72fd08cca56490360843c431227bf765b92431e9d6ac54d0c82c688f900bae"
+    },
+    {
+      "address": "0x10007000",
+      "bytes": 576,
+      "label": "param:conv1_activation_weight.bin",
+      "offset": 28672,
+      "sha256": "f11f446def2b8bbf922f360d29b7ea9bb37bd1004005dd311aaf279fbc03893c"
+    },
+    {
+      "address": "0x10006000",
+      "bytes": 32,
+      "label": "param:conv1_activation_bias.bin",
+      "offset": 24576,
+      "sha256": "6a614608b8ef9f33798d07707732112df3258e88182f9149ae66e92af57f184f"
+    },
+    {
+      "address": "0x1000F000",
+      "bytes": 64,
+      "label": "param:conv1_activation_quant.bin",
+      "offset": 61440,
+      "sha256": "c220898ab44975e31a50a2cc8056ee57527e553a7a102cfa0b656fe9abd5f897"
+    },
+    {
+      "address": "0x10009000",
+      "bytes": 1152,
+      "label": "param:conv2_activation_weight.bin",
+      "offset": 36864,
+      "sha256": "f8ae634a3274557c3842bf1273798cf8be69b66ce849e54d4d91174f6766bd1b"
+    },
+    {
+      "address": "0x10008000",
+      "bytes": 64,
+      "label": "param:conv2_activation_bias.bin",
+      "offset": 32768,
+      "sha256": "547f2f86dea68859ab77a57baef6af2c405d83d45471eef6138ea7ce4f0e86b7"
+    },
+    {
+      "address": "0x10010000",
+      "bytes": 128,
+      "label": "param:conv2_activation_quant.bin",
+      "offset": 65536,
+      "sha256": "798dff059be573402b505848f02349b5c183e467b12295c19c7f32e5bc7e24e5"
+    },
+    {
+      "address": "0x1000B000",
+      "bytes": 3456,
+      "label": "param:conv3_activation_weight.bin",
+      "offset": 45056,
+      "sha256": "b8423a46e0ca8088b64f4456d37fa38deb8a9cc198be688d611dc9eafc42e173"
+    },
+    {
+      "address": "0x1000A000",
+      "bytes": 96,
+      "label": "param:conv3_activation_bias.bin",
+      "offset": 40960,
+      "sha256": "be2460c3753ee02351561638767922fb799ecda20caa22cad1afaa31060d3d56"
+    },
+    {
+      "address": "0x10011000",
+      "bytes": 192,
+      "label": "param:conv3_activation_quant.bin",
+      "offset": 69632,
+      "sha256": "dd2c660e3d5b3c909c0f4f616e4332e95725dc3aae3c4975dd2fd752597cf14b"
+    },
+    {
+      "address": "0x10004000",
+      "bytes": 6912,
+      "label": "param:conv4_activation_weight.bin",
+      "offset": 16384,
+      "sha256": "631e18c3fed3daf72099f9c4081a7137c14957b74e8a4062400a1531ec201c47"
+    },
+    {
+      "address": "0x1000C000",
+      "bytes": 128,
+      "label": "param:conv4_activation_bias.bin",
+      "offset": 49152,
+      "sha256": "5efc2c9954a78e22abd174cdd1dcf699867606b54925e6a7e22796e5f548a8f5"
+    },
+    {
+      "address": "0x10012000",
+      "bytes": 256,
+      "label": "param:conv4_activation_quant.bin",
+      "offset": 73728,
+      "sha256": "0abc1155427a9b654d2f84fc1c310857d0f42aa04e061fc652e671d7e6a35432"
+    },
+    {
+      "address": "0x1000E000",
+      "bytes": 512,
+      "label": "param:logits_domain_weight.bin",
+      "offset": 57344,
+      "sha256": "04490a06679d19a6076f88e908bf2dafc46299093efbd8a6c47e75fae16e4c45"
+    },
+    {
+      "address": "0x1000D000",
+      "bytes": 64,
+      "label": "param:logits_domain_bias.bin",
+      "offset": 53248,
+      "sha256": "2785d7caeec5a6045c0144a194d6af88f03bfa51b95dd28b1935ec35856b4c6b"
+    },
+    {
+      "address": "0x10013000",
+      "bytes": 128,
+      "label": "param:logits_domain_quant.bin",
+      "offset": 77824,
+      "sha256": "cffa32c1eb34d5db50df06486637fc81ff7c5ba9d0269458e216de90f6240edd"
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+# vsim -c -voptargs="+acc" -work work tb_sps_ref_small -l D:/dl_snn/build/spikformer/vision_ref_20261031/sim/p1_r2_small.log -do "run 100ms; quit -f" 
+# Start time: 16:44:20 on Oct 31,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 5 FSMs in module "spiking_sps_ref_ctrl(fast)".
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sps_ref_small(fast)
+# Loading work.spiking_sps_ref_top(fast)
+# Loading work.spiking_rgb_encoder(fast)
+# Loading work.spiking_adder_tree(fast)
+# Loading work.spiking_lif_group(fast)
+# Loading work.spiking_eyeriss_array(fast)
+# Loading work.spiking_eyeriss_pe(fast)
+# Loading work.spiking_sps_psum(fast)
+# Loading work.spiking_feature_bram(fast)
+# Loading work.spiking_sps_ref_ctrl(fast)
+# Loading work.spiking_sps_token_adapter(fast)
+# run 100ms
+# EXPB0 3 0 3 3 3 3 0 0
+# ENCPSUM pos=0 oc=0 psum=2979
+# ENCPSUM pos=0 oc=1 psum=681
+# ENCPSUM pos=0 oc=2 psum=-428
+# ENCPSUM pos=0 oc=3 psum=1188
+# ENCPSUM pos=0 oc=4 psum=401
+# ENCPSUM pos=0 oc=5 psum=8308
+# ENCPSUM pos=0 oc=6 psum=15182
+# ENCPSUM pos=0 oc=7 psum=-2378
+# ENCBEAT n=0 data=3fcf
+# ENCPSUM pos=0 oc=8 psum=10736
+# ENCPSUM pos=0 oc=9 psum=-2432
+# ENCPSUM pos=0 oc=10 psum=9306
+# ENCPSUM pos=0 oc=11 psum=13385
+# ENCPSUM pos=0 oc=12 psum=2427
+# ENCPSUM pos=0 oc=13 psum=-3306
+# ENCPSUM pos=0 oc=14 psum=-2550
+# ENCPSUM pos=0 oc=15 psum=10029
+# ENCBEAT n=1 data=c3f3
+# ENCPSUM pos=1 oc=0 psum=4750
+# ENCPSUM pos=1 oc=1 psum=-4536
+# ENCPSUM pos=1 oc=2 psum=8747
+# ENCPSUM pos=1 oc=3 psum=6492
+# ENCBEAT n=2 data=30f3
+# ENCBEAT n=3 data=00c3
+# ENCBEAT n=4 data=3033
+# ENCBEAT n=5 data=f0f3
+# ENCBEAT n=6 data=33e3
+# ENCBEAT n=7 data=f0c3
+# ARRRES t=154565000 pos=0 grp=0 first=1 last=0 data=fffd6fffeb7ffe67fff33fffc2fffe14000b80005c00010800084000a000050ffff0ffff84000580002c
+# ARRRES t=154795000 pos=1 grp=0 first=1 last=0 data=fffc2fffe17fff7bfffbdfffdf7ffefbfff89fffc4fffbb7ffdd80026c0013600020800104000940004a
+# ARRRES t=155025000 pos=2 grp=0 first=1 last=0 data=fffd67ffeb3fff75fffbafffb5fffdaffff4dfffa6fffd57ffea80018a000c5ffff47fffa0000540002a
+# ARRRES t=155255000 pos=3 grp=0 first=1 last=0 data=0003e8001f40005000028fff8b7ffc5bffff3ffff9fffedffff6c001360009b00028000143ffff9ffffc
+# ARRRES t=155845000 pos=4 grp=0 first=1 last=0 data=fff9e7ffcf3ffe93fff49ffff97fffcbfff33fff990004b80025c0006e00037fff87fffc3c00188000c4
+# ARRRES t=156075000 pos=5 grp=0 first=1 last=0 data=fff877ffc3bfffb9fffdc00026000133ffe87fff43fffe8ffff4400146000a3ffff87fffc0000a200051
+# ARRRES t=156305000 pos=6 grp=0 first=1 last=0 data=fff98fffcc7fff7ffffbffffe2ffff17ffe27fff13ffff17fff8800162000b1fffc17ffe080006c00036
+# ARRRES t=156535000 pos=7 grp=0 first=1 last=0 data=ffffa7fffd3fffcffffe7fffcdfffe6fffec9fff64fffe8ffff4400164000b2ffffa7fffd3fffe7ffff3
+# ARRRES t=157125000 pos=8 grp=0 first=1 last=0 data=fffa57ffcf3fff61fff85000348000cc00015ffff3000338002080005a00056fffd0ffff1c0006e00019
+# ARRRES t=157355000 pos=9 grp=0 first=1 last=0 data=fffc67ffd67fffe1fffdb0006b00037800041fffe7ffff80000340028800123fffc1fffda4000400003f
+# ARRRES t=157585000 pos=10 grp=0 first=1 last=0 data=fffbefffe280002800001000270000b7fff93fff92fffc8fffe04001f2000bbfffcc7ffe0c0006800068
+# ARRRES t=157815000 pos=11 grp=0 first=1 last=0 data=0000d80006c0006800034ffff57fffabfffd5fffeafffc77ffe3800270001380003180018ffff1dfff8e
+# CAP pos=0 grp=0 idx=0 data=00f2
+# PSUMBEAT pos=0 grp=0 data=00f2
+# CAP pos=1 grp=0 idx=1 data=0ff0
+# PSUMBEAT pos=1 grp=0 data=0ff0
+# CAP pos=2 grp=0 idx=2 data=03f0
+# PSUMBEAT pos=2 grp=0 data=03f0
+# CAP pos=3 grp=0 idx=3 data=cfb0
+# PSUMBEAT pos=3 grp=0 data=cfb0
+# C2W_ENTRY g=0 fpr=0 p2row0=00000002 p2row1=00000000 p2cnt=4
+# CAP pos=4 grp=0 idx=0 data=0cc3
+# PSUMBEAT pos=4 grp=0 data=0cc3
+# CAP pos=5 grp=0 idx=1 data=0ff0
+# PSUMBEAT pos=5 grp=0 data=0ff0
+# CAP pos=6 grp=0 idx=2 data=0bf0
+# PSUMBEAT pos=6 grp=0 data=0bf0
+# CAP pos=7 grp=0 idx=3 data=0ef0
+# PSUMBEAT pos=7 grp=0 data=0ef0
+# C2W_ENTRY g=0 fpr=1 p2row0=00000003 p2row1=00000000 p2cnt=4
+# CAP pos=8 grp=0 idx=0 data=0cd3
+# PSUMBEAT pos=8 grp=0 data=0cd3
+# CAP pos=9 grp=0 idx=1 data=0ff0
+# PSUMBEAT pos=9 grp=0 data=0ff0
+# CAP pos=10 grp=0 idx=2 data=0ff0
+# PSUMBEAT pos=10 grp=0 data=0ff0
+# CAP pos=11 grp=0 idx=3 data=0ff0
+# PSUMBEAT pos=11 grp=0 data=0ff0
+# C2W_ENTRY g=0 fpr=2 p2row0=00000003 p2row1=00000000 p2cnt=4
+# CAP pos=12 grp=0 idx=0 data=8cc3
+# PSUMBEAT pos=12 grp=0 data=8cc3
+# CAP pos=13 grp=0 idx=1 data=0cc0
+# PSUMBEAT pos=13 grp=0 data=0cc0
+# CAP pos=14 grp=0 idx=2 data=0cc0
+# PSUMBEAT pos=14 grp=0 data=0cc0
+# CAP pos=15 grp=0 idx=3 data=0c80
+# PSUMBEAT pos=15 grp=0 data=0c80
+# C2W_ENTRY g=1 fpr=0 p2row0=00000003 p2row1=00000000 p2cnt=4
+# CAP pos=0 grp=1 idx=0 data=ac30
+# PSUMBEAT pos=0 grp=1 data=ac30
+# CAP pos=1 grp=1 idx=1 data=003c
+# PSUMBEAT pos=1 grp=1 data=003c
+# CAP pos=2 grp=1 idx=2 data=0f3c
+# PSUMBEAT pos=2 grp=1 data=0f3c
+# CAP pos=3 grp=1 idx=3 data=003c
+# PSUMBEAT pos=3 grp=1 data=003c
+# C2W_ENTRY g=1 fpr=1 p2row0=00000000 p2row1=000000fc p2cnt=4
+# CAP pos=4 grp=1 idx=0 data=fc30
+# PSUMBEAT pos=4 grp=1 data=fc30
+# CAP pos=5 grp=1 idx=1 data=cf33
+# PSUMBEAT pos=5 grp=1 data=cf33
+# CAP pos=6 grp=1 idx=2 data=3c30
+# PSUMBEAT pos=6 grp=1 data=3c30
+# CAP pos=7 grp=1 idx=3 data=3fb0
+# PSUMBEAT pos=7 grp=1 data=3fb0
+# C2W_ENTRY g=1 fpr=2 p2row0=0000000c p2row1=00000000 p2cnt=4
+# CAP pos=8 grp=1 idx=0 data=fc30
+# PSUMBEAT pos=8 grp=1 data=fc30
+# CAP pos=9 grp=1 idx=1 data=0f38
+# PSUMBEAT pos=9 grp=1 data=0f38
+# CAP pos=10 grp=1 idx=2 data=3c70
+# PSUMBEAT pos=10 grp=1 data=3c70
+# CAP pos=11 grp=1 idx=3 data=0ff0
+# PSUMBEAT pos=11 grp=1 data=0ff0
+# C2W_ENTRY g=1 fpr=3 p2row0=00000000 p2row1=00000008 p2cnt=4
+# CAP pos=12 grp=1 idx=0 data=fc00
+# PSUMBEAT pos=12 grp=1 data=fc00
+# CAP pos=13 grp=1 idx=1 data=fc02
+# PSUMBEAT pos=13 grp=1 data=fc02
+# CAP pos=14 grp=1 idx=2 data=fc13
+# PSUMBEAT pos=14 grp=1 data=fc13
+# CAP pos=15 grp=1 idx=3 data=fc02
+# PSUMBEAT pos=15 grp=1 data=fc02
+# C2W_ENTRY g=2 fpr=0 p2row0=000000b8 p2row1=00000000 p2cnt=4
+# CAP pos=0 grp=2 idx=0 data=0cfc
+# PSUMBEAT pos=0 grp=2 data=0cfc
+# CAP pos=1 grp=2 idx=1 data=2ff0
+# PSUMBEAT pos=1 grp=2 data=2ff0
+# CAP pos=2 grp=2 idx=2 data=0ce0
+# PSUMBEAT pos=2 grp=2 data=0ce0
+# CAP pos=3 grp=2 idx=3 data=2c30
+# PSUMBEAT pos=3 grp=2 data=2c30
+# C2W_ENTRY g=2 fpr=1 p2row0=00000000 p2row1=00000003 p2cnt=4
+# CAP pos=4 grp=2 idx=0 data=0cff
+# PSUMBEAT pos=4 grp=2 data=0cff
+# CAP pos=5 grp=2 idx=1 data=0cf0
+# PSUMBEAT pos=5 grp=2 data=0cf0
+# CAP pos=6 grp=2 idx=2 data=0c33
+# PSUMBEAT pos=6 grp=2 data=0c33
+# CAP pos=7 grp=2 idx=3 data=0cb0
+# PSUMBEAT pos=7 grp=2 data=0cb0
+# C2W_ENTRY g=2 fpr=2 p2row0=00000033 p2row1=00000003 p2cnt=4
+# CAP pos=8 grp=2 idx=0 data=0cff
+# PSUMBEAT pos=8 grp=2 data=0cff
+# CAP pos=9 grp=2 idx=1 data=0cf2
+# PSUMBEAT pos=9 grp=2 data=0cf2
+# CAP pos=10 grp=2 idx=2 data=0cf3
+# PSUMBEAT pos=10 grp=2 data=0cf3
+# CAP pos=11 grp=2 idx=3 data=0cc0
+# PSUMBEAT pos=11 grp=2 data=0cc0
+# C2W_ENTRY g=2 fpr=3 p2row0=0000003b p2row1=00000003 p2cnt=4
+# CAP pos=12 grp=2 idx=0 data=3cff
+# PSUMBEAT pos=12 grp=2 data=3cff
+# CAP pos=13 grp=2 idx=1 data=7cf3
+# PSUMBEAT pos=13 grp=2 data=7cf3
+# CAP pos=14 grp=2 idx=2 data=3cf3
+# PSUMBEAT pos=14 grp=2 data=3cf3
+# CAP pos=15 grp=2 idx=3 data=3080
+# PSUMBEAT pos=15 grp=2 data=3080
+# C2W_ENTRY g=3 fpr=0 p2row0=0000003f p2row1=00000003 p2cnt=4
+# CAP pos=0 grp=3 idx=0 data=033c
+# PSUMBEAT pos=0 grp=3 data=033c
+# CAP pos=1 grp=3 idx=1 data=030c
+# PSUMBEAT pos=1 grp=3 data=030c
+# CAP pos=2 grp=3 idx=2 data=030c
+# PSUMBEAT pos=2 grp=3 data=030c
+# CAP pos=3 grp=3 idx=3 data=c30f
+# PSUMBEAT pos=3 grp=3 data=c30f
+# C2W_ENTRY g=3 fpr=1 p2row0=000000c0 p2row1=000000ff p2cnt=4
+# CAP pos=4 grp=3 idx=0 data=330c
+# PSUMBEAT pos=4 grp=3 data=330c
+# CAP pos=5 grp=3 idx=1 data=032c
+# PSUMBEAT pos=5 grp=3 data=032c
+# CAP pos=6 grp=3 idx=2 data=030c
+# PSUMBEAT pos=6 grp=3 data=030c
+# CAP pos=7 grp=3 idx=3 data=030c
+# PSUMBEAT pos=7 grp=3 data=030c
+# C2W_ENTRY g=3 fpr=2 p2row0=00000000 p2row1=000000ff p2cnt=4
+# CAP pos=8 grp=3 idx=0 data=330c
+# PSUMBEAT pos=8 grp=3 data=330c
+# CAP pos=9 grp=3 idx=1 data=230c
+# PSUMBEAT pos=9 grp=3 data=230c
+# CAP pos=10 grp=3 idx=2 data=030c
+# PSUMBEAT pos=10 grp=3 data=030c
+# CAP pos=11 grp=3 idx=3 data=030c
+# PSUMBEAT pos=11 grp=3 data=030c
+# C2W_ENTRY g=3 fpr=3 p2row0=00000000 p2row1=000000ff p2cnt=4
+# CAP pos=12 grp=3 idx=0 data=330c
+# PSUMBEAT pos=12 grp=3 data=330c
+# CAP pos=13 grp=3 idx=1 data=030c
+# PSUMBEAT pos=13 grp=3 data=030c
+# CAP pos=14 grp=3 idx=2 data=230c
+# PSUMBEAT pos=14 grp=3 data=230c
+# CAP pos=15 grp=3 idx=3 data=300c
+# PSUMBEAT pos=15 grp=3 data=300c
+# C2W_ENTRY g=3 fpr=4 p2row0=00000000 p2row1=000000ff p2cnt=4
+# BEATDUMP beat0 got=0000111111110011
+# BEATDUMP beat1 got=1111111100111111
+# BEATDUMP beat2 got=0010111111111111
+# BEATDUMP beat3 got=0011001100111100
+# ALL PASS tb_sps_ref_small (16 beats; capture=64 flush=16 structural ok)
+# ** Note: $finish    : D:/dl_snn/verification/sim/spikformer/tb_sps_ref_small.v(203)
+#    Time: 254955 ns  Iteration: 2  Instance: /tb_sps_ref_small
+# End time: 16:44:21 on Oct 31,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

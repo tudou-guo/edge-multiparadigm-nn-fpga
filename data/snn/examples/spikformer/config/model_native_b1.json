@@ -1,0 +1,20 @@
+{
+  "schema": "spikformer-config-1",
+  "family": "spikformer-b1-cifar10",
+  "batch": 1,
+  "image_h": 32,
+  "image_w": 32,
+  "channels": 3,
+  "time_steps": 4,
+  "embed": 384,
+  "heads": 12,
+  "head_dim": 32,
+  "mlp_hidden": 1536,
+  "depth": 1,
+  "num_classes": 10,
+  "lif": {"tau": 2, "reset": 0, "init": 0},
+  "input": {"source": "data_bs128.npy#index0", "normalize": "recorded-mean-std-not-blind", "note": "upstream pack has no labels; fixture uses seeded RNG unless input given"},
+  "checkpoint": {"kind": "missing", "bn_state": "absent", "note": "no training checkpoint shipped; real import blocked_assets"},
+  "head": {"reduction": "sum", "norm": "ps_div", "note": "PL sum; PS divides by T*N then FP32 Linear+argmax"},
+  "target": {"part": "xczu15eg-ffvb1156-2-i", "tool": "Vivado 2021.1", "period_ns": 5}
+}

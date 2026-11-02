@@ -1,0 +1,229 @@
+{
+  "schema": "e1-p4-simulation-sources-1",
+  "source_root": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505",
+  "source_digest": "00a6b3a0a9a61797dbe5e1994b3dc74fe2c6bcca4a12f948158877658fe78b5f",
+  "testbench": "D:\\dl_v1\\verification\\sim\\tb_p3_graph_shell.sv",
+  "seed": 20261030,
+  "tb_params": {
+    "schema": "e1-sim-tb-params-1",
+    "mem_bytes": 262144,
+    "mem_words": 16384,
+    "max_snaps": 64,
+    "snap_chunk": 8192,
+    "watchdog_cycles": 20000000,
+    "source": "compile_generated",
+    "file": "D:/dl_v1/examples/temp/mobiledw32_cifar10_20261030/artifacts/toolchain_compile_tn4_tm4_dw16_rq2/generated/tb_params.vh"
+  },
+  "sim_define": "TB_MAC_IMPL_2,TB_LEAN_FUNC",
+  "files": [
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\axi_burst_reader.v",
+      "sha256": "f27e04960f50f1024875514bd67f0667fb0ad3229170f7d06a9c28625c1cbeaa"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\axi_burst_writer.v",
+      "sha256": "11003f4e1bb202374b16d71ff5b49d8f803744f1f8537b81db659a5e82e1e73d"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\axi4_4kb_splitter.v",
+      "sha256": "ba196dfd4f3cfa8a21f17a641b4870bbe1d449bc6367c4e183bb77c821ab0a81"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\npu_backend_contract.vh",
+      "sha256": "5e54dba8dc798085ebf6cdc3c0cce7ccd99193fee7b9d78e7442c02b1248eb29"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\npu_engine_router.v",
+      "sha256": "b8dc18280d135fac131e41e306f70ee5268c17808871bf2f1ecb5fdf2854ef0f"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\npu_instr_rom.v",
+      "sha256": "18a908021f23f9c8aad55978ecd3bdf04fff68e74d42fc842f3aa381b0e8b286"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\npu_instr_seq.v",
+      "sha256": "a91a3603deaa0d0a67b4b3762207be43dd7d4afd1d950f024d6779f7d2f317d7"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\npu_mixed_engine.v",
+      "sha256": "edef5f5100c79f86dc438871d0c79f4891693eaf5d8aee672c715bb9eaa46c33"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\op_abi_defs.vh",
+      "sha256": "14d4e36814f4c84ea728c1f069099060ae7c3a95860aa876335ad815d1bdfced"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\common\\op_shell.v",
+      "sha256": "a89bc10fa4dfd8a51f302c320ed16cd5f946ac7c30e06bf1a42764a1e0579822"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ip\\dsp_mul_pipe4\\dsp_mul_pipe4.xci",
+      "sha256": "25cbfe8f9485a7d68bfd4ad75979a63f184c301574c288bf06b324d059c7b4de"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\activation\\activation_lut_bank.sv",
+      "sha256": "edb5e963cc49ee19bd8519c7c3b786ef75db0418c9b16d9588fa347789bd74f2"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\activation\\activation_lut_core.sv",
+      "sha256": "dcb19a0dd0139bbf326b8abdfde57063c5d537d60a9a472c3f8329f088d4d447"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv_mul_dsp.v",
+      "sha256": "02d8e796f546e0008a5bc2bbb9d89336b679c6c74d9cd7d17bbac4153c033fae"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_calc_balanced.sv",
+      "sha256": "8f548509ae43a8b382322acbcc16ff061cc8280d205eb601b86ca2b9ff6f77e2"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_calc_dsp.v",
+      "sha256": "7b39e1da1b12e94f0f86f8f7246a594b72e1b0780b943db3c7654d868bb5b2cb"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_calc.v",
+      "sha256": "82541af7f8a58e89ca2f076b713bd9011704df11f983c2a6ff842b590ff0faae"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_core.v",
+      "sha256": "3cd362d6ada12b05755c250504122b270bffa26f44f83e93e25f406f6cee858b"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_linebuf.v",
+      "sha256": "0752da9b584f6075ce1ae3885deb84ec2615846d0f49b535ea71051b95b2cda6"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_out_buf.v",
+      "sha256": "2a8eed749afe2f4b21a944b93444d83507571b086b6fe73fcb172702ea973e25"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_out_ctrl.v",
+      "sha256": "394b358d108995114cf75d596d3dee4419095cd755c0e7ce1d589f5b4bc0ef32"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_out_fifo.v",
+      "sha256": "30734a42ea4b9b58bc6e33c2f2ea2e60485e3f77707ee79f86dd52a683155d80"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\conv3x3_weight_faces.v",
+      "sha256": "15e65f19ad995853114dbdc642f55abf0f11ffb308d96159b1525f45ff0cab57"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\dsp_mul_pipe4_sim_netlist.v",
+      "sha256": "880c1611d2da30bdba4ad91da77247d09e061ed37cf865540283aef60c244292"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\signed_int8_dsp2_mac.v",
+      "sha256": "6308b161b4894d42c229a1187965842e8f128788da3cec828d10b9d4efe3a6b5"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\spram.v",
+      "sha256": "413d7840d599fd25b1ae6f7225bfe48c8a1738efc64da368a4d10ebce6cc313d"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\conv\\tpram.v",
+      "sha256": "96044cab3b1754ab9989fb3f1ab7c272010ffc7db39def00c009aa4a97771e65"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\copy\\copy_transform_core.v",
+      "sha256": "8e92dc6fe9afe759a7db6aaeaa12ae5a66abdacbf99b6f2069e73ce581d80848"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\depthwise\\depthwise_conv3x3_core_v2.sv",
+      "sha256": "ff69fb8c72b59bc8a839aaa171e90244aa6d151006bf23b8155766aad198a9d5"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\depthwise\\depthwise_conv3x3_core.sv",
+      "sha256": "097e7d9d6b37e696ae9a94fe96737c5e6c24df010a67d4fdbc7dd5fbfd2e9fa0"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\eltwise\\clip_core.v",
+      "sha256": "64382bcd83d82c6538a4505d76f5be03a8e2130e849f031d5e3c8d36cbf50f0d"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\eltwise\\eltwise_core.v",
+      "sha256": "9071d7bc93351aae5a8698f3eb51f25bedac08362a1b666ae67afafc1c58379f"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\eltwise\\int8_mul_core.v",
+      "sha256": "cfa59aa56f8ea2d1be5294f24b6356216f30499de266081abd33a9750b197646"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\maxpool2d\\maxpool2d_core.sv",
+      "sha256": "94c17a13a0f7866783b81fd2d4dfc6f4d92108818ca860924002861bdfacccb4"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\maxpool2d\\maxpool2d_reduce8.sv",
+      "sha256": "75b898bc9ab24ce28b69aa215956769a30e4839e396f22a749d29d8b1ce22319"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\maxpool2d\\maxpool2d_row_store.sv",
+      "sha256": "95498eae2b9c10cf4b29996dd5d4cbb255b631700c868f3cc88658df9e34d1c9"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\pool2x2\\avgpool2x2_core.v",
+      "sha256": "ce41a037a909c3b4830e5c0bbdb69e3f7a81e17516e275da913f718e7ca20c6a"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\pool2x2\\avgpool2x2_lane.v",
+      "sha256": "e59f7cd1e27802b24a18094f6acc023adf97a6e7ccc3288a5bf5f20a3d6784e8"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\pool2x2\\maxpool2x2_core.v",
+      "sha256": "cfc5fe7c7df11814025415482168678ff23a7364909ab1109cd04b809c8995d3"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\pool2x2\\maxpool2x2_lane.v",
+      "sha256": "2fe1b6fcea0c6ef342b93241844a277d95cd83a735753ab2ed1b07863c038f78"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\pool2x2\\maxpool2x2_rowbuf.v",
+      "sha256": "3044f360ed28d65381502be1832d28a4ef0e451c8380da9836f12571c0cc73a9"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\pool5\\maxpool5x5_core.v",
+      "sha256": "c022af44c9f142e3bbac4925cd02804e72f15297e74810864b55b72c4a8e482a"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\reduce\\global_avg_pool_core.v",
+      "sha256": "cc1b33118e0adf3462ad6a8a89db1e03b2e11494da90865709246b57b88ae1c5"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\rtl\\ops\\resize\\resize_nearest2x_core.v",
+      "sha256": "b2b26c40617bc9b46fc60bc4fa27aa453c9d668ab39555c46d10d4f43ae7a11a"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505\\tools\\npu_gen\\npu_top.v.tpl",
+      "sha256": "3ea5a1066ca5aa703407cfc3ab6313b7dc257c6ed13e6abb1e03ede0445c70a9"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\toolchain_compile_tn4_tm4_dw16_rq2\\generated\\mobiledw32_cifar10_instr.mem",
+      "sha256": "637f44504731a0e9874b109ff53b100cd71b88d822b7a2f3908763a05058c307"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\toolchain_compile_tn4_tm4_dw16_rq2\\generated\\npu_top.v",
+      "sha256": "4bcd4ac5dad38987f4627d48834ba3cc9788b96dd0b2e4ffe1795a9944794a2f"
+    },
+    {
+      "path": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\toolchain_compile_tn4_tm4_dw16_rq2\\generated\\sources.f",
+      "sha256": "03d79165438e21bf2dcee78345ecc8102e5e56a5602c2d5b26d4039a6cc2173f"
+    },
+    {
+      "path": "D:\\dl_v1\\verification\\sim\\run_p3_graph_shell.ps1",
+      "sha256": "4b29751bffc2e625c105e400f8a5e81c9a393c86fc9922b0dec46c8270bbb4bd"
+    },
+    {
+      "path": "D:\\dl_v1\\verification\\sim\\tb_p3_graph_shell.sv",
+      "sha256": "4931ec14e441e0c006d5d05b55527f1f1bf2ec0257090f2a22d261209fe644cb"
+    }
+  ],
+  "source_unchanged": true,
+  "simulator": "modelsim",
+  "simulator_version": "Model Technology ModelSim SE-64 vsim 2020.4 Simulator 2020.10 Oct 13 2020",
+  "excluded_xilinx_sources": [
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/conv_mul_dsp.v",
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/dsp_mul_pipe4_sim_netlist.v",
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/conv3x3_calc_dsp.v",
+    "D:/dl_v1/examples/temp/depthwise_v2_20261030_113505/rtl/ops/conv/signed_int8_dsp2_mac.v"
+  ]
+}

@@ -1,0 +1,1313 @@
+{
+  "alias_bindings": {},
+  "arena": {
+    "alignment": 4096,
+    "base": "0x10000000",
+    "used_bytes": 114688,
+    "used_pages": 28
+  },
+  "buffers": {
+    "__input__": {
+      "address": "0x10004000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 8192,
+      "dtype": "int8",
+      "kind": "input",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 0,
+        "end_exclusive": 1,
+        "start": 0
+      },
+      "offset": 16384,
+      "raw_bytes": 8192,
+      "reuse_of": null,
+      "shape": [
+        1,
+        3,
+        32,
+        32
+      ],
+      "storage_id": 12,
+      "tensor": "__input__"
+    },
+    "block1_dw_activation": {
+      "address": "0x10018000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 16384,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 2,
+        "end_exclusive": 3,
+        "start": 1
+      },
+      "offset": 98304,
+      "raw_bytes": 16384,
+      "reuse_of": "stem_activation.bias",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "storage_id": 32,
+      "tensor": "block1_dw_activation"
+    },
+    "block1_dw_activation.bias": {
+      "address": "0x10006000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 1,
+        "end_exclusive": 2,
+        "start": 0
+      },
+      "offset": 24576,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 14,
+      "tensor": "block1_dw_activation.bias"
+    },
+    "block1_dw_activation.weight": {
+      "address": "0x10007000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "DW_V2_OC16_K9",
+      "live_range": {
+        "end": 1,
+        "end_exclusive": 2,
+        "start": 0
+      },
+      "offset": 28672,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage_id": 15,
+      "tensor": "block1_dw_activation.weight"
+    },
+    "block1_pool": {
+      "address": "0x10004000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 4,
+        "end_exclusive": 5,
+        "start": 3
+      },
+      "offset": 16384,
+      "raw_bytes": 4096,
+      "reuse_of": "__input__",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "storage_id": 13,
+      "tensor": "block1_pool"
+    },
+    "block1_pw_activation": {
+      "address": "0x10000000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 16384,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 3,
+        "end_exclusive": 4,
+        "start": 2
+      },
+      "offset": 0,
+      "raw_bytes": 16384,
+      "reuse_of": "stem_activation",
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "storage_id": 0,
+      "tensor": "block1_pw_activation"
+    },
+    "block1_pw_activation.bias": {
+      "address": "0x10008000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 2,
+        "end_exclusive": 3,
+        "start": 0
+      },
+      "offset": 32768,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 16,
+      "tensor": "block1_pw_activation.bias"
+    },
+    "block1_pw_activation.weight": {
+      "address": "0x10009000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "OIHW8_KB_IC_OC",
+      "live_range": {
+        "end": 2,
+        "end_exclusive": 3,
+        "start": 0
+      },
+      "offset": 36864,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage_id": 17,
+      "tensor": "block1_pw_activation.weight"
+    },
+    "block2_dw_activation": {
+      "address": "0x10000000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 5,
+        "end_exclusive": 6,
+        "start": 4
+      },
+      "offset": 0,
+      "raw_bytes": 4096,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "storage_id": 1,
+      "tensor": "block2_dw_activation"
+    },
+    "block2_dw_activation.bias": {
+      "address": "0x1000A000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 4,
+        "end_exclusive": 5,
+        "start": 0
+      },
+      "offset": 40960,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 18,
+      "tensor": "block2_dw_activation.bias"
+    },
+    "block2_dw_activation.weight": {
+      "address": "0x1000B000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "DW_V2_OC16_K9",
+      "live_range": {
+        "end": 4,
+        "end_exclusive": 5,
+        "start": 0
+      },
+      "offset": 45056,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage_id": 19,
+      "tensor": "block2_dw_activation.weight"
+    },
+    "block2_pool": {
+      "address": "0x10000000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 7,
+        "end_exclusive": 8,
+        "start": 6
+      },
+      "offset": 0,
+      "raw_bytes": 1024,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "storage_id": 2,
+      "tensor": "block2_pool"
+    },
+    "block2_pw_activation": {
+      "address": "0x10001000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 6,
+        "end_exclusive": 7,
+        "start": 5
+      },
+      "offset": 4096,
+      "raw_bytes": 4096,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "storage_id": 7,
+      "tensor": "block2_pw_activation"
+    },
+    "block2_pw_activation.bias": {
+      "address": "0x1000C000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 5,
+        "end_exclusive": 6,
+        "start": 0
+      },
+      "offset": 49152,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 20,
+      "tensor": "block2_pw_activation.bias"
+    },
+    "block2_pw_activation.weight": {
+      "address": "0x1000D000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "OIHW8_KB_IC_OC",
+      "live_range": {
+        "end": 5,
+        "end_exclusive": 6,
+        "start": 0
+      },
+      "offset": 53248,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage_id": 21,
+      "tensor": "block2_pw_activation.weight"
+    },
+    "block3_dw_activation": {
+      "address": "0x10001000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 8,
+        "end_exclusive": 9,
+        "start": 7
+      },
+      "offset": 4096,
+      "raw_bytes": 1024,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "storage_id": 8,
+      "tensor": "block3_dw_activation"
+    },
+    "block3_dw_activation.bias": {
+      "address": "0x1000E000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 7,
+        "end_exclusive": 8,
+        "start": 0
+      },
+      "offset": 57344,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 22,
+      "tensor": "block3_dw_activation.bias"
+    },
+    "block3_dw_activation.weight": {
+      "address": "0x1000F000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "DW_V2_OC16_K9",
+      "live_range": {
+        "end": 7,
+        "end_exclusive": 8,
+        "start": 0
+      },
+      "offset": 61440,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage_id": 23,
+      "tensor": "block3_dw_activation.weight"
+    },
+    "block3_pool": {
+      "address": "0x10001000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 10,
+        "end_exclusive": 11,
+        "start": 9
+      },
+      "offset": 4096,
+      "raw_bytes": 256,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        4,
+        4
+      ],
+      "storage_id": 9,
+      "tensor": "block3_pool"
+    },
+    "block3_pw_activation": {
+      "address": "0x10000000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 9,
+        "end_exclusive": 10,
+        "start": 8
+      },
+      "offset": 0,
+      "raw_bytes": 1024,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        8,
+        8
+      ],
+      "storage_id": 3,
+      "tensor": "block3_pw_activation"
+    },
+    "block3_pw_activation.bias": {
+      "address": "0x10010000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 8,
+        "end_exclusive": 9,
+        "start": 0
+      },
+      "offset": 65536,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 24,
+      "tensor": "block3_pw_activation.bias"
+    },
+    "block3_pw_activation.weight": {
+      "address": "0x10011000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "OIHW8_KB_IC_OC",
+      "live_range": {
+        "end": 8,
+        "end_exclusive": 9,
+        "start": 0
+      },
+      "offset": 69632,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage_id": 25,
+      "tensor": "block3_pw_activation.weight"
+    },
+    "block4_dw_activation": {
+      "address": "0x10000000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 11,
+        "end_exclusive": 12,
+        "start": 10
+      },
+      "offset": 0,
+      "raw_bytes": 64,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        2,
+        2
+      ],
+      "storage_id": 4,
+      "tensor": "block4_dw_activation"
+    },
+    "block4_dw_activation.bias": {
+      "address": "0x10012000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 10,
+        "end_exclusive": 11,
+        "start": 0
+      },
+      "offset": 73728,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 26,
+      "tensor": "block4_dw_activation.bias"
+    },
+    "block4_dw_activation.weight": {
+      "address": "0x10013000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "DW_V2_OC16_K9",
+      "live_range": {
+        "end": 10,
+        "end_exclusive": 11,
+        "start": 0
+      },
+      "offset": 77824,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "storage_id": 27,
+      "tensor": "block4_dw_activation.weight"
+    },
+    "block4_pool": {
+      "address": "0x10000000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 13,
+        "end_exclusive": 14,
+        "start": 12
+      },
+      "offset": 0,
+      "raw_bytes": 16,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        1,
+        1
+      ],
+      "storage_id": 5,
+      "tensor": "block4_pool"
+    },
+    "block4_pw_activation": {
+      "address": "0x10001000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 12,
+        "end_exclusive": 13,
+        "start": 11
+      },
+      "offset": 4096,
+      "raw_bytes": 64,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        16,
+        2,
+        2
+      ],
+      "storage_id": 10,
+      "tensor": "block4_pw_activation"
+    },
+    "block4_pw_activation.bias": {
+      "address": "0x10014000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 11,
+        "end_exclusive": 12,
+        "start": 0
+      },
+      "offset": 81920,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 28,
+      "tensor": "block4_pw_activation.bias"
+    },
+    "block4_pw_activation.weight": {
+      "address": "0x10015000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "OIHW8_KB_IC_OC",
+      "live_range": {
+        "end": 11,
+        "end_exclusive": 12,
+        "start": 0
+      },
+      "offset": 86016,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "storage_id": 29,
+      "tensor": "block4_pw_activation.weight"
+    },
+    "classifier_activation": {
+      "address": "0x10001000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "output",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 14,
+        "end_exclusive": 15,
+        "start": 13
+      },
+      "offset": 4096,
+      "raw_bytes": 16,
+      "reuse_of": "block1_pw_activation",
+      "shape": [
+        1,
+        10,
+        1,
+        1
+      ],
+      "storage_id": 11,
+      "tensor": "classifier_activation"
+    },
+    "classifier_activation.bias": {
+      "address": "0x10016000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 13,
+        "end_exclusive": 14,
+        "start": 0
+      },
+      "offset": 90112,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        10
+      ],
+      "storage_id": 30,
+      "tensor": "classifier_activation.bias"
+    },
+    "classifier_activation.weight": {
+      "address": "0x10017000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "OIHW8_KB_IC_OC",
+      "live_range": {
+        "end": 13,
+        "end_exclusive": 14,
+        "start": 0
+      },
+      "offset": 94208,
+      "raw_bytes": 256,
+      "reuse_of": null,
+      "shape": [
+        10,
+        16,
+        3,
+        3
+      ],
+      "storage_id": 31,
+      "tensor": "classifier_activation.weight"
+    },
+    "stem_activation": {
+      "address": "0x10000000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 16384,
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NHWC8_A16",
+      "live_range": {
+        "end": 1,
+        "end_exclusive": 2,
+        "start": 0
+      },
+      "offset": 0,
+      "raw_bytes": 16384,
+      "reuse_of": null,
+      "shape": [
+        1,
+        16,
+        32,
+        32
+      ],
+      "storage_id": 6,
+      "tensor": "stem_activation"
+    },
+    "stem_activation.bias": {
+      "address": "0x10018000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "I32_C",
+      "live_range": {
+        "end": 0,
+        "end_exclusive": 1,
+        "start": 0
+      },
+      "offset": 98304,
+      "raw_bytes": 64,
+      "reuse_of": null,
+      "shape": [
+        16
+      ],
+      "storage_id": 33,
+      "tensor": "stem_activation.bias"
+    },
+    "stem_activation.weight": {
+      "address": "0x10019000",
+      "alias_members": [],
+      "alignment": 4096,
+      "allocated_bytes": 4096,
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "OIHW8_KB_IC_OC",
+      "live_range": {
+        "end": 0,
+        "end_exclusive": 1,
+        "start": 0
+      },
+      "offset": 102400,
+      "raw_bytes": 1152,
+      "reuse_of": null,
+      "shape": [
+        16,
+        3,
+        3,
+        3
+      ],
+      "storage_id": 34,
+      "tensor": "stem_activation.weight"
+    }
+  },
+  "checks": {
+    "alias_binding": "pass",
+    "alias_binding_errors": [],
+    "alignment": "pass",
+    "alignment_errors": [],
+    "copy_buffer_errors": [],
+    "copy_buffers": "pass",
+    "live_overlap": "pass",
+    "live_overlap_errors": [],
+    "view_binding": "pass",
+    "view_binding_errors": []
+  },
+  "gates": {
+    "board": "not_run",
+    "codegen": "not_run",
+    "legacy_address_compat": "not_run",
+    "memory_planning": "pass",
+    "rtl": "not_run",
+    "view_copy_planning": "pass"
+  },
+  "graph_digest": "4b7f5a9decae77cec082a699113d0abea73c37a0fb539afdd7f437062164bf0e",
+  "host_boundaries": [],
+  "profile": "first_fit",
+  "schema": "e1-memory-plan-1",
+  "stats": {
+    "alias_tensors": 0,
+    "allocated_bytes": 184320,
+    "buffers": 35,
+    "constant_tensors": 0,
+    "host_tensors": 0,
+    "raw_bytes": 77216,
+    "reuse_count": 13,
+    "view_tensors": 0
+  },
+  "status": "pass",
+  "tensor_bindings": {
+    "__input__": {
+      "address": "0x10004000",
+      "alias_of": null,
+      "allocated_bytes": 8192,
+      "buffer": "__input__",
+      "bytes": 8192,
+      "managed_by": "pl",
+      "offset": 16384,
+      "storage_id": 12,
+      "view_bytes": 8192,
+      "view_offset_bytes": 0
+    },
+    "block1_dw_activation": {
+      "address": "0x10018000",
+      "alias_of": null,
+      "allocated_bytes": 16384,
+      "buffer": "block1_dw_activation",
+      "bytes": 16384,
+      "managed_by": "pl",
+      "offset": 98304,
+      "storage_id": 32,
+      "view_bytes": 16384,
+      "view_offset_bytes": 0
+    },
+    "block1_dw_activation.bias": {
+      "address": "0x10006000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block1_dw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 24576,
+      "storage_id": 14,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block1_dw_activation.weight": {
+      "address": "0x10007000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block1_dw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 28672,
+      "storage_id": 15,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block1_pool": {
+      "address": "0x10004000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block1_pool",
+      "bytes": 4096,
+      "managed_by": "pl",
+      "offset": 16384,
+      "storage_id": 13,
+      "view_bytes": 4096,
+      "view_offset_bytes": 0
+    },
+    "block1_pw_activation": {
+      "address": "0x10000000",
+      "alias_of": null,
+      "allocated_bytes": 16384,
+      "buffer": "block1_pw_activation",
+      "bytes": 16384,
+      "managed_by": "pl",
+      "offset": 0,
+      "storage_id": 0,
+      "view_bytes": 16384,
+      "view_offset_bytes": 0
+    },
+    "block1_pw_activation.bias": {
+      "address": "0x10008000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block1_pw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 32768,
+      "storage_id": 16,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block1_pw_activation.weight": {
+      "address": "0x10009000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block1_pw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 36864,
+      "storage_id": 17,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block2_dw_activation": {
+      "address": "0x10000000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block2_dw_activation",
+      "bytes": 4096,
+      "managed_by": "pl",
+      "offset": 0,
+      "storage_id": 1,
+      "view_bytes": 4096,
+      "view_offset_bytes": 0
+    },
+    "block2_dw_activation.bias": {
+      "address": "0x1000A000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block2_dw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 40960,
+      "storage_id": 18,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block2_dw_activation.weight": {
+      "address": "0x1000B000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block2_dw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 45056,
+      "storage_id": 19,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block2_pool": {
+      "address": "0x10000000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block2_pool",
+      "bytes": 1024,
+      "managed_by": "pl",
+      "offset": 0,
+      "storage_id": 2,
+      "view_bytes": 1024,
+      "view_offset_bytes": 0
+    },
+    "block2_pw_activation": {
+      "address": "0x10001000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block2_pw_activation",
+      "bytes": 4096,
+      "managed_by": "pl",
+      "offset": 4096,
+      "storage_id": 7,
+      "view_bytes": 4096,
+      "view_offset_bytes": 0
+    },
+    "block2_pw_activation.bias": {
+      "address": "0x1000C000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block2_pw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 49152,
+      "storage_id": 20,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block2_pw_activation.weight": {
+      "address": "0x1000D000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block2_pw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 53248,
+      "storage_id": 21,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block3_dw_activation": {
+      "address": "0x10001000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block3_dw_activation",
+      "bytes": 1024,
+      "managed_by": "pl",
+      "offset": 4096,
+      "storage_id": 8,
+      "view_bytes": 1024,
+      "view_offset_bytes": 0
+    },
+    "block3_dw_activation.bias": {
+      "address": "0x1000E000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block3_dw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 57344,
+      "storage_id": 22,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block3_dw_activation.weight": {
+      "address": "0x1000F000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block3_dw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 61440,
+      "storage_id": 23,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block3_pool": {
+      "address": "0x10001000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block3_pool",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 4096,
+      "storage_id": 9,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block3_pw_activation": {
+      "address": "0x10000000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block3_pw_activation",
+      "bytes": 1024,
+      "managed_by": "pl",
+      "offset": 0,
+      "storage_id": 3,
+      "view_bytes": 1024,
+      "view_offset_bytes": 0
+    },
+    "block3_pw_activation.bias": {
+      "address": "0x10010000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block3_pw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 65536,
+      "storage_id": 24,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block3_pw_activation.weight": {
+      "address": "0x10011000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block3_pw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 69632,
+      "storage_id": 25,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block4_dw_activation": {
+      "address": "0x10000000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block4_dw_activation",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 0,
+      "storage_id": 4,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block4_dw_activation.bias": {
+      "address": "0x10012000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block4_dw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 73728,
+      "storage_id": 26,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block4_dw_activation.weight": {
+      "address": "0x10013000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block4_dw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 77824,
+      "storage_id": 27,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "block4_pool": {
+      "address": "0x10000000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block4_pool",
+      "bytes": 16,
+      "managed_by": "pl",
+      "offset": 0,
+      "storage_id": 5,
+      "view_bytes": 16,
+      "view_offset_bytes": 0
+    },
+    "block4_pw_activation": {
+      "address": "0x10001000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block4_pw_activation",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 4096,
+      "storage_id": 10,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block4_pw_activation.bias": {
+      "address": "0x10014000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block4_pw_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 81920,
+      "storage_id": 28,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "block4_pw_activation.weight": {
+      "address": "0x10015000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "block4_pw_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 86016,
+      "storage_id": 29,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "classifier_activation": {
+      "address": "0x10001000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "classifier_activation",
+      "bytes": 16,
+      "managed_by": "pl",
+      "offset": 4096,
+      "storage_id": 11,
+      "view_bytes": 16,
+      "view_offset_bytes": 0
+    },
+    "classifier_activation.bias": {
+      "address": "0x10016000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "classifier_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 90112,
+      "storage_id": 30,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "classifier_activation.weight": {
+      "address": "0x10017000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "classifier_activation.weight",
+      "bytes": 256,
+      "managed_by": "pl",
+      "offset": 94208,
+      "storage_id": 31,
+      "view_bytes": 256,
+      "view_offset_bytes": 0
+    },
+    "stem_activation": {
+      "address": "0x10000000",
+      "alias_of": null,
+      "allocated_bytes": 16384,
+      "buffer": "stem_activation",
+      "bytes": 16384,
+      "managed_by": "pl",
+      "offset": 0,
+      "storage_id": 6,
+      "view_bytes": 16384,
+      "view_offset_bytes": 0
+    },
+    "stem_activation.bias": {
+      "address": "0x10018000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "stem_activation.bias",
+      "bytes": 64,
+      "managed_by": "pl",
+      "offset": 98304,
+      "storage_id": 33,
+      "view_bytes": 64,
+      "view_offset_bytes": 0
+    },
+    "stem_activation.weight": {
+      "address": "0x10019000",
+      "alias_of": null,
+      "allocated_bytes": 4096,
+      "buffer": "stem_activation.weight",
+      "bytes": 1152,
+      "managed_by": "pl",
+      "offset": 102400,
+      "storage_id": 34,
+      "view_bytes": 1152,
+      "view_offset_bytes": 0
+    }
+  }
+}

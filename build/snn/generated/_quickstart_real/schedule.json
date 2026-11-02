@@ -1,0 +1,115 @@
+{
+ "sps_once": true,
+ "blocks": [
+  {
+   "block": 0,
+   "first": true,
+   "last": false,
+   "weights": {
+    "q_w": {
+     "base": 1879048192,
+     "bytes": 16384
+    },
+    "k_w": {
+     "base": 1879064576,
+     "bytes": 16384
+    },
+    "v_w": {
+     "base": 1879080960,
+     "bytes": 16384
+    },
+    "proj_w": {
+     "base": 1879097344,
+     "bytes": 16384
+    },
+    "fc1_w": {
+     "base": 1879113728,
+     "bytes": 65536
+    },
+    "fc2_w": {
+     "base": 1879179264,
+     "bytes": 65536
+    }
+   },
+   "lif_thr": {
+    "q": 128,
+    "k": 100,
+    "v": 92,
+    "proj": 546,
+    "fc1": 57,
+    "fc2": 100
+   },
+   "descriptor_beats_64b": [
+    "0x0000008000000064",
+    "0x0000005c00000222",
+    "0x0000003900000064",
+    "0x000000000000001a"
+   ],
+   "bank_sel": 0,
+   "window": {
+    "base": 1879048192,
+    "bytes": 196608
+   }
+  },
+  {
+   "block": 1,
+   "first": false,
+   "last": true,
+   "weights": {
+    "q_w": {
+     "base": 1880096768,
+     "bytes": 16384
+    },
+    "k_w": {
+     "base": 1880113152,
+     "bytes": 16384
+    },
+    "v_w": {
+     "base": 1880129536,
+     "bytes": 16384
+    },
+    "proj_w": {
+     "base": 1880145920,
+     "bytes": 16384
+    },
+    "fc1_w": {
+     "base": 1880162304,
+     "bytes": 65536
+    },
+    "fc2_w": {
+     "base": 1880227840,
+     "bytes": 65536
+    }
+   },
+   "lif_thr": {
+    "q": 190,
+    "k": 190,
+    "v": 203,
+    "proj": 1168,
+    "fc1": 96,
+    "fc2": 64
+   },
+   "descriptor_beats_64b": [
+    "0x000000be000000be",
+    "0x000000cb00000490",
+    "0x0000006000000040",
+    "0x0000000000000000"
+   ],
+   "bank_sel": 1,
+   "window": {
+    "base": 1880096768,
+    "bytes": 196608
+   }
+  }
+ ],
+ "head_after_block": 1,
+ "memory_map": {
+  "sps_out_tokens": 32,
+  "residual_banks": 2,
+  "bank_words_64b": 1024,
+  "attn_tmp_words": 96
+ },
+ "weight_stride": 1048576,
+ "thr_e": 26,
+ "descriptor_note": "4 beats per block, Verilog-concat order per contract.hardware_abi.descriptor_beats_64b"
+}

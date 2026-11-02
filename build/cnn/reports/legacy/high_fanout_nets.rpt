@@ -1,0 +1,31 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed Oct  7 20:57:55 2026
+| Host         : admin running 64-bit major release  (build 9200)
+| Command      : report_high_fanout_nets -file D:/dl_v0.1/build/mnist_project2_board/export_reloc2/high_fanout_nets.rpt
+| Design       : design_1_wrapper
+| Device       : xczu15eg
+------------------------------------------------------------------------------------------------------------------------
+
+High Fan-out Nets Information
+
+1. Summary
+----------
+
++---------------------------------------------------------------------------------------------------------------------+--------+-------------+
+| Net Name                                                                                                            | Fanout | Driver Type |
++---------------------------------------------------------------------------------------------------------------------+--------+-------------+
+| design_1_i/mn8_0/inst/u_engine/u_shell/calc_rst_n_BUFG                                                              |  28528 | BUFGCE      |
+| design_1_i/mn8_0/inst/u_engine/u_shell/rst_n_23                                                                     |   9534 | LUT2        |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/u_weight_faces/GEN_TAP[5].GEN_WORD[0].GEN_PORT[0].u_ram/O[0] |   5400 | CARRY8      |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/input_beat[0]                                                |   2259 | FDCE        |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/input_beat[1]                                                |   2259 | FDCE        |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/input_beat[2]                                                |   2258 | FDCE        |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/input_beat[3]                                                |   2257 | FDCE        |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/pe_tm_offset_pipe_reg_n_0_[13][3]                            |   1533 | FDCE        |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/u_out_ctrl/core_abort_reg_0[0]                               |   1024 | LUT5        |
+| design_1_i/mn8_0/inst/u_engine/u_router/u_conv3x3_core/u_linebuf/read_address_q_reg[0]_120[0]                       |    640 | FDRE        |
++---------------------------------------------------------------------------------------------------------------------+--------+-------------+
+
+

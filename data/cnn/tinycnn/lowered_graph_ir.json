@@ -1,0 +1,2242 @@
+{
+  "initializers": [
+    "conv1_activation.bias",
+    "conv1_activation.weight",
+    "conv2_activation.bias",
+    "conv2_activation.weight",
+    "conv3_activation.bias",
+    "conv3_activation.weight",
+    "conv4_activation.bias",
+    "conv4_activation.weight",
+    "logits_domain.bias",
+    "logits_domain.weight"
+  ],
+  "inputs": [
+    "__input__"
+  ],
+  "ir_version": "0.1.0",
+  "layout_policy": {
+    "logical_layout": "ONNX_row_major_NCHW",
+    "reshape_policy": "metadata_only_if_layout_compatible",
+    "target_layout": "NHWC8_A16"
+  },
+  "metadata": {
+    "codegen": "not_run",
+    "fragment_nodes": null,
+    "frontend_schema": "v0.2-yolo-affine-frontend-1",
+    "layout_planning": "not_run",
+    "lowering_map": [
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv1_activation"
+        ],
+        "outputs": [
+          "conv1_activation"
+        ],
+        "source_node": "conv1_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv1_pool"
+        ],
+        "outputs": [
+          "conv1_pool"
+        ],
+        "source_node": "conv1_pool",
+        "source_op": "MaxPool"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv2_activation"
+        ],
+        "outputs": [
+          "conv2_activation"
+        ],
+        "source_node": "conv2_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv2_pool"
+        ],
+        "outputs": [
+          "conv2_pool"
+        ],
+        "source_node": "conv2_pool",
+        "source_op": "MaxPool"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv3_activation"
+        ],
+        "outputs": [
+          "conv3_activation"
+        ],
+        "source_node": "conv3_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv4_activation"
+        ],
+        "outputs": [
+          "conv4_activation"
+        ],
+        "source_node": "conv4_activation",
+        "source_op": "Conv"
+      },
+      {
+        "disposition": "direct",
+        "lowered_nodes": [
+          "conv4_pool"
+        ],
+        "outputs": [
+          "conv4_pool"
+        ],
+        "source_node": "conv4_pool",
+        "source_op": "MaxPool"
+      },
+      {
+        "disposition": "expanded_3x3",
+        "lowered_nodes": [
+          "logits_domain"
+        ],
+        "outputs": [
+          "logits_domain"
+        ],
+        "source_node": "logits_domain",
+        "source_op": "Conv1x1"
+      }
+    ],
+    "lowering_passes": [
+      "batch_norm_exact_fold",
+      "constant_fold",
+      "conv1x1_center_expand",
+      "static_split_to_slice",
+      "depthwise_recognition"
+    ],
+    "lowering_schema": "e1-p3-lowering-1",
+    "numeric_profile": "affine-int8-v1",
+    "removed_nodes": [],
+    "source_graph_digest": "5db3529a464ec360f3450c8c6d6e87cfb7b0f8af89b61ba64da551e2073aec95",
+    "split_sizes": {}
+  },
+  "name": "affine-tinycnn28_mnist_qdq",
+  "nodes": [
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "dilations": [
+          1,
+          1
+        ],
+        "group": 1,
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "strides": [
+          1,
+          1
+        ]
+      },
+      "id": "conv1_activation",
+      "inputs": [
+        "__input__",
+        "conv1_activation.weight",
+        "conv1_activation.bias"
+      ],
+      "lowering": "dense3x3_core_v1",
+      "metadata": {
+        "acc_bound": 266228,
+        "affine": true,
+        "affine_bias_folded": [
+          59508,
+          51258,
+          20992,
+          6917,
+          -31048,
+          39271,
+          43329,
+          -7290
+        ],
+        "affine_profile": "affine-int8-v1",
+        "affine_sum_w": [
+          463,
+          360,
+          70,
+          39,
+          -354,
+          300,
+          276,
+          -46
+        ],
+        "deployment_node_id": "conv1_activation",
+        "logical_cin": 1,
+        "logical_cout": 8,
+        "out_zero_point_s8": -128,
+        "quant_input_scale": 0.003921568859368563,
+        "relu": true,
+        "relu_threshold_s8": -128,
+        "requant_records": [
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 0,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          },
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 1,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          },
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 2,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          },
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 3,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          },
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 4,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          },
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 5,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          },
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 6,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          },
+          {
+            "M0": 1131972204,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 7,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005006497260183096
+          }
+        ],
+        "source_kernel": 3,
+        "weight_scales": [
+          0.005006497260183096,
+          0.005006497260183096,
+          0.005006497260183096,
+          0.005006497260183096,
+          0.005006497260183096,
+          0.005006497260183096,
+          0.005006497260183096,
+          0.005006497260183096
+        ],
+        "x_zero_point_s8": -128
+      },
+      "metadata_only": false,
+      "name": "conv1_activation",
+      "op_type": "Conv",
+      "order": 0,
+      "outputs": [
+        "conv1_activation"
+      ],
+      "placement": "pl",
+      "source_index": 0
+    },
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "ceil_mode": 0,
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          2,
+          2
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "storage_order": 0,
+        "strides": [
+          2,
+          2
+        ]
+      },
+      "id": "conv1_pool",
+      "inputs": [
+        "conv1_activation"
+      ],
+      "lowering": "maxpool2d_generic_v1",
+      "metadata": {
+        "affine": true,
+        "affine_profile": "affine-int8-v1",
+        "deployment_node_id": "conv1_pool",
+        "maxpool_backend": "generic"
+      },
+      "metadata_only": false,
+      "name": "conv1_pool",
+      "op_type": "MaxPool",
+      "order": 1,
+      "outputs": [
+        "conv1_pool"
+      ],
+      "placement": "pl",
+      "source_index": 1
+    },
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "dilations": [
+          1,
+          1
+        ],
+        "group": 1,
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "strides": [
+          1,
+          1
+        ]
+      },
+      "id": "conv2_activation",
+      "inputs": [
+        "conv1_pool",
+        "conv2_activation.weight",
+        "conv2_activation.bias"
+      ],
+      "lowering": "dense3x3_core_v1",
+      "metadata": {
+        "acc_bound": 1501627,
+        "affine": true,
+        "affine_bias_folded": [
+          118498,
+          -30624,
+          -13519,
+          69902,
+          3574,
+          801,
+          94554,
+          88988,
+          136396,
+          11622,
+          -34056,
+          -24191,
+          79472,
+          -6913,
+          20263,
+          161595
+        ],
+        "affine_profile": "affine-int8-v1",
+        "affine_sum_w": [
+          925,
+          -253,
+          -101,
+          533,
+          47,
+          17,
+          712,
+          699,
+          1050,
+          94,
+          -278,
+          -181,
+          634,
+          -68,
+          153,
+          1253
+        ],
+        "deployment_node_id": "conv2_activation",
+        "logical_cin": 8,
+        "logical_cout": 16,
+        "out_zero_point_s8": -128,
+        "quant_input_scale": 0.009535158053040504,
+        "relu": true,
+        "relu_threshold_s8": -128,
+        "requant_records": [
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 0,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 1,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 2,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 3,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 4,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 5,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 6,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 7,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 8,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 9,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 10,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 11,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 12,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 13,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 14,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          },
+          {
+            "M0": 1318175575,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 15,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.005109494086354971
+          }
+        ],
+        "source_kernel": 3,
+        "weight_scales": [
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971,
+          0.005109494086354971
+        ],
+        "x_zero_point_s8": -128
+      },
+      "metadata_only": false,
+      "name": "conv2_activation",
+      "op_type": "Conv",
+      "order": 2,
+      "outputs": [
+        "conv2_activation"
+      ],
+      "placement": "pl",
+      "source_index": 2
+    },
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "ceil_mode": 0,
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          2,
+          2
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "storage_order": 0,
+        "strides": [
+          2,
+          2
+        ]
+      },
+      "id": "conv2_pool",
+      "inputs": [
+        "conv2_activation"
+      ],
+      "lowering": "maxpool2d_generic_v1",
+      "metadata": {
+        "affine": true,
+        "affine_profile": "affine-int8-v1",
+        "deployment_node_id": "conv2_pool",
+        "maxpool_backend": "generic"
+      },
+      "metadata_only": false,
+      "name": "conv2_pool",
+      "op_type": "MaxPool",
+      "order": 3,
+      "outputs": [
+        "conv2_pool"
+      ],
+      "placement": "pl",
+      "source_index": 3
+    },
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "dilations": [
+          1,
+          1
+        ],
+        "group": 1,
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "strides": [
+          2,
+          2
+        ]
+      },
+      "id": "conv3_activation",
+      "inputs": [
+        "conv2_pool",
+        "conv3_activation.weight",
+        "conv3_activation.bias"
+      ],
+      "lowering": "dense3x3_core_v1",
+      "metadata": {
+        "acc_bound": 2709214,
+        "affine": true,
+        "affine_bias_folded": [
+          21002,
+          88542,
+          88139,
+          -12190,
+          39351,
+          94055,
+          130630,
+          106857,
+          43730,
+          155369,
+          174686,
+          7430,
+          -67122,
+          159016,
+          151648,
+          88729,
+          -43811,
+          65072,
+          173640,
+          116576,
+          36590,
+          56694,
+          94587,
+          94522
+        ],
+        "affine_profile": "affine-int8-v1",
+        "affine_sum_w": [
+          157,
+          692,
+          686,
+          -100,
+          300,
+          733,
+          1022,
+          830,
+          340,
+          1215,
+          1369,
+          57,
+          -526,
+          1248,
+          1184,
+          701,
+          -339,
+          508,
+          1354,
+          908,
+          282,
+          443,
+          736,
+          740
+        ],
+        "deployment_node_id": "conv3_activation",
+        "logical_cin": 16,
+        "logical_cout": 24,
+        "out_zero_point_s8": -128,
+        "quant_input_scale": 0.04063800349831581,
+        "relu": true,
+        "relu_threshold_s8": -128,
+        "requant_records": [
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 0,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 1,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 2,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 3,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 4,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 5,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 6,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 7,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 8,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 9,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 10,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 11,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 12,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 13,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 14,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 15,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 16,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 17,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 18,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 19,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 20,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 21,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 22,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          },
+          {
+            "M0": 1455534545,
+            "SHIFT": 40,
+            "bias_scale": 0.0,
+            "oc": 23,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.00422431668266654
+          }
+        ],
+        "source_kernel": 3,
+        "weight_scales": [
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654,
+          0.00422431668266654
+        ],
+        "x_zero_point_s8": -128
+      },
+      "metadata_only": false,
+      "name": "conv3_activation",
+      "op_type": "Conv",
+      "order": 4,
+      "outputs": [
+        "conv3_activation"
+      ],
+      "placement": "pl",
+      "source_index": 4
+    },
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "dilations": [
+          1,
+          1
+        ],
+        "group": 1,
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "strides": [
+          2,
+          2
+        ]
+      },
+      "id": "conv4_activation",
+      "inputs": [
+        "conv3_activation",
+        "conv4_activation.weight",
+        "conv4_activation.bias"
+      ],
+      "lowering": "dense3x3_core_v1",
+      "metadata": {
+        "acc_bound": 3924410,
+        "affine": true,
+        "affine_bias_folded": [
+          123741,
+          -7048,
+          -18114,
+          -48975,
+          -128330,
+          -20470,
+          18047,
+          -25394,
+          -192698,
+          61747,
+          -60771,
+          -124896,
+          -157028,
+          30552,
+          36631,
+          -139372,
+          -104028,
+          -27290,
+          3235,
+          -37286,
+          -55561,
+          -44164,
+          -96716,
+          -21074,
+          58632,
+          -57789,
+          -30173,
+          22132,
+          -108243,
+          -69554,
+          28232,
+          24269
+        ],
+        "affine_profile": "affine-int8-v1",
+        "affine_sum_w": [
+          966,
+          -56,
+          -142,
+          -383,
+          -1002,
+          -159,
+          141,
+          -198,
+          -1506,
+          482,
+          -475,
+          -975,
+          -1227,
+          240,
+          286,
+          -1089,
+          -812,
+          -213,
+          25,
+          -290,
+          -434,
+          -346,
+          -755,
+          -164,
+          457,
+          -452,
+          -237,
+          172,
+          -846,
+          -544,
+          220,
+          190
+        ],
+        "deployment_node_id": "conv4_activation",
+        "logical_cin": 24,
+        "logical_cout": 32,
+        "out_zero_point_s8": -128,
+        "quant_input_scale": 0.12967795133590698,
+        "relu": true,
+        "relu_threshold_s8": -128,
+        "requant_records": [
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 0,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 1,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 2,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 3,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 4,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 5,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 6,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 7,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 8,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 9,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 10,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 11,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 12,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 13,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 14,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 15,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 16,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 17,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 18,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 19,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 20,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 21,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 22,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 23,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 24,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 25,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 26,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 27,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 28,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 29,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 30,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          },
+          {
+            "M0": 1370426226,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 31,
+            "out_zero_point": -128,
+            "relu": false,
+            "weight_scale": 0.0038990259636193514
+          }
+        ],
+        "source_kernel": 3,
+        "weight_scales": [
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514,
+          0.0038990259636193514
+        ],
+        "x_zero_point_s8": -128
+      },
+      "metadata_only": false,
+      "name": "conv4_activation",
+      "op_type": "Conv",
+      "order": 5,
+      "outputs": [
+        "conv4_activation"
+      ],
+      "placement": "pl",
+      "source_index": 5
+    },
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "ceil_mode": 0,
+        "dilations": [
+          1,
+          1
+        ],
+        "kernel_shape": [
+          2,
+          2
+        ],
+        "pads": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "storage_order": 0,
+        "strides": [
+          2,
+          2
+        ]
+      },
+      "id": "conv4_pool",
+      "inputs": [
+        "conv4_activation"
+      ],
+      "lowering": "maxpool2d_generic_v1",
+      "metadata": {
+        "affine": true,
+        "affine_profile": "affine-int8-v1",
+        "deployment_node_id": "conv4_pool",
+        "maxpool_backend": "generic"
+      },
+      "metadata_only": false,
+      "name": "conv4_pool",
+      "op_type": "MaxPool",
+      "order": 6,
+      "outputs": [
+        "conv4_pool"
+      ],
+      "placement": "pl",
+      "source_index": 6
+    },
+    {
+      "attrs": {
+        "auto_pad": "NOTSET",
+        "dilations": [
+          1,
+          1
+        ],
+        "group": 1,
+        "kernel_shape": [
+          3,
+          3
+        ],
+        "pads": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "strides": [
+          1,
+          1
+        ]
+      },
+      "id": "logits_domain",
+      "inputs": [
+        "conv4_pool",
+        "logits_domain.weight",
+        "logits_domain.bias"
+      ],
+      "lowering": "conv1x1_to_3x3_center_tap",
+      "metadata": {
+        "acc_bound": 613308,
+        "affine": true,
+        "affine_bias_folded": [
+          -344,
+          1739,
+          11999,
+          -9669,
+          -4874,
+          7015,
+          -44476,
+          6658,
+          -4941,
+          6832
+        ],
+        "affine_profile": "affine-int8-v1",
+        "affine_sum_w": [
+          -3,
+          12,
+          95,
+          -74,
+          -37,
+          54,
+          -348,
+          52,
+          -40,
+          53
+        ],
+        "deployment_node_id": "logits_domain",
+        "logical_cin": 32,
+        "logical_cout": 10,
+        "lowered_kernel_shape": [
+          3,
+          3
+        ],
+        "lowering": "conv1x1_to_3x3_center_tap",
+        "out_zero_point_s8": 0,
+        "quant_input_scale": 0.20283198356628418,
+        "relu": false,
+        "relu_threshold_s8": null,
+        "requant_records": [
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 0,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 1,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 2,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 3,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 4,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 5,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 6,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 7,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 8,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          },
+          {
+            "M0": 1857385077,
+            "SHIFT": 39,
+            "bias_scale": 0.0,
+            "oc": 9,
+            "out_zero_point": 0,
+            "relu": false,
+            "weight_scale": 0.004645296838134527
+          }
+        ],
+        "source_kernel": 1,
+        "source_kernel_shape": [
+          1,
+          1
+        ],
+        "source_op_type": "Conv",
+        "weight_scales": [
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527,
+          0.004645296838134527
+        ],
+        "x_zero_point_s8": -128
+      },
+      "metadata_only": false,
+      "name": "logits_domain",
+      "op_type": "Conv",
+      "order": 7,
+      "outputs": [
+        "logits_domain"
+      ],
+      "placement": "pl",
+      "source_index": 7
+    }
+  ],
+  "opset_imports": [
+    {
+      "domain": "",
+      "version": 13
+    }
+  ],
+  "outputs": [
+    "logits_domain"
+  ],
+  "schema": "e1-graph-ir-1",
+  "source": {
+    "format": "onnx_qdq",
+    "frontend_schema": "v0.2-yolo-affine-frontend-1",
+    "model_sha256": "6307d76855bbfda28d134e45842e003cb0beb52515c1b1b5cd6caac70e1907cc",
+    "profile": "affine-int8-v1"
+  },
+  "tensors": {
+    "__input__": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv1_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "input",
+      "layout": "NCHW",
+      "logical_bytes": null,
+      "name": "__input__",
+      "producer": null,
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.003921568859368563,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        1,
+        28,
+        28
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "conv1_activation": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv1_pool"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NCHW",
+      "logical_bytes": 6272,
+      "name": "conv1_activation",
+      "producer": "conv1_activation",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.009535158053040504,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        8,
+        28,
+        28
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "conv1_activation.bias": {
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv1_activation"
+        }
+      ],
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 32,
+      "name": "conv1_activation.bias",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv1_activation.weight": {
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv1_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 72,
+      "name": "conv1_activation.weight",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        8,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv1_pool": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv2_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NCHW",
+      "logical_bytes": 1568,
+      "name": "conv1_pool",
+      "producer": "conv1_pool",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.009535158053040504,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        8,
+        14,
+        14
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "conv2_activation": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv2_pool"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NCHW",
+      "logical_bytes": 3136,
+      "name": "conv2_activation",
+      "producer": "conv2_activation",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.04063800349831581,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        16,
+        14,
+        14
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "conv2_activation.bias": {
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv2_activation"
+        }
+      ],
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 64,
+      "name": "conv2_activation.bias",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv2_activation.weight": {
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv2_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 1152,
+      "name": "conv2_activation.weight",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        16,
+        8,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv2_pool": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv3_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NCHW",
+      "logical_bytes": 784,
+      "name": "conv2_pool",
+      "producer": "conv2_pool",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.04063800349831581,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        16,
+        7,
+        7
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "conv3_activation": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv4_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NCHW",
+      "logical_bytes": 384,
+      "name": "conv3_activation",
+      "producer": "conv3_activation",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.12967795133590698,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        24,
+        4,
+        4
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "conv3_activation.bias": {
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv3_activation"
+        }
+      ],
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 96,
+      "name": "conv3_activation.bias",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv3_activation.weight": {
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv3_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 3456,
+      "name": "conv3_activation.weight",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        24,
+        16,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv4_activation": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "conv4_pool"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NCHW",
+      "logical_bytes": 128,
+      "name": "conv4_activation",
+      "producer": "conv4_activation",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.20283198356628418,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        32,
+        2,
+        2
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "conv4_activation.bias": {
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "conv4_activation"
+        }
+      ],
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 128,
+      "name": "conv4_activation.bias",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv4_activation.weight": {
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "conv4_activation"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 6912,
+      "name": "conv4_activation.weight",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        32,
+        24,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "conv4_pool": {
+      "consumers": [
+        {
+          "input_index": 0,
+          "node": "logits_domain"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "intermediate",
+      "layout": "NCHW",
+      "logical_bytes": 32,
+      "name": "conv4_pool",
+      "producer": "conv4_pool",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.20283198356628418,
+        "zero_point": 0,
+        "zero_point_s8": -128,
+        "zero_point_u8": 0
+      },
+      "shape": [
+        1,
+        32,
+        1,
+        1
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "logits_domain": {
+      "consumers": [],
+      "dtype": "int8",
+      "kind": "output",
+      "layout": "NCHW",
+      "logical_bytes": 10,
+      "name": "logits_domain",
+      "producer": "logits_domain",
+      "quantization": {
+        "affine": true,
+        "dtype": "int8",
+        "materialized": true,
+        "profile": "affine-int8-v1",
+        "scale": 0.2788802683353424,
+        "zero_point": 0,
+        "zero_point_s8": 0,
+        "zero_point_u8": 128
+      },
+      "shape": [
+        1,
+        10,
+        1,
+        1
+      ],
+      "source": null,
+      "storage": null,
+      "storage_id": null
+    },
+    "logits_domain.bias": {
+      "consumers": [
+        {
+          "input_index": 2,
+          "node": "logits_domain"
+        }
+      ],
+      "dtype": "int32",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 40,
+      "name": "logits_domain.bias",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        10
+      ],
+      "source": {
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    },
+    "logits_domain.weight": {
+      "consumers": [
+        {
+          "input_index": 1,
+          "node": "logits_domain"
+        }
+      ],
+      "dtype": "int8",
+      "kind": "initializer",
+      "layout": "C",
+      "logical_bytes": 320,
+      "name": "logits_domain.weight",
+      "producer": null,
+      "quantization": null,
+      "shape": [
+        10,
+        32,
+        3,
+        3
+      ],
+      "source": {
+        "expanded_from_onnx_initializer": "logits_domain.weight",
+        "expanded_from_shape": [
+          10,
+          32,
+          1,
+          1
+        ],
+        "expansion": "center_tap_3x3",
+        "kind": "affine_initializer",
+        "values": []
+      },
+      "storage": null,
+      "storage_id": null
+    }
+  }
+}

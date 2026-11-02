@@ -1,0 +1,20 @@
+{
+  "schema": "spikformer-config-1",
+  "family": "spikformer-nlp-sentiment",
+  "batch": 1,
+  "seq_len": 32,
+  "vocab_size": 4000,
+  "embed": 128,
+  "heads": 4,
+  "head_dim": 32,
+  "mlp_hidden": 512,
+  "depth": 2,
+  "time_steps": 4,
+  "num_classes": 2,
+  "lif": {"tau": 2, "reset": 0, "init": 0},
+  "frontend": {"kind": "embed_spike", "pos_enc": "learned", "spike_code": "rate_repeat", "mask": "none", "note": "fixed length 32, pad spikes are zero by data"},
+  "input": {"source": "fixture", "normalize": "n/a", "note": "token ids seeded RNG"},
+  "checkpoint": {"kind": "missing", "bn_state": "absent", "note": "fixture params; real checkpoint later"},
+  "head": {"reduction": "sum", "norm": "ps_div", "note": "PL sum over T*N; PS divides then FP32 Linear+argmax"},
+  "target": {"part": "xczu15eg-ffvb1156-2-i", "tool": "Vivado 2021.1", "period_ns": 5}
+}

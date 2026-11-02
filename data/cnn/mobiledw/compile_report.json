@@ -1,0 +1,551 @@
+{
+  "command": "compile",
+  "dense": {
+    "mac_impl": 3,
+    "tm": 4,
+    "tn": 4
+  },
+  "depthwise": {
+    "abi": "depthwise-conv-v2",
+    "allocated_lanes": {
+      "mac": 16,
+      "rq": 2
+    },
+    "capacity_max_ch": 16,
+    "capacity_rule": "MAX_CH = max(graph-derived MAX_CH, align8(DW_PC))",
+    "dw_pc": 16,
+    "dw_rq_lanes": 2,
+    "dw_tap_parallel": 1,
+    "dw_used_by_graph": true,
+    "logical_channel_note": "DW_PC is a compute parallelism; it is not the logical channel count C of any graph layer",
+    "ngroups_formula": "Ng = Hout*Wout*ceil(C/DW_PC)",
+    "nodes": [
+      "block1_dw_activation",
+      "block2_dw_activation",
+      "block3_dw_activation",
+      "block4_dw_activation"
+    ],
+    "opcode": "0x001E",
+    "records": 4,
+    "requested_capacity_max_ch": 16,
+    "source_root": "D:\\dl_v1\\examples\\temp\\depthwise_v2_20261030_113505",
+    "v2_enabled": true
+  },
+  "engine_capacity": {
+    "activation": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "copy": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "max over real Pad/Slice/Concat in+out rows of align16(align8(C)*W); never MAX_CH*MAX_W",
+      "streaming": false,
+      "used_by_graph": false
+    },
+    "dense": {
+      "expanded": true,
+      "max_cin": 16,
+      "max_cout": 16,
+      "max_h": 32,
+      "max_w": 32,
+      "used_by_graph": true
+    },
+    "depthwise": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "eltwise": {
+      "expanded": true,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_w": 1,
+      "streaming": true,
+      "used_by_graph": false
+    },
+    "int8_mul": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "maxpool2d": {
+      "cache_rows": 2,
+      "expanded": true,
+      "in_row_bytes": 512,
+      "logical_storage_bytes": 1280,
+      "max_ch": 16,
+      "max_eh": 2,
+      "max_h": 32,
+      "max_w": 32,
+      "out_row_bytes": 256,
+      "streaming": false,
+      "used_by_graph": true
+    },
+    "pool2x2": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "pool5": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "max_ch": 8,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "real align16(align8(C)*W) row",
+      "streaming": false,
+      "used_by_graph": false
+    },
+    "reduce": {
+      "expanded": false,
+      "max_ch": 8,
+      "max_h": 0,
+      "max_w": 32,
+      "reason": "not used by the affine graph",
+      "used_by_graph": false
+    },
+    "resize": {
+      "expanded": true,
+      "in_row_bytes": 0,
+      "input_axis_limit": 320,
+      "max_ch": 1,
+      "max_h": 1,
+      "max_row_bytes": 0,
+      "max_w": 1,
+      "out_max_h": 1,
+      "out_max_w": 1,
+      "out_row_bytes": 0,
+      "row_capacity_rule": "input row align16(align8(C)*W) line buffer + x2 output row extent",
+      "streaming": false,
+      "used_by_graph": false
+    }
+  },
+  "engine_profile": {
+    "provenance": {
+      "default_profile": "dw_c8_t1_q1",
+      "legal_depthwise": {
+        "combination_rule": "PC=4 -> RQ=1; PC=8 -> RQ=1; PC=16 -> RQ=1 or 2",
+        "pc": [
+          4,
+          8,
+          16
+        ],
+        "rq_lanes": [
+          1,
+          2
+        ],
+        "tap_parallel_assessed_not_implemented": [
+          3
+        ],
+        "tap_parallel_implemented": [
+          1
+        ]
+      }
+    },
+    "requested": {
+      "kind": "flags",
+      "overrides": {
+        "depthwise.pc": 16,
+        "depthwise.rq_lanes": 2,
+        "depthwise.tap_parallel": 1
+      },
+      "ref": null
+    },
+    "resolved": {
+      "activation": {
+        "kind": "lut8"
+      },
+      "dense": {
+        "mac_impl": 3,
+        "tm": 4,
+        "tn": 4
+      },
+      "depthwise": {
+        "pc": 16,
+        "rq_lanes": 2,
+        "tap_parallel": 1
+      },
+      "name": "custom:b324cc577431",
+      "schema": "e1-engine-profile-1"
+    },
+    "schema": "e1-engine-profile-1",
+    "sha256": "0acc3997f5380b8716c1f847a8d16e86a9eca49577c2588fbb5e0aa59bf24a8c"
+  },
+  "engine_pruning": "graph",
+  "gates": {
+    "affine_frontend": "pass",
+    "board": "not_run",
+    "codegen": "pass",
+    "engine_parameters": "pass",
+    "engine_verification": "not_run",
+    "frontend": "pass",
+    "lowering": "pass",
+    "memory_planning": "pass",
+    "parameter_pack": "pass",
+    "quant_contract": "pass",
+    "reference": "pass",
+    "reserved_engines": "not_used_by_graph",
+    "rtl": "not_run",
+    "spatial_capacity": "pass"
+  },
+  "generated_parameters": {
+    "ACT_MAX_CH": 8,
+    "ACT_MAX_H": 0,
+    "ACT_MAX_W": 32,
+    "CLAMP_MIN_EN": 1,
+    "COPY_MAX_CH": 1,
+    "COPY_MAX_H": 1,
+    "COPY_MAX_ROW_BYTES": 0,
+    "COPY_MAX_W": 1,
+    "DENSE_LINE_ROW_BYTES": 512,
+    "DENSE_MAX_WEIGHT_TILES": 4,
+    "DENSE_OUT_ROW_BYTES": 512,
+    "DENSE_WEIGHT_READ_PORTS": 1,
+    "DW_MAX_W": 32,
+    "DW_PC": 16,
+    "DW_RQ_LANES": 2,
+    "DW_TAP_PARALLEL": 1,
+    "DW_V2_MAX_CH": 16,
+    "DW_V2_MAX_IN_ROW_BYTES": 512,
+    "DW_V2_MAX_OUT_ROW_BYTES": 512,
+    "ENABLE_DEPTHWISE": 0,
+    "ENABLE_DEPTHWISE_V2": 1,
+    "MAC_IMPL": 3,
+    "MAX_CH": 16,
+    "MAX_CIN": 16,
+    "MAX_COUT": 16,
+    "MAX_H": 32,
+    "MAX_W": 32,
+    "PHYSICAL_ENGINE_MASK": 12557,
+    "POOL2D_CACHE_ROWS": 2,
+    "POOL2D_MAX_EH": 2,
+    "POOL2D_MAX_IN_ROW_BYTES": 512,
+    "POOL2D_MAX_OUT_ROW_BYTES": 256,
+    "POOL5_MAX_CH": 8,
+    "POOL5_MAX_H": 1,
+    "POOL5_MAX_ROW_BYTES": 16,
+    "POOL5_MAX_W": 1,
+    "POOL_MAX_H": 0,
+    "POOL_MAX_W": 32,
+    "RESIZE_MAX_CH": 1,
+    "RESIZE_MAX_H": 1,
+    "RESIZE_MAX_IN_ROW_BYTES": 16,
+    "RESIZE_MAX_OUT_ROW_BYTES": 32,
+    "RESIZE_MAX_W": 1,
+    "TM": 4,
+    "TN": 4,
+    "WEIGHT_MODE": 0
+  },
+  "graph_digest": "4b7f5a9decae77cec082a699113d0abea73c37a0fb539afdd7f437062164bf0e",
+  "manifest": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\toolchain_compile_tn4_tm4_dw16_rq2\\compile_manifest.json",
+  "memory_limits": {
+    "arena_bytes": 114688,
+    "ddr_guard_bytes": 65536,
+    "image_bytes": 155648,
+    "mem_bytes": 262144,
+    "mem_words": 16384,
+    "schema": "e1-spatial-memory-limits-1",
+    "sim_ddr_limit_bytes": 268435456,
+    "sim_ddr_limit_mib": 256,
+    "snapshot_chunk_bytes": 8192,
+    "snapshot_max_bytes": 16384,
+    "tb_max_snaps": 64,
+    "tb_mem_bytes": 262144,
+    "tb_mem_words": 16384,
+    "tb_params": "generated/tb_params.vh",
+    "tb_snap_chunk": 8192,
+    "tb_watchdog_cycles": 20000000
+  },
+  "out_dir": "D:\\dl_v1\\examples\\temp\\mobiledw32_cifar10_20261030\\artifacts\\toolchain_compile_tn4_tm4_dw16_rq2",
+  "records": 14,
+  "reference_cache": null,
+  "reference_cache_request": {
+    "dir": null,
+    "enabled": false,
+    "mode": null
+  },
+  "requested": {
+    "compute_profile": null,
+    "dense_overrides": {
+      "mac_impl": 3,
+      "tm": 4,
+      "tn": 4
+    },
+    "depthwise_overrides": {
+      "pc": 16,
+      "rq_lanes": 2,
+      "tap_parallel": 1
+    },
+    "depthwise_v2": true,
+    "engine_profile": null,
+    "fragment_input_rows": null,
+    "fragment_nodes": null,
+    "max_feature_height": null,
+    "max_feature_width": null,
+    "memory_profile": "first_fit",
+    "numeric_profile": "affine-int8-v1",
+    "sim_ddr_limit_mib": null,
+    "target": null
+  },
+  "schema": "e1-compile-cli-1",
+  "simulation_budget": {
+    "cycle_upper_bound_estimate": 381376,
+    "performance_claim": "none; simulation budget only",
+    "transaction_beats_estimate": 7604,
+    "watchdog_cycles": 20000000,
+    "watchdog_rule": "watchdog = max(20e6, 8*(2*issue_estimate + 2*beat_estimate + 4096)); derived from independent work/transaction counts, not tuned to a run",
+    "work_issues_estimate": 14184
+  },
+  "spatial_capacity": {
+    "allocated": {
+      "height": 32,
+      "width": 32
+    },
+    "capability_version": "affine-int8-v1",
+    "engine_capacity": {
+      "activation": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "copy": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "max over real Pad/Slice/Concat in+out rows of align16(align8(C)*W); never MAX_CH*MAX_W",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "dense": {
+        "expanded": true,
+        "max_cin": 16,
+        "max_cout": 16,
+        "max_h": 32,
+        "max_w": 32,
+        "used_by_graph": true
+      },
+      "depthwise": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "eltwise": {
+        "expanded": true,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_w": 1,
+        "streaming": true,
+        "used_by_graph": false
+      },
+      "int8_mul": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "maxpool2d": {
+        "cache_rows": 2,
+        "expanded": true,
+        "in_row_bytes": 512,
+        "logical_storage_bytes": 1280,
+        "max_ch": 16,
+        "max_eh": 2,
+        "max_h": 32,
+        "max_w": 32,
+        "out_row_bytes": 256,
+        "streaming": false,
+        "used_by_graph": true
+      },
+      "pool2x2": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "pool5": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "max_ch": 8,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "real align16(align8(C)*W) row",
+        "streaming": false,
+        "used_by_graph": false
+      },
+      "reduce": {
+        "expanded": false,
+        "max_ch": 8,
+        "max_h": 0,
+        "max_w": 32,
+        "reason": "not used by the affine graph",
+        "used_by_graph": false
+      },
+      "resize": {
+        "expanded": true,
+        "in_row_bytes": 0,
+        "input_axis_limit": 320,
+        "max_ch": 1,
+        "max_h": 1,
+        "max_row_bytes": 0,
+        "max_w": 1,
+        "out_max_h": 1,
+        "out_max_w": 1,
+        "out_row_bytes": 0,
+        "row_capacity_rule": "input row align16(align8(C)*W) line buffer + x2 output row extent",
+        "streaming": false,
+        "used_by_graph": false
+      }
+    },
+    "engine_row_capacity": {
+      "dense": {
+        "in_row_beats": 32,
+        "in_row_bytes": 512,
+        "max_weight_tiles": 4,
+        "out_row_beats": 32,
+        "out_row_bytes": 512
+      },
+      "maxpool2d": {
+        "cache_rows": 2,
+        "in_row_beats": 32,
+        "in_row_bytes": 512,
+        "logical_storage_bytes": 1280,
+        "max_ch": 16,
+        "max_eh": 2,
+        "max_h": 32,
+        "max_w": 32,
+        "out_row_beats": 16,
+        "out_row_bytes": 256
+      }
+    },
+    "memory_limits": {
+      "arena_bytes": 114688,
+      "ddr_guard_bytes": 65536,
+      "image_bytes": 155648,
+      "mem_bytes": 262144,
+      "mem_words": 16384,
+      "schema": "e1-spatial-memory-limits-1",
+      "sim_ddr_limit_bytes": 268435456,
+      "sim_ddr_limit_mib": 256,
+      "snapshot_chunk_bytes": 8192,
+      "snapshot_max_bytes": 16384,
+      "tb_max_snaps": 64,
+      "tb_mem_bytes": 262144,
+      "tb_mem_words": 16384,
+      "tb_params": "generated/tb_params.vh",
+      "tb_snap_chunk": 8192,
+      "tb_watchdog_cycles": 20000000
+    },
+    "mode": "graph_derived",
+    "requested": {
+      "max_feature_height": "auto",
+      "max_feature_width": "auto"
+    },
+    "required": {
+      "height": 32,
+      "width": 32
+    },
+    "row_budget": {
+      "dense_max_in_row_bytes": 512,
+      "dense_max_out_row_bytes": 512,
+      "dense_max_weight_tiles": 4
+    },
+    "schema": "e1-affine-capacity-1",
+    "scope": "materialized_runtime_activation_tensors",
+    "simulation_budget": {
+      "cycle_upper_bound_estimate": 381376,
+      "performance_claim": "none; simulation budget only",
+      "transaction_beats_estimate": 7604,
+      "watchdog_cycles": 20000000,
+      "watchdog_rule": "watchdog = max(20e6, 8*(2*issue_estimate + 2*beat_estimate + 4096)); derived from independent work/transaction counts, not tuned to a run",
+      "work_issues_estimate": 14184
+    }
+  },
+  "status": "pass",
+  "target": {
+    "evidence": [
+      {
+        "ref": "build/onnx_e1/depthwise_performance_20261024_201800_a1/contracts/benchmark_contract.json",
+        "scope": "part, 5 ns clock, 128-bit AXI, nominal memory service model"
+      },
+      {
+        "ref": "docs/E1_DEPTHWISE_PERFORMANCE_AND_PROFILES_PLAN_20261024.md section 5.1",
+        "scope": "target description fields and unknown-board-bandwidth rule"
+      },
+      {
+        "ref": "build/onnx_e1/lut_activation_20261024_145300_6206",
+        "scope": "historical project_2 route-only 5 ns evidence for the same part/clock; not re-run and not extended by this batch"
+      }
+    ],
+    "hash": "8c7c2e2d1f01b944256f4bda50636e318359902e4a2b1a51b2994aaab995575b",
+    "qualification": "target identity only; rtl/ooc/platform/board are separate findings recorded in the run",
+    "requested": {
+      "id": "project2_zu15eg_200mhz",
+      "kind": "default"
+    },
+    "resolved": {
+      "axi_data_width": 128,
+      "clock_mhz": 200.0,
+      "clock_ns": 5.0,
+      "id": "project2_zu15eg_200mhz",
+      "memory_service_model": {
+        "board_ddr_bandwidth": "unknown",
+        "contract_ref": "build/onnx_e1/depthwise_performance_20261024_201800_a1/contracts/benchmark_contract.json#/memory_service_model_nominal",
+        "mode": "nominal_bench_contract",
+        "note": "RTL service model frozen in the benchmark contract; NOT a measured board DDR bandwidth and never used to predict board FPS"
+      },
+      "part": "xczu15eg-ffvb1156-2-i",
+      "part_family": "xczu15eg",
+      "platform": {
+        "name": "project_2",
+        "project": "e1_project2",
+        "status_scope": "target identity only; physical/board qualification is recorded in the owning run, never inferred here"
+      },
+      "resource_budget": {
+        "bram36_equiv": 744,
+        "dsp": 3528,
+        "ff": 682560,
+        "lut": 341280,
+        "lutram": 184320,
+        "uram": 112
+      }
+    },
+    "schema": "e1-target-1"
+  }
+}

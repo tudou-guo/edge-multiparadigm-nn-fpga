@@ -1,0 +1,28 @@
+{
+  "schema": "e1-compute-profile-1",
+  "name": "tn8_tm16",
+  "part": "xczu15eg-ffvb1156-2-i",
+  "clock_period_ns": 5,
+  "tn": 8,
+  "tm": 16,
+  "mac_impl": 3,
+  "weight_mode": 0,
+  "capacity_limit": {
+    "max_w": 32,
+    "max_cin": 16,
+    "max_cout": 16,
+    "max_ch": 16
+  },
+  "budget": {
+    "dsp_array_estimate": 576,
+    "dsp_total_max": 3528,
+    "lut_max": 341280,
+    "ff_max": 682560,
+    "lutram_max": 184320,
+    "bram36_equiv_max": 744,
+    "uram_max": 112
+  },
+  "default_status": "unverified",
+  "historical_evidence": [],
+  "internal": true
+}

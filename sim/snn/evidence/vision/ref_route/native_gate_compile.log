@@ -1,0 +1,16 @@
+Reading pref.tcl
+
+# 2020.4
+
+# do compile_ref_native.do
+# D:/dl_snn
+# ** Warning: (vlib-34) Library already exists at "work_native".
+# Errors: 0, Warnings: 1
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(26): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(56): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(57): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(57): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(58): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+COMPILE_REF_NATIVE_DONE
+#  quit -f

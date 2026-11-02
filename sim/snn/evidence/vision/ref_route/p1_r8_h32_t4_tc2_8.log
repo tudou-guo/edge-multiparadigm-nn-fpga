@@ -1,0 +1,1250 @@
+# vsim -c -voptargs="+acc" -work work tb_sps_ref_small_h32_t4_tc2_8 -l D:/dl_snn/build/spikformer/vision_ref_20261031/sim/p1_r8_h32_t4_tc2_8.log -do "run 400ms; quit -f" 
+# Start time: 16:59:34 on Oct 31,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 447 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 432 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 463 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 448 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 479 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 464 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 495 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 480 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) Start index 511 of part-select into 'idata' is out of bounds.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vopt-2697) End index 496 of part-select into 'idata' is out of bounds.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spiking_eyeriss_array(fast)".
+# ** Note: (vopt-143) Recognized 5 FSMs in module "spiking_sps_ref_ctrl(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spiking_rgb_encoder(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spiking_sps_psum(fast)".
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2685) [TFMPC] - Too few port connections for 'u_enc'.  Expected 15, found 14.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'o_beat_last'.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2685) [TFMPC] - Too few port connections for 'u_ctrl'.  Expected 65, found 64.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_sps_ref_top.sv(95): (vopt-2718) [TFMPC] - Missing connection for port 'o_dbg_c2w'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=14.
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sps_ref_small_h32_t4_tc2_8(fast)
+# Loading work.spiking_sps_ref_top(fast)
+# Loading work.spiking_rgb_encoder(fast)
+# Loading work.spiking_adder_tree(fast)
+# Loading work.spiking_lif_group(fast)
+# Loading work.spiking_eyeriss_array(fast)
+# Loading work.spiking_eyeriss_pe(fast)
+# Loading work.spiking_sps_psum(fast)
+# Loading work.spiking_feature_bram(fast)
+# Loading work.spiking_sps_ref_ctrl(fast)
+# Loading work.spiking_sps_token_adapter(fast)
+# run 400ms
+# EXPB0 f f f f f f 0 0
+# ENCPSUM pos=0 oc=0 psum=4329
+# ENCPSUM pos=0 oc=1 psum=-654
+# ENCPSUM pos=0 oc=2 psum=1079
+# ENCPSUM pos=0 oc=3 psum=1835
+# ENCPSUM pos=0 oc=4 psum=1247
+# ENCPSUM pos=0 oc=5 psum=7998
+# ENCPSUM pos=0 oc=6 psum=17519
+# ENCPSUM pos=0 oc=7 psum=30
+# ENCBEAT n=0 data=0fffff0f
+# ENCPSUM pos=0 oc=8 psum=8855
+# ENCPSUM pos=0 oc=9 psum=-2073
+# ENCPSUM pos=0 oc=10 psum=7201
+# ENCPSUM pos=0 oc=11 psum=10931
+# ENCPSUM pos=0 oc=12 psum=1728
+# ENCPSUM pos=0 oc=13 psum=-3564
+# ENCPSUM pos=0 oc=14 psum=-868
+# ENCPSUM pos=0 oc=15 psum=9129
+# ENCBEAT n=1 data=f00fff0f
+# ENCPSUM pos=1 oc=0 psum=6391
+# ENCPSUM pos=1 oc=1 psum=-2683
+# ENCPSUM pos=1 oc=2 psum=10724
+# ENCPSUM pos=1 oc=3 psum=8239
+# ENCBEAT n=2 data=0f0fff0f
+# ENCBEAT n=3 data=0000f00f
+# ENCBEAT n=4 data=00000f0f
+# ENCBEAT n=5 data=f000ff0f
+# ENCBEAT n=6 data=0f0fff0a
+# ENCBEAT n=7 data=ff00f00f
+# ARRRES t=2703445000 pos=0 grp=0 first=1 last=0 data=fffaf7ffd67ffebdfff59fff9efffd3bffe7bfff4efffa37ffcb7ffe8dfff2d0002380010c0008e00043ffffe00008bffff8000220005a0003a000168000e8fffea7fff93fffa9fffe4fffd6fffddffff5bfff77
+# ARRRES t=2703675000 pos=1 grp=0 first=1 last=0 data=fffe9fffe9bfffa7fffa6fff92fffcafffe4bfff2bfffee000013fffb80000400031800160000c600058000340000d4000d000035000c0800678003020019e000097fff6c00025fffdbfff7e7ffb23ffdf9ffec8
+# ARRRES t=2703905000 pos=2 grp=0 first=1 last=0 data=fffe2ffffbbfff8bfffeefffb7fffeafffedffffabfffb6fffe43ffedbfff9000009fffff400027ffffd0002a0000e8000a80003a000bb800534002ee0014dfffd77ffec3fff5dfffb0fffecffff2ffffb3fffcb
+# ARRRES t=2704135000 pos=3 grp=0 first=1 last=0 data=fffecfffdebfffb3fffb3fff7a7ffad3ffde9ffed1fff6afffb27ffdabffeb20002e0002b4000b800070fffe1fffe6bfff87fff83000e080082c00382001defffcd7ffe73fff35fff8bfffcffffee7fff3ffffab
+# ARRRES t=2704365000 pos=4 grp=0 first=1 last=0 data=fffa47ffc67ffe91fff40fff877ffca7ffe1dfff3bfffe7ffff0bfff9ffffeb0003b800184000ee0006300005ffffc4000160001d000aa8005f0002aa00144000220001740008800065fffa8fffbf3ffea3fff11
+# ARRRES t=2704595000 pos=5 grp=0 first=1 last=0 data=fffb3fffdcbffecffff80fff70fffb67ffdc3ffec5fffb8ffff33ffee3fffb1000148002380005200057000188001d0000620004c0009e00055000278001780000cffff8800033fffeafffd37ffefbfff4dfffc8
+# ARRRES t=2704825000 pos=6 grp=0 first=1 last=0 data=fffb3fffd9fffecffff67fff70fffb87ffdc3ffee1fffb8fffdc7ffee3fff71000148000a40005200029000188000c400062000310009e0004f0002780013c0000c8000640003200019fffd37ffe9bfff4dfffa6
+# ARRRES t=2705055000 pos=7 grp=0 first=1 last=0 data=fffb3fffd9fffecffff67fff70fffb87ffdc3ffee1fffb8fffdc7ffee3fff71000148000a40005200029000188000c400062000310009e0004f0002780013c0000c8000640003200019fffd37ffe9bfff4dfffa6
+# ARRRES t=2705285000 pos=8 grp=0 first=1 last=0 data=fffd3fffe9ffff4ffffa7fff737ffb9bffdcdffee6fffc47ffe23fff11fff88000158000ac000560002b0001f8000fc0007e0003f000ba8005d4002ea00175000100000800004000020fffd1fffe8ffff47fffa3
+# ARRRES t=2705515000 pos=9 grp=0 first=1 last=0 data=fffc87ffe43fff21fff90fff94fffca7ffe53fff29fffbafffdd7ffeebfff7500030000180000c0000600000780003c0001e0000f000a380051c0028e00147fffe97fff4bfffa5fffd2ffffdffffefffff7ffffb
+# ARRRES t=2705745000 pos=10 grp=0 first=1 last=0 data=fffc77ffe3bfff1dfff8efff5e7ffaf3ffd79ffebcfffcefffe77fff3bfff9d0005380029c0014e000a7ffffcffffe7ffff3ffff9000dc0006e000370001b80000d80006c000360001bfffb07ffd83ffec1fff60
+# ARRRES t=2705975000 pos=11 grp=0 first=1 last=0 data=fffa6fffd37ffe9bfff4dfff627ffb13ffd89ffec4fffaefffd77ffebbfff5d0003a0001d0000e800074ffff1ffff8ffffc7fffe30010400082000410002080000f0000780003c0001efffb37ffd9bffecdfff66
+# CAP pos=0 grp=0 idx=0 data=0000fffa
+# PSUMBEAT pos=0 grp=0 data=0000fffa
+# CAP pos=1 grp=0 idx=1 data=00ffff00
+# PSUMBEAT pos=1 grp=0 data=00ffff00
+# CAP pos=2 grp=0 idx=2 data=005fff00
+# PSUMBEAT pos=2 grp=0 data=005fff00
+# CAP pos=3 grp=0 idx=3 data=000fef00
+# PSUMBEAT pos=3 grp=0 data=000fef00
+# CAP pos=4 grp=0 idx=4 data=005fff00
+# PSUMBEAT pos=4 grp=0 data=005fff00
+# CAP pos=5 grp=0 idx=5 data=000fff00
+# PSUMBEAT pos=5 grp=0 data=000fff00
+# CAP pos=6 grp=0 idx=6 data=000fff00
+# PSUMBEAT pos=6 grp=0 data=000fff00
+# CAP pos=7 grp=0 idx=7 data=000fff00
+# PSUMBEAT pos=7 grp=0 data=000fff00
+# CAP pos=8 grp=0 idx=8 data=000fff00
+# PSUMBEAT pos=8 grp=0 data=000fff00
+# CAP pos=9 grp=0 idx=9 data=0040ff00
+# PSUMBEAT pos=9 grp=0 data=0040ff00
+# CAP pos=10 grp=0 idx=10 data=00afff00
+# PSUMBEAT pos=10 grp=0 data=00afff00
+# CAP pos=11 grp=0 idx=11 data=000fff00
+# PSUMBEAT pos=11 grp=0 data=000fff00
+# CAP pos=12 grp=0 idx=12 data=000ffff0
+# PSUMBEAT pos=12 grp=0 data=000ffff0
+# CAP pos=13 grp=0 idx=13 data=00afff00
+# PSUMBEAT pos=13 grp=0 data=00afff00
+# CAP pos=14 grp=0 idx=14 data=000fff05
+# PSUMBEAT pos=14 grp=0 data=000fff05
+# CAP pos=15 grp=0 idx=15 data=f0afff00
+# PSUMBEAT pos=15 grp=0 data=f0afff00
+# C2W_ENTRY g=0 fpr=0 p2row0=050000000000000a p2row1=000f00000000000f p2cnt=16
+# CAP pos=16 grp=0 idx=0 data=00f0f00f
+# PSUMBEAT pos=16 grp=0 data=00f0f00f
+# CAP pos=17 grp=0 idx=1 data=00ffff00
+# PSUMBEAT pos=17 grp=0 data=00ffff00
+# CAP pos=18 grp=0 idx=2 data=00f4ff00
+# PSUMBEAT pos=18 grp=0 data=00f4ff00
+# CAP pos=19 grp=0 idx=3 data=00ffff00
+# PSUMBEAT pos=19 grp=0 data=00ffff00
+# CAP pos=20 grp=0 idx=4 data=00ffff00
+# PSUMBEAT pos=20 grp=0 data=00ffff00
+# CAP pos=21 grp=0 idx=5 data=00ffff00
+# PSUMBEAT pos=21 grp=0 data=00ffff00
+# CAP pos=22 grp=0 idx=6 data=00f0ff00
+# PSUMBEAT pos=22 grp=0 data=00f0ff00
+# CAP pos=23 grp=0 idx=7 data=00ffff00
+# PSUMBEAT pos=23 grp=0 data=00ffff00
+# CAP pos=24 grp=0 idx=8 data=00f0ff00
+# PSUMBEAT pos=24 grp=0 data=00f0ff00
+# CAP pos=25 grp=0 idx=9 data=00ffff00
+# PSUMBEAT pos=25 grp=0 data=00ffff00
+# CAP pos=26 grp=0 idx=10 data=00ffff00
+# PSUMBEAT pos=26 grp=0 data=00ffff00
+# CAP pos=27 grp=0 idx=11 data=00ffff00
+# PSUMBEAT pos=27 grp=0 data=00ffff00
+# CAP pos=28 grp=0 idx=12 data=00ffff00
+# PSUMBEAT pos=28 grp=0 data=00ffff00
+# CAP pos=29 grp=0 idx=13 data=00faff00
+# PSUMBEAT pos=29 grp=0 data=00faff00
+# CAP pos=30 grp=0 idx=14 data=00ffff00
+# PSUMBEAT pos=30 grp=0 data=00ffff00
+# CAP pos=31 grp=0 idx=15 data=00ffff00
+# PSUMBEAT pos=31 grp=0 data=00ffff00
+# C2W_ENTRY g=0 fpr=1 p2row0=000000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=32 grp=0 idx=0 data=00f0f00f
+# PSUMBEAT pos=32 grp=0 data=00f0f00f
+# CAP pos=33 grp=0 idx=1 data=00ffff00
+# PSUMBEAT pos=33 grp=0 data=00ffff00
+# CAP pos=34 grp=0 idx=2 data=00ffff00
+# PSUMBEAT pos=34 grp=0 data=00ffff00
+# CAP pos=35 grp=0 idx=3 data=00ffff00
+# PSUMBEAT pos=35 grp=0 data=00ffff00
+# CAP pos=36 grp=0 idx=4 data=00feff00
+# PSUMBEAT pos=36 grp=0 data=00feff00
+# CAP pos=37 grp=0 idx=5 data=00ffff00
+# PSUMBEAT pos=37 grp=0 data=00ffff00
+# CAP pos=38 grp=0 idx=6 data=00faff0f
+# PSUMBEAT pos=38 grp=0 data=00faff0f
+# CAP pos=39 grp=0 idx=7 data=005fff00
+# PSUMBEAT pos=39 grp=0 data=005fff00
+# CAP pos=40 grp=0 idx=8 data=00f5ff00
+# PSUMBEAT pos=40 grp=0 data=00f5ff00
+# CAP pos=41 grp=0 idx=9 data=00f5ff00
+# PSUMBEAT pos=41 grp=0 data=00f5ff00
+# CAP pos=42 grp=0 idx=10 data=00f4ff00
+# PSUMBEAT pos=42 grp=0 data=00f4ff00
+# CAP pos=43 grp=0 idx=11 data=00ffff00
+# PSUMBEAT pos=43 grp=0 data=00ffff00
+# CAP pos=44 grp=0 idx=12 data=00ffff00
+# PSUMBEAT pos=44 grp=0 data=00ffff00
+# CAP pos=45 grp=0 idx=13 data=00ffff04
+# PSUMBEAT pos=45 grp=0 data=00ffff04
+# CAP pos=46 grp=0 idx=14 data=00ffff00
+# PSUMBEAT pos=46 grp=0 data=00ffff00
+# CAP pos=47 grp=0 idx=15 data=00ffff00
+# PSUMBEAT pos=47 grp=0 data=00ffff00
+# C2W_ENTRY g=0 fpr=2 p2row0=004000000f00000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=48 grp=0 idx=0 data=0000f00f
+# PSUMBEAT pos=48 grp=0 data=0000f00f
+# CAP pos=49 grp=0 idx=1 data=00f0ff00
+# PSUMBEAT pos=49 grp=0 data=00f0ff00
+# CAP pos=50 grp=0 idx=2 data=00f0ff04
+# PSUMBEAT pos=50 grp=0 data=00f0ff04
+# CAP pos=51 grp=0 idx=3 data=00f5ff00
+# PSUMBEAT pos=51 grp=0 data=00f5ff00
+# CAP pos=52 grp=0 idx=4 data=00f4ff00
+# PSUMBEAT pos=52 grp=0 data=00f4ff00
+# CAP pos=53 grp=0 idx=5 data=00ffff00
+# PSUMBEAT pos=53 grp=0 data=00ffff00
+# CAP pos=54 grp=0 idx=6 data=00ffff00
+# PSUMBEAT pos=54 grp=0 data=00ffff00
+# CAP pos=55 grp=0 idx=7 data=00fff500
+# PSUMBEAT pos=55 grp=0 data=00fff500
+# CAP pos=56 grp=0 idx=8 data=00ffff00
+# PSUMBEAT pos=56 grp=0 data=00ffff00
+# CAP pos=57 grp=0 idx=9 data=00faff00
+# PSUMBEAT pos=57 grp=0 data=00faff00
+# CAP pos=58 grp=0 idx=10 data=00ffff00
+# PSUMBEAT pos=58 grp=0 data=00ffff00
+# CAP pos=59 grp=0 idx=11 data=00ffff00
+# PSUMBEAT pos=59 grp=0 data=00ffff00
+# CAP pos=60 grp=0 idx=12 data=00f0ff00
+# PSUMBEAT pos=60 grp=0 data=00f0ff00
+# CAP pos=61 grp=0 idx=13 data=00ffff00
+# PSUMBEAT pos=61 grp=0 data=00ffff00
+# CAP pos=62 grp=0 idx=14 data=00ffff00
+# PSUMBEAT pos=62 grp=0 data=00ffff00
+# CAP pos=63 grp=0 idx=15 data=f0ffff00
+# PSUMBEAT pos=63 grp=0 data=f0ffff00
+# C2W_ENTRY g=0 fpr=3 p2row0=000000000000040f p2row1=0000000000000000 p2cnt=16
+# CAP pos=64 grp=0 idx=0 data=00f0f00f
+# CAP pos=65 grp=0 idx=1 data=00ffff00
+# CAP pos=66 grp=0 idx=2 data=00ffff00
+# CAP pos=67 grp=0 idx=3 data=00f5ff00
+# CAP pos=68 grp=0 idx=4 data=00ffff00
+# CAP pos=69 grp=0 idx=5 data=00ffff00
+# CAP pos=70 grp=0 idx=6 data=00faff00
+# CAP pos=71 grp=0 idx=7 data=00faff00
+# CAP pos=72 grp=0 idx=8 data=00ffff00
+# CAP pos=73 grp=0 idx=9 data=00f0ff00
+# CAP pos=74 grp=0 idx=10 data=00ffff00
+# CAP pos=75 grp=0 idx=11 data=00faff00
+# CAP pos=76 grp=0 idx=12 data=00f8ff00
+# CAP pos=77 grp=0 idx=13 data=00ffff00
+# CAP pos=78 grp=0 idx=14 data=00ffff00
+# CAP pos=79 grp=0 idx=15 data=a0ffff00
+# C2W_ENTRY g=0 fpr=4 p2row0=000000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=80 grp=0 idx=0 data=00fffa0f
+# CAP pos=81 grp=0 idx=1 data=00ffff00
+# CAP pos=82 grp=0 idx=2 data=00ffff00
+# CAP pos=83 grp=0 idx=3 data=00f0ff00
+# CAP pos=84 grp=0 idx=4 data=00f0ff00
+# CAP pos=85 grp=0 idx=5 data=00ffff00
+# CAP pos=86 grp=0 idx=6 data=00ffff00
+# CAP pos=87 grp=0 idx=7 data=00ffff00
+# CAP pos=88 grp=0 idx=8 data=00ffff00
+# CAP pos=89 grp=0 idx=9 data=00ffff00
+# CAP pos=90 grp=0 idx=10 data=00ffff00
+# CAP pos=91 grp=0 idx=11 data=00faff00
+# CAP pos=92 grp=0 idx=12 data=00f0ff00
+# CAP pos=93 grp=0 idx=13 data=00ffff00
+# CAP pos=94 grp=0 idx=14 data=00f0ff00
+# CAP pos=95 grp=0 idx=15 data=00f0ff00
+# C2W_ENTRY g=0 fpr=5 p2row0=000000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=96 grp=0 idx=0 data=00f0f004
+# CAP pos=97 grp=0 idx=1 data=00ffff00
+# CAP pos=98 grp=0 idx=2 data=00faff00
+# CAP pos=99 grp=0 idx=3 data=00ffff00
+# CAP pos=100 grp=0 idx=4 data=00ffff00
+# CAP pos=101 grp=0 idx=5 data=00ffff0f
+# CAP pos=102 grp=0 idx=6 data=00ffff00
+# CAP pos=103 grp=0 idx=7 data=00f0ff00
+# CAP pos=104 grp=0 idx=8 data=00a0ff00
+# CAP pos=105 grp=0 idx=9 data=00f0ff00
+# CAP pos=106 grp=0 idx=10 data=00faff00
+# CAP pos=107 grp=0 idx=11 data=00ffff00
+# CAP pos=108 grp=0 idx=12 data=00ffff00
+# CAP pos=109 grp=0 idx=13 data=00ffff00
+# CAP pos=110 grp=0 idx=14 data=00ffff00
+# CAP pos=111 grp=0 idx=15 data=00ffff00
+# C2W_ENTRY g=0 fpr=6 p2row0=0000000000f00004 p2row1=0000000000000000 p2cnt=16
+# CAP pos=112 grp=0 idx=0 data=0000f00f
+# CAP pos=113 grp=0 idx=1 data=00ffff00
+# CAP pos=114 grp=0 idx=2 data=00ffff00
+# CAP pos=115 grp=0 idx=3 data=00ffff00
+# CAP pos=116 grp=0 idx=4 data=00ffff00
+# CAP pos=117 grp=0 idx=5 data=00ffff00
+# CAP pos=118 grp=0 idx=6 data=00ffff00
+# CAP pos=119 grp=0 idx=7 data=00f0ff00
+# CAP pos=120 grp=0 idx=8 data=00fff500
+# CAP pos=121 grp=0 idx=9 data=00ffff00
+# CAP pos=122 grp=0 idx=10 data=00ffff00
+# CAP pos=123 grp=0 idx=11 data=00ffff00
+# CAP pos=124 grp=0 idx=12 data=00ffff00
+# CAP pos=125 grp=0 idx=13 data=00ffff0a
+# CAP pos=126 grp=0 idx=14 data=00ffff00
+# CAP pos=127 grp=0 idx=15 data=00ffff00
+# C2W_ENTRY g=0 fpr=7 p2row0=00a000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=128 grp=0 idx=0 data=00f0f00f
+# CAP pos=129 grp=0 idx=1 data=00ffff00
+# CAP pos=130 grp=0 idx=2 data=00ffff00
+# CAP pos=131 grp=0 idx=3 data=00f5ff00
+# CAP pos=132 grp=0 idx=4 data=00ffff00
+# CAP pos=133 grp=0 idx=5 data=00ffff00
+# CAP pos=134 grp=0 idx=6 data=00f0ff00
+# CAP pos=135 grp=0 idx=7 data=00f0ff0f
+# CAP pos=136 grp=0 idx=8 data=00ffff00
+# CAP pos=137 grp=0 idx=9 data=004fff00
+# CAP pos=138 grp=0 idx=10 data=00ffff00
+# CAP pos=139 grp=0 idx=11 data=00f0ff00
+# CAP pos=140 grp=0 idx=12 data=00f4ff00
+# CAP pos=141 grp=0 idx=13 data=00faff00
+# CAP pos=142 grp=0 idx=14 data=00ffff08
+# CAP pos=143 grp=0 idx=15 data=00ff0f00
+# C2W_ENTRY g=0 fpr=8 p2row0=08000000f000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=144 grp=0 idx=0 data=00fff00f
+# CAP pos=145 grp=0 idx=1 data=00ffff00
+# CAP pos=146 grp=0 idx=2 data=00ffff00
+# CAP pos=147 grp=0 idx=3 data=00ffff00
+# CAP pos=148 grp=0 idx=4 data=00ffff00
+# CAP pos=149 grp=0 idx=5 data=00ffff00
+# CAP pos=150 grp=0 idx=6 data=00ffff00
+# CAP pos=151 grp=0 idx=7 data=00ffff00
+# CAP pos=152 grp=0 idx=8 data=00ffff00
+# CAP pos=153 grp=0 idx=9 data=00faff00
+# CAP pos=154 grp=0 idx=10 data=00ffff00
+# CAP pos=155 grp=0 idx=11 data=000fff00
+# CAP pos=156 grp=0 idx=12 data=00ffff00
+# CAP pos=157 grp=0 idx=13 data=00ffff00
+# CAP pos=158 grp=0 idx=14 data=00ffff00
+# CAP pos=159 grp=0 idx=15 data=00ffff00
+# C2W_ENTRY g=0 fpr=9 p2row0=000000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=160 grp=0 idx=0 data=00f0ff0a
+# CAP pos=161 grp=0 idx=1 data=00ffff00
+# CAP pos=162 grp=0 idx=2 data=00faff00
+# CAP pos=163 grp=0 idx=3 data=00faff00
+# CAP pos=164 grp=0 idx=4 data=00faff00
+# CAP pos=165 grp=0 idx=5 data=00f0ff00
+# CAP pos=166 grp=0 idx=6 data=00fffa00
+# CAP pos=167 grp=0 idx=7 data=00ffff00
+# CAP pos=168 grp=0 idx=8 data=00ffff00
+# CAP pos=169 grp=0 idx=9 data=00ffff00
+# CAP pos=170 grp=0 idx=10 data=00ffff00
+# CAP pos=171 grp=0 idx=11 data=00ffff00
+# CAP pos=172 grp=0 idx=12 data=00f0ff00
+# CAP pos=173 grp=0 idx=13 data=00ffff00
+# CAP pos=174 grp=0 idx=14 data=00ffff00
+# CAP pos=175 grp=0 idx=15 data=00ffff00
+# C2W_ENTRY g=0 fpr=10 p2row0=000000000000000a p2row1=0000000000000000 p2cnt=16
+# CAP pos=176 grp=0 idx=0 data=00f0fa0f
+# CAP pos=177 grp=0 idx=1 data=00ffff00
+# CAP pos=178 grp=0 idx=2 data=00ffff00
+# CAP pos=179 grp=0 idx=3 data=00ffff00
+# CAP pos=180 grp=0 idx=4 data=00ffff00
+# CAP pos=181 grp=0 idx=5 data=00faff00
+# CAP pos=182 grp=0 idx=6 data=00ffff00
+# CAP pos=183 grp=0 idx=7 data=00ffff00
+# CAP pos=184 grp=0 idx=8 data=00ffff00
+# CAP pos=185 grp=0 idx=9 data=00ffff00
+# CAP pos=186 grp=0 idx=10 data=00ffff00
+# CAP pos=187 grp=0 idx=11 data=00ffff00
+# CAP pos=188 grp=0 idx=12 data=00ffff00
+# CAP pos=189 grp=0 idx=13 data=00f0ff00
+# CAP pos=190 grp=0 idx=14 data=00faff00
+# CAP pos=191 grp=0 idx=15 data=00ffff00
+# C2W_ENTRY g=0 fpr=11 p2row0=000000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=192 grp=0 idx=0 data=00f0f00f
+# CAP pos=193 grp=0 idx=1 data=00ffff00
+# CAP pos=194 grp=0 idx=2 data=00ffff00
+# CAP pos=195 grp=0 idx=3 data=00ffff00
+# CAP pos=196 grp=0 idx=4 data=00ffff00
+# CAP pos=197 grp=0 idx=5 data=00f0ff00
+# CAP pos=198 grp=0 idx=6 data=00f0ff00
+# CAP pos=199 grp=0 idx=7 data=00ffff00
+# CAP pos=200 grp=0 idx=8 data=00fbff00
+# CAP pos=201 grp=0 idx=9 data=00ffff00
+# CAP pos=202 grp=0 idx=10 data=00ffff00
+# CAP pos=203 grp=0 idx=11 data=00faff00
+# CAP pos=204 grp=0 idx=12 data=00ffff00
+# CAP pos=205 grp=0 idx=13 data=00f0ff00
+# CAP pos=206 grp=0 idx=14 data=00ffff00
+# CAP pos=207 grp=0 idx=15 data=00ffff00
+# C2W_ENTRY g=0 fpr=12 p2row0=000000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=208 grp=0 idx=0 data=00f0f00f
+# CAP pos=209 grp=0 idx=1 data=00ffff00
+# CAP pos=210 grp=0 idx=2 data=00ffff00
+# CAP pos=211 grp=0 idx=3 data=00ffff00
+# CAP pos=212 grp=0 idx=4 data=00ffff00
+# CAP pos=213 grp=0 idx=5 data=00ffff00
+# CAP pos=214 grp=0 idx=6 data=00ffff00
+# CAP pos=215 grp=0 idx=7 data=00ffff00
+# CAP pos=216 grp=0 idx=8 data=00f4ff00
+# CAP pos=217 grp=0 idx=9 data=00ffff00
+# CAP pos=218 grp=0 idx=10 data=00ffff00
+# CAP pos=219 grp=0 idx=11 data=00ffff00
+# CAP pos=220 grp=0 idx=12 data=00ffff00
+# CAP pos=221 grp=0 idx=13 data=00afff00
+# CAP pos=222 grp=0 idx=14 data=00ffff00
+# CAP pos=223 grp=0 idx=15 data=00ffff00
+# C2W_ENTRY g=0 fpr=13 p2row0=000000000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=224 grp=0 idx=0 data=00f0fa0f
+# CAP pos=225 grp=0 idx=1 data=00ffff00
+# CAP pos=226 grp=0 idx=2 data=00ffff00
+# CAP pos=227 grp=0 idx=3 data=00ffff08
+# CAP pos=228 grp=0 idx=4 data=00ffff00
+# CAP pos=229 grp=0 idx=5 data=00ffff00
+# CAP pos=230 grp=0 idx=6 data=00ffff00
+# CAP pos=231 grp=0 idx=7 data=00ffff00
+# CAP pos=232 grp=0 idx=8 data=00ffff00
+# CAP pos=233 grp=0 idx=9 data=00ffff00
+# CAP pos=234 grp=0 idx=10 data=00ffff00
+# CAP pos=235 grp=0 idx=11 data=00ffff00
+# CAP pos=236 grp=0 idx=12 data=00ffff00
+# CAP pos=237 grp=0 idx=13 data=00ffff00
+# CAP pos=238 grp=0 idx=14 data=00ffff00
+# CAP pos=239 grp=0 idx=15 data=00f0ff00
+# C2W_ENTRY g=0 fpr=14 p2row0=000000000000800f p2row1=0000000000000000 p2cnt=16
+# CAP pos=240 grp=0 idx=0 data=00f0f00f
+# CAP pos=241 grp=0 idx=1 data=00f0f000
+# CAP pos=242 grp=0 idx=2 data=00f0f000
+# CAP pos=243 grp=0 idx=3 data=00f0f000
+# CAP pos=244 grp=0 idx=4 data=00f0f000
+# CAP pos=245 grp=0 idx=5 data=00f0f000
+# CAP pos=246 grp=0 idx=6 data=00f0f000
+# CAP pos=247 grp=0 idx=7 data=00f0f000
+# CAP pos=248 grp=0 idx=8 data=00f0f000
+# CAP pos=249 grp=0 idx=9 data=00f0f000
+# CAP pos=250 grp=0 idx=10 data=00f0f00a
+# CAP pos=251 grp=0 idx=11 data=00f0f00a
+# CAP pos=252 grp=0 idx=12 data=00f0f000
+# CAP pos=253 grp=0 idx=13 data=00f0f000
+# CAP pos=254 grp=0 idx=14 data=00f0f000
+# CAP pos=255 grp=0 idx=15 data=00f0f000
+# C2W_ENTRY g=1 fpr=0 p2row0=0000aa000000000f p2row1=0000000000000000 p2cnt=16
+# CAP pos=0 grp=1 idx=0 data=5af00f20
+# CAP pos=1 grp=1 idx=1 data=a0800ff0
+# CAP pos=2 grp=1 idx=2 data=00500ff0
+# CAP pos=3 grp=1 idx=3 data=f0f00ff0
+# CAP pos=4 grp=1 idx=4 data=005f0ff0
+# CAP pos=5 grp=1 idx=5 data=00000ff0
+# CAP pos=6 grp=1 idx=6 data=00000ff0
+# CAP pos=7 grp=1 idx=7 data=00f00ff0
+# CAP pos=8 grp=1 idx=8 data=f0000ff0
+# CAP pos=9 grp=1 idx=9 data=f0f00af0
+# CAP pos=10 grp=1 idx=10 data=00000ff0
+# CAP pos=11 grp=1 idx=11 data=f0000ff0
+# CAP pos=12 grp=1 idx=12 data=00f00ff0
+# CAP pos=13 grp=1 idx=13 data=00000ff0
+# CAP pos=14 grp=1 idx=14 data=50f00ff0
+# CAP pos=15 grp=1 idx=15 data=00f00ff0
+# C2W_ENTRY g=1 fpr=1 p2row0=0000000000000000 p2row1=fffffffffffffff2 p2cnt=16
+# CAP pos=16 grp=1 idx=0 data=fff00000
+# CAP pos=17 grp=1 idx=1 data=0ff00f0f
+# CAP pos=18 grp=1 idx=2 data=ffff0ff0
+# CAP pos=19 grp=1 idx=3 data=f0f00f05
+# CAP pos=20 grp=1 idx=4 data=40ff0ff0
+# CAP pos=21 grp=1 idx=5 data=0af00ff0
+# CAP pos=22 grp=1 idx=6 data=fff00ff0
+# CAP pos=23 grp=1 idx=7 data=0ff00f40
+# CAP pos=24 grp=1 idx=8 data=f0f50fa0
+# CAP pos=25 grp=1 idx=9 data=ffff0f00
+# CAP pos=26 grp=1 idx=10 data=fff00f00
+# CAP pos=27 grp=1 idx=11 data=a0f00ff0
+# CAP pos=28 grp=1 idx=12 data=fff00f0f
+# CAP pos=29 grp=1 idx=13 data=f4ff0f00
+# CAP pos=30 grp=1 idx=14 data=0fff0f00
+# CAP pos=31 grp=1 idx=15 data=0afaff00
+# C2W_ENTRY g=1 fpr=2 p2row0=000f0000000050f0 p2row1=0000f00a4fff0f00 p2cnt=16
+# CAP pos=32 grp=1 idx=0 data=ffff2700
+# CAP pos=33 grp=1 idx=1 data=f0f70f40
+# CAP pos=34 grp=1 idx=2 data=f7f00700
+# CAP pos=35 grp=1 idx=3 data=00f00f00
+# CAP pos=36 grp=1 idx=4 data=50f00ff0
+# CAP pos=37 grp=1 idx=5 data=4ff00fa0
+# CAP pos=38 grp=1 idx=6 data=0ff00af0
+# CAP pos=39 grp=1 idx=7 data=fffa0f00
+# CAP pos=40 grp=1 idx=8 data=faf00f00
+# CAP pos=41 grp=1 idx=9 data=0ff04f00
+# CAP pos=42 grp=1 idx=10 data=aff00ff0
+# CAP pos=43 grp=1 idx=11 data=0af00f40
+# CAP pos=44 grp=1 idx=12 data=a0f00f00
+# CAP pos=45 grp=1 idx=13 data=5ff00f40
+# CAP pos=46 grp=1 idx=14 data=0ff00f00
+# CAP pos=47 grp=1 idx=15 data=aafaaf00
+# C2W_ENTRY g=1 fpr=3 p2row0=0000000000000000 p2row1=00404f000faf0040 p2cnt=16
+# CAP pos=48 grp=1 idx=0 data=aff00a00
+# CAP pos=49 grp=1 idx=1 data=fff00f00
+# CAP pos=50 grp=1 idx=2 data=aaf70f00
+# CAP pos=51 grp=1 idx=3 data=ffff0f00
+# CAP pos=52 grp=1 idx=4 data=affa0ff0
+# CAP pos=53 grp=1 idx=5 data=ffff0fa0
+# CAP pos=54 grp=1 idx=6 data=ffff0fa4
+# CAP pos=55 grp=1 idx=7 data=fff50ff0
+# CAP pos=56 grp=1 idx=8 data=faf00ffa
+# CAP pos=57 grp=1 idx=9 data=ffff0f00
+# CAP pos=58 grp=1 idx=10 data=fffa0f0a
+# CAP pos=59 grp=1 idx=11 data=fafaffff
+# CAP pos=60 grp=1 idx=12 data=fff00ff0
+# CAP pos=61 grp=1 idx=13 data=04f00f0a
+# CAP pos=62 grp=1 idx=14 data=ffff0f00
+# CAP pos=63 grp=1 idx=15 data=0af0ff00
+# C2W_ENTRY g=1 fpr=4 p2row0=00a0fa0a04000000 p2row1=000ff00ffaaf0000 p2cnt=16
+# CAP pos=64 grp=1 idx=0 data=0ff00f00
+# CAP pos=65 grp=1 idx=1 data=0fffff0a
+# CAP pos=66 grp=1 idx=2 data=5ff40f00
+# CAP pos=67 grp=1 idx=3 data=8ff00f0f
+# CAP pos=68 grp=1 idx=4 data=fff5af40
+# CAP pos=69 grp=1 idx=5 data=aff40f80
+# CAP pos=70 grp=1 idx=6 data=0ff00ff0
+# CAP pos=71 grp=1 idx=7 data=ffff0f00
+# CAP pos=72 grp=1 idx=8 data=faff0ff0
+# CAP pos=73 grp=1 idx=9 data=fff00fa0
+# CAP pos=74 grp=1 idx=10 data=aff00f00
+# CAP pos=75 grp=1 idx=11 data=fff00f00
+# CAP pos=76 grp=1 idx=12 data=88fa0f00
+# CAP pos=77 grp=1 idx=13 data=faff0f00
+# CAP pos=78 grp=1 idx=14 data=afff0f00
+# CAP pos=79 grp=1 idx=15 data=aff00f00
+# C2W_ENTRY g=1 fpr=5 p2row0=000000000000f0a0 p2row1=000000af0f840000 p2cnt=16
+# CAP pos=80 grp=1 idx=0 data=fff0ff00
+# CAP pos=81 grp=1 idx=1 data=faf00f55
+# CAP pos=82 grp=1 idx=2 data=faff0f04
+# CAP pos=83 grp=1 idx=3 data=fffa0ff0
+# CAP pos=84 grp=1 idx=4 data=4ff00f00
+# CAP pos=85 grp=1 idx=5 data=0ff00f00
+# CAP pos=86 grp=1 idx=6 data=0ffa0f00
+# CAP pos=87 grp=1 idx=7 data=0ff00fa0
+# CAP pos=88 grp=1 idx=8 data=ffff0f00
+# CAP pos=89 grp=1 idx=9 data=faff0ff0
+# CAP pos=90 grp=1 idx=10 data=fafa0f00
+# CAP pos=91 grp=1 idx=11 data=0ffa0f00
+# CAP pos=92 grp=1 idx=12 data=ffff0f04
+# CAP pos=93 grp=1 idx=13 data=fffa0f00
+# CAP pos=94 grp=1 idx=14 data=fff40f0a
+# CAP pos=95 grp=1 idx=15 data=0ff00f00
+# C2W_ENTRY g=1 fpr=6 p2row0=0a04000000000450 p2row1=000000f0a000f050 p2cnt=16
+# CAP pos=96 grp=1 idx=0 data=fff00f40
+# CAP pos=97 grp=1 idx=1 data=f0f00fa0
+# CAP pos=98 grp=1 idx=2 data=f0ff0f0a
+# CAP pos=99 grp=1 idx=3 data=4fff0f00
+# CAP pos=100 grp=1 idx=4 data=07ff0fa0
+# CAP pos=101 grp=1 idx=5 data=fff00f40
+# CAP pos=102 grp=1 idx=6 data=f0f00ff4
+# CAP pos=103 grp=1 idx=7 data=fff00f50
+# CAP pos=104 grp=1 idx=8 data=0aff0fa0
+# CAP pos=105 grp=1 idx=9 data=f5ff0f80
+# CAP pos=106 grp=1 idx=10 data=0fff0fa0
+# CAP pos=107 grp=1 idx=11 data=ffff0f50
+# CAP pos=108 grp=1 idx=12 data=4ff05ff0
+# CAP pos=109 grp=1 idx=13 data=fffa0f00
+# CAP pos=110 grp=1 idx=14 data=0ff0af00
+# CAP pos=111 grp=1 idx=15 data=0ff0af00
+# C2W_ENTRY g=1 fpr=7 p2row0=0000000004000a00 p2row1=000f5a8a5f4a00a4 p2cnt=16
+# CAP pos=112 grp=1 idx=0 data=0ff0f000
+# CAP pos=113 grp=1 idx=1 data=f0ff0faf
+# CAP pos=114 grp=1 idx=2 data=dff00f00
+# CAP pos=115 grp=1 idx=3 data=ffff0fa0
+# CAP pos=116 grp=1 idx=4 data=a7f00f20
+# CAP pos=117 grp=1 idx=5 data=f0ff0ff0
+# CAP pos=118 grp=1 idx=6 data=aff00f00
+# CAP pos=119 grp=1 idx=7 data=08ff0f40
+# CAP pos=120 grp=1 idx=8 data=0ff08fa0
+# CAP pos=121 grp=1 idx=9 data=fff00f00
+# CAP pos=122 grp=1 idx=10 data=f0ff0ff0
+# CAP pos=123 grp=1 idx=11 data=fff00f40
+# CAP pos=124 grp=1 idx=12 data=f0f00ff0
+# CAP pos=125 grp=1 idx=13 data=00f00fa0
+# CAP pos=126 grp=1 idx=14 data=fff00f00
+# CAP pos=127 grp=1 idx=15 data=0ff00f00
+# C2W_ENTRY g=1 fpr=8 p2row0=00000000000000f0 p2row1=00af4f0a40f2a0a0 p2cnt=16
+# CAP pos=128 grp=1 idx=0 data=ffff0f00
+# CAP pos=129 grp=1 idx=1 data=fff0af00
+# CAP pos=130 grp=1 idx=2 data=2ff00f00
+# CAP pos=131 grp=1 idx=3 data=fffa0ff0
+# CAP pos=132 grp=1 idx=4 data=00fa0ff0
+# CAP pos=133 grp=1 idx=5 data=0fff00a0
+# CAP pos=134 grp=1 idx=6 data=ffff0fa0
+# CAP pos=135 grp=1 idx=7 data=fff00ff0
+# CAP pos=136 grp=1 idx=8 data=fff00f40
+# CAP pos=137 grp=1 idx=9 data=a8ff0ff0
+# CAP pos=138 grp=1 idx=10 data=afff0f00
+# CAP pos=139 grp=1 idx=11 data=aff00f00
+# CAP pos=140 grp=1 idx=12 data=f0ff0f00
+# CAP pos=141 grp=1 idx=13 data=faff0f0f
+# CAP pos=142 grp=1 idx=14 data=faf00f40
+# CAP pos=143 grp=1 idx=15 data=8ff0ff00
+# C2W_ENTRY g=1 fpr=9 p2row0=00f0000000000000 p2row1=040000f4faaff000 p2cnt=16
+# CAP pos=144 grp=1 idx=0 data=fff0af00
+# CAP pos=145 grp=1 idx=1 data=fafffff0
+# CAP pos=146 grp=1 idx=2 data=aff00f0f
+# CAP pos=147 grp=1 idx=3 data=ffff0f00
+# CAP pos=148 grp=1 idx=4 data=ffffafff
+# CAP pos=149 grp=1 idx=5 data=fff00f44
+# CAP pos=150 grp=1 idx=6 data=aaffaf50
+# CAP pos=151 grp=1 idx=7 data=0ff00ff0
+# CAP pos=152 grp=1 idx=8 data=0ff50f00
+# CAP pos=153 grp=1 idx=9 data=ffff0f0f
+# CAP pos=154 grp=1 idx=10 data=0fffff00
+# CAP pos=155 grp=1 idx=11 data=ffff0ffa
+# CAP pos=156 grp=1 idx=12 data=a4fa0f0f
+# CAP pos=157 grp=1 idx=13 data=ffffff00
+# CAP pos=158 grp=1 idx=14 data=afff0fa0
+# CAP pos=159 grp=1 idx=15 data=08f0ff00
+# C2W_ENTRY g=1 fpr=10 p2row0=000fa0f0004f0f00 p2row1=0a00f000f54f00f0 p2cnt=16
+# CAP pos=160 grp=1 idx=0 data=4ff00f00
+# CAP pos=161 grp=1 idx=1 data=ffff0f00
+# CAP pos=162 grp=1 idx=2 data=f0ff0f40
+# CAP pos=163 grp=1 idx=3 data=fffa0ff0
+# CAP pos=164 grp=1 idx=4 data=ffff0f00
+# CAP pos=165 grp=1 idx=5 data=fff00ff0
+# CAP pos=166 grp=1 idx=6 data=aff80f00
+# CAP pos=167 grp=1 idx=7 data=fff00f00
+# CAP pos=168 grp=1 idx=8 data=aff00f00
+# CAP pos=169 grp=1 idx=9 data=a0faff00
+# CAP pos=170 grp=1 idx=10 data=fff00f00
+# CAP pos=171 grp=1 idx=11 data=fffa0f00
+# CAP pos=172 grp=1 idx=12 data=0aff0fff
+# CAP pos=173 grp=1 idx=13 data=aaf00ff0
+# CAP pos=174 grp=1 idx=14 data=ffff0fa0
+# CAP pos=175 grp=1 idx=15 data=0ff0ff00
+# C2W_ENTRY g=1 fpr=11 p2row0=000f000000000000 p2row1=0aff000000f0f400 p2cnt=16
+# CAP pos=176 grp=1 idx=0 data=fff40f00
+# CAP pos=177 grp=1 idx=1 data=fff0ff0f
+# CAP pos=178 grp=1 idx=2 data=ffff0f00
+# CAP pos=179 grp=1 idx=3 data=afff0f0f
+# CAP pos=180 grp=1 idx=4 data=fffaaf00
+# CAP pos=181 grp=1 idx=5 data=fffa0f00
+# CAP pos=182 grp=1 idx=6 data=0fff0f00
+# CAP pos=183 grp=1 idx=7 data=fff00f0f
+# CAP pos=184 grp=1 idx=8 data=f0f00f00
+# CAP pos=185 grp=1 idx=9 data=fff00f00
+# CAP pos=186 grp=1 idx=10 data=0ff00f00
+# CAP pos=187 grp=1 idx=11 data=0fff0f04
+# CAP pos=188 grp=1 idx=12 data=afff0f00
+# CAP pos=189 grp=1 idx=13 data=fff00fa0
+# CAP pos=190 grp=1 idx=14 data=0ff00f00
+# CAP pos=191 grp=1 idx=15 data=0fffff00
+# C2W_ENTRY g=1 fpr=12 p2row0=00004000f000f0f0 p2row1=00a0000000000000 p2cnt=16
+# CAP pos=192 grp=1 idx=0 data=fff00000
+# CAP pos=193 grp=1 idx=1 data=fff64f00
+# CAP pos=194 grp=1 idx=2 data=04f60f00
+# CAP pos=195 grp=1 idx=3 data=fff00f00
+# CAP pos=196 grp=1 idx=4 data=ffff0a00
+# CAP pos=197 grp=1 idx=5 data=aff00fa0
+# CAP pos=198 grp=1 idx=6 data=4ff00f00
+# CAP pos=199 grp=1 idx=7 data=0ff00f00
+# CAP pos=200 grp=1 idx=8 data=4fff0f00
+# CAP pos=201 grp=1 idx=9 data=a0ffaf00
+# CAP pos=202 grp=1 idx=10 data=fffa0fa0
+# CAP pos=203 grp=1 idx=11 data=0ff00fa0
+# CAP pos=204 grp=1 idx=12 data=affa0ff0
+# CAP pos=205 grp=1 idx=13 data=aff00f00
+# CAP pos=206 grp=1 idx=14 data=8fffaf0f
+# CAP pos=207 grp=1 idx=15 data=fff0af00
+# C2W_ENTRY g=1 fpr=13 p2row0=0f00000000000000 p2row1=000faa0000a00000 p2cnt=16
+# CAP pos=208 grp=1 idx=0 data=fff0fa00
+# CAP pos=209 grp=1 idx=1 data=40f40ff0
+# CAP pos=210 grp=1 idx=2 data=f4f00f0f
+# CAP pos=211 grp=1 idx=3 data=fbf00f00
+# CAP pos=212 grp=1 idx=4 data=0ff00f00
+# CAP pos=213 grp=1 idx=5 data=ffff0f00
+# CAP pos=214 grp=1 idx=6 data=fbf00ff0
+# CAP pos=215 grp=1 idx=7 data=0ff00f00
+# CAP pos=216 grp=1 idx=8 data=ffff0f00
+# CAP pos=217 grp=1 idx=9 data=fafaff0a
+# CAP pos=218 grp=1 idx=10 data=faf00ff0
+# CAP pos=219 grp=1 idx=11 data=ffff0fff
+# CAP pos=220 grp=1 idx=12 data=45f00ff0
+# CAP pos=221 grp=1 idx=13 data=5fff0fa0
+# CAP pos=222 grp=1 idx=14 data=ffff0fa0
+# CAP pos=223 grp=1 idx=15 data=0ff08a00
+# C2W_ENTRY g=1 fpr=14 p2row0=0000f0a000000f00 p2row1=0aafff000f0000f0 p2cnt=16
+# CAP pos=224 grp=1 idx=0 data=0ff40f00
+# CAP pos=225 grp=1 idx=1 data=ffff0f00
+# CAP pos=226 grp=1 idx=2 data=a6f00f00
+# CAP pos=227 grp=1 idx=3 data=00f00f20
+# CAP pos=228 grp=1 idx=4 data=f5f00f00
+# CAP pos=229 grp=1 idx=5 data=50f50f00
+# CAP pos=230 grp=1 idx=6 data=4ff00f00
+# CAP pos=231 grp=1 idx=7 data=f0f00f00
+# CAP pos=232 grp=1 idx=8 data=00ff0f00
+# CAP pos=233 grp=1 idx=9 data=ffff0f0a
+# CAP pos=234 grp=1 idx=10 data=50ff0f00
+# CAP pos=235 grp=1 idx=11 data=faff0fa0
+# CAP pos=236 grp=1 idx=12 data=00f00ff0
+# CAP pos=237 grp=1 idx=13 data=f5f00ff0
+# CAP pos=238 grp=1 idx=14 data=0ff08f00
+# CAP pos=239 grp=1 idx=15 data=00f00f00
+# C2W_ENTRY g=1 fpr=15 p2row0=000000a000000000 p2row1=00ffa00000002000 p2cnt=16
+# CAP pos=240 grp=1 idx=0 data=fff00000
+# CAP pos=241 grp=1 idx=1 data=fff00a04
+# CAP pos=242 grp=1 idx=2 data=fffa0000
+# CAP pos=243 grp=1 idx=3 data=ffff000a
+# CAP pos=244 grp=1 idx=4 data=fff00f00
+# CAP pos=245 grp=1 idx=5 data=fff00a0a
+# CAP pos=246 grp=1 idx=6 data=ffff0400
+# CAP pos=247 grp=1 idx=7 data=fffa0f0f
+# CAP pos=248 grp=1 idx=8 data=fff0040f
+# CAP pos=249 grp=1 idx=9 data=fff00a00
+# CAP pos=250 grp=1 idx=10 data=fff00004
+# CAP pos=251 grp=1 idx=11 data=fff00000
+# CAP pos=252 grp=1 idx=12 data=fffa0a04
+# CAP pos=253 grp=1 idx=13 data=fff4000f
+# CAP pos=254 grp=1 idx=14 data=fff00a0a
+# CAP pos=255 grp=1 idx=15 data=fff0000f
+# C2W_ENTRY g=2 fpr=0 p2row0=faf4040ff0a0a040 p2row1=0000000000000000 p2cnt=16
+# CAP pos=0 grp=2 idx=0 data=00f0fff0
+# CAP pos=1 grp=2 idx=1 data=00ffff00
+# CAP pos=2 grp=2 idx=2 data=00f0ff00
+# CAP pos=3 grp=2 idx=3 data=00ff0f00
+# CAP pos=4 grp=2 idx=4 data=00fa4f00
+# CAP pos=5 grp=2 idx=5 data=00f0ff00
+# CAP pos=6 grp=2 idx=6 data=00f0ff00
+# CAP pos=7 grp=2 idx=7 data=00f0ff00
+# CAP pos=8 grp=2 idx=8 data=00f0ff00
+# CAP pos=9 grp=2 idx=9 data=00f0ff00
+# CAP pos=10 grp=2 idx=10 data=00f00f00
+# CAP pos=11 grp=2 idx=11 data=00f0ff00
+# CAP pos=12 grp=2 idx=12 data=00ffff00
+# CAP pos=13 grp=2 idx=13 data=00f0ff00
+# CAP pos=14 grp=2 idx=14 data=00f0ff00
+# CAP pos=15 grp=2 idx=15 data=0f850400
+# C2W_ENTRY g=2 fpr=1 p2row0=0000000000000000 p2row1=000000000000000f p2cnt=16
+# CAP pos=16 grp=2 idx=0 data=00f0ffcf
+# CAP pos=17 grp=2 idx=1 data=00f0ff0f
+# CAP pos=18 grp=2 idx=2 data=00f0ff05
+# CAP pos=19 grp=2 idx=3 data=00f0ff00
+# CAP pos=20 grp=2 idx=4 data=00f0ff00
+# CAP pos=21 grp=2 idx=5 data=00f0ff0f
+# CAP pos=22 grp=2 idx=6 data=00f0ff00
+# CAP pos=23 grp=2 idx=7 data=00f0ff05
+# CAP pos=24 grp=2 idx=8 data=00f0ff0f
+# CAP pos=25 grp=2 idx=9 data=00f0ff0f
+# CAP pos=26 grp=2 idx=10 data=00f0ff0f
+# CAP pos=27 grp=2 idx=11 data=00f0ff00
+# CAP pos=28 grp=2 idx=12 data=00f0ff00
+# CAP pos=29 grp=2 idx=13 data=00f0ff08
+# CAP pos=30 grp=2 idx=14 data=00f0ff0a
+# CAP pos=31 grp=2 idx=15 data=00f04a00
+# C2W_ENTRY g=2 fpr=2 p2row0=0a800fff50f005ff p2row1=000000000000000c p2cnt=16
+# CAP pos=32 grp=2 idx=0 data=00f0ffaf
+# CAP pos=33 grp=2 idx=1 data=00f0ff08
+# CAP pos=34 grp=2 idx=2 data=00f0ff00
+# CAP pos=35 grp=2 idx=3 data=00a0ff0f
+# CAP pos=36 grp=2 idx=4 data=00f0ff00
+# CAP pos=37 grp=2 idx=5 data=00f0ff0f
+# CAP pos=38 grp=2 idx=6 data=00f0ff0a
+# CAP pos=39 grp=2 idx=7 data=00f0ff0f
+# CAP pos=40 grp=2 idx=8 data=00f0ff00
+# CAP pos=41 grp=2 idx=9 data=00f0ff0f
+# CAP pos=42 grp=2 idx=10 data=00f0ff00
+# CAP pos=43 grp=2 idx=11 data=00f0ff0f
+# CAP pos=44 grp=2 idx=12 data=0ff0ff0f
+# CAP pos=45 grp=2 idx=13 data=00f0ff00
+# CAP pos=46 grp=2 idx=14 data=00f0ff0f
+# CAP pos=47 grp=2 idx=15 data=00f0fa00
+# C2W_ENTRY g=2 fpr=3 p2row0=0f0ff0f0faf0f08f p2row1=000000000000000a p2cnt=16
+# CAP pos=48 grp=2 idx=0 data=00f0ffff
+# CAP pos=49 grp=2 idx=1 data=00f0ff0f
+# CAP pos=50 grp=2 idx=2 data=00f0ff05
+# CAP pos=51 grp=2 idx=3 data=00f0ff0f
+# CAP pos=52 grp=2 idx=4 data=00f0ff00
+# CAP pos=53 grp=2 idx=5 data=00f0ff00
+# CAP pos=54 grp=2 idx=6 data=00f0ff00
+# CAP pos=55 grp=2 idx=7 data=00f0ff00
+# CAP pos=56 grp=2 idx=8 data=00f0ff05
+# CAP pos=57 grp=2 idx=9 data=00f0ff04
+# CAP pos=58 grp=2 idx=10 data=00f0ff00
+# CAP pos=59 grp=2 idx=11 data=00f0ff00
+# CAP pos=60 grp=2 idx=12 data=00f0ff00
+# CAP pos=61 grp=2 idx=13 data=00f0ff0f
+# CAP pos=62 grp=2 idx=14 data=00f0ff0f
+# CAP pos=63 grp=2 idx=15 data=00f00f00
+# C2W_ENTRY g=2 fpr=4 p2row0=0ff000450000f5ff p2row1=000000000000000f p2cnt=16
+# CAP pos=64 grp=2 idx=0 data=00f0ffaf
+# CAP pos=65 grp=2 idx=1 data=00f0ff0f
+# CAP pos=66 grp=2 idx=2 data=00f0ff0f
+# CAP pos=67 grp=2 idx=3 data=00f0ff00
+# CAP pos=68 grp=2 idx=4 data=00f0ff00
+# CAP pos=69 grp=2 idx=5 data=00f0ff0f
+# CAP pos=70 grp=2 idx=6 data=00f0ff00
+# CAP pos=71 grp=2 idx=7 data=00f0ff08
+# CAP pos=72 grp=2 idx=8 data=00f0ff0f
+# CAP pos=73 grp=2 idx=9 data=00f0ff00
+# CAP pos=74 grp=2 idx=10 data=00f0ff0f
+# CAP pos=75 grp=2 idx=11 data=00f0ff05
+# CAP pos=76 grp=2 idx=12 data=00f0ff0a
+# CAP pos=77 grp=2 idx=13 data=00f0ff0f
+# CAP pos=78 grp=2 idx=14 data=00f0ff0f
+# CAP pos=79 grp=2 idx=15 data=00f0ff00
+# C2W_ENTRY g=2 fpr=5 p2row0=0ffa5f0f80f00fff p2row1=000000000000000a p2cnt=16
+# CAP pos=80 grp=2 idx=0 data=00f0ffff
+# CAP pos=81 grp=2 idx=1 data=00f0ff0a
+# CAP pos=82 grp=2 idx=2 data=00f0ff00
+# CAP pos=83 grp=2 idx=3 data=00f0ff0f
+# CAP pos=84 grp=2 idx=4 data=00f0ff00
+# CAP pos=85 grp=2 idx=5 data=00f0ff0a
+# CAP pos=86 grp=2 idx=6 data=00f0ff00
+# CAP pos=87 grp=2 idx=7 data=00f0ff00
+# CAP pos=88 grp=2 idx=8 data=00f0ff00
+# CAP pos=89 grp=2 idx=9 data=00f0ff05
+# CAP pos=90 grp=2 idx=10 data=00f0ff00
+# CAP pos=91 grp=2 idx=11 data=00f0ff0f
+# CAP pos=92 grp=2 idx=12 data=00f0ff0f
+# CAP pos=93 grp=2 idx=13 data=00f0ff0f
+# CAP pos=94 grp=2 idx=14 data=00f04f0f
+# CAP pos=95 grp=2 idx=15 data=00f04f00
+# C2W_ENTRY g=2 fpr=6 p2row0=0ffff05000a0f0af p2row1=000000000000000f p2cnt=16
+# CAP pos=96 grp=2 idx=0 data=00f0ffff
+# CAP pos=97 grp=2 idx=1 data=00f0ff0f
+# CAP pos=98 grp=2 idx=2 data=00f0ff0f
+# CAP pos=99 grp=2 idx=3 data=00f0ff0f
+# CAP pos=100 grp=2 idx=4 data=00f0ff0f
+# CAP pos=101 grp=2 idx=5 data=00f0ff00
+# CAP pos=102 grp=2 idx=6 data=00f0ff00
+# CAP pos=103 grp=2 idx=7 data=00f0ff00
+# CAP pos=104 grp=2 idx=8 data=00f0ff0f
+# CAP pos=105 grp=2 idx=9 data=0af0ff00
+# CAP pos=106 grp=2 idx=10 data=00f0ff04
+# CAP pos=107 grp=2 idx=11 data=00f0fa0f
+# CAP pos=108 grp=2 idx=12 data=00f0ff0f
+# CAP pos=109 grp=2 idx=13 data=00f0ff00
+# CAP pos=110 grp=2 idx=14 data=00f0ff0a
+# CAP pos=111 grp=2 idx=15 data=00f00000
+# C2W_ENTRY g=2 fpr=7 p2row0=0a0ff40f000fffff p2row1=000000000000000f p2cnt=16
+# CAP pos=112 grp=2 idx=0 data=00f0ffff
+# CAP pos=113 grp=2 idx=1 data=00f0ff0f
+# CAP pos=114 grp=2 idx=2 data=00f0ff0f
+# CAP pos=115 grp=2 idx=3 data=00f0ff0f
+# CAP pos=116 grp=2 idx=4 data=00f0ff0a
+# CAP pos=117 grp=2 idx=5 data=00f0ff0a
+# CAP pos=118 grp=2 idx=6 data=00f0ff0f
+# CAP pos=119 grp=2 idx=7 data=00f0ff00
+# CAP pos=120 grp=2 idx=8 data=00f0ff05
+# CAP pos=121 grp=2 idx=9 data=00f0ff0f
+# CAP pos=122 grp=2 idx=10 data=00f0ff00
+# CAP pos=123 grp=2 idx=11 data=00f0ff00
+# CAP pos=124 grp=2 idx=12 data=00f0ff0f
+# CAP pos=125 grp=2 idx=13 data=00f0ff0f
+# CAP pos=126 grp=2 idx=14 data=00f0ff0f
+# CAP pos=127 grp=2 idx=15 data=08f00f00
+# C2W_ENTRY g=2 fpr=8 p2row0=0fff00f50faaffff p2row1=000000000000000f p2cnt=16
+# CAP pos=128 grp=2 idx=0 data=00f0ffff
+# CAP pos=129 grp=2 idx=1 data=00f0ff00
+# CAP pos=130 grp=2 idx=2 data=00f0ff0f
+# CAP pos=131 grp=2 idx=3 data=00f0ff00
+# CAP pos=132 grp=2 idx=4 data=00f0ff00
+# CAP pos=133 grp=2 idx=5 data=00f0ff0f
+# CAP pos=134 grp=2 idx=6 data=00f0ff00
+# CAP pos=135 grp=2 idx=7 data=00f0ff00
+# CAP pos=136 grp=2 idx=8 data=00f0ff0f
+# CAP pos=137 grp=2 idx=9 data=00f0ff00
+# CAP pos=138 grp=2 idx=10 data=00f0ff0f
+# CAP pos=139 grp=2 idx=11 data=00f0ff0f
+# CAP pos=140 grp=2 idx=12 data=00f0ff0f
+# CAP pos=141 grp=2 idx=13 data=00f0ff0f
+# CAP pos=142 grp=2 idx=14 data=00f0ff0f
+# CAP pos=143 grp=2 idx=15 data=00f00000
+# C2W_ENTRY g=2 fpr=9 p2row0=0fffff0f00f00f0f p2row1=000000000000000f p2cnt=16
+# CAP pos=144 grp=2 idx=0 data=00f0ffff
+# CAP pos=145 grp=2 idx=1 data=00f0ff00
+# CAP pos=146 grp=2 idx=2 data=00f0af0a
+# CAP pos=147 grp=2 idx=3 data=00f0ff00
+# CAP pos=148 grp=2 idx=4 data=00f0ff00
+# CAP pos=149 grp=2 idx=5 data=00f0ff0f
+# CAP pos=150 grp=2 idx=6 data=00f0ff00
+# CAP pos=151 grp=2 idx=7 data=00f0ff0a
+# CAP pos=152 grp=2 idx=8 data=00f0ff0f
+# CAP pos=153 grp=2 idx=9 data=00f0ff00
+# CAP pos=154 grp=2 idx=10 data=00f0ff0f
+# CAP pos=155 grp=2 idx=11 data=00f0ff00
+# CAP pos=156 grp=2 idx=12 data=00f0ff00
+# CAP pos=157 grp=2 idx=13 data=00f0ff00
+# CAP pos=158 grp=2 idx=14 data=00f0ff0f
+# CAP pos=159 grp=2 idx=15 data=0ff00f00
+# C2W_ENTRY g=2 fpr=10 p2row0=0f000f0fa0f00a0f p2row1=000000000000000f p2cnt=16
+# CAP pos=160 grp=2 idx=0 data=00f0ffff
+# CAP pos=161 grp=2 idx=1 data=00f0ff0f
+# CAP pos=162 grp=2 idx=2 data=00f0ff0f
+# CAP pos=163 grp=2 idx=3 data=00f0ff00
+# CAP pos=164 grp=2 idx=4 data=00f0ff00
+# CAP pos=165 grp=2 idx=5 data=00f0ff00
+# CAP pos=166 grp=2 idx=6 data=00f0ff00
+# CAP pos=167 grp=2 idx=7 data=00f0ff00
+# CAP pos=168 grp=2 idx=8 data=00f0ff0f
+# CAP pos=169 grp=2 idx=9 data=00f0ff0f
+# CAP pos=170 grp=2 idx=10 data=00f0ff0f
+# CAP pos=171 grp=2 idx=11 data=00f0ff00
+# CAP pos=172 grp=2 idx=12 data=00f0ff00
+# CAP pos=173 grp=2 idx=13 data=00f0ff00
+# CAP pos=174 grp=2 idx=14 data=00f0ff0f
+# CAP pos=175 grp=2 idx=15 data=00f04000
+# C2W_ENTRY g=2 fpr=11 p2row0=0f000fff00000fff p2row1=000000000000000f p2cnt=16
+# CAP pos=176 grp=2 idx=0 data=00f0ffff
+# CAP pos=177 grp=2 idx=1 data=00f0ff0f
+# CAP pos=178 grp=2 idx=2 data=00f0ff0f
+# CAP pos=179 grp=2 idx=3 data=00f0ff0f
+# CAP pos=180 grp=2 idx=4 data=00f0ff00
+# CAP pos=181 grp=2 idx=5 data=00f0ff00
+# CAP pos=182 grp=2 idx=6 data=00f0ff0f
+# CAP pos=183 grp=2 idx=7 data=00f0ff0f
+# CAP pos=184 grp=2 idx=8 data=00f0ff0e
+# CAP pos=185 grp=2 idx=9 data=00f0ff00
+# CAP pos=186 grp=2 idx=10 data=00f0ff0f
+# CAP pos=187 grp=2 idx=11 data=00f0ff0f
+# CAP pos=188 grp=2 idx=12 data=00f0ff0f
+# CAP pos=189 grp=2 idx=13 data=00f0ff00
+# CAP pos=190 grp=2 idx=14 data=00f0ff0f
+# CAP pos=191 grp=2 idx=15 data=04f00f00
+# C2W_ENTRY g=2 fpr=12 p2row0=0f0fff0eff00ffff p2row1=000000000000000f p2cnt=16
+# CAP pos=192 grp=2 idx=0 data=00f0ffff
+# CAP pos=193 grp=2 idx=1 data=00f0ff0f
+# CAP pos=194 grp=2 idx=2 data=00f0ff08
+# CAP pos=195 grp=2 idx=3 data=00f0ff02
+# CAP pos=196 grp=2 idx=4 data=00f0ff0a
+# CAP pos=197 grp=2 idx=5 data=00f0ff0a
+# CAP pos=198 grp=2 idx=6 data=00f0ff00
+# CAP pos=199 grp=2 idx=7 data=00f0ff02
+# CAP pos=200 grp=2 idx=8 data=00f0ff0f
+# CAP pos=201 grp=2 idx=9 data=00f0ff0f
+# CAP pos=202 grp=2 idx=10 data=00f0ff0f
+# CAP pos=203 grp=2 idx=11 data=00f0ff0f
+# CAP pos=204 grp=2 idx=12 data=00f0ff00
+# CAP pos=205 grp=2 idx=13 data=00f0ff00
+# CAP pos=206 grp=2 idx=14 data=00f0ff0f
+# CAP pos=207 grp=2 idx=15 data=00f00f00
+# C2W_ENTRY g=2 fpr=13 p2row0=0f00ffff20aa28ff p2row1=000000000000000f p2cnt=16
+# CAP pos=208 grp=2 idx=0 data=00f0ffaf
+# CAP pos=209 grp=2 idx=1 data=00f0ff06
+# CAP pos=210 grp=2 idx=2 data=00f0ff0a
+# CAP pos=211 grp=2 idx=3 data=00f0ff06
+# CAP pos=212 grp=2 idx=4 data=00f0ff0f
+# CAP pos=213 grp=2 idx=5 data=00f0ff00
+# CAP pos=214 grp=2 idx=6 data=00f0ff0f
+# CAP pos=215 grp=2 idx=7 data=00f0ff0f
+# CAP pos=216 grp=2 idx=8 data=00f0ff0f
+# CAP pos=217 grp=2 idx=9 data=00f0ff0f
+# CAP pos=218 grp=2 idx=10 data=00f0ff0f
+# CAP pos=219 grp=2 idx=11 data=00f00f00
+# CAP pos=220 grp=2 idx=12 data=00f0ff0f
+# CAP pos=221 grp=2 idx=13 data=00f0ff0a
+# CAP pos=222 grp=2 idx=14 data=00f0ff00
+# CAP pos=223 grp=2 idx=15 data=00f00f00
+# C2W_ENTRY g=2 fpr=14 p2row0=00af0fffff0f6a6f p2row1=000000000000000a p2cnt=16
+# CAP pos=224 grp=2 idx=0 data=00f0ffff
+# CAP pos=225 grp=2 idx=1 data=00f0ff00
+# CAP pos=226 grp=2 idx=2 data=00f0ff0f
+# CAP pos=227 grp=2 idx=3 data=00f0ff0f
+# CAP pos=228 grp=2 idx=4 data=00f0ff0f
+# CAP pos=229 grp=2 idx=5 data=00f0ff00
+# CAP pos=230 grp=2 idx=6 data=00f0ff0a
+# CAP pos=231 grp=2 idx=7 data=00f0ff0f
+# CAP pos=232 grp=2 idx=8 data=00f0ff0f
+# CAP pos=233 grp=2 idx=9 data=00f0ff00
+# CAP pos=234 grp=2 idx=10 data=00f0ff04
+# CAP pos=235 grp=2 idx=11 data=00f0ff00
+# CAP pos=236 grp=2 idx=12 data=00f0ff0f
+# CAP pos=237 grp=2 idx=13 data=00f0f500
+# CAP pos=238 grp=2 idx=14 data=00f0ff0f
+# CAP pos=239 grp=2 idx=15 data=0af0fa00
+# C2W_ENTRY g=2 fpr=15 p2row0=0f0f040ffa0fff0f p2row1=000000000000000f p2cnt=16
+# CAP pos=240 grp=2 idx=0 data=00f0ffff
+# CAP pos=241 grp=2 idx=1 data=4ff0ff0f
+# CAP pos=242 grp=2 idx=2 data=fff0ff0f
+# CAP pos=243 grp=2 idx=3 data=0ff0ff0f
+# CAP pos=244 grp=2 idx=4 data=4ff0ff0f
+# CAP pos=245 grp=2 idx=5 data=f4f0ff0f
+# CAP pos=246 grp=2 idx=6 data=fff0ff0f
+# CAP pos=247 grp=2 idx=7 data=0af0ff0f
+# CAP pos=248 grp=2 idx=8 data=0af0ff0f
+# CAP pos=249 grp=2 idx=9 data=4ff0ff0f
+# CAP pos=250 grp=2 idx=10 data=0ff0ff0f
+# CAP pos=251 grp=2 idx=11 data=0ff0ff0f
+# CAP pos=252 grp=2 idx=12 data=0af0ff0f
+# CAP pos=253 grp=2 idx=13 data=5ff0ff0f
+# CAP pos=254 grp=2 idx=14 data=0ff0ff0f
+# CAP pos=255 grp=2 idx=15 data=0ff0ff00
+# C2W_ENTRY g=3 fpr=0 p2row0=0fffffffffffffff p2row1=000000000000000f p2cnt=16
+# CAP pos=0 grp=3 idx=0 data=000f08f0
+# CAP pos=1 grp=3 idx=1 data=000f0ff0
+# CAP pos=2 grp=3 idx=2 data=000f00f0
+# CAP pos=3 grp=3 idx=3 data=000f00ff
+# CAP pos=4 grp=3 idx=4 data=000f00ff
+# CAP pos=5 grp=3 idx=5 data=000f04f0
+# CAP pos=6 grp=3 idx=6 data=000f0ff0
+# CAP pos=7 grp=3 idx=7 data=000f04f0
+# CAP pos=8 grp=3 idx=8 data=000f04f0
+# CAP pos=9 grp=3 idx=9 data=000f00f0
+# CAP pos=10 grp=3 idx=10 data=000f0ff0
+# CAP pos=11 grp=3 idx=11 data=000f00f0
+# CAP pos=12 grp=3 idx=12 data=000f00f0
+# CAP pos=13 grp=3 idx=13 data=000f04f0
+# CAP pos=14 grp=3 idx=14 data=000f0af0
+# CAP pos=15 grp=3 idx=15 data=f00f00ff
+# C2W_ENTRY g=3 fpr=1 p2row0=f0000000000ff000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=16 grp=3 idx=0 data=0f0f00f0
+# CAP pos=17 grp=3 idx=1 data=0f0f0ff0
+# CAP pos=18 grp=3 idx=2 data=0a0f00f0
+# CAP pos=19 grp=3 idx=3 data=050f00f0
+# CAP pos=20 grp=3 idx=4 data=000f0ff0
+# CAP pos=21 grp=3 idx=5 data=000f04f0
+# CAP pos=22 grp=3 idx=6 data=000f0af0
+# CAP pos=23 grp=3 idx=7 data=000f00f0
+# CAP pos=24 grp=3 idx=8 data=000f0ff0
+# CAP pos=25 grp=3 idx=9 data=000f00f0
+# CAP pos=26 grp=3 idx=10 data=000f00f0
+# CAP pos=27 grp=3 idx=11 data=000f00f0
+# CAP pos=28 grp=3 idx=12 data=000f0ff0
+# CAP pos=29 grp=3 idx=13 data=0a0f0ff0
+# CAP pos=30 grp=3 idx=14 data=080f00f0
+# CAP pos=31 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=2 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=32 grp=3 idx=0 data=0c0f0ff0
+# CAP pos=33 grp=3 idx=1 data=080f00f0
+# CAP pos=34 grp=3 idx=2 data=000f08f0
+# CAP pos=35 grp=3 idx=3 data=000f00f0
+# CAP pos=36 grp=3 idx=4 data=0a0f00f0
+# CAP pos=37 grp=3 idx=5 data=080f00f0
+# CAP pos=38 grp=3 idx=6 data=000f00f0
+# CAP pos=39 grp=3 idx=7 data=0a0f00f0
+# CAP pos=40 grp=3 idx=8 data=000f00f0
+# CAP pos=41 grp=3 idx=9 data=080f04f0
+# CAP pos=42 grp=3 idx=10 data=000f00f0
+# CAP pos=43 grp=3 idx=11 data=0a0f00f0
+# CAP pos=44 grp=3 idx=12 data=000f00f0
+# CAP pos=45 grp=3 idx=13 data=000f00f0
+# CAP pos=46 grp=3 idx=14 data=000f00f0
+# CAP pos=47 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=3 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=48 grp=3 idx=0 data=0f0f0af0
+# CAP pos=49 grp=3 idx=1 data=000f04f0
+# CAP pos=50 grp=3 idx=2 data=0f0f00f0
+# CAP pos=51 grp=3 idx=3 data=000f0ff0
+# CAP pos=52 grp=3 idx=4 data=000f00f0
+# CAP pos=53 grp=3 idx=5 data=040f00f0
+# CAP pos=54 grp=3 idx=6 data=0f0f0ff0
+# CAP pos=55 grp=3 idx=7 data=0a0f0af0
+# CAP pos=56 grp=3 idx=8 data=050f00fa
+# CAP pos=57 grp=3 idx=9 data=000f0ff0
+# CAP pos=58 grp=3 idx=10 data=000f00f0
+# CAP pos=59 grp=3 idx=11 data=000f00f0
+# CAP pos=60 grp=3 idx=12 data=0a0f00f0
+# CAP pos=61 grp=3 idx=13 data=000f00f0
+# CAP pos=62 grp=3 idx=14 data=000f0af0
+# CAP pos=63 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=4 p2row0=0000000a00000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=64 grp=3 idx=0 data=0f0f00f0
+# CAP pos=65 grp=3 idx=1 data=0f0f0ff0
+# CAP pos=66 grp=3 idx=2 data=000f00f0
+# CAP pos=67 grp=3 idx=3 data=0f0f0ff0
+# CAP pos=68 grp=3 idx=4 data=000f0ff0
+# CAP pos=69 grp=3 idx=5 data=000f00f0
+# CAP pos=70 grp=3 idx=6 data=000f00f0
+# CAP pos=71 grp=3 idx=7 data=000f0ff0
+# CAP pos=72 grp=3 idx=8 data=000f00f0
+# CAP pos=73 grp=3 idx=9 data=080f00f0
+# CAP pos=74 grp=3 idx=10 data=0f0f0ff0
+# CAP pos=75 grp=3 idx=11 data=0a0f00f0
+# CAP pos=76 grp=3 idx=12 data=000f00f0
+# CAP pos=77 grp=3 idx=13 data=0a0f00f0
+# CAP pos=78 grp=3 idx=14 data=000f00f0
+# CAP pos=79 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=5 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=80 grp=3 idx=0 data=0f0f00f0
+# CAP pos=81 grp=3 idx=1 data=000f08f0
+# CAP pos=82 grp=3 idx=2 data=000f00f0
+# CAP pos=83 grp=3 idx=3 data=000f00f0
+# CAP pos=84 grp=3 idx=4 data=000f00f0
+# CAP pos=85 grp=3 idx=5 data=000f0af0
+# CAP pos=86 grp=3 idx=6 data=000f00f0
+# CAP pos=87 grp=3 idx=7 data=0a0f05f0
+# CAP pos=88 grp=3 idx=8 data=000f0ff0
+# CAP pos=89 grp=3 idx=9 data=080f00f0
+# CAP pos=90 grp=3 idx=10 data=000f00f0
+# CAP pos=91 grp=3 idx=11 data=0f0f00f0
+# CAP pos=92 grp=3 idx=12 data=040f00f0
+# CAP pos=93 grp=3 idx=13 data=000f00f0
+# CAP pos=94 grp=3 idx=14 data=0a0f00f0
+# CAP pos=95 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=6 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=96 grp=3 idx=0 data=0f0f0ff0
+# CAP pos=97 grp=3 idx=1 data=0f0f00f0
+# CAP pos=98 grp=3 idx=2 data=000f0ff0
+# CAP pos=99 grp=3 idx=3 data=040f00f0
+# CAP pos=100 grp=3 idx=4 data=0a0f00f0
+# CAP pos=101 grp=3 idx=5 data=000f00f0
+# CAP pos=102 grp=3 idx=6 data=000f00f0
+# CAP pos=103 grp=3 idx=7 data=0a0f00f0
+# CAP pos=104 grp=3 idx=8 data=050f00f0
+# CAP pos=105 grp=3 idx=9 data=000f00f0
+# CAP pos=106 grp=3 idx=10 data=0f0f00f0
+# CAP pos=107 grp=3 idx=11 data=000f05f0
+# CAP pos=108 grp=3 idx=12 data=0f0f0ff0
+# CAP pos=109 grp=3 idx=13 data=000f0af0
+# CAP pos=110 grp=3 idx=14 data=0f0f0ff0
+# CAP pos=111 grp=3 idx=15 data=000f0000
+# C2W_ENTRY g=3 fpr=7 p2row0=0000000000000000 p2row1=0fffffffffffffff p2cnt=16
+# CAP pos=112 grp=3 idx=0 data=0f0f0ff0
+# CAP pos=113 grp=3 idx=1 data=000f00f0
+# CAP pos=114 grp=3 idx=2 data=0d0f02f0
+# CAP pos=115 grp=3 idx=3 data=000f00f0
+# CAP pos=116 grp=3 idx=4 data=000f00f0
+# CAP pos=117 grp=3 idx=5 data=0a0f00f0
+# CAP pos=118 grp=3 idx=6 data=000f00f0
+# CAP pos=119 grp=3 idx=7 data=000f00f0
+# CAP pos=120 grp=3 idx=8 data=0f0f00f0
+# CAP pos=121 grp=3 idx=9 data=000f00f0
+# CAP pos=122 grp=3 idx=10 data=000f00f0
+# CAP pos=123 grp=3 idx=11 data=000f00f0
+# CAP pos=124 grp=3 idx=12 data=000f00f0
+# CAP pos=125 grp=3 idx=13 data=000f00f0
+# CAP pos=126 grp=3 idx=14 data=000f00f0
+# CAP pos=127 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=8 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=128 grp=3 idx=0 data=0f0f00f0
+# CAP pos=129 grp=3 idx=1 data=000f0ff0
+# CAP pos=130 grp=3 idx=2 data=000f0df0
+# CAP pos=131 grp=3 idx=3 data=0a0f00f0
+# CAP pos=132 grp=3 idx=4 data=0f0f00f0
+# CAP pos=133 grp=3 idx=5 data=000f00f0
+# CAP pos=134 grp=3 idx=6 data=0f0f00f0
+# CAP pos=135 grp=3 idx=7 data=000f00f0
+# CAP pos=136 grp=3 idx=8 data=000f00fa
+# CAP pos=137 grp=3 idx=9 data=000f04f0
+# CAP pos=138 grp=3 idx=10 data=000f00f0
+# CAP pos=139 grp=3 idx=11 data=0f0f00f0
+# CAP pos=140 grp=3 idx=12 data=000f00f0
+# CAP pos=141 grp=3 idx=13 data=0f0f00f0
+# CAP pos=142 grp=3 idx=14 data=0f0f0af0
+# CAP pos=143 grp=3 idx=15 data=000f00ff
+# C2W_ENTRY g=3 fpr=9 p2row0=f000000a00000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=144 grp=3 idx=0 data=0f0f06f0
+# CAP pos=145 grp=3 idx=1 data=000f00f0
+# CAP pos=146 grp=3 idx=2 data=000f0ff0
+# CAP pos=147 grp=3 idx=3 data=000f00f0
+# CAP pos=148 grp=3 idx=4 data=000f00f0
+# CAP pos=149 grp=3 idx=5 data=000f0af0
+# CAP pos=150 grp=3 idx=6 data=040f04f0
+# CAP pos=151 grp=3 idx=7 data=0f0f00f0
+# CAP pos=152 grp=3 idx=8 data=0f0f00f0
+# CAP pos=153 grp=3 idx=9 data=000f0ff0
+# CAP pos=154 grp=3 idx=10 data=000f00f0
+# CAP pos=155 grp=3 idx=11 data=000f00f0
+# CAP pos=156 grp=3 idx=12 data=000f00f0
+# CAP pos=157 grp=3 idx=13 data=0f0f0ff0
+# CAP pos=158 grp=3 idx=14 data=000f00f0
+# CAP pos=159 grp=3 idx=15 data=00af00f0
+# C2W_ENTRY g=3 fpr=10 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=160 grp=3 idx=0 data=0f0f0ff0
+# CAP pos=161 grp=3 idx=1 data=0f0f00f0
+# CAP pos=162 grp=3 idx=2 data=0f0f0af0
+# CAP pos=163 grp=3 idx=3 data=0f0f00f0
+# CAP pos=164 grp=3 idx=4 data=0f0f04f0
+# CAP pos=165 grp=3 idx=5 data=000f0ff0
+# CAP pos=166 grp=3 idx=6 data=0a0f00f0
+# CAP pos=167 grp=3 idx=7 data=000f00f0
+# CAP pos=168 grp=3 idx=8 data=000f0ff0
+# CAP pos=169 grp=3 idx=9 data=0f0f00f0
+# CAP pos=170 grp=3 idx=10 data=0f0f0ff0
+# CAP pos=171 grp=3 idx=11 data=000f0af0
+# CAP pos=172 grp=3 idx=12 data=000f00f0
+# CAP pos=173 grp=3 idx=13 data=0f0f0af0
+# CAP pos=174 grp=3 idx=14 data=000f00f0
+# CAP pos=175 grp=3 idx=15 data=000f0000
+# C2W_ENTRY g=3 fpr=11 p2row0=0000000000000000 p2row1=0fffffffffffffff p2cnt=16
+# CAP pos=176 grp=3 idx=0 data=0f0f00f0
+# CAP pos=177 grp=3 idx=1 data=0f0f0ff0
+# CAP pos=178 grp=3 idx=2 data=000f0af0
+# CAP pos=179 grp=3 idx=3 data=000f00f0
+# CAP pos=180 grp=3 idx=4 data=000f0ff0
+# CAP pos=181 grp=3 idx=5 data=000f00f0
+# CAP pos=182 grp=3 idx=6 data=000f0bf0
+# CAP pos=183 grp=3 idx=7 data=000f00f0
+# CAP pos=184 grp=3 idx=8 data=0e0f0ef0
+# CAP pos=185 grp=3 idx=9 data=000f00f0
+# CAP pos=186 grp=3 idx=10 data=000f0ff0
+# CAP pos=187 grp=3 idx=11 data=000f00f0
+# CAP pos=188 grp=3 idx=12 data=000f00f0
+# CAP pos=189 grp=3 idx=13 data=000f00f0
+# CAP pos=190 grp=3 idx=14 data=000f05f0
+# CAP pos=191 grp=3 idx=15 data=000f0000
+# C2W_ENTRY g=3 fpr=12 p2row0=0000000000000000 p2row1=0fffffffffffffff p2cnt=16
+# CAP pos=192 grp=3 idx=0 data=0f0f00f0
+# CAP pos=193 grp=3 idx=1 data=040f0ff0
+# CAP pos=194 grp=3 idx=2 data=020f00f0
+# CAP pos=195 grp=3 idx=3 data=0f0f00f0
+# CAP pos=196 grp=3 idx=4 data=040f00f0
+# CAP pos=197 grp=3 idx=5 data=000f00f0
+# CAP pos=198 grp=3 idx=6 data=0f0f00f0
+# CAP pos=199 grp=3 idx=7 data=0f0f00f0
+# CAP pos=200 grp=3 idx=8 data=0f0f00f0
+# CAP pos=201 grp=3 idx=9 data=000f0af0
+# CAP pos=202 grp=3 idx=10 data=000f00f0
+# CAP pos=203 grp=3 idx=11 data=000f00f0
+# CAP pos=204 grp=3 idx=12 data=0f0f00f0
+# CAP pos=205 grp=3 idx=13 data=000f0af0
+# CAP pos=206 grp=3 idx=14 data=000f00f0
+# CAP pos=207 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=13 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=208 grp=3 idx=0 data=0f0f0ff0
+# CAP pos=209 grp=3 idx=1 data=000f00f0
+# CAP pos=210 grp=3 idx=2 data=0f0f06f0
+# CAP pos=211 grp=3 idx=3 data=0f0f0ff0
+# CAP pos=212 grp=3 idx=4 data=0f0f00f0
+# CAP pos=213 grp=3 idx=5 data=0a0f04f0
+# CAP pos=214 grp=3 idx=6 data=000f00f0
+# CAP pos=215 grp=3 idx=7 data=000f00f0
+# CAP pos=216 grp=3 idx=8 data=040f00f0
+# CAP pos=217 grp=3 idx=9 data=000f00f0
+# CAP pos=218 grp=3 idx=10 data=000f00f0
+# CAP pos=219 grp=3 idx=11 data=0f0f00f0
+# CAP pos=220 grp=3 idx=12 data=0f0f00f0
+# CAP pos=221 grp=3 idx=13 data=000f00f0
+# CAP pos=222 grp=3 idx=14 data=000f00f0
+# CAP pos=223 grp=3 idx=15 data=00ff00f0
+# C2W_ENTRY g=3 fpr=14 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=224 grp=3 idx=0 data=0f0f0ff0
+# CAP pos=225 grp=3 idx=1 data=000f0af2
+# CAP pos=226 grp=3 idx=2 data=000f00f0
+# CAP pos=227 grp=3 idx=3 data=000f00f0
+# CAP pos=228 grp=3 idx=4 data=000f00f0
+# CAP pos=229 grp=3 idx=5 data=000f00f0
+# CAP pos=230 grp=3 idx=6 data=000f0af0
+# CAP pos=231 grp=3 idx=7 data=0f0f00f0
+# CAP pos=232 grp=3 idx=8 data=000f04f0
+# CAP pos=233 grp=3 idx=9 data=0f0f05f0
+# CAP pos=234 grp=3 idx=10 data=0f0f0ff0
+# CAP pos=235 grp=3 idx=11 data=0a0f0ff0
+# CAP pos=236 grp=3 idx=12 data=0f0f05f0
+# CAP pos=237 grp=3 idx=13 data=000f00f0
+# CAP pos=238 grp=3 idx=14 data=0f0f00f0
+# CAP pos=239 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=15 p2row0=0000000000000020 p2row1=ffffffffffffffff p2cnt=16
+# CAP pos=240 grp=3 idx=0 data=0f0f00f0
+# CAP pos=241 grp=3 idx=1 data=0f0f00f0
+# CAP pos=242 grp=3 idx=2 data=0f0f00f0
+# CAP pos=243 grp=3 idx=3 data=0f0f00f0
+# CAP pos=244 grp=3 idx=4 data=0f0f00f0
+# CAP pos=245 grp=3 idx=5 data=0f0f00f0
+# CAP pos=246 grp=3 idx=6 data=0f0f00f0
+# CAP pos=247 grp=3 idx=7 data=080f00f0
+# CAP pos=248 grp=3 idx=8 data=0f0f00f0
+# CAP pos=249 grp=3 idx=9 data=0f0f00f0
+# CAP pos=250 grp=3 idx=10 data=0a0f00f0
+# CAP pos=251 grp=3 idx=11 data=040f00f0
+# CAP pos=252 grp=3 idx=12 data=000f00f0
+# CAP pos=253 grp=3 idx=13 data=000f00f0
+# CAP pos=254 grp=3 idx=14 data=0f0f00f0
+# CAP pos=255 grp=3 idx=15 data=000f00f0
+# C2W_ENTRY g=3 fpr=16 p2row0=0000000000000000 p2row1=ffffffffffffffff p2cnt=16
+# BEATDUMP beat0 got=00000000111111111111111111111111
+# BEATDUMP beat1 got=11111111111100000000111111111111
+# BEATDUMP beat2 got=00000000111111111111111111111111
+# BEATDUMP beat3 got=00001111000011110000111111110000
+# ALL PASS tb_sps_ref_small_h32_t4_tc2_8 (256 beats; capture=1024 flush=64 structural ok)
+# ** Note: $finish    : D:/dl_snn/verification/sim/spikformer/tb_sps_ref_small_h32_t4_tc2_8.v(250)
+#    Time: 3363295 ns  Iteration: 2  Instance: /tb_sps_ref_small_h32_t4_tc2_8
+# End time: 16:59:37 on Oct 31,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 14

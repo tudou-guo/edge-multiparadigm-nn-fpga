@@ -1,0 +1,42 @@
+{
+  "schema": "e1-v02-heavy-wait-1",
+  "state": "waiting_for_resources",
+  "since_local": "2026-10-31T17:31:25+0800",
+  "requested_job_id": "img-ooc-native-all-20261031_1659",
+  "category": "vivado_ooc",
+  "mem_required_mib": 4000,
+  "blockers": [
+    {
+      "kind": "external_simulator",
+      "detail": "vsim.exe, vsimk.exe",
+      "rule": "large simulation and synthesis must not overlap (16 GB shared with the user desktop)"
+    }
+  ],
+  "resource_probe": {
+    "schema": "e1-v02-resource-probe-1",
+    "probe_source": "live",
+    "timestamp_local": "2026-10-31T17:31:25+0800",
+    "free_mem_mib": 4453,
+    "total_mem_mib": 16095,
+    "avail_commit_mib": 13695,
+    "mem_required_mib": 4000,
+    "category": "vivado_ooc",
+    "external_processes": {
+      "vivado": [],
+      "simulator": [
+        "vsim.exe",
+        "vsimk.exe"
+      ]
+    },
+    "process_count": 412,
+    "blockers": [
+      {
+        "kind": "external_simulator",
+        "detail": "vsim.exe, vsimk.exe",
+        "rule": "large simulation and synthesis must not overlap (16 GB shared with the user desktop)"
+      }
+    ],
+    "ok": false
+  },
+  "note": "mirage-free waiting: fixed poll interval, no busy loop"
+}

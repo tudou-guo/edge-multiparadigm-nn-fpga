@@ -1,0 +1,87 @@
+{
+ "lif": "V=(delta+pre)>>>1 tau=2, spike iff valid and 0<=V and V>=THR, reset 0",
+ "lif_add_bits": 33,
+ "qk_popcount": "per-T sum width clog2(head_dim+1)=6, all-ones=32 representable, no /head_dim",
+ "av": "unnormalized sum over TOKENS of score*V_spike, uint11 max 1024",
+ "residual": {
+  "bounds": {
+   "embed": 1,
+   "attn_res": 2,
+   "mlp_res": 3
+  },
+  "worst": 5,
+  "bits": 4,
+  "rw_alloc": 4
+ },
+ "head": {
+  "reduction": "sum",
+  "norm": "ps_div",
+  "note": "PL uint32 per-channel sum over T*N; PS divides then FP32 Linear"
+ },
+ "quant": "int8 weights; per-tensor scale/threshold/bias in params+manifest; BN state explicit (absent for this batch)",
+ "structure": {
+  "E": 128,
+  "HEADS": 4,
+  "HEAD_DIM": 32,
+  "HIDDEN": 512,
+  "T": 4,
+  "TOKENS": 32,
+  "DEPTH": 2,
+  "BATCH": 1,
+  "TL": 8,
+  "TC": 8,
+  "RW": 4,
+  "PSUM_SLICE": 32,
+  "SUM_W": 6,
+  "lif_add_bits": 33,
+  "accum_bits": 32
+ },
+ "thresholds": {
+  "thr_e": 26,
+  "blocks": [
+   {
+    "q": 128,
+    "k": 100,
+    "v": 92,
+    "proj": 546,
+    "fc1": 57,
+    "fc2": 100
+   },
+   {
+    "q": 190,
+    "k": 190,
+    "v": 203,
+    "proj": 1168,
+    "fc1": 96,
+    "fc2": 64
+   }
+  ]
+ },
+ "scales": {
+  "embed": 1.0,
+  "block0": {
+   "q": 1.0,
+   "k": 1.0,
+   "v": 1.0,
+   "proj": 0.15748031437397003,
+   "fc1": 0.6220472455024719,
+   "fc2": 0.8818897604942322
+  },
+  "block1": {
+   "q": 1.0,
+   "k": 1.0,
+   "v": 1.0,
+   "proj": 0.10236220806837082,
+   "fc1": 0.6456692814826965,
+   "fc2": 0.8976377844810486
+  }
+ },
+ "model_assets": {
+  "model_kind": "real_corpus",
+  "corpus_sha256": "c61f941b1699728a5e16a55b82af64213e8f212d7057764ce54af39643eda969",
+  "vocab_sha256": "e1090fa82387ca5fa527700398a885ddb9ad520be4672da08682fccd9839caa4",
+  "checkpoint": "examples\\nlp_sentiment_b1\\ckpt_real_real50.npz",
+  "checkpoint_sha256": "e6a3a411e269f3b144ddb3efee77309c32ac9a53197c9071c224e1d0dd2448a1",
+  "bn_state": "absent"
+ }
+}

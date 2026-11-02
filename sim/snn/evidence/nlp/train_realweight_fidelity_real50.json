@@ -1,0 +1,120 @@
+{
+ "schema": "spikformer-nlp-realweight-fidelity-1",
+ "tag": "real50",
+ "checkpoint": "build\\spikformer\\nlp_48h_20261029_1915\\train\\ckpt_real_real50.npz",
+ "checkpoint_sha256": "e6a3a411e269f3b144ddb3efee77309c32ac9a53197c9071c224e1d0dd2448a1",
+ "torch_trace": "build\\spikformer\\nlp_48h_20261029_1915\\reports\\train_realweight_torch_real50.npz",
+ "torch_trace_sha256": "dd4ce91f003a86703ff23574c5f0462e678f12e038e0a0c92388f8046be5c398",
+ "n_samples": 2,
+ "sample_ids": [
+  [
+   340,
+   457,
+   1598,
+   799,
+   470,
+   736,
+   3,
+   290,
+   147,
+   23,
+   5,
+   88,
+   144,
+   2,
+   9,
+   82,
+   140,
+   2789,
+   812,
+   216,
+   196,
+   21,
+   544,
+   336,
+   297,
+   2,
+   397,
+   725,
+   134,
+   283,
+   73,
+   706
+  ],
+  [
+   52,
+   132,
+   20,
+   133,
+   949,
+   512,
+   351,
+   25,
+   3,
+   304,
+   174,
+   359,
+   86,
+   831,
+   2,
+   477,
+   25,
+   475,
+   161,
+   435,
+   128,
+   107,
+   6,
+   48,
+   7,
+   2,
+   892,
+   152,
+   162,
+   526,
+   301,
+   45
+  ]
+ ],
+ "layers_compared": 47,
+ "first_mismatch": null,
+ "pl_sums_equal": true,
+ "logits_close": true,
+ "argmax_equal": true,
+ "torch_logits": [
+  [
+   -0.3168802559375763,
+   1.260777473449707
+  ],
+  [
+   0.8231098651885986,
+   -0.009542368352413177
+  ]
+ ],
+ "integer_ref_logits": [
+  [
+   -0.31688031554222107,
+   1.260777473449707
+  ],
+  [
+   0.8231098651885986,
+   -0.009542293846607208
+  ]
+ ],
+ "thresholds_checkpoint": {
+  "embed": 26,
+  "block0.q": 128,
+  "block0.k": 100,
+  "block0.v": 92,
+  "block0.proj": 546,
+  "block0.fc1": 57,
+  "block0.fc2": 100,
+  "block1.q": 190,
+  "block1.k": 190,
+  "block1.v": 203,
+  "block1.proj": 1168,
+  "block1.fc1": 96,
+  "block1.fc2": 64
+ },
+ "PASS": true
+}

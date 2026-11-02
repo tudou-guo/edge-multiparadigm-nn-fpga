@@ -1,0 +1,123 @@
+{
+ "schema": "spikformer-nlp-48h-gates-1",
+ "run_id": "build/spikformer/nlp_48h_20261029_1915",
+ "started_at": "2026-10-29T19:14:46+08:00",
+ "deadline_at": "2026-10-31T19:14:46+08:00",
+ "gates": {
+  "math_contract": {
+   "status": "pass",
+   "executed": true,
+   "evidence": [
+    "build/spikformer/nlp_48h_20261029_1915/reports/math_tests_m1.json (trainer M1: 8/8 PASS, torch quantized vs integer_ref full-trace equality incl target config, attention axes cross-token/cross-t)",
+    "build/spikformer/nlp_48h_20261029_1915/reports/math_tests_m1.log",
+    "build/spikformer/nlp_48h_20261029_1915/reports/intref_fix.json (Lead: LIF time-axis fix verified, 6/6)",
+    "build/spikformer/nlp_48h_20261029_1915/reports/math_lead_check.json (Lead independent: attention cross-token/per-t/per-head isolation, popcount=32, AV=1024, LIF boundaries, 23/23)",
+    "build/spikformer/nlp_48h_20261029_1915/replay/case_small/golden.json + case_multihead/golden.json + case_e2e/golden.json (replay golden vs integer_ref crosscheck MATCH at every stage, descriptor packing A)"
+   ],
+   "detail": "contract frozen; attention axis/head math, unnormalized AV, LIF 33-bit add/floor/hard-reset, quantized-vs-integer equivalence and descriptor field order all verified against independent implementations."
+  },
+  "target_e2e": {
+   "status": "pass",
+   "executed": true,
+   "evidence": [
+    "build/spikformer/nlp_48h_20261029_1915/reports/replay_e2e.json (pass=true cycles=5511908 on FROZEN RTL 20:47, +NLP_NO_FORCE, 2 samples no reset, 0 mismatches)",
+    "build/spikformer/nlp_48h_20261029_1915/replay/sim_e2e_20261029_203955_noforce/run.log",
+    "build/spikformer/nlp_48h_20261029_1915/reports/replay_small.json (pass=true cycles=31582 on frozen RTL)",
+    "build/spikformer/nlp_48h_20261029_1915/reports/replay_multihead.json (pass=true cycles=37837 on frozen RTL)",
+    "build/spikformer/nlp_48h_20261029_1915/reports/rtl_freeze.json (sha256 of all 18 RTL sources)"
+   ],
+   "detail": "TARGET E128/H4/HD32/seq32/MLP512/depth2/T4/V4000, two consecutive samples without global reset, on FROZEN RTL (reports/rtl_freeze.json): every embed beat (1024), block-in/out beat (2048 each), o_out_last, o_sums[128], o_sums_valid/o_done compared, 0 mismatches; deterministic input bubbles; X checks; watchdog fails with state dump (not data). Final repro: +NLP_NO_FORCE cycles=5511908 (reports/replay_e2e_final_noforce.json). Top-level output backpressure: force/release stall windows via always_ff-safe targets PASS, cycles=5511948, output_stall_windows=14 input_stall_windows=10, mismatches=0 (reports/replay_e2e_bpforce.json, replay/sim_e2e_20261029_210452_bpforce)."
+  },
+  "real_weight_replay": {
+   "status": "pass",
+   "executed": true,
+   "evidence": [
+    "build/spikformer/nlp_48h_20261029_1915/reports/replay_real.json (pass=true cycles=8267861, 3 fixed samples dev#0/dev#1/holdout#0, mismatches=0)",
+    "build/spikformer/nlp_48h_20261029_1915/replay/sim_real_20261029_210419/run.log",
+    "build/spikformer/nlp_48h_20261029_1915/train/ckpt_real_real50.npz sha256 e6a3a411e269f3b144ddb3efee77309c32ac9a53197c9071c224e1d0dd2448a1",
+    "build/spikformer/nlp_48h_20261029_1915/corpus/vocab.json sha256 e1090fa8\u2026caa4; golden from integer_ref.run_sample(trace=True) on final ckpt; 13/13 RTL source shas match reports/rtl_freeze.json"
+   ],
+   "detail": "REAL exported checkpoint replayed through the frozen target RTL: 3 fixed real-corpus samples (dev#0, dev#1, holdout#0), two blocks each, every embed/block-in/block-out beat + o_sums[128] compared, 0 mismatches, no global reset between samples. PS consistency: RTL o_sums equal golden integer PL sums channel-by-channel, so the bound FP32 head logits/argmax are exactly what the hardware path produces (pred [0,0,0], logits per sample recorded). This is ABI/golden consistency, not an accuracy claim (trainer integer accuracy dev 0.7592 is the separate integer_accuracy gate)."
+  },
+  "integer_accuracy": {
+   "status": "pass",
+   "executed": true,
+   "evidence": [
+    "build/spikformer/nlp_48h_20261029_1915/reports/train_real50.json (training: 5 epochs, 83.8s, dev 61.6/67.7/74.5/77.25/78.33%, best ep4, holdout(torch) 76.77%)",
+    "build/spikformer/nlp_48h_20261029_1915/reports/export_final_real50.json (integer-domain calibration + export + strict compile import; checkpoint sha256 e6a3a411...2448a1)",
+    "build/spikformer/nlp_48h_20261029_1915/train/nlp_real_compile/manifest.json (model_kind=real_corpus, 54 blobs, live manifest binding)",
+    "build/spikformer/nlp_48h_20261029_1915/corpus/corpus_meta.json + splits.json + label_map.json"
+   ],
+   "detail": "INTEGER-domain accuracy (integer_ref.evaluate, not torch float): dev 0.7592 (n=1200, majority 0.5058), fixed holdout 0.7562 (n=960, majority 0.5000), train subset 0.8398 (n=256). Both dev and holdout beat majority baseline -> accuracy_established=true. Honest note: class-1 recall 60.7% vs class-0 90.8% on dev (biased but above baseline); public test.tsv unlabelled -> no test accuracy reported. Checkpoint: train/ckpt_real_real50.npz sha256 e6a3a411e269f3b144ddb3efee77309c32ac9a53197c9071c224e1d0dd2448a1 (real_corpus, integer_ref.load_checkpoint strict PASS)."
+  },
+  "ip": {
+   "status": "pass",
+   "executed": true,
+   "evidence": [
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/ip/ip_manifest.json (timing_qualified=true, package_sha256=894599b9)",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/ip/SOURCE_SHA256.txt",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/ip/generated/ (same-source adapter with hold-margin cells + unchanged XDC)",
+    "build/spikformer/nlp_48h_20261029_1915/final_gates.json (this ooc=pass entry ties the package to the passing routed run)"
+   ],
+   "detail": "Same-source IP package regenerated from the hold-fix build: 19/19 manifest RTL sources hash-match, the generated target adapter (with 1,192 DONT_TOUCH hold-margin LUT1 cells) and the byte-identical XDC are copied and hashed, and timing_qualified=true is tied to the passing routed OOC report of this build. The package itself now carries the scope: ip_manifest.json assumptions + README.txt SCOPE/ASSUMPTIONS state OOC 5 ns only, 0.000 ns input-delay model, HD.CLK_SRC unset, keep the 1,192 DONT_TOUCH cells, input setup budget +0.135 ns (real upstream max delay above it would fail), and platform/bit/HWH/board not_run."
+  },
+  "ooc": {
+   "status": "pass",
+   "executed": true,
+   "evidence": [
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/reports/ooc_20261030_120804.json (status=pass, routed)",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/ooc_run_20261030_120804/{timing_route.rpt,timing_route_paths.rpt,util_route.rpt,drc_route.rpt,route_status.rpt,pulse_width.rpt,clocks.rpt,exceptions.rpt,facts.txt,post_route.dcp}",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/logs/ooc_20261030_120804.log",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/synth_run_*/{timing_synth.rpt,util_synth.rpt,drc_synth.rpt,facts.txt}",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/reports/hold_closure_20261030.json",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/reports/build_identity_20261030.json",
+    "build/spikformer/nlp_48h_20261029_1915/ooc/analysis3/hold_paths.tsv (r2 failing hold classification, 32,852 paths)",
+    "build/spikformer/nlp_48h_20261029_1915/ooc/analysis5/routed_check/routed_hold_check.log (r4 routed-DCP re-check: 0 failing hold paths)",
+    "build/spikformer/nlp_48h_20261029_1915/ooc/analysis4/adapter_r2_vs_r3_holdfix.diff",
+    "build/spikformer/nlp_48h_20261029_1915/reports/replay_{small,e2e_noforce,e2e_bpforce,real}_holdfix.json",
+    "docs/SPIKFORMER_NLP_48H_HOLD_CLOSURE_RESULT.md"
+   ],
+   "detail": "5ns routed OOC on the hold-fix cut (build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/ooc_run_20261030_120804): setup WNS +0.135 ns / TNS 0 / 0 failing; hold WHS +0.023 ns / THS 0 / 0 failing; pulse width 0 failing; unrouted nets 0; no timing exceptions, 5.000 ns clock only. Method: read-only DCP classification of the r2 failing cut proved all 32,852 failing hold endpoints start at input ports (i_w_data 29,414 / i_tab_data 3,054 / i_tok_id 384; zero internal startpoints), i.e. the OOC 0-input-delay port->first-register model; post-route phys_opt -hold_fix had repaired only 50 of 4,821 candidate nets. Fix: DONT_TOUCH LUT1 input hold-margin cells in the generated target adapter (tools/backends/spikformer/codegen.py): 8 stages on each of 149 sampled input bits including s_rst (1,192 LUT1 cells), pure combinational delay, no state/protocol/clock change and no timing exception. The generated spikformer.xdc is byte-identical to the failing cut (sha256 9fc1c2676a29bbab1ee6277b9bb60a882c5e868396ab03ee36aa1f8a2eb10842; no false path/multicycle, no downclock); the 18 frozen RTL hashes are unchanged; functional replays re-run 2026-10-30 on the same frozen RTL are mismatch=0. Stage calibration: 16-stage synth probe rejected (setup), 10-stage routed cut passed with WHS +0.001 ns and was superseded by this 8-stage cut. Remaining OOC-model limits stay labelled unverified: HD.CLK_SRC unset (no top-level clock-buffer fact), 0.000 ns input-delay assumption, platform/bit/HWH/board not_run. The binding hold item is now an internal FF->FF path (+0.023 ns, thin; same path class as in the failing cut, where it had no negative slack, masked by the -0.080 ns input paths; not re-measured on the r2 DCP) and must be re-checked under a real clock tree. The routed WNS binding path is the inserted hold-margin chain itself (from-port setup slack +0.135 ns, below the ~0.3 ns engineering-target suggestion); the 0.000 ns input-delay model is optimistic, so a real upstream max input delay >0.135 ns would violate it and this package is not integration-ready without re-timing / a shorter chain or integrated-top register slice plus real interface min/max re-constraint. async_default group WHS 0.750 ns."
+  },
+  "platform": {
+   "status": "not_run",
+   "executed": false,
+   "evidence": [],
+   "detail": "not selected as the batch physical path (H14 rule): platform integration + minimal transport replay not available; no board access. not_run, not pass."
+  },
+  "bit_hwh": {
+   "status": "not_run",
+   "executed": false,
+   "evidence": [],
+   "detail": "bit+HWH for selected physical path (needs pass OOC and platform decision)"
+  },
+  "board": {
+   "status": "not_run",
+   "executed": false,
+   "evidence": [],
+   "detail": "board run of fixed samples (needs bit/HWH + board access)"
+  },
+  "rtl_freezes": {
+   "status": "pass",
+   "executed": true,
+   "evidence": [
+    "build/spikformer/nlp_48h_20261029_1915/reports/rtl_freeze.json (18/18 hashes still match on 2026-10-30)",
+    "build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/reports/build_identity_20261030.json (freeze + adapter/xdc/codegen identity of this build)",
+    "build/spikformer/nlp_48h_20261029_1915/reports/replay_{small,e2e_noforce,e2e_bpforce,real}_holdfix.json (re-run on the same frozen RTL)"
+   ],
+   "detail": "The 2026-10-30 hold fix edits no frozen RTL file: all 18 rtl_freeze hashes and the 19-entry manifest rtl_sha256 still match. The only source change is the generated target adapter (codegen.py _adapter + spk_input_hold_margin), which is outside the rtl_freeze 18-file scope and is bound by adapter_sha256 in the OOC report and build_identity_20261030.json; the frozen core RTL used by the replays is unchanged."
+  }
+ },
+ "path_decision": {
+  "status": "decided",
+  "decided_at": "2026-10-29T20:10:00+08:00",
+  "decision_deadline": "H14 (2026-10-30T09:14:46+08:00)",
+  "chosen": "target_ooc",
+  "rationale": "H0 platform precheck: no board access evidence (no board peer in ARP, no JTAG/PYNQ target for xczu15eg, only ZYNQ-7020 host bundle present); reusable platform template is an ANN-only project in dl_v0.1 with platform/board recorded not_run in its own run; SNN wrapper is a control shell (sub-engine done/head sums tied 0, simplified AXI-Lite). Platform integration + minimal transport replay is therefore NOT already available: per handoff rule choose target OOC.",
+  "evidence": [
+   "build/spikformer/nlp_48h_20261029_1915/platform/platform_probe.json",
+   "build/spikformer/nlp_48h_20261029_1915/reports/env_probe.json"
+  ],
+  "unexecuted_other_path": "platform/bit_hwh/board = not_run (no board access; not assumed available before the 48h deadline)"
+ }
+}

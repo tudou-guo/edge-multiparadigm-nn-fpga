@@ -1,0 +1,33 @@
+# Commands actually issued for this OOC run (2026-10-31)
+#
+# Run dir: D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657
+# Target : xczu15eg-ffvb1156-2-i, Vivado 2021.1, s_clk 5.000 ns, no exceptions,
+#          no downclock, no bitstream.
+#
+# 1) canonical card entry (run_locked.py, hardcoded mem=5000MiB / wait=900s):
+# E:/miniconda/python.exe -B D:/spk_platform/scripts/run_locked.py \
+#   img-ooc-native-all-20261031_1659 -- \
+#   E:/Vitis/Vivado/2021.1/bin/vivado.bat -mode batch -notrace \
+#   -log OUT/vivado.log -journal OUT/vivado.jou \
+#   -source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl \
+#   -tclargs OUT all vis_native_probe
+#
+# 2) actual entry used (same shared lock file / same lease; memory reservation
+#    lowered to the historical probe value 4000 MiB because the host had
+#    <4000 MiB free; explicitly authorised by the team lead):
+E:/miniconda/python.exe -B D:/dl_snn/scripts/spikformer/run_heavy.py \
+  --lock D:/dl_v0.1/build/onnx_e1/v02_real_yolo_20261026_2022_b1/jobs/heavy.lock.json \
+  --job-id img-ooc-native-all-20261031_1659 --category vivado_ooc \
+  --mem-mib 4000 --wait-sec 2400 -- \
+  E:/Vitis/Vivado/2021.1/bin/vivado.bat -mode batch -notrace \
+  -log D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.log \
+  -journal D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657/vivado.jou \
+  -source D:/dl_snn/scripts/spikformer/synth_ooc_vis_native.tcl \
+  -tclargs D:/dl_snn/build/spikformer/vision_ref_20261031/ooc_native_20261031_1657 all vis_native_probe
+#
+# 3) SPS-only fallback (only if the whole-top run is not feasible):
+#    same command with  -tclargs OUT all spiking_sps_ref_top
+#
+# 4) Pre-run self checks (no lock needed, executed):
+#    tclsh <out>/_selftest_stub.tcl            -> SELFTEST_OK, facts JSON valid
+#    vlog -sv -work work +incdir+<gen> rtl/probe/vis_native_probe.sv -> 0 errors

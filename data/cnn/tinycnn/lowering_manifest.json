@@ -1,0 +1,111 @@
+{
+  "batch_norm_folded": [],
+  "batch_norm_folded_count": 0,
+  "constant_nodes_folded": 0,
+  "conv1x1_nodes_expanded": 1,
+  "depthwise_recognized": [],
+  "depthwise_recognized_count": 0,
+  "lowered_graph_digest": "545b45a5f7c8a82bcc4f61bb49c53f9c7d1243b1b3bcd7f43a2889c6b0f5a23b",
+  "lowered_nodes": 8,
+  "mapping": [
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "conv1_activation"
+      ],
+      "outputs": [
+        "conv1_activation"
+      ],
+      "source_node": "conv1_activation",
+      "source_op": "Conv"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "conv1_pool"
+      ],
+      "outputs": [
+        "conv1_pool"
+      ],
+      "source_node": "conv1_pool",
+      "source_op": "MaxPool"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "conv2_activation"
+      ],
+      "outputs": [
+        "conv2_activation"
+      ],
+      "source_node": "conv2_activation",
+      "source_op": "Conv"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "conv2_pool"
+      ],
+      "outputs": [
+        "conv2_pool"
+      ],
+      "source_node": "conv2_pool",
+      "source_op": "MaxPool"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "conv3_activation"
+      ],
+      "outputs": [
+        "conv3_activation"
+      ],
+      "source_node": "conv3_activation",
+      "source_op": "Conv"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "conv4_activation"
+      ],
+      "outputs": [
+        "conv4_activation"
+      ],
+      "source_node": "conv4_activation",
+      "source_op": "Conv"
+    },
+    {
+      "disposition": "direct",
+      "lowered_nodes": [
+        "conv4_pool"
+      ],
+      "outputs": [
+        "conv4_pool"
+      ],
+      "source_node": "conv4_pool",
+      "source_op": "MaxPool"
+    },
+    {
+      "disposition": "expanded_3x3",
+      "lowered_nodes": [
+        "logits_domain"
+      ],
+      "outputs": [
+        "logits_domain"
+      ],
+      "source_node": "logits_domain",
+      "source_op": "Conv1x1"
+    }
+  ],
+  "passes": [
+    "batch_norm_exact_fold",
+    "constant_fold",
+    "conv1x1_center_expand",
+    "static_split_to_slice",
+    "depthwise_recognition"
+  ],
+  "schema": "e1-p3-lowering-1",
+  "source_graph_digest": "5db3529a464ec360f3450c8c6d6e87cfb7b0f8af89b61ba64da551e2073aec95",
+  "source_nodes": 8,
+  "split_nodes_lowered": 0
+}

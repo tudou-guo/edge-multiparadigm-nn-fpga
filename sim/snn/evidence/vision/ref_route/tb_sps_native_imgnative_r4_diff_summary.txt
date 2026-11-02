@@ -1,0 +1,4 @@
+exp beats=3072 got beats=3072
+exact beats=3072/3072
+total hamming nibbles and bits=0
+nibbles outside {0,1}=0

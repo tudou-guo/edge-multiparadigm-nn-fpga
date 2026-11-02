@@ -1,0 +1,480 @@
+{
+ "schema": "spikformer-nlp-hold-closure-1",
+ "created": "2026-10-30",
+ "run": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915",
+ "r2_failing_cut": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r2",
+ "r3_holdfix_cut": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix",
+ "checks": {
+  "frozen_rtl_unchanged": {
+   "ok": true,
+   "detail": {
+    "freeze_schema": "spikformer-nlp-48h-rtl-freeze-1",
+    "frozen_files": 18,
+    "mismatch": []
+   }
+  },
+  "manifest_binds_frozen_rtl": {
+   "ok": true,
+   "detail": {
+    "rtl_sources": 19,
+    "rtl_hashed": 19
+   }
+  },
+  "constraint_file_identical_to_failing_cut": {
+   "ok": true,
+   "detail": {
+    "r2_sha256": "9fc1c2676a29bbab1ee6277b9bb60a882c5e868396ab03ee36aa1f8a2eb10842",
+    "r3_sha256": "9fc1c2676a29bbab1ee6277b9bb60a882c5e868396ab03ee36aa1f8a2eb10842",
+    "content": [
+     "# GENERATED constraints: one clock, NO timing exceptions, no downclock.",
+     "create_clock -name s_clk -period 5.000 [get_ports s_clk]",
+     "set_input_delay -clock s_clk 0.000 [all_inputs]",
+     "set_output_delay -clock s_clk 0.000 [all_outputs]"
+    ]
+   }
+  },
+  "synth_setup_met": {
+   "ok": true,
+   "detail": {
+    "wns_ns": 1.138,
+    "tns_ns": 0.0,
+    "setup_failing": 0,
+    "setup_total": 186415,
+    "whs_ns": 0.038,
+    "ths_ns": 0.0,
+    "hold_failing": 0,
+    "hold_total": 186415,
+    "wpws_ns": 1.958,
+    "pulse_failing": 0,
+    "pulse_total": 71627
+   }
+  },
+  "synth_hold_met": {
+   "ok": true,
+   "detail": {
+    "wns_ns": 1.138,
+    "tns_ns": 0.0,
+    "setup_failing": 0,
+    "setup_total": 186415,
+    "whs_ns": 0.038,
+    "ths_ns": 0.0,
+    "hold_failing": 0,
+    "hold_total": 186415,
+    "wpws_ns": 1.958,
+    "pulse_failing": 0,
+    "pulse_total": 71627
+   }
+  },
+  "synth_hold_margin_cells_present": {
+   "ok": true,
+   "detail": {
+    "lut1": 1223,
+    "expected_min": 1192
+   }
+  },
+  "synth_no_latch": {
+   "ok": true,
+   "detail": "latch_cells=0"
+  },
+  "ooc_driver_status_pass": {
+   "ok": true,
+   "detail": {
+    "status": "pass",
+    "reason": ""
+   }
+  },
+  "ooc_setup_met": {
+   "ok": true,
+   "detail": {
+    "wns_ns": 0.135,
+    "tns_ns": 0.0,
+    "setup_failing": 0
+   }
+  },
+  "ooc_hold_met": {
+   "ok": true,
+   "detail": {
+    "whs_ns": 0.023,
+    "ths_ns": 0.0,
+    "hold_failing": 0
+   }
+  },
+  "ooc_pulse_width_met": {
+   "ok": true,
+   "detail": {
+    "wpws_ns": 1.958,
+    "pulse_failing": 0
+   }
+  },
+  "ooc_zero_violated_paths_in_path_report": {
+   "ok": true,
+   "detail": {
+    "violated_path_lines": 0
+   }
+  },
+  "ooc_async_default_hold_met": {
+   "ok": true,
+   "detail": {
+    "wns_ns": 0.485,
+    "tns_ns": 0.0,
+    "setup_failing": 0,
+    "setup_total": 13581,
+    "whs_ns": 0.75,
+    "ths_ns": 0.0,
+    "hold_failing": 0,
+    "hold_total": 13581
+   }
+  },
+  "ooc_no_timing_exceptions": {
+   "ok": true,
+   "detail": {
+    "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix\\ooc_run_20261030_120804\\exceptions.rpt"
+   }
+  },
+  "ooc_clock_5ns": {
+   "ok": true,
+   "detail": {
+    "clock_line": [
+     "s_clk  5.000       {0.000 2.500}  P           {s_clk}"
+    ]
+   }
+  },
+  "ooc_routing_clean": {
+   "ok": true,
+   "detail": {
+    "routing_errors": 0,
+    "fully_routed": 102211,
+    "routable": 102211
+   }
+  },
+  "ooc_drc_zero_errors": {
+   "ok": true,
+   "detail": {
+    "parsed_error_tokens": 0
+   }
+  },
+  "ooc_no_inferred_latch": {
+   "ok": true,
+   "detail": {
+    "latch_cells": 0
+   }
+  },
+  "ooc_hold_margin_cells_survived": {
+   "ok": true,
+   "detail": {
+    "lut1": 1222,
+    "expected_min": 1192
+   }
+  },
+  "routed_full_failing_hold_set_zero": {
+   "ok": true,
+   "detail": {
+    "failing_min_paths": "0"
+   }
+  },
+  "routed_worst_hold_slack_nonneg": {
+   "ok": true,
+   "detail": {
+    "worst_hold_slack": "0.023",
+    "worst_hold_start": "u_top/acc_reg[104][11]/C",
+    "worst_hold_end": "u_top/o_sums_reg[104][11]/D",
+    "worst_hold_datapath": "0.076"
+   }
+  },
+  "routed_async_default_hold_nonneg": {
+   "ok": true,
+   "detail": {
+    "async_default_group": {
+     "wns_ns": 0.485,
+     "tns_ns": 0.0,
+     "setup_failing": 0,
+     "setup_total": 13581,
+     "whs_ns": 0.75,
+     "ths_ns": 0.0,
+     "hold_failing": 0,
+     "hold_total": 13581
+    },
+    "routed_log_async": null
+   }
+  },
+  "routed_from_port_setup_positive": {
+   "ok": true,
+   "detail": {
+    "from_port_setup_slack": "0.135",
+    "from_port_setup_start": "i_w_data[23]",
+    "from_port_setup_end": "u_top/u_blk/bf1_reg[400][23]/D",
+    "from_port_setup_datapath": "4.875"
+   }
+  },
+  "routed_hold_margin_cells_expected_dont_touch": {
+   "ok": true,
+   "detail": {
+    "hold_margin_lut1_cells": "1192",
+    "hold_margin_lut1_dont_touch_true": "1192"
+   }
+  },
+  "routed_former_worst_path_positive": {
+   "ok": true,
+   "detail": {
+    "i_w_data17_hold_slack": "0.669 start=i_w_data[17] end=u_top/u_blk/bq_reg[114][17]/D datapath=0.735 levels=8",
+    "i_w_data17_hold_datapath": null,
+    "i_w_data17_hold_end": null
+   }
+  },
+  "r2_classification_all_input_startpoints": {
+   "ok": true,
+   "detail": {
+    "failing_paths": 32852,
+    "internal_startpoints": 0,
+    "paths_by_port": {
+     "i_w_data": 29414,
+     "i_tok_id": 384,
+     "i_tab_data": 3054
+    }
+   }
+  },
+  "replay_all_pass": {
+   "ok": true,
+   "detail": {
+    "small": {
+     "case": "small",
+     "pass": true,
+     "result": "pass",
+     "cycles": 39774,
+     "golden_sha256": "f3be24218c88a96d8e2344fab7ce074510de32df4e9f4dfd5f58b750cdd1fb67",
+     "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+     "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_small_holdfix.json"
+    },
+    "e2e_noforce": {
+     "case": "e2e",
+     "pass": true,
+     "result": "pass",
+     "cycles": 7084772,
+     "golden_sha256": "296c6252982798761e8df795de40b9cb549344bc389828f3628854af5804a966",
+     "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+     "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_e2e_noforce_holdfix.json"
+    },
+    "e2e_bpforce": {
+     "case": "e2e",
+     "pass": true,
+     "result": "pass",
+     "cycles": 7084812,
+     "golden_sha256": "296c6252982798761e8df795de40b9cb549344bc389828f3628854af5804a966",
+     "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+     "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_e2e_bpforce_holdfix.json"
+    },
+    "real": {
+     "case": "real",
+     "pass": true,
+     "result": "pass",
+     "cycles": 10627157,
+     "golden_sha256": "065c5056248901a3b4c55ea02a0bf15fc5e883b812d87ae3c3a43795955bbba9",
+     "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+     "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_real_holdfix.json"
+    }
+   }
+  },
+  "ip_timing_qualified": {
+   "ok": true,
+   "detail": {
+    "manifest": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix\\ip\\ip_manifest.json",
+    "timing_qualified": true,
+    "ooc_status": "pass",
+    "package_sha256": "894599b92c8de7d4edf65320db5f23a1413e7e9fabc81740b357e2134b292f22",
+    "source_hashes_match_sim": true
+   }
+  }
+ },
+ "evidence": {
+  "xdc_content": [
+   "# GENERATED constraints: one clock, NO timing exceptions, no downclock.",
+   "create_clock -name s_clk -period 5.000 [get_ports s_clk]",
+   "set_input_delay -clock s_clk 0.000 [all_inputs]",
+   "set_output_delay -clock s_clk 0.000 [all_outputs]"
+  ],
+  "adapter_sha256": "90f65983073c79be270bf7afe31f8ba5b01fa09262a73663d81989fad769b9d7",
+  "adapter_r2_sha256": "55abcbe8e123b7fcfb8118b7c4d47d1ce4c7c48e3abdd3fc76b67b60aed34f43",
+  "manifest_sha256": "79b1e1151c8befa1e927655aeffb2990609549e405d8720511a4cb66a11edd26",
+  "build_identity": {
+   "manifest_sha256": "79b1e1151c8befa1e927655aeffb2990609549e405d8720511a4cb66a11edd26",
+   "manifest_file_sha256": "290609ad0b3377da7f3766dc625190ee5ef6e97f3196742f3c3b0ee12e70dc01",
+   "manifest_r2_sha256": "79b1e1151c8befa1e927655aeffb2990609549e405d8720511a4cb66a11edd26",
+   "manifest_r2_file_sha256": "290609ad0b3377da7f3766dc625190ee5ef6e97f3196742f3c3b0ee12e70dc01",
+   "manifest_files_byte_identical": true,
+   "cache_key": "d91a31a4321a1bc2ac8113231894a5e5cc24849565d9e0391b7100c280e73fa3",
+   "cache_key_r2_identical": true,
+   "adapter_sha256": "90f65983073c79be270bf7afe31f8ba5b01fa09262a73663d81989fad769b9d7",
+   "adapter_r2_sha256": "55abcbe8e123b7fcfb8118b7c4d47d1ce4c7c48e3abdd3fc76b67b60aed34f43",
+   "xdc_sha256": "9fc1c2676a29bbab1ee6277b9bb60a882c5e868396ab03ee36aa1f8a2eb10842",
+   "xdc_identical_to_r2": true,
+   "ooc_tcl_sha256": "ece06db1c7a8069462dd971e51b578cb5fe59fb18808792ea4a77dd22298c86e",
+   "ooc_tcl_r2_vs_r3_diff_lines": 6,
+   "ooc_tcl_diff_summary": "adapter path + place/phys_opt Explore directives vs r2; no timing exceptions",
+   "codegen_py_sha256": "02c43a5411d97e81d016dcb267a1165aca21b37225ff5657dff102cc50474147",
+   "run_physical_py_sha256": "46837cdfac77725587841b846fa507eb9cda0d4189f6d59911ad12b7b511dcbc",
+   "rtl_freeze_record_sha256": "d2da0367f5811d73232ff32a6615de18f9afe4e9096b4b51350d3f2ae840b5ee",
+   "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+   "note": "generated adapter is outside the 18-file rtl_freeze scope; it is bound by adapter_sha256 here and by the OOC report adapter_sha256; frozen RTL untouched. Driver log_hits.latch_inferred/critical_warnings are text counters over log lines (they also match the strings in 0-summary lines); the authoritative values are latch_cells=0 in facts.txt and 0 real CRITICAL WARNING lines in the log. routed_hold_check.log hold_margin_all_cells=6846 is a NAME-pattern over-match (all cells under u_hm_* hierarchies, mainly nets/instances); only hold_margin_lut1_cells=1192 is meaningful."
+  },
+  "hold_margin": {
+   "module": "spk_input_hold_margin",
+   "stages": 8,
+   "instances": 8,
+   "delay_cells_expected": 1192,
+   "input_bits": 149,
+   "note": "8 LUT1 inverter stages per bit on all sampled inputs plus s_rst (s_clk passes through); DONT_TOUCH; pure combinational"
+  }
+ },
+ "synth": {
+  "wns_ns": 1.138,
+  "tns_ns": 0.0,
+  "setup_failing": 0,
+  "setup_total": 186415,
+  "whs_ns": 0.038,
+  "ths_ns": 0.0,
+  "hold_failing": 0,
+  "hold_total": 186415,
+  "wpws_ns": 1.958,
+  "pulse_failing": 0,
+  "pulse_total": 71627,
+  "lut1": 1223,
+  "dir": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix\\synth_run_20261030_115812",
+  "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix\\reports\\synth_20261030_115812.json"
+ },
+ "ooc": {
+  "wns_ns": 0.135,
+  "tns_ns": 0.0,
+  "setup_failing": 0,
+  "setup_total": 186547,
+  "whs_ns": 0.023,
+  "ths_ns": 0.0,
+  "hold_failing": 0,
+  "hold_total": 186547,
+  "wpws_ns": 1.958,
+  "pulse_failing": 0,
+  "pulse_total": 71689,
+  "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix\\reports\\ooc_20261030_120804.json",
+  "dir": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix\\ooc_run_20261030_120804",
+  "driver_status": "pass",
+  "driver_reason": "",
+  "driver_wns_setup_ns": 0.135,
+  "driver_wns_hold_ns": 0.023,
+  "driver_unrouted": 0,
+  "latch_cells": 0,
+  "log_hits": {
+   "multi_driven": 0,
+   "latch_inferred": 8,
+   "critical_warnings": 6,
+   "errors": 0
+  },
+  "async_default_group": {
+   "wns_ns": 0.485,
+   "tns_ns": 0.0,
+   "setup_failing": 0,
+   "setup_total": 13581,
+   "whs_ns": 0.75,
+   "ths_ns": 0.0,
+   "hold_failing": 0,
+   "hold_total": 13581
+  },
+  "violated_paths_in_report": 0,
+  "timing_exceptions_none": true,
+  "clock_5ns": true,
+  "routing_errors": 0,
+  "fully_routed": 102211,
+  "routable_nets": 102211,
+  "drc_errors": 0,
+  "lut1": 1222,
+  "lut": 40964,
+  "ff": 71173,
+  "bram": null,
+  "dsp": 128
+ },
+ "routed_recheck": {
+  "dcp": "D:/dl_snn/build/spikformer/nlp_48h_20261029_1915/final/nlp_real_5stage_r4_holdfix/ooc_run_20261030_120804/post_route.dcp",
+  "failing_min_paths": "0",
+  "worst_hold_slack": "0.023",
+  "worst_hold_start": "u_top/acc_reg[104][11]/C",
+  "worst_hold_end": "u_top/o_sums_reg[104][11]/D",
+  "worst_hold_datapath": "0.076",
+  "from_port_count": "4249",
+  "from_port_setup_slack": "0.135",
+  "from_port_setup_start": "i_w_data[23]",
+  "from_port_setup_end": "u_top/u_blk/bf1_reg[400][23]/D",
+  "from_port_setup_datapath": "4.875",
+  "from_port_setup_levels": "8",
+  "i_w_data17_hold_slack": "0.669 start=i_w_data[17] end=u_top/u_blk/bq_reg[114][17]/D datapath=0.735 levels=8",
+  "hold_margin_lut1_cells": "1192",
+  "hold_margin_lut1_dont_touch_true": "1192",
+  "hold_margin_all_cells": "6846"
+ },
+ "r2_hold_classification": {
+  "failing_paths": 32852,
+  "internal_startpoints": 0,
+  "unique_startpoints": 140,
+  "risk_startpoint_ports": 3,
+  "paths_by_port": {
+   "i_w_data": 29414,
+   "i_tok_id": 384,
+   "i_tab_data": 3054
+  },
+  "slack_min": -0.08,
+  "slack_max": -0.001,
+  "datapath_max_ns": 0.071,
+  "logic_levels": [
+   0,
+   1
+  ],
+  "requirement_values": [
+   "0.000"
+  ],
+  "unique_endpoints": 32852
+ },
+ "replay": {
+  "small": {
+   "case": "small",
+   "pass": true,
+   "result": "pass",
+   "cycles": 39774,
+   "golden_sha256": "f3be24218c88a96d8e2344fab7ce074510de32df4e9f4dfd5f58b750cdd1fb67",
+   "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+   "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_small_holdfix.json"
+  },
+  "e2e_noforce": {
+   "case": "e2e",
+   "pass": true,
+   "result": "pass",
+   "cycles": 7084772,
+   "golden_sha256": "296c6252982798761e8df795de40b9cb549344bc389828f3628854af5804a966",
+   "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+   "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_e2e_noforce_holdfix.json"
+  },
+  "e2e_bpforce": {
+   "case": "e2e",
+   "pass": true,
+   "result": "pass",
+   "cycles": 7084812,
+   "golden_sha256": "296c6252982798761e8df795de40b9cb549344bc389828f3628854af5804a966",
+   "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+   "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_e2e_bpforce_holdfix.json"
+  },
+  "real": {
+   "case": "real",
+   "pass": true,
+   "result": "pass",
+   "cycles": 10627157,
+   "golden_sha256": "065c5056248901a3b4c55ea02a0bf15fc5e883b812d87ae3c3a43795955bbba9",
+   "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+   "report": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\reports\\replay_real_holdfix.json"
+  }
+ },
+ "ip": {
+  "manifest": "D:\\dl_snn\\build\\spikformer\\nlp_48h_20261029_1915\\final\\nlp_real_5stage_r4_holdfix\\ip\\ip_manifest.json",
+  "timing_qualified": true,
+  "ooc_status": "pass",
+  "package_sha256": "894599b92c8de7d4edf65320db5f23a1413e7e9fabc81740b357e2134b292f22",
+  "source_hashes_match_sim": true
+ },
+ "pass": true,
+ "failures": []
+}

@@ -1,0 +1,152 @@
+# vsim -c -work work_chain tb_vis_native_chain -l D:/dl_snn/build/spikformer/vision_ref_20261031/sim/tb_vis_native_chain_p2fix_img2_20261031.log -do "run -all; quit -f" 
+# Start time: 17:28:23 on Oct 31,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_vis_native_chain(fast)
+# Loading work.spikformer_vis_native_top(fast)
+# run -all
+# TB_CHAIN ident params native H=W=32 C1=96 C2=384 T=4 E=384 TL=8 TOKENS=64
+# VEC blk_w=222912 expo1[0]=33331111221233230111333333230000 exps1[0]=0 pix2[0]=392301
+# IMG0 start (block weights + SPS stream/pixels)
+# MON cyc=1000000 top=2 blk=2 sps=4 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=2000000 top=2 blk=2 sps=4 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=3000000 top=2 blk=2 sps=8 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=4000000 top=2 blk=2 sps=8 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=5000000 top=2 blk=2 sps=8 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=6000000 top=2 blk=2 sps=11 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=7000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=8000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=9000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=10000000 top=2 blk=3 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=11000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=12000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=13000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=14000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=15000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=16000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=17000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=18000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=19000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=20000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=21000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=22000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=23000000 top=2 blk=5 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=24000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=25000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=26000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=27000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=28000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=29000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=30000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=31000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=32000000 top=2 blk=5 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=33000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=34000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=35000000 top=2 blk=6 sps=0 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# SUMS PASS img0 (384 sums)
+# BLKOUT PASS img0 (3072 beats bit-exact, last ok)
+# IMG1 start (block weights + SPS stream/pixels)
+# MON cyc=36000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=37000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=38000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=39000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=40000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=41000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=42000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=43000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=44000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=45000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=46000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=47000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=48000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=49000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=50000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=51000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=52000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=53000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=54000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=55000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=56000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=57000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=58000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=59000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=60000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=61000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=62000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=63000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=64000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=65000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=66000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=67000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=68000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=69000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=70000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=71000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=72000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=73000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=74000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=75000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=76000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=77000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=78000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=79000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=80000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=81000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=82000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=83000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=84000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=85000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=86000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=87000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=88000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=89000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=90000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=91000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=92000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=93000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=94000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=95000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=96000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=97000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=98000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=99000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=100000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=101000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=102000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=103000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=104000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=105000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=106000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=107000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=108000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=109000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=110000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=111000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=112000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=113000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=114000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=115000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=116000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=117000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=118000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=119000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# MON cyc=120000000 top=2 blk=2 sps=1 sums_valid=0 done=0 blkw_r=0 spsw_r=0 pix_r=0
+# FAIL timeout img=1 top=2 blk=2 sps=1 sums_valid=0 done=0
+# FAILURES=1 tb_vis_native_chain (images_done=1 en2=1)
+# ** Note: $finish    : D:/dl_snn/verification/sim/spikformer/tb_vis_native_chain.v(242)
+#    Time: 1200000035 ns  Iteration: 1  Instance: /tb_vis_native_chain
+# End time: 17:33:42 on Oct 31,2026, Elapsed time: 0:05:19
+# Errors: 0, Warnings: 0

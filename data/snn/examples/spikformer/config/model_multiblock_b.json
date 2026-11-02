@@ -1,0 +1,20 @@
+{
+  "schema": "spikformer-config-1",
+  "family": "spikformer-b1-cifar10",
+  "batch": 1,
+  "image_h": 32,
+  "image_w": 32,
+  "channels": 3,
+  "time_steps": 2,
+  "embed": 192,
+  "heads": 6,
+  "head_dim": 32,
+  "mlp_hidden": 768,
+  "depth": 2,
+  "num_classes": 10,
+  "lif": {"tau": 2, "reset": 0, "init": 0},
+  "input": {"source": "fixture", "normalize": "n/a", "note": "non-default sample: T/depth/channels all differ from native"},
+  "checkpoint": {"kind": "missing", "bn_state": "absent", "note": "fixture params per block with different seeds effect"},
+  "head": {"reduction": "sum", "norm": "ps_div", "note": "PL sum; PS divides by T*N then FP32 Linear+argmax"},
+  "target": {"part": "xczu15eg-ffvb1156-2-i", "tool": "Vivado 2021.1", "period_ns": 5}
+}

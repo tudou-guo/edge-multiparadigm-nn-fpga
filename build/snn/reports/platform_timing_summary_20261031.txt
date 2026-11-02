@@ -1,0 +1,77 @@
+# SNN 平台 r7-sumsfix 时序/布线摘要（派生文件，非原始证据；2026-10-31 17:00）
+
+来源报告（每个 2MB+，未复制进快照；可在 D:/spk_platform/reports/ 复核）：
+- D:/spk_platform/reports/sumsfix_timing_setup.rpt（routed, Physopt postRoute）
+- D:/spk_platform/reports/sumsfix_timing_hold.rpt
+- D:/spk_platform/reports/sumsfix_route_status.rpt（原文已复制：platform/r7_sumsfix_route_status.rpt）
+
+## r7-sumsfix（实际生成 bit 的版本；Vivado 2021.1, xczu15eg-ffvb1156-2-i）
+
+Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+      0.051        0.000                      0               334330        0.039        0.000                       0                124922
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+
+Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+      0.011        0.000                      0               333740        0.039        0.000                       0                124922
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+
+布线错误（r7 route status）：# of nets with routing errors = 0；fully routed = routable = 180101。
+
+## r6（r7 之前的 CDC 修复版本，用于对照）
+
+Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+      0.245        0.000                      0               315896        0.039        0.000                       0                118731
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+
+Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+      0.010        0.000                      0               315306        0.039        0.000                       0                118731
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+
+## 口径说明
+- 以上是平台集成后（非 OOC）的 routed 时序，来自 D:/spk_platform 工程；OOC 5ns 结果见 evidence/nlp/final/reports/ooc_20261030_120804.json。
+- bit 生成于 2026-10-30 23:10（r7-sumsfix）；板端运行结果未在快照中找到（见 INDEX 板测条目）。
+- 不得把本摘要当作板级/系统级时序 pass 的替代：它只说明 routed 时序在 5ns 约束下 0 failing。

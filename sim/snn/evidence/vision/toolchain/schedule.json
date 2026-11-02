@@ -1,0 +1,58 @@
+{
+ "sps_once": true,
+ "blocks": [
+  {
+   "block": 0,
+   "first": true,
+   "last": true,
+   "weights": {
+    "q_w": {
+     "base": 1879048192,
+     "bytes": 147456
+    },
+    "k_w": {
+     "base": 1879195648,
+     "bytes": 147456
+    },
+    "v_w": {
+     "base": 1879343104,
+     "bytes": 147456
+    },
+    "proj_w": {
+     "base": 1879490560,
+     "bytes": 147456
+    },
+    "fc1_w": {
+     "base": 1879638016,
+     "bytes": 589824
+    },
+    "fc2_w": {
+     "base": 1880227840,
+     "bytes": 589824
+    }
+   },
+   "lif_thr": {},
+   "descriptor_beats_64b": [
+    "0x0000000000000000",
+    "0x0000000000000000",
+    "0x0000000000000000",
+    "0x0000000000000000"
+   ],
+   "bank_sel": 0,
+   "window": {
+    "base": 1879048192,
+    "bytes": 1769472
+   }
+  }
+ ],
+ "head_after_block": 0,
+ "memory_map": {
+  "sps_out_tokens": 64,
+  "residual_banks": 2,
+  "bank_words_64b": 6144,
+  "attn_tmp_words": 192
+ },
+ "weight_stride": 1048576,
+ "thr_e": null,
+ "descriptor_note": "4 beats per block, Verilog-concat order per contract.hardware_abi.descriptor_beats_64b"
+}

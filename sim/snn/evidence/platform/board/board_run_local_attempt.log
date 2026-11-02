@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "snn_platform_run.py", line 247, in <module>
+    main()
+  File "snn_platform_run.py", line 206, in main
+    from pynq import Overlay
+ModuleNotFoundError: No module named 'pynq'

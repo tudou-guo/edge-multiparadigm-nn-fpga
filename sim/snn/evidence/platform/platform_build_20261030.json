@@ -1,0 +1,93 @@
+{
+  "schema": "spikformer-snn-platform-build-1",
+  "date_local": "2026-10-30T14:09:15+0800",
+  "root": "D:\\spk_platform",
+  "platform_base": "D:/yolov8 (ZU15EG RIGUKE, same part/pins; NPU datapath removed)",
+  "part": "xczu15eg-ffvb1156-2-i",
+  "top": "top",
+  "clocks": {
+    "dma_domain": "300 MHz (DDR4 MIG ui_clk / npu_clk)",
+    "snn_domain": "200 MHz (clk_wiz_npu output / snn_clk)"
+  },
+  "address_map": {
+    "snn_csr": "0x4_8000_0000 + 0x0000..0x0FFF",
+    "pl_ddr4_cpu_window": "0x4_0000_0000 + 0..0x3FFF_FFFF (1 GiB)",
+    "in_off": "0x0100_0000",
+    "w_off": "0x0200_0000",
+    "out_off": "0x0300_0000"
+  },
+  "sha256": {
+    "project_xpr": "1199b953c891bd8b015a863c17324e27eaeb42093c5218390923e6e0b81519fa",
+    "block_design": "58a86195138389537e66c17e8daaff0ae6030e5d14074909b8bfc4fc6bad9523",
+    "bd_wrapper": "391910c006381bebb9d4b87f60eac30b0a6837dcbb610107783157fbf4ec56e0",
+    "platform_top": "5a9bc65d1423b40ffbb6cf5867a47920d48a0fda608aa0b86141132e679d96fd",
+    "wrapper": "031710f524824df939f2170e2d42f406f9f39977b7eec4a9d08e0f32a9c640dc",
+    "csr": "453067e5acf20978241da8b3e668cbdedf585c7d0d6a71e8e9fec1b458cf102b",
+    "async_fifo": "e621ea8420bdf0d16d6abac791b4f7c0a92547fc227a3caa2226bb09e25c9448",
+    "stream_reducer": "a073711a78a458b52d3524633f9ad20b21ebbed82cc7a8ab8cfbbcf92789e786",
+    "target_adapter": "90f65983073c79be270bf7afe31f8ba5b01fa09262a73663d81989fad769b9d7",
+    "tb_csr": "3a17a17cd067a8b0ff8b2b4d6ff47fd6cfca0212074d840c10b7b045bdeda604",
+    "pin_xdc": "a86eef4d9230c4b2a1c590375016674b2e33ea06af4c948820d8c3a548099faf",
+    "dma_read": "7e91ea49e7e536490dfe8392c5c06314c013b2721a6f3164d09409cfafe89a1f",
+    "dma_write_wide": "e820ad106990beb668753f96264b0c0bbe696b40185ad1863a5a9ace02440bfa",
+    "dma_write": "292fd2a178a0b1c23fb190e8bfe5ec73e445e59272d6995e871379f8fcf1ac09",
+    "stream_pipe": "a91c5f911817356f4ea7af0121fbf6f5e8fd620dc7d0076437d2756f9948e1d0",
+    "pynq_runner": "4049ad5e0a60c0d7fc75398309ff315bba7a2a44b1e9aa75b844220ba949b47d",
+    "build_tcl": "d4004d02b49fa0ef2565c54b354896e7cda9e6b046bd6bb6011a00421c9c070e",
+    "check_tcl": "ab7ed1b4e51d1322e25af491c565610fe5e82ffd79f4f53edde4e3b9a171fb29",
+    "compile_do": "b61676e0971cfd61ea2a12ac7fafe64e5599db6767a6857b590e36e238b9d996",
+    "docs": "4d54838a897079a6b38b0544995b30ec4e7cb07ba86a002c5cbd755aac628a94"
+  },
+  "missing_files": [],
+  "frozen_rtl_sources": [
+    "src\\snn\\rtl\\ops\\spiking\\attention\\spiking_attention_pe.sv",
+    "src\\snn\\rtl\\ops\\spiking\\attention\\spiking_linemac_pe.sv",
+    "src\\snn\\rtl\\ops\\spiking\\attention\\spiking_popcount.sv",
+    "src\\snn\\rtl\\ops\\spiking\\control\\spikformer_block_sequencer.sv",
+    "src\\snn\\rtl\\ops\\spiking\\control\\spikformer_nlp_top.sv",
+    "src\\snn\\rtl\\ops\\spiking\\control\\spiking_block_top.sv",
+    "src\\snn\\rtl\\ops\\spiking\\embed\\spiking_embed_top.sv",
+    "src\\snn\\rtl\\ops\\spiking\\lif\\spiking_lif_cell.sv",
+    "src\\snn\\rtl\\ops\\spiking\\lif\\spiking_lif_group.sv",
+    "src\\snn\\rtl\\ops\\spiking\\linear\\spiking_systolic_array.sv",
+    "src\\snn\\rtl\\ops\\spiking\\linear\\spiking_systolic_pe.sv",
+    "src\\snn\\rtl\\ops\\spiking\\mlp\\spiking_mlp_controller.sv",
+    "src\\snn\\rtl\\ops\\spiking\\reduce\\spiking_head_reduce.sv",
+    "src\\snn\\rtl\\ops\\spiking\\sps\\spiking_adder_tree.sv",
+    "src\\snn\\rtl\\ops\\spiking\\sps\\spiking_eyeriss_pe.sv",
+    "src\\snn\\rtl\\ops\\spiking\\sps\\spiking_maxpool2x2.sv",
+    "src\\snn\\rtl\\ops\\spiking\\sps\\spiking_sps_top.sv"
+  ],
+  "frozen_rtl_count": 17,
+  "hold_margin_cells": {
+    "count": 1192,
+    "stages": 8,
+    "bits": 149,
+    "note": "r4 OOC hold-closure adapter, DONT_TOUCH"
+  },
+  "status": {
+    "block_design_validated": true,
+    "generate_target": true,
+    "project_top_set": true,
+    "modelsim_compile": "pass",
+    "csr_fsm_smoke": "pass (7/7)",
+    "synthesis": "not_run",
+    "implementation": "not_run",
+    "timing": "not_run",
+    "bitstream": "not_run",
+    "hwh_xsa": "not_run",
+    "board": "not_run"
+  },
+  "evidence": {
+    "build_log": "logs/build_snn_r2.log",
+    "check_log": "logs/check_project.log",
+    "modelsim_log": "sim/tb_snn_csr/vsim.log",
+    "smoke_tb": "src/snn/tb_snn_csr.sv"
+  },
+  "next": [
+    "add CDC clock-group xdc (300 MHz ui_clk vs 200 MHz snn_clk)",
+    "synth + impl at 5 ns; close full-device WNS/WHS (thin OOC margins)",
+    "write_bitstream -> platform_top.bit; write_hw_platform -> platform_top.xsa; keep .hwh",
+    "board bring-up L0..L4 via pynq/snn_platform_run.py"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "e1-v02-heavy-wait-1",
+  "state": "waiting_for_resources",
+  "since_local": "2026-10-31T17:06:55+0800",
+  "requested_job_id": "img-ooc-native-all-20261031_1659",
+  "category": "vivado_ooc",
+  "mem_required_mib": 4000,
+  "blockers": [
+    {
+      "kind": "external_vivado",
+      "detail": "vivado.exe",
+      "rule": "one Vivado at a time on this host; an external Vivado is treated as an occupant and is never killed"
+    },
+    {
+      "kind": "insufficient_free_memory",
+      "detail": "free physical memory 3445 MiB below the 4000 MiB reservation",
+      "rule": "reservation is a recorded measured peak + margin; never lowered to force parallelism"
+    }
+  ],
+  "resource_probe": {
+    "schema": "e1-v02-resource-probe-1",
+    "probe_source": "live",
+    "timestamp_local": "2026-10-31T17:06:55+0800",
+    "free_mem_mib": 3445,
+    "total_mem_mib": 16095,
+    "avail_commit_mib": 5292,
+    "mem_required_mib": 4000,
+    "category": "vivado_ooc",
+    "external_processes": {
+      "vivado": [
+        "vivado.exe"
+      ],
+      "simulator": []
+    },
+    "process_count": 396,
+    "blockers": [
+      {
+        "kind": "external_vivado",
+        "detail": "vivado.exe",
+        "rule": "one Vivado at a time on this host; an external Vivado is treated as an occupant and is never killed"
+      },
+      {
+        "kind": "insufficient_free_memory",
+        "detail": "free physical memory 3445 MiB below the 4000 MiB reservation",
+        "rule": "reservation is a recorded measured peak + margin; never lowered to force parallelism"
+      }
+    ],
+    "ok": false
+  },
+  "note": "mirage-free waiting: fixed poll interval, no busy loop"
+}

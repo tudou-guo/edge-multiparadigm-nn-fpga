@@ -1,0 +1,54 @@
+{
+  "schema": "m4-a-board-heads-1",
+  "claim": "golden head buffers from the same compile that produced the packed A IP (source_digest 86e2e6a4..., A_tn8_tm8, revision4); board comparison is bit-exact",
+  "heads": [
+    {
+      "name": "conv48",
+      "role": "head1_reg",
+      "golden_file": "golden/output__conv48.bin",
+      "npu_addr": "0x100AF000",
+      "bytes": 409600,
+      "sha256": "0452edb5f48f2fa33e4f4531dec92c94fa658f02b3ff3a844be83575f814135e"
+    },
+    {
+      "name": "conv51",
+      "role": "head1_cls",
+      "golden_file": "golden/output__conv51.bin",
+      "npu_addr": "0x10113000",
+      "bytes": 153600,
+      "sha256": "93ff1243b148c4e062d56e6014e2686a9802ebeaf0b81a053c193cd9097faea1"
+    },
+    {
+      "name": "conv54",
+      "role": "head2_reg",
+      "golden_file": "golden/output__conv54.bin",
+      "npu_addr": "0x10000000",
+      "bytes": 102400,
+      "sha256": "b5afd64e0df7cf548967c1add8099a57dfd50c27c7f15ab6e6edfc1f777eeb95"
+    },
+    {
+      "name": "conv57",
+      "role": "head2_cls",
+      "golden_file": "golden/output__conv57.bin",
+      "npu_addr": "0x10019000",
+      "bytes": 38400,
+      "sha256": "a82786e4cbca856844ecf04f3018161a7b14ce4db35a4580081a3414f7c3e4f4"
+    },
+    {
+      "name": "conv60",
+      "role": "head3_reg",
+      "golden_file": "golden/output__conv60.bin",
+      "npu_addr": "0x10023000",
+      "bytes": 25600,
+      "sha256": "fb31f678712ef12a7bfb2c0a8a2ee62490a50cc87ac24a378d9fa94e24f68a69"
+    },
+    {
+      "name": "conv63",
+      "role": "head3_cls",
+      "golden_file": "golden/output__conv63.bin",
+      "npu_addr": "0x1002A000",
+      "bytes": 9600,
+      "sha256": "7d44f133eabe360746b504113551df7fc96bd3edd088ad6c19dd324f0e5a2c14"
+    }
+  ]
+}

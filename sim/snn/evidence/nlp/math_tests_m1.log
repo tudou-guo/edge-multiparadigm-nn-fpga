@@ -1,0 +1,12 @@
+torch 2.8.0+cu128 device=cpu; integer_ref D:\dl_snn\tools\backends\spikformer\integer_ref.py
+PASS lif_threshold_boundary                         {"case": "thr=3 mem>=thr fires, mem=thr-1 not, negative floors"}
+PASS popcount32_avmax1024                           {"score_max": 32, "av_max": 1024, "SUM_W": 6, "popcount_bits": 32}
+PASS onehot_cross_token_and_t                       {"t_dependent_scores": true, "qk_asymmetric_permutation": [2, 3, 0, 1, 6, 7, 4, 5], "av_token_pairing": "ok"}
+PASS negative_accumulator                           {"q_spikes": 0, "q_mem_max": -1, "q_delta_max": -2}
+PASS embed_shared_domain_and_ps_head                {"thr_e": 40, "pl_sum_max": 13, "head_class": 1, "ps_head_bit_exact": true}
+PASS ste_forward_equals_round                       {"ste_equals_round_clamp": true}
+PASS full_trace_small_E32                           {"layers_compared": 47}
+PASS full_trace_target_E128                         {"layers_compared": 47}
+
+RESULT: 8/8 PASS -> PASS
+report: build\spikformer\nlp_48h_20261029_1915\reports\math_tests_m1.json

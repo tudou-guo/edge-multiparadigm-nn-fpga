@@ -1,0 +1,12 @@
+# do compile_native_chain.do
+# D:/dl_snn
+# ** Warning: (vlib-34) Library already exists at "work_chain".
+# Errors: 0, Warnings: 1
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(26): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_adder_tree.sv(27): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(56): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(57): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(57): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/sps/spiking_eyeriss_pe.sv(58): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+# ** Warning: D:/dl_snn/rtl/ops/spiking/attention/spiking_popcount.sv(25): (vlog-2583) [SVCHK] - Extra checking for conflicts with always_comb and always_latch variables is done at vopt time.
+#  quit -f

@@ -1,0 +1,21 @@
+{
+ "manifest_sha256": "79b1e1151c8befa1e927655aeffb2990609549e405d8720511a4cb66a11edd26",
+ "manifest_file_sha256": "290609ad0b3377da7f3766dc625190ee5ef6e97f3196742f3c3b0ee12e70dc01",
+ "manifest_r2_sha256": "79b1e1151c8befa1e927655aeffb2990609549e405d8720511a4cb66a11edd26",
+ "manifest_r2_file_sha256": "290609ad0b3377da7f3766dc625190ee5ef6e97f3196742f3c3b0ee12e70dc01",
+ "manifest_files_byte_identical": true,
+ "cache_key": "d91a31a4321a1bc2ac8113231894a5e5cc24849565d9e0391b7100c280e73fa3",
+ "cache_key_r2_identical": true,
+ "adapter_sha256": "90f65983073c79be270bf7afe31f8ba5b01fa09262a73663d81989fad769b9d7",
+ "adapter_r2_sha256": "55abcbe8e123b7fcfb8118b7c4d47d1ce4c7c48e3abdd3fc76b67b60aed34f43",
+ "xdc_sha256": "9fc1c2676a29bbab1ee6277b9bb60a882c5e868396ab03ee36aa1f8a2eb10842",
+ "xdc_identical_to_r2": true,
+ "ooc_tcl_sha256": "ece06db1c7a8069462dd971e51b578cb5fe59fb18808792ea4a77dd22298c86e",
+ "ooc_tcl_r2_vs_r3_diff_lines": 6,
+ "ooc_tcl_diff_summary": "adapter path + place/phys_opt Explore directives vs r2; no timing exceptions",
+ "codegen_py_sha256": "02c43a5411d97e81d016dcb267a1165aca21b37225ff5657dff102cc50474147",
+ "run_physical_py_sha256": "46837cdfac77725587841b846fa507eb9cda0d4189f6d59911ad12b7b511dcbc",
+ "rtl_freeze_record_sha256": "d2da0367f5811d73232ff32a6615de18f9afe4e9096b4b51350d3f2ae840b5ee",
+ "rtl_source_manifest_sha256": "ec038d1f38b9bbb1966f8ecfe8fcd7f80d1f883b6f870da6f89634e65ef588b4",
+ "note": "generated adapter is outside the 18-file rtl_freeze scope; it is bound by adapter_sha256 here and by the OOC report adapter_sha256; frozen RTL untouched. Driver log_hits.latch_inferred/critical_warnings are text counters over log lines (they also match the strings in 0-summary lines); the authoritative values are latch_cells=0 in facts.txt and 0 real CRITICAL WARNING lines in the log. routed_hold_check.log hold_margin_all_cells=6846 is a NAME-pattern over-match (all cells under u_hm_* hierarchies, mainly nets/instances); only hold_margin_lut1_cells=1192 is meaningful."
+}

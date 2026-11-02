@@ -1,0 +1,246 @@
+{
+ "stage": "export_integer_final",
+ "tag": "real50",
+ "dims": {
+  "E": 128,
+  "H": 4,
+  "HD": 32,
+  "N": 32,
+  "T": 4,
+  "D": 2,
+  "MLP": 512,
+  "C": 2,
+  "vocab_size": 4000
+ },
+ "checkpoint": "build\\spikformer\\nlp_48h_20261029_1915\\train\\ckpt_real_real50.npz",
+ "checkpoint_sha256": "e6a3a411e269f3b144ddb3efee77309c32ac9a53197c9071c224e1d0dd2448a1",
+ "candidate": "build/spikformer/nlp_48h_20261029_1915/train/ckpt_candidate_real50.npz",
+ "candidate_sha256": "8d98a31fa4c6cfb0eef278b48bbf5cfa440afd039edd3894844ca6f05773d247",
+ "corpus_npz_sha256": "f554de2d729dd4ce6b56003f3b22c5b7e93043076a180186ecc2fbcef85e230a",
+ "vocab_sha256": "e1090fa82387ca5fa527700398a885ddb9ad520be4672da08682fccd9839caa4",
+ "meta_model_kind": "real_corpus",
+ "calibration": {
+  "samples": 64,
+  "rounds": 2,
+  "rule": "median of positive mem (integer domain), clamp >= 1",
+  "thresholds_before": {
+   "thr_e": 24,
+   "block0.q": 118,
+   "block0.k": 111,
+   "block0.v": 111,
+   "block0.proj": 198,
+   "block0.fc1": 47,
+   "block0.fc2": 62,
+   "block1.q": 149,
+   "block1.k": 153,
+   "block1.v": 154,
+   "block1.proj": 26,
+   "block1.fc1": 59,
+   "block1.fc2": 37
+  },
+  "thresholds_after": {
+   "thr_e": 26,
+   "block0": {
+    "q": 128,
+    "k": 100,
+    "v": 92,
+    "proj": 546,
+    "fc1": 57,
+    "fc2": 100
+   },
+   "block1": {
+    "q": 190,
+    "k": 190,
+    "v": 203,
+    "proj": 1168,
+    "fc1": 96,
+    "fc2": 64
+   }
+  },
+  "activity": {
+   "embed": 0.2589883804321289,
+   "block0.q": 0.2712888717651367,
+   "block0.k": 0.22890186309814453,
+   "block0.v": 0.20399188995361328,
+   "block0.proj": 0.15363311767578125,
+   "block0.fc1": 0.22527527809143066,
+   "block0.fc2": 0.1811380386352539,
+   "block1.q": 0.24499893188476562,
+   "block1.k": 0.2600851058959961,
+   "block1.v": 0.2592620849609375,
+   "block1.proj": 0.2687196731567383,
+   "block1.fc1": 0.23669767379760742,
+   "block1.fc2": 0.2393169403076172
+  },
+  "min_activity": 0.15363311767578125,
+  "dead_lifs": [],
+  "warn": []
+ },
+ "integer_ref_thresholds_verified": true,
+ "eval_integer_ref": {
+  "dev": {
+   "acc": 0.7591666666666667,
+   "n": 1200,
+   "confusion": [
+    [
+     551,
+     56
+    ],
+    [
+     233,
+     360
+    ]
+   ],
+   "class_counts": [
+    607,
+    593
+   ],
+   "majority_class": 0,
+   "majority_acc": 0.5058333333333334
+  },
+  "holdout": {
+   "acc": 0.75625,
+   "n": 960,
+   "confusion": [
+    [
+     441,
+     39
+    ],
+    [
+     195,
+     285
+    ]
+   ],
+   "class_counts": [
+    480,
+    480
+   ],
+   "majority_class": 0,
+   "majority_acc": 0.5
+  },
+  "train_subset": {
+   "acc": 0.83984375,
+   "n": 256,
+   "confusion": [
+    [
+     124,
+     3
+    ],
+    [
+     38,
+     91
+    ]
+   ],
+   "class_counts": [
+    127,
+    129
+   ],
+   "majority_class": 1,
+   "majority_acc": 0.50390625
+  }
+ },
+ "confusion": {
+  "dev": [
+   [
+    551,
+    56
+   ],
+   [
+    233,
+    360
+   ]
+  ],
+  "holdout": [
+   [
+    441,
+    39
+   ],
+   [
+    195,
+    285
+   ]
+  ],
+  "train_subset": [
+   [
+    124,
+    3
+   ],
+   [
+    38,
+    91
+   ]
+  ]
+ },
+ "class_counts": {
+  "dev": [
+   607,
+   593
+  ],
+  "holdout": [
+   480,
+   480
+  ],
+  "train_subset": [
+   127,
+   129
+  ]
+ },
+ "majority_baseline": {
+  "dev": 0.5058333333333334,
+  "holdout": 0.5
+ },
+ "accuracy_established": true,
+ "accuracy_established_rule": "dev_acc > dev_majority AND holdout_acc > holdout_majority",
+ "test_accuracy": "not_applicable (public test.tsv unlabelled; never used)",
+ "eval_sec": 171.55,
+ "compile": {
+  "status": "pass",
+  "out_dir": "build\\spikformer\\nlp_48h_20261029_1915\\train\\nlp_real_compile",
+  "manifest": "build\\spikformer\\nlp_48h_20261029_1915\\train\\nlp_real_compile\\manifest.json",
+  "manifest_sha256": "afc128700ac5cbf47e41ef942a9e09e7380111a617a1ee84354f2a54412c2c23",
+  "model_kind": "real_corpus",
+  "n_params_blobs": 54,
+  "numeric_contract": "build\\spikformer\\nlp_48h_20261029_1915\\train\\nlp_real_compile\\numeric_contract.json",
+  "thresholds_bound": {
+   "thr_e": 26,
+   "blocks": [
+    {
+     "q": 128,
+     "k": 100,
+     "v": 92,
+     "proj": 546,
+     "fc1": 57,
+     "fc2": 100
+    },
+    {
+     "q": 190,
+     "k": 190,
+     "v": 203,
+     "proj": 1168,
+     "fc1": 96,
+     "fc2": 64
+    }
+   ]
+  }
+ },
+ "assets": {
+  "vocab": {
+   "path": "build\\spikformer\\nlp_48h_20261029_1915\\corpus\\vocab.json",
+   "sha256": "e1090fa82387ca5fa527700398a885ddb9ad520be4672da08682fccd9839caa4",
+   "size_actual": 4000,
+   "size_requested": 4000,
+   "pad_id": 0,
+   "unk_id": 1
+  },
+  "label_map": {
+   "path": "build\\spikformer\\nlp_48h_20261029_1915\\corpus\\label_map.json",
+   "sha256": "47e6ad4cd780a3ef6526569ba6ead62bf498b4e910ea8c2e2321f9138cff7aae"
+  },
+  "splits": {
+   "path": "build\\spikformer\\nlp_48h_20261029_1915\\corpus\\splits.json",
+   "sha256": "ee5bf2b7ddabab7ddfea2cd05a34751305076d75c2fa942c345c94000aed7a48",
+   "holdout_train_index_sha256": "65111180821395710ca40ad928fd48cff3336ab63cd17f75a6d6efe229e03a22"
+  }
+ },
+ "wall_s": 190.2
+}

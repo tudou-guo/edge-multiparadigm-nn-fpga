@@ -1,0 +1,231 @@
+{
+  "schema": "e1-operator-library-1",
+  "version": "20261024.2",
+  "template": "tools/npu_gen/npu_top.v.tpl",
+  "include_dirs": [
+    "rtl/common"
+  ],
+  "sources": [
+    "rtl/common/npu_backend_contract.vh",
+    "rtl/common/op_abi_defs.vh",
+    "rtl/common/axi4_4kb_splitter.v",
+    "rtl/common/axi_burst_reader.v",
+    "rtl/common/axi_burst_writer.v",
+    "rtl/common/op_shell.v",
+    "rtl/common/npu_instr_rom.v",
+    "rtl/common/npu_instr_seq.v",
+    "rtl/common/npu_engine_router.v",
+    "rtl/common/npu_mixed_engine.v",
+    "rtl/ops/conv/spram.v",
+    "rtl/ops/conv/tpram.v",
+    "rtl/ops/conv/conv3x3_linebuf.v",
+    "rtl/ops/conv/conv3x3_weight_faces.v",
+    "rtl/ops/conv/conv3x3_out_buf.v",
+    "rtl/ops/conv/conv3x3_out_fifo.v",
+    "rtl/ops/conv/conv3x3_out_ctrl.v",
+    "rtl/ops/conv/conv_mul_dsp.v",
+    "rtl/ops/conv/dsp_mul_pipe4_sim_netlist.v",
+    "rtl/ops/conv/conv3x3_calc.v",
+    "rtl/ops/conv/conv3x3_calc_dsp.v",
+    "rtl/ops/conv/signed_int8_dsp2_mac.v",
+    "rtl/ops/conv/conv3x3_calc_balanced.sv",
+    "rtl/ops/conv/conv3x3_core.v",
+    "rtl/ops/pool2x2/maxpool2x2_rowbuf.v",
+    "rtl/ops/pool2x2/maxpool2x2_lane.v",
+    "rtl/ops/pool2x2/maxpool2x2_core.v",
+    "rtl/ops/pool2x2/avgpool2x2_lane.v",
+    "rtl/ops/pool2x2/avgpool2x2_core.v",
+    "rtl/ops/eltwise/eltwise_core.v",
+    "rtl/ops/eltwise/clip_core.v",
+    "rtl/ops/eltwise/int8_mul_core.v",
+    "rtl/ops/reduce/global_avg_pool_core.v",
+    "rtl/ops/copy/copy_transform_core.v",
+    "rtl/ops/resize/resize_nearest2x_core.v",
+    "rtl/ops/pool5/maxpool5x5_core.v",
+    "rtl/ops/maxpool2d/maxpool2d_row_store.sv",
+    "rtl/ops/maxpool2d/maxpool2d_reduce8.sv",
+    "rtl/ops/maxpool2d/maxpool2d_core.sv",
+    "rtl/ops/activation/activation_lut_bank.sv",
+    "rtl/ops/activation/activation_lut_core.sv",
+    "rtl/ops/depthwise/depthwise_conv3x3_core.sv"
+  ],
+  "vendor_ip": [
+    "rtl/ip/dsp_mul_pipe4/dsp_mul_pipe4.xci"
+  ],
+  "engines": [
+    {
+      "name": "conv",
+      "operators": [
+        "Conv3x3",
+        "Conv1x1"
+      ],
+      "opcodes": [
+        "0x0001"
+      ],
+      "directory": "rtl/ops/conv",
+      "top": "conv3x3_core",
+      "notes": "C rev3 static gather; default values retained; tn4 qualification remains model-specific"
+    },
+    {
+      "name": "pool2x2",
+      "operators": [
+        "MaxPool2x2",
+        "AveragePool2x2"
+      ],
+      "opcodes": [
+        "0x0002",
+        "0x0017"
+      ],
+      "directory": "rtl/ops/pool2x2"
+    },
+    {
+      "name": "eltwise",
+      "operators": [
+        "Relu",
+        "Add",
+        "Clip",
+        "Mul"
+      ],
+      "opcodes": [
+        "0x0010",
+        "0x0011",
+        "0x0015",
+        "0x0018"
+      ],
+      "directory": "rtl/ops/eltwise"
+    },
+    {
+      "name": "copy",
+      "operators": [
+        "Pad",
+        "Slice",
+        "Concat",
+        "Split lowering"
+      ],
+      "opcodes": [
+        "0x0012",
+        "0x0013",
+        "0x0014"
+      ],
+      "directory": "rtl/ops/copy"
+    },
+    {
+      "name": "reduce",
+      "operators": [
+        "GlobalAveragePool"
+      ],
+      "opcodes": [
+        "0x0016"
+      ],
+      "directory": "rtl/ops/reduce"
+    },
+    {
+      "name": "resize",
+      "operators": [
+        "Resize nearest x2"
+      ],
+      "opcodes": [
+        "0x0019"
+      ],
+      "directory": "rtl/ops/resize"
+    },
+    {
+      "name": "pool5",
+      "operators": [
+        "MaxPool5x5/SPPF building block"
+      ],
+      "opcodes": [
+        "0x001A"
+      ],
+      "directory": "rtl/ops/pool5"
+    },
+    {
+      "name": "activation",
+      "operators": [
+        "Sigmoid",
+        "Tanh",
+        "SiLU restricted group",
+        "LeakyRelu"
+      ],
+      "opcodes": [
+        "0x001B"
+      ],
+      "directory": "rtl/ops/activation"
+    },
+    {
+      "name": "maxpool2d",
+      "operators": ["MaxPool2DGeneric"],
+      "opcodes": ["0x001D"],
+      "directory": "rtl/ops/maxpool2d",
+      "top": "maxpool2d_core",
+      "notes": "V1 signed INT8, 8 shared lanes; physical qualification not run"
+    },
+    {
+      "name": "depthwise",
+      "operators": [
+        "DepthwiseConv 3x3 group=C multiplier=1"
+      ],
+      "opcodes": [
+        "0x001C"
+      ],
+      "directory": "rtl/ops/depthwise",
+      "top": "depthwise_conv3x3_core",
+      "default_profile": "dw_c8_t1_q1",
+      "profile_source": "tools/onnx_gen/engine_profiles.py",
+      "parameters": {
+        "DW_PC": {
+          "default": 8,
+          "legal": [
+            4,
+            8,
+            16
+          ],
+          "meaning": "logical channels computed simultaneously by the MAC lanes"
+        },
+        "DW_TAP_PARALLEL": {
+          "default": 1,
+          "legal_implemented": [
+            1
+          ],
+          "legal_assessed_not_implemented": [
+            3
+          ],
+          "meaning": "3x3 taps per channel per cycle; 3 is assessed and structurally rejected for builds"
+        },
+        "DW_RQ_LANES": {
+          "default": 1,
+          "legal": [
+            1,
+            2
+          ],
+          "combination_rule": "DW_PC=4 -> RQ=1; DW_PC=8 -> RQ=1; DW_PC=16 -> RQ=1 or 2",
+          "meaning": "independent per-channel requant lanes per cycle"
+        }
+      },
+      "capacity_rule": "generated MAX_CH = max(graph-derived MAX_CH, align8(DW_PC)); DW_PC is never the logical C",
+      "parameter_chain": "CLI/API engine profile -> npu_top -> npu_mixed_engine -> npu_engine_router -> depthwise_conv3x3_core",
+      "qualified_profiles_this_batch": [
+        "dw_c8_t1_q1",
+        "dw_c16_t1_q2"
+      ],
+      "unverified_profiles_this_batch": [
+        "dw_c4_t1_q1",
+        "dw_c16_t1_q1"
+      ],
+      "note": "implemented/configurable matrix; only the two selected profiles carry RTL/OOC evidence, the others are rtl/ooc/platform=not_run"
+    }
+  ],
+  "provenance": {
+    "conv": "build/onnx_e1/compute_profile_20261023_180522_7032/candidates/C",
+    "integrated_rtl": "build/onnx_e1/lut_activation_20261024_145300_6206/source",
+    "frozen_tree_digest": "7385b5cc38b79c7f04cc15232dc5bbf996c3a506c5f7e9239e52e226262ed6e4",
+    "migration": "maintenance/library_consolidation_20261024_182342/source_migration.json"
+  },
+  "qualification": "Source integration only; historical physical/board qualification is restricted to its recorded model/profile/source identity.",
+  "auxiliary_sources": [
+    {
+      "path": "rtl/ops/conv/conv3x3_calc_dsp_wrap.v",
+      "role": "standalone DSP synthesis harness; not instantiated by npu_top"
+    }
+  ]
+}

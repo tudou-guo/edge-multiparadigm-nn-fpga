@@ -1,0 +1,343 @@
+# 可移植性改写 diff（主线 D:/dl_snn  ->  快照 D:/DL_FINAL/SNN）
+# 生成时间: 2026-10-31 17:02:37    （RTL 刷新后重生成）
+# 生成命令: 对每个文件执行 diff -u <主线> <快照>
+
+######## tools/toolchain.py
+--- /d/dl_snn/tools/toolchain.py	2026-10-29 19:39:26.267254200 +0800
++++ /d/DL_FINAL/SNN/tools/toolchain.py	2026-10-31 16:40:23.735286700 +0800
+@@ -9,7 +9,9 @@
+ under the shared heavy lock (via scripts/spikformer/run_heavy.py).
+ """
+ from __future__ import annotations
+-import argparse, pathlib, subprocess, sys
++import argparse, os, pathlib, subprocess, sys
++
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[1]).resolve()
+ 
+ 
+ def _spik_compile(a):
+@@ -29,7 +31,7 @@
+         if a.execute:
+             cmd.append('--execute')
+         print('physical driver: ' + ' '.join(cmd))
+-        r = subprocess.run(cmd, cwd=str(pathlib.Path('D:/dl_snn')))
++        r = subprocess.run(cmd, cwd=str(ROOT))
+         return r.returncode
+     if a.stage in ('ip', 'platform'):
+         gen = man.get('generated') or {}
+
+######## tools/backends/spikformer/codegen.py
+--- /d/dl_snn/tools/backends/spikformer/codegen.py	2026-10-31 11:35:02.871706700 +0800
++++ /d/DL_FINAL/SNN/tools/backends/spikformer/codegen.py	2026-10-31 16:39:16.421191800 +0800
+@@ -1,16 +1,17 @@
+ """Codegen: header, target adapter, sources.f, constraints, project + OOC Tcl.
+ 
+ No Vivado launch here. All paths are resolved for the real host checkout
+-D:/dl_snn so the generated Tcl can be executed directly by scripts/spikformer/
++the checkout root so the generated Tcl so the generated Tcl can be executed directly by scripts/spikformer/
+ run_physical.py (which is the only entry allowed to start Vivado, and only
+ under the shared heavy lock).
+ """
+ from __future__ import annotations
+-import hashlib, json, pathlib
++import hashlib, json, os, pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[3]).resolve()
+ 
+ NORM = {'sum': 0, 'ps_div': 1, 'folded': 2}
+ TICK = chr(96)
+-HOST_ROOT = pathlib.Path('D:/dl_snn')
++HOST_ROOT = ROOT
+ 
+ 
+ def _rtl_sources():
+
+######## tools/backends/spikformer/manifest.py
+--- /d/dl_snn/tools/backends/spikformer/manifest.py	2026-10-29 20:06:17.375630200 +0800
++++ /d/DL_FINAL/SNN/tools/backends/spikformer/manifest.py	2026-10-31 16:40:23.759254000 +0800
+@@ -1,12 +1,13 @@
+ """SNN manifest: binds config, numeric contract, params, sources, IP, model assets."""
+ from __future__ import annotations
+-import hashlib, json, pathlib
++import hashlib, json, os, pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[3]).resolve()
+ def _sha(p):
+     return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+ def write_manifest(cfg, sched, param_files, codegen_out, out_dir, model_kind, seed=None,
+                    assets=None):
+     out = pathlib.Path(out_dir)
+-    srcs = json.loads(pathlib.Path('D:/dl_snn/rtl/ops/spiking/source_manifest.json').read_text())['sources']
++    srcs = json.loads((ROOT / 'rtl/ops/spiking/source_manifest.json').read_text())['sources']
+     assets = assets or {}
+     structure = {
+         'E': cfg['embed'], 'HEADS': cfg['heads'], 'HEAD_DIM': cfg['head_dim'],
+@@ -26,7 +27,7 @@
+         'schedule': sched,
+         'params': param_files,
+         'rtl_sources': srcs,
+-        'rtl_sha256': {s: _sha('D:/dl_snn/' + s) for s in srcs},
++        'rtl_sha256': {s: _sha(ROOT / s) for s in srcs},
+         'generated': codegen_out,
+         'target': cfg['target'],
+         'head': {
+
+######## tools/spikformer_train/check_ready.py
+--- /d/dl_snn/tools/spikformer_train/check_ready.py	2026-10-29 14:45:45.828933000 +0800
++++ /d/DL_FINAL/SNN/tools/spikformer_train/check_ready.py	2026-10-31 16:39:16.421191800 +0800
+@@ -4,9 +4,9 @@
+ It never claims a step passed unless the evidence for it exists on disk.
+ """
+ from __future__ import annotations
+-import json, pathlib, sys
++import json, os, pathlib, sys
+ 
+-ROOT = pathlib.Path('D:/dl_snn')
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ CFG = ROOT / 'examples/spikformer/config/nlp_sentiment_b1.json'
+ 
+ 
+
+######## scripts/spikformer/run_physical.py
+--- /d/dl_snn/scripts/spikformer/run_physical.py	2026-10-29 21:04:03.397184000 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/run_physical.py	2026-10-31 16:39:16.421191800 +0800
+@@ -18,13 +18,14 @@
+ import argparse
+ import hashlib
+ import json
++import os
+ import pathlib
+ import re
+ import subprocess
+ import sys
+ import time
+ 
+-ROOT = pathlib.Path('D:/dl_snn')
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ VIVADO = pathlib.Path('E:/Vitis/Vivado/2021.1/bin/vivado.bat')
+ HEAVY = ROOT / 'scripts/spikformer/run_heavy.py'
+ DEFAULT_LOCK = pathlib.Path(
+
+######## scripts/spikformer/run_ip_pack.py
+--- /d/dl_snn/scripts/spikformer/run_ip_pack.py	2026-10-30 13:08:37.124954600 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/run_ip_pack.py	2026-10-31 16:39:16.422188200 +0800
+@@ -11,9 +11,9 @@
+       --out-dir <run>/ip [--ooc-report <run>/ooc/reports/ooc_*.json] [--force]
+ """
+ from __future__ import annotations
+-import argparse, hashlib, json, pathlib, shutil, sys, time
++import argparse, hashlib, json, os, pathlib, shutil, sys, time
+ 
+-ROOT = pathlib.Path('D:/dl_snn')
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ 
+ 
+ def _sha(p):
+
+######## scripts/spikformer/check_contract.py
+--- /d/dl_snn/scripts/spikformer/check_contract.py	2026-10-29 19:40:17.204054900 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/check_contract.py	2026-10-31 16:39:16.422188200 +0800
+@@ -6,10 +6,10 @@
+ Gamma: independent of the trainer internals; reads only config/contract/npz.
+ """
+ from __future__ import annotations
+-import argparse, json, math, pathlib, sys
++import argparse, json, math, os, pathlib, sys
+ import numpy as np
+ 
+-ROOT = pathlib.Path('D:/dl_snn')
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ sys.path.insert(0, str(ROOT))
+ 
+ 
+
+######## verification/sim/spikformer/test_short.py
+--- /d/dl_snn/verification/sim/spikformer/test_short.py	2026-10-29 10:10:51.366099400 +0800
++++ /d/DL_FINAL/SNN/verification/sim/spikformer/test_short.py	2026-10-31 16:39:16.422188200 +0800
+@@ -6,8 +6,9 @@
+ 5. lifecycle: two consecutive starts (sequencer model), ack clears done.
+ 6. packing round-trip time-minor layout.
+ """
+-import json, pathlib, sys
+-sys.path.insert(0, 'D:/dl_snn/tools/backends/spikformer')
++import json, os, pathlib, sys
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[3]).resolve()
++sys.path.insert(0, str(ROOT / 'tools/backends/spikformer'))
+ import reference as R
+ import packing as P
+ import config as C
+
+######## verification/sim/spikformer/test_runtime.py
+--- /d/dl_snn/verification/sim/spikformer/test_runtime.py	2026-10-29 10:59:35.247843300 +0800
++++ /d/DL_FINAL/SNN/verification/sim/spikformer/test_runtime.py	2026-10-31 16:39:16.422188200 +0800
+@@ -1,6 +1,7 @@
+ """Runtime dry-run with scripted fake MMIO (no board, no PYNQ)."""
+-import sys
+-sys.path.insert(0, 'D:/dl_snn/runtime/spikformer')
++import os, pathlib, sys
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[3]).resolve()
++sys.path.insert(0, str(ROOT / 'runtime/spikformer'))
+ import run as R
+ class FakeMMIO:
+     def __init__(self):
+
+######## scripts/spikformer/gen_block_replay.py
+--- /d/dl_snn/scripts/spikformer/gen_block_replay.py	2026-10-31 13:16:22.754451800 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/gen_block_replay.py	2026-10-31 16:57:13.200502900 +0800
+@@ -5,6 +5,9 @@
+ precision; LIF uses an arithmetic floor divide by two and hard reset."""
+ import io
+ import numpy as np
++import os
++import pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ E, H, HD, HIDDEN, T, NTOK, TL, TC, RW = 32, 1, 32, 64, 2, 4, 8, 8, 4
+ G, NT = E // TL, E // TC
+ NT2 = HIDDEN // TC
+@@ -116,7 +119,7 @@
+             FC2[n, e, t] = sp[t]
+             out[n, e, t] = (int(ares[n, e, t]) + sp[t]) & MASK
+ import os
+-o = 'D:/dl_snn/build/spikformer/block_replay/'
++o = str(ROOT / 'build/spikformer/block_replay') + '/'
+ os.makedirs(o, exist_ok=True)
+ def hx(v, w):
+     return '%0*x' % (w, int(v) & ((1 << (w * 4)) - 1))
+@@ -197,5 +200,5 @@
+ dump2t(FC2, 1, "g_fc21.hex")
+ print("token1 dumped")
+ 
+-np.save('D:/dl_snn/build/spikformer/block_replay/out_golden.npy', out)
++np.save(str(ROOT / 'build/spikformer/block_replay/out_golden.npy'), out)
+ print('saved out_golden.npy', out.shape)
+
+######## scripts/spikformer/gen_embed_replay.py
+--- /d/dl_snn/scripts/spikformer/gen_embed_replay.py	2026-10-29 11:53:27.412883300 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/gen_embed_replay.py	2026-10-31 16:57:13.200502900 +0800
+@@ -1,5 +1,8 @@
+ """Golden: embed replay (V=64,N=8,E=16,T=2,LANES=8)."""
+ import numpy as np
++import os
++import pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ V, N, E, T, LANES = 64, 8, 16, 2, 8
+ G = E // LANES
+ THR = 60
+@@ -27,7 +30,7 @@
+             words.append(lif_chain([e] * T, THR))
+         beats.append(words)
+ import os
+-out = 'D:/dl_snn/build/spikformer/embed_replay/'
++out = str(ROOT / 'build/spikformer/embed_replay') + '/'
+ os.makedirs(out, exist_ok=True)
+ def hx(v, w):
+     return '%0*x' % (w, int(v) & ((1 << (w * 4)) - 1))
+
+######## scripts/spikformer/gen_head_replay.py
+--- /d/dl_snn/scripts/spikformer/gen_head_replay.py	2026-10-29 11:35:54.346005700 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/gen_head_replay.py	2026-10-31 16:57:13.201503100 +0800
+@@ -1,5 +1,8 @@
+ """Golden: small head replay (CH=32,TOKENS=8,T=2,HL=8)."""
+ import numpy as np
++import os
++import pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ CH, TOKENS, T, HL = 32, 8, 2, 8
+ G = CH // HL
+ rng = np.random.RandomState(31)
+@@ -15,7 +18,7 @@
+     for l in range(HL):
+         sums[g * HL + l] += bin(beats[n][l]).count('1')
+ import os
+-out = 'D:/dl_snn/build/spikformer/head_replay/'
++out = str(ROOT / 'build/spikformer/head_replay') + '/'
+ os.makedirs(out, exist_ok=True)
+ def hx(v, w):
+     return '%0*x' % (w, int(v) & ((1 << (w * 4)) - 1))
+
+######## scripts/spikformer/gen_mlp_replay.py
+--- /d/dl_snn/scripts/spikformer/gen_mlp_replay.py	2026-10-29 11:27:56.762130500 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/gen_mlp_replay.py	2026-10-31 16:57:13.201503100 +0800
+@@ -2,6 +2,9 @@
+ fc1: psum = b1 + sum_tiles in*W; LIF per lane; fc2: psum = b2 + sum_tiles gated;
+ out = (in + psum) mod 2^RW per slice (matches RTL truncation)."""
+ import numpy as np
++import os
++import pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ C, HIDDEN, T, TL, TC, RW = 32, 64, 2, 8, 8, 4
+ G1, NT, G0, NT2 = HIDDEN // TL, C // TC, C // TL, HIDDEN // TC
+ THRH = 60
+@@ -53,7 +56,7 @@
+             beat.append((int(inp[g * TL + a, t]) + ps[(a, t)]) & MASK)
+     exp.append(beat)
+ import os
+-out = 'D:/dl_snn/build/spikformer/mlp_replay/'
++out = str(ROOT / 'build/spikformer/mlp_replay') + '/'
+ os.makedirs(out, exist_ok=True)
+ def hx(v, w):
+     return '%0*x' % (w, int(v) & ((1 << (w * 4)) - 1))
+
+######## scripts/spikformer/gen_sps_replay.py
+--- /d/dl_snn/scripts/spikformer/gen_sps_replay.py	2026-10-29 10:58:21.240853800 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/gen_sps_replay.py	2026-10-31 16:57:13.201503100 +0800
+@@ -3,6 +3,9 @@
+ RTL >>> arithmetic shift == python floor div; pixels signed int8 (0..127 used).
+ Writes hex streams (weights/pixels) + expected token beats for the TB."""
+ import numpy as np
++import os
++import pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ H = W = 8
+ C0, C1, C2, T = 3, 16, 32, 2
+ LANES, TC2 = 8, 4
+@@ -103,7 +106,7 @@
+     exp_beats.append(words)
+ def hx(v, w):
+     return '%0*x' % (w, int(v) & ((1 << (w * 4)) - 1))
+-out = 'D:/dl_snn/build/spikformer/sps_replay/'
++out = str(ROOT / 'build/spikformer/sps_replay') + '/'
+ import os
+ os.makedirs(out, exist_ok=True)
+ with open(out + 'w_ld1.hex', 'w') as f:
+
+######## scripts/spikformer/gen_vis_sums.py
+--- /d/dl_snn/scripts/spikformer/gen_vis_sums.py	2026-10-31 11:38:24.541335800 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/gen_vis_sums.py	2026-10-31 16:39:48.308439400 +0800
+@@ -4,9 +4,12 @@
+ all tokens and all T timesteps. PS then divides by T*N and does FP32 Linear.
+ """
+ import numpy as np, io
+-out = np.load('D:/dl_snn/build/spikformer/block_replay/out_golden.npy')   # [NTOK][E][T]
++import os
++import pathlib
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
++out = np.load(str(ROOT / 'build/spikformer/block_replay/out_golden.npy'))   # [NTOK][E][T]
+ sums = out.sum(axis=(0, 2)).astype(np.uint32)
+-p = 'D:/dl_snn/build/spikformer/vis_replay/'
++p = str(ROOT / 'build/spikformer/vis_replay') + '/'
+ import pathlib; pathlib.Path(p).mkdir(parents=True, exist_ok=True)
+ with io.open(p + 'exp_sums.hex', 'w') as f:
+     for v in sums:
+
+######## scripts/spikformer/gen_vis_tok.py
+--- /d/dl_snn/scripts/spikformer/gen_vis_tok.py	2026-10-31 11:47:32.127521800 +0800
++++ /d/DL_FINAL/SNN/scripts/spikformer/gen_vis_tok.py	2026-10-31 16:39:48.308439400 +0800
+@@ -1,6 +1,8 @@
+ import io, pathlib
++import os
++ROOT = pathlib.Path(os.environ.get('SNN_ROOT') or pathlib.Path(__file__).resolve().parents[2]).resolve()
+ # golden SPS tokens -> flat [token][channel][t] file for the TB
+-lines = [l.strip() for l in io.open('D:/dl_snn/build/spikformer/sps_replay/exp.hex') if l.strip()]
++lines = [l.strip() for l in io.open(str(ROOT / 'build/spikformer/sps_replay/exp.hex')) if l.strip()]
+ NTOK, E, T, LANES = 4, 32, 2, 8
+ G2 = E // LANES
+ tok = [[[0]*T for _ in range(E)] for _ in range(NTOK)]
+@@ -10,7 +12,7 @@
+         bits = int(line[a], 16)
+         for t in range(T):
+             tok[pos][g*LANES+a][t] = (bits >> t) & 1
+-out = pathlib.Path('D:/dl_snn/build/spikformer/vis_replay')
++out = pathlib.Path(str(ROOT / 'build/spikformer/vis_replay'))
+ out.mkdir(parents=True, exist_ok=True)
+ with io.open(out/'exp_tok.hex', 'w') as f:
+     for n in range(NTOK):
+

@@ -1,0 +1,24 @@
+# vsim -c -work work tb_block_replay -l vsim_block_sps_tokens_fixed_20261031.log -do "run 4000 us; quit -f" 
+# Start time: 13:16:45 on Oct 31,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# //  ModelSim SE-64 2020.4 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_block_replay(fast)
+# run 4000 us
+# ALL PASS tb_block_replay (16 beats)
+# ** Note: $finish    : D:/dl_snn/verification/sim/spikformer/tb_block_replay.v(98)
+#    Time: 92015 ns  Iteration: 1  Instance: /tb_block_replay
+# End time: 13:16:46 on Oct 31,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

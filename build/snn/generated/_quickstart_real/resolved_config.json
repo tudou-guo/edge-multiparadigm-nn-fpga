@@ -1,0 +1,412 @@
+{
+ "schema": "spikformer-config-1",
+ "family": "spikformer-nlp-sentiment",
+ "batch": 1,
+ "seq_len": 32,
+ "vocab_size": 4000,
+ "embed": 128,
+ "heads": 4,
+ "head_dim": 32,
+ "mlp_hidden": 512,
+ "depth": 2,
+ "time_steps": 4,
+ "num_classes": 2,
+ "lif": {
+  "tau": 2,
+  "reset": 0,
+  "init": 0
+ },
+ "frontend": {
+  "kind": "embed_spike",
+  "pos_enc": "learned",
+  "spike_code": "rate_repeat",
+  "mask": "none",
+  "note": "fixed length 32, pad spikes are zero by data"
+ },
+ "input": {
+  "source": "fixture",
+  "normalize": "n/a",
+  "note": "token ids seeded RNG"
+ },
+ "checkpoint": {
+  "kind": "missing",
+  "bn_state": "absent",
+  "note": "fixture params; real checkpoint later"
+ },
+ "head": {
+  "reduction": "sum",
+  "norm": "ps_div",
+  "note": "PL sum over T*N; PS divides then FP32 Linear+argmax"
+ },
+ "target": {
+  "part": "xczu15eg-ffvb1156-2-i",
+  "tool": "Vivado 2021.1",
+  "period_ns": 5
+ },
+ "derived": {
+  "tokens": 32,
+  "final_fmaps_width": 32,
+  "sum_w": 6,
+  "attn_word": 24,
+  "rw": 4,
+  "res_bits": 4,
+  "res_bits_min": 3,
+  "spike_bits": 2,
+  "psum_slice": 32,
+  "lif_add_bits": 33,
+  "av_bits": 11,
+  "av_max": 1024,
+  "worst_residual": 5,
+  "stage_bounds": {
+   "embed": 1,
+   "attn_res": 2,
+   "mlp_res": 3
+  },
+  "accum_bounds": {
+   "qkv": {
+    "pos": 16256,
+    "neg": -16384
+   },
+   "proj": {
+    "pos": 16646144,
+    "neg": -16777216
+   },
+   "fc1": {
+    "pos": 81280,
+    "neg": -81920
+   },
+   "fc2": {
+    "pos": 65024,
+    "neg": -65536
+   }
+  },
+  "stream": {
+   "tab_beats": 64512,
+   "token_beats": 32,
+   "block_w_beats": 25152,
+   "block_in_beats": 512,
+   "descriptor_beats": 4,
+   "mlp_fc1_internal_beats": 12288,
+   "mlp_fc2_internal_beats_per_group": 768
+  },
+  "packing": {
+   "layout": "time-minor lane pack (lane m owns bits [m*T +: T])",
+   "words_note": "residual words = N*C*T*RW/64",
+   "res_bits": 4
+  },
+  "geometry": {
+   "seq_len": 32,
+   "embed": 128
+  },
+  "sps": null
+ },
+ "thresholds": {
+  "thr_e": 26,
+  "block0": {
+   "q": 128,
+   "k": 100,
+   "v": 92,
+   "proj": 546,
+   "fc1": 57,
+   "fc2": 100
+  },
+  "block1": {
+   "q": 190,
+   "k": 190,
+   "v": 203,
+   "proj": 1168,
+   "fc1": 96,
+   "fc2": 64
+  }
+ },
+ "assets": {
+  "model_kind": "real_corpus",
+  "bn_state": "absent",
+  "checkpoint": "examples\\nlp_sentiment_b1\\ckpt_real_real50.npz",
+  "checkpoint_sha256": "e6a3a411e269f3b144ddb3efee77309c32ac9a53197c9071c224e1d0dd2448a1",
+  "meta_cfg": {
+   "E": 128,
+   "H": 4,
+   "HD": 32,
+   "N": 32,
+   "T": 4,
+   "D": 2,
+   "MLP": 512,
+   "C": 2,
+   "vocab_size": 4000
+  },
+  "corpus_sha256": "c61f941b1699728a5e16a55b82af64213e8f212d7057764ce54af39643eda969",
+  "vocab_sha256": "e1090fa82387ca5fa527700398a885ddb9ad520be4672da08682fccd9839caa4",
+  "embed_scale": 1.0,
+  "embed_scale_source": "npz",
+  "scales": {
+   "embed": 1.0,
+   "block0": {
+    "q": 1.0,
+    "k": 1.0,
+    "v": 1.0,
+    "proj": 0.15748031437397003,
+    "fc1": 0.6220472455024719,
+    "fc2": 0.8818897604942322
+   },
+   "block1": {
+    "q": 1.0,
+    "k": 1.0,
+    "v": 1.0,
+    "proj": 0.10236220806837082,
+    "fc1": 0.6456692814826965,
+    "fc2": 0.8976377844810486
+   }
+  },
+  "thresholds": {
+   "thr_e": 26,
+   "blocks": [
+    {
+     "q": 128,
+     "k": 100,
+     "v": 92,
+     "proj": 546,
+     "fc1": 57,
+     "fc2": 100
+    },
+    {
+     "q": 190,
+     "k": 190,
+     "v": 203,
+     "proj": 1168,
+     "fc1": 96,
+     "fc2": 64
+    }
+   ]
+  },
+  "head": {
+   "norm": "ps_div",
+   "reduction": "sum",
+   "w_sha256": "78d6331e6b78ca2b68dd5afc219eeffe5c8ae7cde4a15ee8be2dca9ab70e8ffd",
+   "b_sha256": "e8a482904edcaa10a14cbdfadaf37cbf7eb24859be6baaaadc85d25785beaeec",
+   "shape": [
+    [
+     2,
+     128
+    ],
+    [
+     2
+    ]
+   ]
+  },
+  "tensor_ranges": {
+   "etab": {
+    "min": -127,
+    "max": 127,
+    "shape": [
+     4000,
+     128
+    ]
+   },
+   "ptab": {
+    "min": -75,
+    "max": 63,
+    "shape": [
+     32,
+     128
+    ]
+   },
+   "block0.q_w": {
+    "min": -127,
+    "max": 127,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block0.q_b": {
+    "min": -6,
+    "max": 15,
+    "shape": [
+     128
+    ]
+   },
+   "block0.k_w": {
+    "min": -127,
+    "max": 127,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block0.k_b": {
+    "min": -8,
+    "max": 8,
+    "shape": [
+     128
+    ]
+   },
+   "block0.v_w": {
+    "min": -127,
+    "max": 127,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block0.v_b": {
+    "min": -8,
+    "max": 3,
+    "shape": [
+     128
+    ]
+   },
+   "block0.proj_w": {
+    "min": -20,
+    "max": 17,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block0.proj_b": {
+    "min": -2,
+    "max": 4,
+    "shape": [
+     128
+    ]
+   },
+   "block0.fc1_w": {
+    "min": -79,
+    "max": 77,
+    "shape": [
+     512,
+     128
+    ]
+   },
+   "block0.fc1_b": {
+    "min": -5,
+    "max": 5,
+    "shape": [
+     512
+    ]
+   },
+   "block0.fc2_w": {
+    "min": -98,
+    "max": 112,
+    "shape": [
+     128,
+     512
+    ]
+   },
+   "block0.fc2_b": {
+    "min": -4,
+    "max": 4,
+    "shape": [
+     128
+    ]
+   },
+   "block1.q_w": {
+    "min": -127,
+    "max": 127,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block1.q_b": {
+    "min": -3,
+    "max": 5,
+    "shape": [
+     128
+    ]
+   },
+   "block1.k_w": {
+    "min": -127,
+    "max": 127,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block1.k_b": {
+    "min": -5,
+    "max": 3,
+    "shape": [
+     128
+    ]
+   },
+   "block1.v_w": {
+    "min": -127,
+    "max": 127,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block1.v_b": {
+    "min": -3,
+    "max": 4,
+    "shape": [
+     128
+    ]
+   },
+   "block1.proj_w": {
+    "min": -13,
+    "max": 11,
+    "shape": [
+     128,
+     128
+    ]
+   },
+   "block1.proj_b": {
+    "min": -2,
+    "max": 2,
+    "shape": [
+     128
+    ]
+   },
+   "block1.fc1_w": {
+    "min": -73,
+    "max": 82,
+    "shape": [
+     512,
+     128
+    ]
+   },
+   "block1.fc1_b": {
+    "min": -6,
+    "max": 4,
+    "shape": [
+     512
+    ]
+   },
+   "block1.fc2_w": {
+    "min": -100,
+    "max": 114,
+    "shape": [
+     128,
+     512
+    ]
+   },
+   "block1.fc2_b": {
+    "min": -3,
+    "max": 4,
+    "shape": [
+     128
+    ]
+   }
+  },
+  "structure": {
+   "E": 128,
+   "HEADS": 4,
+   "HEAD_DIM": 32,
+   "HIDDEN": 512,
+   "T": 4,
+   "TOKENS": 32,
+   "DEPTH": 2,
+   "TL": 8,
+   "TC": 8,
+   "RW": 4,
+   "PSUM_SLICE": 32,
+   "SUM_W": 6,
+   "lif_add_bits": 33,
+   "accum_bits": 32
+  }
+ }
+}
