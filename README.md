@@ -47,15 +47,15 @@ RTL 库与驱动协议不变；每次转译都生成绑定源码哈希的 manife
 
 | 文档 | 说明 |
 |---|---|
-| `report/设计报告.pdf` | 设计报告：选题背景与创新点、设计原理、软硬件划分、优化对比、协作记录、技能包、复现说明 |
-| `report/技术文档.pdf` | 作品说明文档：概述、系统组成、完成情况与性能参数、总结 |
+| [report/设计报告.pdf](report/设计报告.pdf) | 设计报告：选题背景与创新点、设计原理、软硬件划分、优化对比、协作记录、技能包、复现说明 |
+| [report/技术文档.pdf](report/技术文档.pdf) | 作品说明文档：概述、系统组成、完成情况与性能参数、总结 |
 | `report/collaboration_record.md` | 大模型协作记录（分工、指令设计、人工把关、协作规模、边界） |
 | `skill/README.md` | 技能包索引与使用方法 |
-| `build/README.md`、`board/*/README.md` | 构建入口与板端运行说明 |
+| `build/README.md`、`board/*/README_BOARD.md` | 构建入口与板端运行说明 |
 
 ## 4 复现步骤（简版）
 
-完整步骤、命令与期望输出见 `report/设计报告.pdf` 第 7 章；以下为索引：
+完整步骤、命令与期望输出见 [report/设计报告.pdf](report/设计报告.pdf) 第 7 章；以下为索引：
 
 1. **环境**：Vivado 2021.1、ModelSim SE-64 2020.4、Python 3.9（numpy / onnx / onnxruntime / torch CPU）、PYNQ 2.7 板卡；
 2. **CNN 转译**：`src/cnn` 下运行 `tools.onnx_gen` → `tools.npu_gen`，得到指令流、参数与 `ip_repo/model_0.1`；
@@ -64,7 +64,7 @@ RTL 库与驱动协议不变；每次转译都生成绑定源码哈希的 manife
 5. **SNN 验证**：按 `sim/snn` 跑 RTL 回放（期望 0 mismatch）；按 `build/snn` 的报告核对 OOC 与平台时序；
 6. **LNN 导出**：`src/lnn` 下运行导出脚本（`user/export_demo.py`），期望 7/7 文件逐字节一致；
 7. **LNN 上板**：整包拷贝 `board/lnn` 到板卡，运行 `lnn_cfc_run.py --checks`，期望 64/64、final_state_match=True；
-8. **证据核对**：按 `report/设计报告.pdf` 表 17 的清单逐项核对（manifest、回放、时序、板端）。
+8. **证据核对**：按 [report/设计报告.pdf](report/设计报告.pdf) 表 17 的清单逐项核对（manifest、回放、时序、板端）。
 
 ## 5 边界与口径
 

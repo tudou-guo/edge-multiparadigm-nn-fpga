@@ -14,7 +14,7 @@
 | 行为仿真通过但综合后错误码 | `[工作区] D:/dl_v1.0/docs/PYNQ_ERR_OPCODE_ROOT_CAUSE_FIX_20261017.md` |
 | u8→s8 输入重编码 | `board/cnn/MANIFEST.json` 的 `input_recode_fix`；`board/cnn/runtime/decode/preprocess.py` |
 | 板端离线尝试日志 | `sim/snn/evidence/platform/board/board_run_local_attempt.log` |
-| 性能口径（cycles vs 端到端） | `board/lnn/lnn_cfc_run.py`（RUN_CYCLES、wall time）、`report/design_report` 相关段落 |
+| 性能口径（cycles vs 端到端） | `board/lnn/lnn_cfc_run.py`（RUN_CYCLES、wall time）、`report/设计报告.pdf` 相关段落 |
 
 ## 核验边界
 
